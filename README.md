@@ -1,15 +1,16 @@
 # solarpowered
 [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml)
 
-> This image is set to automatically build every day at 17:30 UTC and upon `recipes/recipe.yml` updates.
-
-Build intended as a learning project. Maybe one day this will turn into the perfect system for my computers to run on, who knows!
+> This image is set to automatically build every day at 17:30 UTC and upon `recipes/*.yml` updates.
 
 This build is a (hopefully) long-term learning project. My main goal is to better understand OCI conceptually and practically - another goal is to eventually end up with the ideal base image for my laptop and future devices.
 
-> This is a recreated image of my first ever image, [pbuild](https://github.com/askpng/pbuild).
+Previously I had made [pbuild](https://github.com/askpng/pbuild). I decided to recreate `pbuild` into `solarpowered` to start afresh (well, not really).
 
-Would not be possible without the power of [BlueBuild](https://blue-build.org/how-to/setup/)!
+This project would not be possible without the power of [BlueBuild](https://blue-build.org/how-to/setup/).
+
+## Why 'solarpowered'?
+I like Gawain from Fate/Grand Order.
 
 # Image details
 - [BlueBuild Template](https://github.com/blue-build/template) with actions set up
@@ -57,7 +58,7 @@ The following packages are removed from the base image.
 - Gnomies I don't use: `gnome-software-rpm-ostree`, `gnome-tour`, `gnome-terminal`, `gnome-terminal-nautilus`, and `yelp`
 - GNOME Classic: `gnome-classic-session`, `gnome-classic-session-xsession`
 
-## T480/s packages
+### T480/s exclusive packages
 The following packages are installed by default for improving Lenovo T480/s power management, performance, and features:
 - `python-validity` forked by [sneexy](https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/)
 - `tlp` and `tlp-rdw`
@@ -74,8 +75,11 @@ The following packages are explicitly removed from the base image due to conflic
 
 `tlp.service` is enabled by default. `systemd-rfkill.{service,socket}` is disabled by default. Eventually, I would like to enable `python-validity`, `throttled` and `zcfan` services by default as well if possible.
 
-## EX/desktop packages
-This is a work-in-progress.
+## EX/desktop exclusive packages
+This is a work-in-progress. My computer system will be AMD, so I am looking into things that I will need to do and/or install. So far I have decided on:
+
+- `system76-scheduler` from [kylegospo/system76-scheduler](https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/)
+- `gnome-shell-extension-system76-scheduler`
 
 ## Automatic updates
 `rpm-ostreed-automatic.timer` is set to 17:45 UTC.
@@ -145,13 +149,25 @@ If you managed to even get here and read this far, first of all, why? Second of 
 
 ## Rebase
 To rebase from a Silverblue installation, follow the steps below.
+
+## T480/s image
 1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot:
   ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/askpng/pbuild:latest --reboot
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/askpng/solarpowered:latest --reboot
   ```
 2. Rebase to the signed image and reboot:
   ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/pbuild:latest --reboot
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/solarpowered:latest --reboot
+  ```
+
+## T480/s image
+1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot:
+  ```
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/askpng/solarpowered-ex:latest --reboot
+  ```
+2. Rebase to the signed image and reboot:
+  ```
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/solarpowered-ex:latest --reboot
   ```
 
 ## ISO

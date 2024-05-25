@@ -13,8 +13,8 @@ modules:
       - system76-scheduler
       - gnome-shell-extension-system76-scheduler
     #remove:
-      - fprintd
-      - fprintd-pam
+      #-fprintd
+      #-fprintd-pam
       
   - type: systemd
     system:

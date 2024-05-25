@@ -9,10 +9,10 @@ disabled-extensions=['background-logo@fedorahosted.org']
 
 	## START enabled-extensions
 	## CHECK IF CUSTOM enabled-extension CAN BE ADDED
-enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'no-overview@fthx', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com']
+enabled-extensions = ['AlphabeticalAppGrid@stuarthayhurst', 'caffeine@patapon.info', 'gsconnect@andyholmes.github.io', 'light-style@gnome-shell-extensions.gcampax.github.com', 'just-perfection-desktop@just-perfection', 'logomenu@aryan_k', 'batterytime@typeof.pw', 'blur-my-shell@aunetx', 'quick-settings-tweaks@qwreey', 'nightthemeswitcher@romainvigier.fr', 'trayIconsReloaded@selfmade.pl', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com']
 	## END enabled-extensions
 
-favorite-apps = ['org.mozilla.firefox.desktop', 'io.github.spacingbat3.webcord.desktop', 'com.spotify.Client.desktop', 'io.github.quodlibet.QuodLibet.desktop', 'io.github.celluloid_player.Celluloid.desktop', 'org.gnome.Evolution.desktop', 'org.gnome.Nautilus.desktop', 'io.github.nokse22.minitext.desktop', 'org.gnome.TextEditor.desktop', 'org.chromium.Chromium.desktop', 'de.haeckerfelix.Fragments.desktop', 'com.vscodium.codium.desktop']
+favorite-apps = ['org.mozilla.firefox.desktop', 'io.github.spacingbat3.webcord.desktop', 'com.spotify.Client.desktop', 'io.github.quodlibet.QuodLibet.desktop', 'io.github.celluloid_player.Celluloid.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Evolution.desktop', 'io.github.nokse22.minitext.desktop', 'org.gnome.TextEditor.desktop', 'org.chromium.Chromium.desktop', 'de.haeckerfelix.Fragments.desktop', 'com.vscodium.codium.desktop']
 
 # ---
 

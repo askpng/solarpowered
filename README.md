@@ -43,7 +43,7 @@ These icon themes are also installed.
 
 These fonts are installed via the `fonts` module.
 
-- Jet Brains Mono
+- JetBrains Mono
 - Nerd Fonts Symbols Only
 - Martian Mono
 - Ruda
@@ -89,10 +89,8 @@ The following apps are installed as *system* Flatpaks by default.
 
 > Eventually Flatpaks in `default-flatpaks.yml` will be stripped down to just the bare necessities and I will be using either `yafti` or custom `just`s instead.
 
-- BoxBuddy
 - Clapper
 - ExtensionManager
-- FSearch
 - File Roller
 - Flatseal
 - GNOME Clocks
@@ -101,11 +99,11 @@ The following apps are installed as *system* Flatpaks by default.
 - GNOME Image Viewer (Loupe)
 - GNOME Passwords and Keys (Seahorse)
 - GNOME Text Editor
+- GNOME Weather
 - Junction
-- Mission Center
 - Ptyxis
-- TLP UI
 - Warehouse
+
 
 The following apps are installed as *user* Flatpaks by default.
 - Chromium
@@ -117,14 +115,6 @@ The following apps are installed as *user* Flatpaks by default.
 ### TBA - System Flatpaks
 - Evolution
 - GNOME Calendar
-
-### TBA - User Flatpaks
-- Bitwarden
-- Flameshot
-- Fragments
-- Spotify
-
-> Alternatively, the apps above will be available for installation via `yafti`.
 
 ## Gnome Extensions
 The following extensions are explicitly installed via `gnome-extensions` module. Eventually will be replaced with GSettings schemas. 
@@ -141,9 +131,9 @@ The following extensions are explicitly installed via `gnome-extensions` module.
 
 # Installation
 
-> Do at your own risk. This build is a heavy work in progress and ~~even I don't use it on bare metal~~ I do use it on my personal/work/production device, but I guarantee nothing. Changes, especially to `recipes/`, will be frequent.
+> Do at your own risk. This build is a heavy work in progress and ~~even I don't use it on bare metal~~ I do use it on my personal/work/production device, but I guarantee nothing. Changes will be frequent.
 
-This build works alright but it's still loose in a lot of places.
+This build works pretty decently but it's still loose in a lot of places.
 
 If you managed to even get here and read this far, first of all, why? Second of all, maybe you shouldn't, but if you insist, do try out and help me make this a better build (please).
 
@@ -173,13 +163,15 @@ To rebase from a Silverblue installation, follow the steps below.
 ## ISO
 ISO file for a fresh install can be generated using `docker` or `podman` from a Silverblue system.
 
+> For the EX/desktop version, append `-ex` to `solarpowered`.
+
 ### Via Docker
 ```
 mkdir ./iso-output
 sudo docker run --rm --privileged --volume ./iso-output:/build-container-installer/build --pull=always \
 ghcr.io/jasonn3/build-container-installer:latest \
 IMAGE_REPO=ghcr.io/askpng \
-IMAGE_NAME=pbuild \
+IMAGE_NAME=solarpowered \
 IMAGE_TAG=latest \
 VARIANT=Silverblue
 ```
@@ -190,7 +182,7 @@ mkdir ./iso-output
 sudo podman run --rm --privileged --volume ./iso-output:/build-container-installer/build --security-opt label=disable --pull=newer \
 ghcr.io/jasonn3/build-container-installer:latest \
 IMAGE_REPO=ghcr.io/askpng \
-IMAGE_NAME=pbuild \
+IMAGE_NAME=solarpowered \
 IMAGE_TAG=latest \
 VARIANT=Silverblue
 ```
@@ -201,5 +193,5 @@ These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](ht
 ### Verify `cosign.pub`
 
 ```bash
-cosign verify --key cosign.pub ghcr.io/askpng/pbuild
+cosign verify --key cosign.pub ghcr.io/askpng/solarpowered
 ```

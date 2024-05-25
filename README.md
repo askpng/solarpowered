@@ -1,43 +1,189 @@
-# BlueBuild Template &nbsp; [![build-ublue](https://github.com/blue-build/template/actions/workflows/build.yml/badge.svg)](https://github.com/blue-build/template/actions/workflows/build.yml)
+# solarpowered
+[![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml)
 
-See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
+> This image is set to automatically build every day at 17:30 UTC and upon `recipes/recipe.yml` updates.
 
-After setup, it is recommended you update this README to describe your custom image.
+Build intended as a learning project. Maybe one day this will turn into the perfect system for my computers to run on, who knows!
 
-## Installation
+This build is a (hopefully) long-term learning project. My main goal is to better understand OCI conceptually and practically - another goal is to eventually end up with the ideal base image for my laptop and future devices.
 
-> **Warning**  
-> [This is an experimental feature](https://www.fedoraproject.org/wiki/Changes/OstreeNativeContainerStable), try at your own discretion.
+> This is a recreated image of my first ever image, [pbuild](https://github.com/askpng/pbuild).
 
-To rebase an existing atomic Fedora installation to the latest build:
+Would not be possible without the power of [BlueBuild](https://blue-build.org/how-to/setup/)!
 
-- First rebase to the unsigned image, to get the proper signing keys and policies installed:
-  ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/blue-build/template:latest
-  ```
-- Reboot to complete the rebase:
-  ```
-  systemctl reboot
-  ```
-- Then rebase to the signed image, like so:
-  ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/blue-build/template:latest
-  ```
-- Reboot again to complete the installation
-  ```
-  systemctl reboot
-  ```
+# Image details
+- [BlueBuild Template](https://github.com/blue-build/template) with actions set up
+- [silverblue-main](https://github.com/ublue-os/main/pkgs/container/silverblue-main) as base image. `40` only; will advance to 41 about a month after it releases.
 
-The `latest` tag will automatically point to the latest build. That build will still always use the Fedora version specified in `recipe.yml`, so you won't get accidentally updated to the next major version.
+## Default packages
+In addition to the default packages installed in the `silverblue-main` base image, the following packages are installed by default. 
+
+> Packages are being adjusted daily and the README is not always up-to-date. Refer to the `.yml`s instead.
+
+- `butter` by [zhangyuannie](https://github.com/zhangyuannie/butter)
+- `blackbox-terminal`, eventually will be replaced with Ptyxis
+- `epson-inkjet-printer-escpr` and `epson-inkjet-printer-escpr2`
+- `fastfetch`
+- `fish`
+- `firewall-config`
+- `gnome-shell-extension-gsconnect` to ensure all dependencies are installed
+- `ibus-mozc` for experimental purposes (`ibus-anthy` has better toggles for non-JIS keyboards)
+- `igt-gpu-tools`
+- `open-any-terminal` from [julianve/open-any-terminal](https://copr.fedorainfracloud.org/coprs/julianve/open-any-terminal)
+- `pulseaudio-utils`
+- `thefuck` - a must have!
+- `wl-clipboard`
+
+These icon themes are also installed.
+
+- `morewaita-icon-theme`
+- `numix-icon-theme`
+- `papirus-icon-theme`
+
+These fonts are installed via the `fonts` module.
+
+- Jet Brains Mono
+- Nerd Fonts Symbols Only
+- Martian Mono
+- Ruda
+- PT Sans
+- Fira Sans
+- Inter... is currently not included due to weird rendering issues. I hope it returns soon, but for the time being I'm alright alternating between Fira Sans and Cantarell!
+
+The following packages are removed from the base image.
+- `firefox` and `firefox-langpacks` - Firefox will be installed as a Flatpak
+- `htop`
+- `nvtop`
+- Gnomies I don't use: `gnome-software-rpm-ostree`, `gnome-tour`, `gnome-terminal`, `gnome-terminal-nautilus`, and `yelp`
+- GNOME Classic: `gnome-classic-session`, `gnome-classic-session-xsession`
+
+## T480/s packages
+The following packages are installed by default for improving Lenovo T480/s power management, performance, and features:
+- `python-validity` forked by [sneexy](https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/)
+- `tlp` and `tlp-rdw`
+- `throttled`
+> `throttled` is shipped with [default values](https://github.com/erpalma/throttled/blob/master/etc/throttled.conf) but slightly different defaults. I use universal values for AC and battery so there is no `[UNDERVOLT.AC]` nor `[UNDERVOLT.BATTERY]`, only `[UNDERVOLT]`. Documented in the `throttled` [README](https://github.com/erpalma/throttled#undervolt).
+- `zcfan` for easy and straightforward fan control
+> `zcfan` needs `rpm-ostree kargs --append=thinkpad_acpi.fan_control=1` to work.
+
+The following packages are explicitly removed from the base image due to conflicts.
+- `fprintd`
+- `fprintd-pam`
+- `power-profiles-daemon`
+- `thermald`
+
+`tlp.service` is enabled by default. `systemd-rfkill.{service,socket}` is disabled by default. Eventually, I would like to enable `python-validity`, `throttled` and `zcfan` services by default as well if possible.
+
+## EX/desktop packages
+This is a work-in-progress.
+
+## Automatic updates
+`rpm-ostreed-automatic.timer` is set to 17:45 UTC.
+
+## Flatpak
+The following apps are installed as *system* Flatpaks by default.
+
+> Eventually Flatpaks in `default-flatpaks.yml` will be stripped down to just the bare necessities and I will be using either `yafti` or custom `just`s instead.
+
+- BoxBuddy
+- Clapper
+- ExtensionManager
+- FSearch
+- File Roller
+- Flatseal
+- GNOME Clocks
+- GNOME Document Viewer (Evince)
+- GNOME Firmware
+- GNOME Image Viewer (Loupe)
+- GNOME Passwords and Keys (Seahorse)
+- GNOME Text Editor
+- Junction
+- Mission Center
+- Ptyxis
+- TLP UI
+- Warehouse
+
+The following apps are installed as *user* Flatpaks by default.
+- Chromium
+- Easy Effects
+- Firefox
+- TextPieces
+- Webcord
+
+### TBA - System Flatpaks
+- Evolution
+- GNOME Calendar
+
+### TBA - User Flatpaks
+- Bitwarden
+- Flameshot
+- Fragments
+- Spotify
+
+> Alternatively, the apps above will be available for installation via `yafti`.
+
+## Gnome Extensions
+The following extensions are explicitly installed via `gnome-extensions` module. Eventually will be replaced with GSettings schemas. 
+- Alphabetical App Grid
+- AppIndicators Support
+- Blur My Shell
+- Dash-to-Dock
+- Caffeine
+- Just Perfection
+- Light Style
+- Logo Menu
+- Night Theme Switcher
+- QSTweak
+
+# Installation
+
+> Do at your own risk. This build is a heavy work in progress and ~~even I don't use it on bare metal~~ I do use it on my personal/work/production device, but I guarantee nothing. Changes, especially to `recipes/`, will be frequent.
+
+This build works alright but it's still loose in a lot of places.
+
+If you managed to even get here and read this far, first of all, why? Second of all, maybe you shouldn't, but if you insist, do try out and help me make this a better build (please).
+
+## Rebase
+To rebase from a Silverblue installation, follow the steps below.
+1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot:
+  ```
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/askpng/pbuild:latest --reboot
+  ```
+2. Rebase to the signed image and reboot:
+  ```
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/pbuild:latest --reboot
+  ```
 
 ## ISO
+ISO file for a fresh install can be generated using `docker` or `podman` from a Silverblue system.
 
-If build on Fedora Atomic, you can generate an offline ISO with the instructions available [here](https://blue-build.org/learn/universal-blue/#fresh-install-from-an-iso). These ISOs cannot unfortunately be distributed on GitHub for free due to large sizes, so for public projects something else has to be used for hosting.
+### Via Docker
+```
+mkdir ./iso-output
+sudo docker run --rm --privileged --volume ./iso-output:/build-container-installer/build --pull=always \
+ghcr.io/jasonn3/build-container-installer:latest \
+IMAGE_REPO=ghcr.io/askpng \
+IMAGE_NAME=pbuild \
+IMAGE_TAG=latest \
+VARIANT=Silverblue
+```
+
+### Via Podman
+```
+mkdir ./iso-output
+sudo podman run --rm --privileged --volume ./iso-output:/build-container-installer/build --security-opt label=disable --pull=newer \
+ghcr.io/jasonn3/build-container-installer:latest \
+IMAGE_REPO=ghcr.io/askpng \
+IMAGE_NAME=pbuild \
+IMAGE_TAG=latest \
+VARIANT=Silverblue
+```
 
 ## Verification
+These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign).
 
-These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign). You can verify the signature by downloading the `cosign.pub` file from this repo and running the following command:
+### Verify `cosign.pub`
 
 ```bash
-cosign verify --key cosign.pub ghcr.io/blue-build/template
+cosign verify --key cosign.pub ghcr.io/askpng/pbuild
 ```

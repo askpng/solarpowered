@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+if command -v /usr/bin/ptyxis > /dev/null; then
+  if [[ -z "$@" ]]; then
+    /usr/bin/ptyxis
+  else
+    /usr/bin/ptyxis -- "$@"
+  fi
+elif grep '^app\.devsuite\.Ptyxis$' <<< $(/usr/bin/flatpak list --app --columns=application); then
+  if [[ -z "$@" ]]; then
+    /usr/bin/flatpak run app.devsuite.Ptyxis
+  else
+    /usr/bin/flatpak run app.devsuite.Ptyxis -- "$@"
+  fi
+else
+  /usr/bin/blackbox-terminal -- "$@"
+fi

@@ -1,0 +1,83 @@
+	## THIS IS A WORK IN PROGRESS FILE
+	## DO NOT COPY INTO FILES BEFORE FINISHING
+
+# ---
+
+[org.gnome.shell]
+disable-user-extensions=false
+disabled-extensions=['background-logo@fedorahosted.org']
+
+	## START enabled-extensions
+	## CHECK IF CUSTOM enabled-extension CAN BE ADDED
+enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'no-overview@fthx', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com']
+	## END enabled-extensions
+
+favorite-apps = ['org.mozilla.firefox.desktop', 'io.github.spacingbat3.webcord.desktop', 'com.spotify.Client.desktop', 'io.github.quodlibet.QuodLibet.desktop', 'io.github.celluloid_player.Celluloid.desktop', 'org.gnome.Evolution.desktop', 'org.gnome.Nautilus.desktop', 'io.github.nokse22.minitext.desktop', 'org.gnome.TextEditor.desktop', 'org.chromium.Chromium.desktop', 'de.haeckerfelix.Fragments.desktop', 'com.vscodium.codium.desktop']
+
+# ---
+
+[org.gnome.desktop.background]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///usr/share/backgrounds/light-03.jpg'
+picture-uri-dark='file:///usr/share/backgrounds/dark-02.jpg'
+primary-color='#86b6ef'
+secondary-color='#000000'
+
+# ---
+
+[org.gnome.desktop.interface]
+document-font-name='Cantarell 11'
+enable-hot-corners=false
+font-name='Cantarell 11'
+monospace-font-name='Source Code Pro 10'
+
+# ---
+
+[org.gnome.desktop.peripherals.touchpad]
+tap-to-click=true
+two-finger-scrolling-enabled=true
+
+# ---
+
+[org.gnome.desktop.wm.preferences]
+action-double-click-titlebar='toggle-maximize'
+button-layout='appmenu:close'
+
+# ---
+
+[org.gnome.software]
+allow-updates=false
+download-updates=false
+download-updates-notify=false
+
+# ---
+
+	## START dash-to-dock
+	## TRY TO REPLICATE CURRENT SETTINGS
+[org.gnome.shell.extensions.dash-to-dock]
+autohide=false
+custom-theme-shrink=true
+disable-overview-on-startup=true
+dock-position='LEFT'
+multi-monitor=true
+	## END dash-to-dock
+	
+# ---
+
+[com.github.stunkymonkey.nautilus-open-any-terminal]
+flatpak='off'
+terminal='blackbox'
+
+# ---
+
+[org.gnome.desktop.interface]
+gtk-theme='adw-gtk3'
+show-battery-percentage=true
+
+# ---
+
+[org.gnome.mutter]
+center-new-windows=true
+
+# ---

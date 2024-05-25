@@ -1,0 +1,12 @@
+type: fonts
+fonts:
+  nerd-fonts:
+    #remember to not add spaces or Nerd Fonts suffix!
+    - JetBrainsMono
+    - NerdFontsSymbolsOnly
+  google-fonts:
+    #- Inter
+    - Martian Mono
+    - Ruda
+    - PT Sans
+    - Fira Sans

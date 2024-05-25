@@ -5,7 +5,7 @@ on:
                           # (20 minutes after last ublue images start building)
   push:
     paths: # trigger build only if recipes/*.yml is updated
-      #- "recipes/*.yml"
+      - "recipes/*.yml"
       
   pull_request:
   workflow_dispatch: # allow manually triggering builds

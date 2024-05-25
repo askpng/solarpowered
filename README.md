@@ -160,7 +160,7 @@ To rebase from a Silverblue installation, follow the steps below.
   rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/solarpowered:latest --reboot
   ```
 
-## T480/s image
+## EX/desktop image
 1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot:
   ```
   rpm-ostree rebase ostree-unverified-registry:ghcr.io/askpng/solarpowered-ex:latest --reboot

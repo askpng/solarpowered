@@ -1,4 +1,5 @@
 # This file contains modules to install T480/s utilities:
+# - igt-gpu-tools, for monitoring intel GPU use
 # - throttled, for undervolting intel devices
 # - tlp and tlp-rdw, for configuring power saving and radio devices
 # - zcfan, for controlling thinkpad fan (adding kargs required) 
@@ -11,6 +12,8 @@ modules:
       # sneexy/python-validity
       - https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/repo/fedora-%OS_VERSION%/sneexy-python-validity-fedora-%OS_VERSION%.repo
     install:
+      # igt-gpu-tools
+      - igt-gpu-tools
       # python-validity
       - fprintd-clients
       - fprintd-clients-pam

@@ -19,17 +19,16 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
       - https://copr.fedorainfracloud.org/coprs/julianve/open-any-terminal/repo/fedora-%OS_VERSION%/julianve-open-any-terminal-fedora-%OS_VERSION%.repo #open-any-terminal
     install:
-      - butter #butter from zhangyannie/butter
+      - butter #butter from zhangyuannie/butter
       - blackbox-terminal
       - epson-inkjet-printer-escpr
       - epson-inkjet-printer-escpr2
-      #- fastfetch
+      - fastfetch
       - fish
       - firewall-config
       - gnome-shell-extension-gsconnect
       - ibus-mozc
-      - igt-gpu-tools
-      - morewaita-icon-theme #morewaita from dusansimic-themes-fedora
+      - morewaita-icon-theme #morewaita from dusansimic/themes
       - numix-icon-theme
       - papirus-icon-theme
       - pulseaudio-utils

@@ -6,6 +6,7 @@ on:
   push:
     paths: # trigger build only if recipes/*.yml is updated
       - "recipes/*.yml"
+      - "recipes/base/belt-of-bertilak.yml"
       
   pull_request:
   workflow_dispatch: # allow manually triggering builds
@@ -24,7 +25,6 @@ jobs:
           # recipe files 
           #- recipe.yml
           #- recipe-ex.yml
-          - base/belt-of-bertilak.yml
           - solarpowered.yml
           - solarpowered-ex.yml
     steps:

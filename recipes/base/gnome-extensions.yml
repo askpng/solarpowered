@@ -1,12 +1,15 @@
-type: gnome-extensions
-install:
-  - AlphabeticalAppGridstuarthayhurst.v40
-  - appindicatorsupportrgcjonas.gmail.com.v58
-  - blur-my-shellaunetx.v61
-  - dash-to-dockmicxgx.gmail.com.v92
-  - caffeinepatapon.info.v54
-  - just-perfection-desktopjust-perfection.v28
-  - light-stylegnome-shell-extensions.gcampax.github.com.v5
-  - logomenuaryan_k.v30
-  - nightthemeswitcherromainvigier.fr.v77
-  - quick-settings-tweaksqwreey.v27
+# this file will soon be deprecated
+# in favor of belt-of-bertilak.yml
+
+#type: gnome-extensions
+#install:
+#  - AlphabeticalAppGridstuarthayhurst.v40
+#  - appindicatorsupportrgcjonas.gmail.com.v58
+#  - blur-my-shellaunetx.v61
+#  - dash-to-dockmicxgx.gmail.com.v92
+#  - caffeinepatapon.info.v54
+#  - just-perfection-desktopjust-perfection.v28
+#  - light-stylegnome-shell-extensions.gcampax.github.com.v5
+#  - logomenuaryan_k.v30
+#  - nightthemeswitcherromainvigier.fr.v77
+#  - quick-settings-tweaksqwreey.v27

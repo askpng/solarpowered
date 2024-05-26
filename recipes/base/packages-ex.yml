@@ -1,29 +1,23 @@
+
+# this file will soon be deprecated
+# in favor of belt-of-bertilak.yml
+
 # This file contains modules to install desktop-exclusive utilities:
 # -
 # -
 # - 
 
-modules:
-  - type: rpm-ostree
-    repos:
-      #kylegospo/system76-scheduler
-      - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
-    install:
-      #system76-scheduler
-      - system76-scheduler
-      - gnome-shell-extension-system76-scheduler
-    #remove:
-      #-fprintd
-      #-fprintd-pam
+#modules:
+  
       
-  - type: systemd
-    system:
-      enabled:
-        #tlp
-        #-
-        #-
-        #-
-      #masked: 
-        #
-        #-
-        #-
+#  - type: systemd
+#    system:
+#      enabled:
+#        #tlp
+#        #-
+#        #-
+#        #-
+#      #masked: 
+#        #
+#        #-
+#        #-

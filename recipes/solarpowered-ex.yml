@@ -1,4 +1,4 @@
-name: solarpowered
+name: solarpowered-ex
 description: Custom image formulated for my Lenovo T480s
 
 base-image: ghcr.io/ublue-os/silverblue-main

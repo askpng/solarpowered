@@ -24,6 +24,7 @@ jobs:
           # recipe files 
           #- recipe.yml
           #- recipe-ex.yml
+          - base/belt-of-bertilak.yml
           - solarpowered.yml
           - solarpowered-ex.yml
     steps:

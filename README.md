@@ -35,12 +35,21 @@ In addition to the default packages installed in the `silverblue-main` base imag
 - `thefuck` - a must have!
 - `wl-clipboard`
 
-These icon themes are also installed.
+The following packages are removed from the base image.
+- `firefox` and `firefox-langpacks` - Firefox will be installed as a Flatpak
+- `htop`
+- `nvtop`
+- Gnomies I don't use: `gnome-software-rpm-ostree`, `gnome-tour`, `gnome-terminal`, `gnome-terminal-nautilus`, and `yelp`
+- GNOME Classic: `gnome-classic-session`, `gnome-classic-session-xsession`
+
+### Icons
+These icon themes are installed.
 
 - `morewaita-icon-theme`
 - `numix-icon-theme`
 - `papirus-icon-theme`
 
+### Fonts
 These fonts are installed via the `fonts` module.
 
 - JetBrains Mono
@@ -49,16 +58,10 @@ These fonts are installed via the `fonts` module.
 - Ruda
 - PT Sans
 - Fira Sans
-- Inter... is currently not included due to weird rendering issues. I hope it returns soon, but for the time being I'm alright alternating between Fira Sans and Cantarell!
 
-The following packages are removed from the base image.
-- `firefox` and `firefox-langpacks` - Firefox will be installed as a Flatpak
-- `htop`
-- `nvtop`
-- Gnomies I don't use: `gnome-software-rpm-ostree`, `gnome-tour`, `gnome-terminal`, `gnome-terminal-nautilus`, and `yelp`
-- GNOME Classic: `gnome-classic-session`, `gnome-classic-session-xsession`
+Inter is currently not included due to weird rendering issues. I hope it returns soon, but for the time being I'm alright alternating between Fira Sans and Cantarell!
 
-### T480/s exclusive packages
+## T480/s exclusive packages
 The following packages are installed by default for improving Lenovo T480/s power management, performance, and features:
 - `python-validity` forked by [sneexy](https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/)
 - `tlp` and `tlp-rdw`
@@ -78,19 +81,18 @@ The following packages are explicitly removed from the base image due to conflic
 ## EX/desktop exclusive packages
 This is a work-in-progress. My computer system will be AMD, so I am looking into things that I will need to do and/or install. So far I have decided on:
 
-- `system76-scheduler` from [kylegospo/system76-scheduler](https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/)
-- `gnome-shell-extension-system76-scheduler`
+- `system76-scheduler` and `gnome-shell-extension-system76-scheduler` from [kylegospo/system76-scheduler](https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/)
 
 ## Automatic updates
-`rpm-ostreed-automatic.timer` is set to 17:45 UTC.
+`rpm-ostreed-automatic.timer` is set to 17:45 UTC. Feel free to override in `/etc/systemd/system/rpm-ostreed-automatic.timer.d/override.conf`.
 
 ## Flatpak
 The following apps are installed as *system* Flatpaks by default.
 
-> Eventually Flatpaks in `default-flatpaks.yml` will be stripped down to just the bare necessities and I will be using either `yafti` or custom `just`s instead.
+> Eventually Flatpaks in `default-flatpaks.yml` will be stripped down to just the essentials; the remaining system and user Flatpaks will be available for batch installation via `ujust` scripts.
 
 - Clapper
-- ExtensionManager
+- Extension Manager
 - File Roller
 - Flatseal
 - GNOME Clocks
@@ -103,14 +105,6 @@ The following apps are installed as *system* Flatpaks by default.
 - Junction
 - Ptyxis
 - Warehouse
-
-
-The following apps are installed as *user* Flatpaks by default.
-- Chromium
-- Easy Effects
-- Firefox
-- TextPieces
-- Webcord
 
 ### TBA - System Flatpaks
 - Evolution

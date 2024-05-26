@@ -5,38 +5,39 @@ set-kargs:
       --append-if-missing="thinkpad_acpi.fan_control=1" \
       --append-if-missing="i915.enable_guc=2" \
       --append-if-missing="i915.enable_fbc=1" \
-      --append-if-missing="page_alloc.shuffle=1" \
+      --append-if-missing="page_alloc.shuffle=1"
 
 # install user flatpak selection
 install-user-flatpaks:
      flatpak install --user flathub --noninteractive --assumeyes \
-     io.github.spacingbat3.webcord \
-     com.vscodium.codium \
-     com.bitwarden.desktop \
-     com.quexten.Goldwarden \
-     de.haeckerfelix.Fragments \
-     io.github.cboxdoerfer.FSearch \
-     io.github.nokse22.minitext \
-     io.github.quodlibet.QuodLibet \
-     io.github.shiftey.Desktop \
-     io.github.spacingbat3.webcord \
-     io.gitlab.librewolf-community \
-     io.github.seadve.Kooha \
-     org.chromium.Chromium \
-     page.codeberg.libre_menu_editor.LibreMenuEditor
-     
+         io.github.spacingbat3.webcord \
+         com.vscodium.codium \
+         com.bitwarden.desktop \
+         com.quexten.Goldwarden \
+         de.haeckerfelix.Fragments \
+         io.github.cboxdoerfer.FSearch \
+         io.github.nokse22.minitext \
+         io.github.quodlibet.QuodLibet \
+         io.github.shiftey.Desktop \
+         io.github.spacingbat3.webcord \
+         io.gitlab.librewolf-community \
+         io.github.seadve.Kooha \
+         org.chromium.Chromium \
+         page.codeberg.libre_menu_editor.LibreMenuEditor
+
 # install system flatpaks selection
+install-system-flatpaks:
      flatpak install --system flathub --noninteractive --assumeyes \
-     com.bitwarden.desktop \
-     com.github.wwmm.easyeffects \
-     com.spotify.Client \
-     io.github.dvlv.boxbuddyrs \
-     org.mozilla.firefox
+         com.bitwarden.desktop \
+         com.github.wwmm.easyeffects \
+         com.spotify.Client \
+         io.github.dvlv.boxbuddyrs \
+         org.mozilla.firefox
      
 # install t480s flatpaks
 install-t480s-flatpaks:
     flatpak install --system flathub --noninteractive --assumeyes \
-    com.github.d4nj1.tlpui \
+         com.github.d4nj1.tlpui
 
 # enable auto update for distroboxes
 distrobox-auto-update:

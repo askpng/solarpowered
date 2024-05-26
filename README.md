@@ -1,5 +1,8 @@
-# solarpowered
-[![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml)
+# solarpowered [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml)
+
+| <center>night</center> | <center>nightless</center> |
+|---|---|
+| ![dark](./config/files/usr/etc/fastfetch/sample-dark.png) | ![light](./config/files/usr/etc/fastfetch/sample-light.png) |
 
 > This image is set to automatically build every day at 17:30 UTC and upon `recipes/*.yml` updates.
 
@@ -39,15 +42,15 @@ The following packages are removed from the base image.
 - `firefox` and `firefox-langpacks` - Firefox will be installed as a Flatpak
 - `htop`
 - `nvtop`
-- Gnomies I don't use: `gnome-software-rpm-ostree`, `gnome-tour`, `gnome-terminal`, `gnome-terminal-nautilus`, and `yelp`
+- GNOMies I don't use: `gnome-software-rpm-ostree`, `gnome-tour`, `gnome-terminal`, `gnome-terminal-nautilus`, and `yelp`
 - GNOME Classic: `gnome-classic-session`, `gnome-classic-session-xsession`
 
 ### Icons
 These icon themes are installed.
 
-- `morewaita-icon-theme`
-- `numix-icon-theme`
-- `papirus-icon-theme`
+- Morewaita
+- Numix
+- Papirus
 
 ### Fonts
 These fonts are installed via the `fonts` module.
@@ -68,7 +71,7 @@ The following packages are installed by default for improving Lenovo T480/s powe
 - `throttled`
 > `throttled` is shipped with [default values](https://github.com/erpalma/throttled/blob/master/etc/throttled.conf) but slightly different defaults. I use universal values for AC and battery so there is no `[UNDERVOLT.AC]` nor `[UNDERVOLT.BATTERY]`, only `[UNDERVOLT]`. Documented in the `throttled` [README](https://github.com/erpalma/throttled#undervolt).
 - `zcfan` for easy and straightforward fan control
-> `zcfan` needs `rpm-ostree kargs --append=thinkpad_acpi.fan_control=1` to work.
+> `zcfan` needs `rpm-ostree kargs --append=thinkpad_acpi.fan_control=1` to work. You can also run `ujust --choose` and select `set-kargs` to apply it with other kernel parameters.
 
 The following packages are explicitly removed from the base image due to conflicts.
 - `fprintd`
@@ -76,7 +79,7 @@ The following packages are explicitly removed from the base image due to conflic
 - `power-profiles-daemon`
 - `thermald`
 
-`tlp.service` is enabled by default. `systemd-rfkill.{service,socket}` is disabled by default. Eventually, I would like to enable `python-validity`, `throttled` and `zcfan` services by default as well if possible.
+`tlp.service` is enabled by default. `systemd-rfkill.{service,socket}` is disabled by default.
 
 ## EX/desktop exclusive packages
 This is a work-in-progress. My computer system will be AMD, so I am looking into things that I will need to do and/or install. So far I have decided on:
@@ -110,7 +113,7 @@ The following apps are installed as *system* Flatpaks by default.
 - Evolution
 - GNOME Calendar
 
-## Gnome Extensions
+## GNOME Extensions
 The following extensions are explicitly installed via `gnome-extensions` module. Eventually will be replaced with GSettings schemas. 
 - Alphabetical App Grid
 - AppIndicators Support
@@ -185,6 +188,8 @@ VARIANT=Silverblue
 These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign).
 
 ### Verify `cosign.pub`
+
+Download the `cosign.pub` file from this repo and run the following command within the same directory:
 
 ```bash
 cosign verify --key cosign.pub ghcr.io/askpng/solarpowered

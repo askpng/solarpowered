@@ -1,0 +1,28 @@
+name: solarpowered
+description: Custom image formulated for my Lenovo T480s
+
+base-image: ghcr.io/ublue-os/silverblue-main
+image-version: 40
+
+modules:
+  - type: files
+    files:
+      - usr: /usr
+  
+  #EX/desktop exclusives
+  - type: rpm-ostree
+    repos:
+      #kylegospo/system76-scheduler
+      - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
+    install:
+      #system76-scheduler
+      - system76-scheduler
+      - gnome-shell-extension-system76-scheduler
+    #remove:
+      #-
+      #-
+
+  #base packages (belt of bertilak)
+  - from-file: base/belt-of-bertilak.yml
+  
+  - type: signing

@@ -22,8 +22,10 @@ jobs:
       matrix:
         recipe:
           # recipe files 
-          - recipe.yml
-          - recipe-ex.yml
+          #- recipe.yml
+          #- recipe-ex.yml
+          - solarpowered.yml
+          - solarpowered-ex.yml
     steps:
        # the build is fully handled by the reusable github action
       - name: Build Custom Image

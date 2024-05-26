@@ -1,0 +1,104 @@
+# this file contains solarpowered base packages
+
+modules:
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-%OS_VERSION%/zhangyuannie-butter-fedora-%OS_VERSION%.repo #butter
+      - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
+      - https://copr.fedorainfracloud.org/coprs/julianve/open-any-terminal/repo/fedora-%OS_VERSION%/julianve-open-any-terminal-fedora-%OS_VERSION%.repo #open-any-terminal
+    install:
+      - butter #butter from zhangyuannie/butter
+      - blackbox-terminal
+      - epson-inkjet-printer-escpr
+      - epson-inkjet-printer-escpr2
+      - fastfetch
+      - fish
+      - firewall-config
+      - gnome-shell-extension-gsconnect
+      - ibus-mozc
+      - morewaita-icon-theme #morewaita from dusansimic/themes
+      - numix-icon-theme
+      - papirus-icon-theme
+      - pulseaudio-utils
+      - thefuck
+      - wl-clipboard
+      - open-any-terminal #open-any-terminal from julianve/open-any-terminal\
+    remove:
+      - firefox
+      - firefox-langpacks
+      - htop
+      - nvtop
+      - vim-enhanced
+      #unnecessary gnomies
+      - gnome-software-rpm-ostree
+      - gnome-tour
+      - gnome-terminal
+      - gnome-terminal-nautilus
+      - yelp
+      #fedora default gnome extensions
+      - gnome-shell-extension-apps-menu
+      - gnome-shell-extension-background-logo
+      - gnome-shell-extension-launch-new-instance
+      - gnome-shell-extension-places-menu
+      - gnome-shell-extension-window-list
+      #gnome xorg
+      - gnome-classic-session
+      - gnome-classic-session-xsession
+  
+  - type: gnome-extensions
+    install:
+      - AlphabeticalAppGridstuarthayhurst.v40
+      - appindicatorsupportrgcjonas.gmail.com.v58
+      - blur-my-shellaunetx.v61
+      - dash-to-dockmicxgx.gmail.com.v92
+      - caffeinepatapon.info.v54
+      - just-perfection-desktopjust-perfection.v28
+      - light-stylegnome-shell-extensions.gcampax.github.com.v5
+      - logomenuaryan_k.v30
+      - nightthemeswitcherromainvigier.fr.v77
+      - quick-settings-tweaksqwreey.v27\
+  
+  - type: fonts
+    fonts:
+      nerd-fonts:
+      #remember to not add spaces or Nerd Fonts suffix!
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
+      google-fonts:
+        #- Inter
+        - Martian Mono
+        - Ruda
+        - PT Sans
+        - Fira Sans
+
+  - type: default-flatpaks
+    system:
+      install:
+        - app.devsuite.Ptyxis
+        - com.github.tchx84.Flatseal
+        - com.github.rafostar.Clapper
+        - com.mattjakeman.ExtensionManager
+        - io.github.flattool.Warehouse
+        - io.missioncenter.MissionCenter
+        - org.gnome.clocks
+        - org.gnome.Epiphany
+        - org.gnome.Evince
+        - org.gnome.FileRoller
+        - org.gnome.Firmware
+        - org.gnome.Loupe
+        - org.gnome.seahorse.Application
+        - org.gnome.Snapshot
+        - org.gnome.TextEditor
+        - org.gnome.Weather
+        - re.sonny.Junction
+
+  - type: systemd
+    system:
+      disabled:
+        - NetworkManager-wait-online.service
+
+  #DO NOT UNCOMMENT BEFORE EVERYTHING
+  #IS PROPERLY CONFIGURED AND TESTED
+  #- type: gschema-overrides
+    #include:
+      #- z0-pbuild-custom.gschema.override

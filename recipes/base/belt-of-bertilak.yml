@@ -16,13 +16,15 @@ modules:
       - firewall-config
       - gnome-shell-extension-gsconnect
       - ibus-mozc
-      - morewaita-icon-theme #morewaita from dusansimic/themes
-      - numix-icon-theme
-      - papirus-icon-theme
+      - input-remapper
       - pulseaudio-utils
       - thefuck
       - wl-clipboard
-      - open-any-terminal #open-any-terminal from julianve/open-any-terminal\
+      - open-any-terminal #open-any-terminal from julianve/open-any-terminal
+      #icons
+      - morewaita-icon-theme #morewaita from dusansimic/themes
+      - numix-icon-theme
+      - papirus-icon-theme
     remove:
       - firefox
       - firefox-langpacks
@@ -65,11 +67,14 @@ modules:
         - JetBrainsMono
         - NerdFontsSymbolsOnly
       google-fonts:
+        - Fira Sans
+        - Fira Sans Condensed
         #- Inter
         - Martian Mono
+        - Nunito Sans
+        - Overpass
         - Ruda
-        - PT Sans
-        - Fira Sans
+        - Reddit Sans Condensed
 
   - type: default-flatpaks
     system:

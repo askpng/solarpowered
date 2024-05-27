@@ -35,6 +35,7 @@ install-system-flatpaks:
          org.mozilla.firefox
      
 # install t480s flatpaks
+# - tlp ui
 install-t480s-flatpaks:
     flatpak install --system flathub --noninteractive --assumeyes \
          com.github.d4nj1.tlpui

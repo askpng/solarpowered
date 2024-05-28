@@ -70,10 +70,14 @@ modules:
         - Ubuntu
         - UbuntuMono
       google-fonts:
+        - Alef
         - Barlow
+        - Kosugi Maru
         - Martian Mono
         - Overpass
         - Ruda
+        - Sofia Sans
+        - Sofia Sans Semi Condensed
         - Signika
 
   - type: default-flatpaks

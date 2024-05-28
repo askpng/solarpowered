@@ -27,15 +27,44 @@
         "host": "35"
       }
     },
-    "os",
-    "kernel",
-    "cpu",
-    "uptime",
-    "packages",
-    "shell",
-    "terminal",
-    "memory",
-    "break"
+    {
+      "type": "os",
+      "key": "󰻀",
+      "format": "{6}"
+    },
+    {
+      "type": "command",
+      "key": "󰹉",
+      "text": "rpm-ostree status | awk '/ostree-image-signed:/ {split($2, image, \"\\://\"); print substr(image[2], 16)}'"
+    },
+    {
+      "type": "command",
+      "key": "󱓍",
+      "text": "stat / | awk '/Birth/{print $2, $3}'",
+      "shell": "/bin/bash"
+    },
+    {
+      "type": "kernel",
+      "key": ""
+    },
+    {
+      "type": "cpu",
+      "key": "󰻠",
+      "format": "{1}"
+    },
+    {
+      "type": "shell",
+      "key": ""
+    },
+    {
+      "type": "terminal",
+      "key": ""
+    },
+    {
+      "type": "memory",
+      "key": "󰧑",
+      "format": "{1} / {2}"
+    }
   ]
 }
 

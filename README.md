@@ -1,10 +1,11 @@
 # solarpowered [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml)
 
-| <center>night</center> | <center>nightless</center> |
-|---|---|
-| ![dark](./config/files/usr/etc/fastfetch/sample-dark.png) | ![light](./config/files/usr/etc/fastfetch/sample-light.png) |
-
 > This image is set to automatically build every day at 17:30 UTC and upon `recipes/*.yml` updates.
+
+| <center>fastfetch preview</center> |
+| --- |
+| ![fetch preview](/config/files/usr/etc/fastfetch/sample.webp) |
+
 
 This build is a (hopefully) long-term learning project. My main goal is to better understand OCI conceptually and practically - another goal is to eventually end up with the ideal base image for my laptop and future devices.
 

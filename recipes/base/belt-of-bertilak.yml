@@ -51,7 +51,7 @@ modules:
     install:
       - AlphabeticalAppGridstuarthayhurst.v40
       - appindicatorsupportrgcjonas.gmail.com.v58
-      - blur-my-shellaunetx.v61
+      - blur-my-shellaunetx.v62
       - dash-to-dockmicxgx.gmail.com.v92
       - caffeinepatapon.info.v54
       - just-perfection-desktopjust-perfection.v28
@@ -65,16 +65,16 @@ modules:
       nerd-fonts:
       #remember to not add spaces or Nerd Fonts suffix!
         - JetBrainsMono
+        - Mononoki
         - NerdFontsSymbolsOnly
+        - Ubuntu
+        - UbuntuMono
       google-fonts:
-        - Fira Sans
-        - Fira Sans Condensed
-        #- Inter
+        - Barlow
         - Martian Mono
-        - Nunito Sans
         - Overpass
         - Ruda
-        - Reddit Sans Condensed
+        - Signika
 
   - type: default-flatpaks
     system:

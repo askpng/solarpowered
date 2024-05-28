@@ -1,12 +1,11 @@
 name: bluebuild
 on:
   schedule:
-    - cron: "20 17 * * *" # build at 17:00 UTC every day 
-                          # (20 minutes after last ublue images start building)
+    - cron: "20 17 * * *" # build at 17:20 UTC every day 
+    
   push:
     paths: # trigger build only if recipes/*.yml is updated
       - "recipes/*.yml"
-      - "recipes/base/belt-of-bertilak.yml"
       
   pull_request:
   workflow_dispatch: # allow manually triggering builds

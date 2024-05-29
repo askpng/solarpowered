@@ -1,6 +1,6 @@
 # solarpowered [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml)
 
-> This image is set to automatically build every day at 17:30 UTC and upon `recipes/*.yml` updates.
+> This image is set to automatically build every day at 17:00 UTC on Tuesdays and Fridays and upon `recipes/*.yml` updates.
 
 | <center>fastfetch preview</center> |
 | --- |
@@ -56,12 +56,13 @@ These icon themes are installed.
 ### Fonts
 These fonts are installed via the `fonts` module.
 
+- Fira Sans
 - JetBrains Mono
 - Nerd Fonts Symbols Only
 - Martian Mono
 - Ruda
 - PT Sans
-- Fira Sans
+- Ubuntu and Ubuntu Mono
 
 Inter is currently not included due to weird rendering issues. I hope it returns soon, but for the time being I'm alright alternating between Fira Sans and Cantarell!
 

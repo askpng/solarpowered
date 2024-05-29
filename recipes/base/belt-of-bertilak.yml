@@ -65,20 +65,17 @@ modules:
       nerd-fonts:
       #remember to not add spaces or Nerd Fonts suffix!
         - JetBrainsMono
-        - Mononoki
         - NerdFontsSymbolsOnly
         - Ubuntu
         - UbuntuMono
       google-fonts:
-        - Alef
-        - Barlow
+        - Duru Sans
+        - Farro
+        - Imprima
         - Kosugi Maru
         - Martian Mono
-        - Overpass
+        - Orienta
         - Ruda
-        - Sofia Sans
-        - Sofia Sans Semi Condensed
-        - Signika
 
   - type: default-flatpaks
     system:

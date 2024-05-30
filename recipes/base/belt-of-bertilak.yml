@@ -69,7 +69,7 @@ modules:
         - Ubuntu
         - UbuntuMono
       google-fonts:
-      	- IBM Plex Sans JP
+        - IBM Plex Sans JP
         - Kosugi Maru
         - Martian Mono
         - Orienta

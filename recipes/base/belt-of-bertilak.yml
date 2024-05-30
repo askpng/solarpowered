@@ -69,9 +69,7 @@ modules:
         - Ubuntu
         - UbuntuMono
       google-fonts:
-        - Duru Sans
-        - Farro
-        - Imprima
+      	- IBM Plex Sans JP
         - Kosugi Maru
         - Martian Mono
         - Orienta

@@ -5,7 +5,8 @@ on:
     
   push:
     paths: # trigger build only if recipes/*.yml is updated
-      - "recipes/*.yml"
+      - "recipes/solarpowered.yml"
+      - "recipes/solarpowered-ex.yml"
       
   pull_request:
   workflow_dispatch: # allow manually triggering builds

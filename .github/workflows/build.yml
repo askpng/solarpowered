@@ -24,6 +24,7 @@ jobs:
           # recipe files
           - solarpowered.yml
           - solarpowered-ex.yml
+          - solarpowered-pro.yml
     steps:
        # the build is fully handled by the reusable github action
       - name: Build Custom Image

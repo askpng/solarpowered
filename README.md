@@ -4,7 +4,7 @@
 
 | <center>fastfetch preview</center> |
 | --- |
-| ![fetch preview](/config/files/usr/etc/fastfetch/sample.webp) |
+| ![fetch preview](/config/files/usr/etc/fastfetch/sample.png) |
 
 
 This build is a (hopefully) long-term learning project. My main goal is to better understand OCI conceptually and practically - another goal is to eventually end up with the ideal base image for my laptop and future devices.

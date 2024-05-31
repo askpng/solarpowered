@@ -23,7 +23,6 @@ modules:
       - open-any-terminal #open-any-terminal from julianve/open-any-terminal
       #icons
       - morewaita-icon-theme #morewaita from dusansimic/themes
-      - numix-icon-theme
       - papirus-icon-theme
     remove:
       - firefox

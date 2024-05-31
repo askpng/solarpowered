@@ -45,7 +45,8 @@
     },
     {
       "type": "kernel",
-      "key": ""
+      "key": "",
+      "format": "{2}",
     },
     {
       "type": "cpu",

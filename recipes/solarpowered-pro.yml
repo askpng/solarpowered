@@ -81,6 +81,8 @@ modules:
         # throttled.service
       disabled:
         - NetworkManager-wait-online.service
+        - systemd-rfkill.service
+        - systemd-rfkill.socket
       masked: 
         # tlp
         - systemd-rfkill.service

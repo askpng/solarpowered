@@ -39,7 +39,6 @@ modules:
       - vim-enhanced
       #unnecessary gnomies
       - gnome-terminal
-      - gnome-terminal-nautilus
       #fedora default gnome extensions
       - gnome-shell-extension-apps-menu
       - gnome-shell-extension-background-logo

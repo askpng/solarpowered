@@ -54,7 +54,6 @@ modules:
       - restic
       - solaar
       - tailscale
-      - xprop
       - zsh
       - gnome-shell-extension-appindicator
       - gnome-shell-extension-blur-my-shell

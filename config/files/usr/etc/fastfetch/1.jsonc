@@ -1,0 +1,106 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+      "source": "/etc/fastfetch/ascii/bep",
+      "color": {
+        "1": "yellow"
+      },
+      "padding": {
+        "top": 2,
+        "left": 4
+      }
+    },
+    "display": {
+      "separator": " ",
+      "color": {
+        "keys": "green"
+      },
+      "size": {
+        "ndigits": 0,
+        "maxPrefix": "MB"
+      }
+    },
+    "modules": [
+        "break",
+        "break",
+      {
+        "type": "title",
+        "fqdn": "true",
+        "color": {
+          "user": "magenta",
+          "at": "blue",
+          "host": "blue"
+        }
+      },
+      {
+        "type": "os",
+        "key": "sstm",
+        "format": "{6}"
+      },
+      {
+        "type": "command",
+        "key": "base",
+        "text": "rpm-ostree status | awk '/ostree-image-signed:/ {split($2, image, \"\\://\"); print substr(image[2], 16)}'"
+      },
+      {
+        "type": "command",
+        "key": "updt",
+        "text": "stat / | awk '/Birth/{print $2}'",
+        "shell": "/bin/bash"
+      },
+      {
+        "type": "packages",
+        "key": "pkgs",
+        "format": "{5} rpms & many flatpaks"
+      },    
+      {
+        "type": "shell",
+        "key": "shll"
+      },
+      {
+        "type": "uptime",
+        "key": "uptm",
+        "format": "{2}h{3}m"
+      },
+      {
+        "type": "de",
+        "key": "dstp",
+        "format": "{2}"
+      },
+      {
+        "type": "wm",
+        "key": "wmgr",
+        "format": "{2}"
+      },
+      {
+        "type": "terminal",
+        "key": "term"
+      },
+      {
+        "type": "host",
+        "key": "mchn",
+        "format": "{2}"
+      },
+      {
+        "type": "cpu",
+        "key": "proc",
+        "format": "{1}"
+      },
+      {
+        "type": "gpu",
+        "key": "gphc",
+        "format": "{2}"
+      },
+      {
+        "type": "memory",
+        "key": "mmry",
+        "format": "{1} / {2}"
+      },
+      {
+        "type": "colors",
+        "key": "clrs",
+        "symbol": "circle"
+      }
+    ]
+  }
+  

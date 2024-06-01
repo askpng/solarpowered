@@ -1,0 +1,106 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+      "source": "/etc/fastfetch/ascii/bep",
+      "color": {
+        "1": "yellow"
+      },
+      "padding": {
+        "top": 2,
+        "left": 4
+      }
+    },
+    "display": {
+      "separator": " ",
+      "color": {
+        "keys": "green"
+      },
+      "size": {
+        "ndigits": 0,
+        "maxPrefix": "MB"
+      }
+    },
+    "modules": [
+        "break",
+        "break",
+      {
+        "type": "title",
+        "fqdn": "true",
+        "color": {
+          "user": "magenta",
+          "at": "blue",
+          "host": "blue"
+        }
+      },
+      {
+        "type": "os",
+        "key": "󰻀",
+        "format": "{6}"
+      },
+      {
+        "type": "command",
+        "key": "",
+        "text": "rpm-ostree status | awk '/ostree-image-signed:/ {split($2, image, \"\\://\"); print substr(image[2], 16)}'"
+      },
+      {
+        "type": "command",
+        "key": "󰔪",
+        "text": "stat / | awk '/Birth/{print $2}'",
+        "shell": "/bin/bash"
+      },
+      {
+        "type": "packages",
+        "key": "",
+        "format": "{5} rpms & many flatpaks"
+      },    
+      {
+        "type": "shell",
+        "key": ""
+      },
+      {
+        "type": "uptime",
+        "key": "󰅕",
+        "format": "{2}h{3}m"
+      },
+      {
+        "type": "de",
+        "key": "󰟀",
+        "format": "{2}"
+      },
+      {
+        "type": "wm",
+        "key": "",
+        "format": "{2}"
+      },
+      {
+        "type": "terminal",
+        "key": ""
+      },
+      {
+        "type": "host",
+        "key": "󰌢",
+        "format": "{2}"
+      },
+      {
+        "type": "cpu",
+        "key": "",
+        "format": "{1}"
+      },
+      {
+        "type": "gpu",
+        "key": "󰽉",
+        "format": "{2}"
+      },
+      {
+        "type": "memory",
+        "key": "",
+        "format": "{1} / {2}"
+      },
+      {
+        "type": "colors",
+        "key": "󰓠",
+        "symbol": "circle"
+      }
+    ]
+  }
+  

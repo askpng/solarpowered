@@ -45,7 +45,7 @@ modules:
       #gnome xorg
       - gnome-classic-session
       - gnome-classic-session-xsession
-  
+
   - type: gnome-extensions
     install:
       - AlphabeticalAppGridstuarthayhurst.v40
@@ -58,7 +58,7 @@ modules:
       - logomenuaryan_k.v30
       - nightthemeswitcherromainvigier.fr.v77
       - quick-settings-tweaksqwreey.v27
-  
+
   - type: fonts
     fonts:
       nerd-fonts:
@@ -68,7 +68,10 @@ modules:
         - Ubuntu
         - UbuntuMono
       google-fonts:
+        - IBM Plex Sans
+        - IBM Plex Sans Condensed
         - IBM Plex Sans JP
+        - IBM Plex Mono
         - Kosugi Maru
         - Martian Mono
         - Orienta

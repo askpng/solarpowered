@@ -25,7 +25,7 @@
         "break",
       {
         "type": "title",
-        "fqdn": "true",
+        "fqdn": true,
         "color": {
           "user": "magenta",
           "at": "blue",
@@ -79,7 +79,7 @@
       {
         "type": "host",
         "key": "󰌢",
-        "format": "{2}"
+        "format": "{3}"
       },
       {
         "type": "cpu",

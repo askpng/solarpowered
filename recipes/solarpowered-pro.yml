@@ -97,6 +97,6 @@ modules:
       - Light Style
       - Logo Menu
       - Night Theme Switcher
-      - '[QSTweak] Quick Setting Tweaker'        
+      - QSTweak Quick Setting Tweaker
 
   - type: signing

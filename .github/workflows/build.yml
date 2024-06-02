@@ -1,4 +1,4 @@
-name: bluebuild
+name: solarpowered
 on:
   schedule:
     - cron: "00 17 * * 2,5" # build at 17:00 UTC every Tuesday and Friday

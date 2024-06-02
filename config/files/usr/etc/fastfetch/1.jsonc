@@ -44,8 +44,8 @@
       },
       {
         "type": "command",
-        "key": "updt",
-        "text": "stat / | awk '/Birth/{print $2}'",
+        "key": "bday",
+        "text": "ls -l | awk '{print $6}' | date +%d-%m-%Y",
         "shell": "/bin/bash"
       },
       {

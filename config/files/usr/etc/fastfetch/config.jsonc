@@ -39,14 +39,14 @@
     },
     {
       "type": "command",
-      "key": "󱓍",
-      "text": "stat / | awk '/Birth/{print $2, $3}'",
+      "key": "",
+      "text": "ls -l | awk '{print $6}' | date +%d-%m-%Y",
       "shell": "/bin/bash"
     },
     {
       "type": "kernel",
       "key": "",
-      "format": "{2}",
+      "format": "{2}"
     },
     {
       "type": "cpu",

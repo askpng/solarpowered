@@ -1,7 +1,7 @@
 name: solarpowered-pro
 on:
   schedule:
-    - cron: "20 17 * * 5,6,0" # build at 17:00 UTC every Tuesday and Friday
+    - cron: "20 17 * * 5,6,0" # build at 17:00 UTC every Fri, Sat, Sun
     
   push:
     paths: # trigger build only if recipes/*.yml is updated
@@ -11,7 +11,7 @@ on:
   workflow_dispatch: # allow manually triggering builds
 jobs:
   bluebuild:
-    name: Build Custom Image
+    name: Build solarpowered-pro
     runs-on: ubuntu-latest
     permissions:
       contents: read

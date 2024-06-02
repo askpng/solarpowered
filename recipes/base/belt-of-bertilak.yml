@@ -48,16 +48,16 @@ modules:
 
   - type: gnome-extensions
     install:
-      - AlphabeticalAppGridstuarthayhurst.v40
-      - appindicatorsupportrgcjonas.gmail.com.v58
-      - blur-my-shellaunetx.v62
-      - dash-to-dockmicxgx.gmail.com.v92
-      - caffeinepatapon.info.v54
-      - just-perfection-desktopjust-perfection.v28
-      - light-stylegnome-shell-extensions.gcampax.github.com.v5
-      - logomenuaryan_k.v30
-      - nightthemeswitcherromainvigier.fr.v77
-      - quick-settings-tweaksqwreey.v27
+      - Alphabetical App Grid
+      - AppIndicator and KStatusNotifierItem Support
+      - Blur my Shell
+      - Caffeine
+      - Dash to Dock
+      - Just Perfection
+      - Light Style
+      - Logo Menu
+      - Night Theme Switcher
+      - [QSTweak] Quick Setting Tweaker
 
   - type: fonts
     fonts:

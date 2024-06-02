@@ -40,7 +40,7 @@
     {
       "type": "command",
       "key": "",
-      "text": "ls -l | awk '{print $6}' | date +%d-%m-%Y",
+      "text": "ls -l / --time-style=full-iso | grep ostree | awk '{print $6}'",
       "shell": "/bin/bash"
     },
     {

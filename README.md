@@ -1,4 +1,4 @@
-# solarpowered [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/solarpowered.yml)
+# solarpowered [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml)
 
 > This image is set to automatically build every day at 17:00 UTC on Tuesdays and Fridays and upon `recipes/*.yml` updates.
 

@@ -17,6 +17,7 @@ modules:
       - gnome-shell-extension-gsconnect
       - ibus-mozc
       - input-remapper
+      - nautilus-gsconnect
       - pulseaudio-utils
       - thefuck
       - wl-clipboard

@@ -24,6 +24,9 @@ modules:
       #icons
       - morewaita-icon-theme #morewaita from dusansimic/themes
       - papirus-icon-theme
+      #tilix
+      - tilix
+      - tilix-nautilus
     remove:
       - firefox
       - firefox-langpacks

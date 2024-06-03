@@ -97,6 +97,6 @@ modules:
       - Light Style
       - Logo Menu
       - Night Theme Switcher
-      - quick-settings-tweaksqwreey.v27
+      #- quick-settings-tweaksqwreey.v27
 
   - type: signing

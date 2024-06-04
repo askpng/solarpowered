@@ -30,7 +30,7 @@
     {
       "type": "os",
       "key": "󰻀",
-      "format": "{6}"
+      "format": "{6} {9}"
     },
     {
       "type": "command",

@@ -35,7 +35,7 @@
       {
         "type": "os",
         "key": "sstm",
-        "format": "{6}"
+        "format": "{6} {9}"
       },
       {
         "type": "command",

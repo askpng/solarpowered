@@ -60,7 +60,7 @@
       {
         "type": "uptime",
         "key": "uptm",
-        "format": "{2}h{3}m"
+        "format": "{?1}{1}d:{2}h:{?3}{3}m"
       },
       {
         "type": "de",

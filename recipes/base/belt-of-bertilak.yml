@@ -11,6 +11,7 @@ modules:
       - blackbox-terminal
       - epson-inkjet-printer-escpr
       - epson-inkjet-printer-escpr2
+      - evince
       - fastfetch
       - fish
       - firewall-config
@@ -92,7 +93,6 @@ modules:
         - io.missioncenter.MissionCenter
         - org.gnome.clocks
         - org.gnome.Epiphany
-        - org.gnome.Evince
         - org.gnome.FileRoller
         - org.gnome.Firmware
         - org.gnome.Loupe

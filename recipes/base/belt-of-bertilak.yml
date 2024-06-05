@@ -26,7 +26,7 @@ modules:
       - tilix
       - tilix-nautilus
       #pop-shell
-      - gnome-shell-extension-pop-shell
+      #- gnome-shell-extension-pop-shell
     remove:
       - firefox
       - firefox-langpacks

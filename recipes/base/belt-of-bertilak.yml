@@ -5,30 +5,28 @@ modules:
     repos:
       - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-%OS_VERSION%/zhangyuannie-butter-fedora-%OS_VERSION%.repo #butter
       - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
-      - https://copr.fedorainfracloud.org/coprs/julianve/open-any-terminal/repo/fedora-%OS_VERSION%/julianve-open-any-terminal-fedora-%OS_VERSION%.repo #open-any-terminal
     install:
       - butter #butter from zhangyuannie/butter
-      - blackbox-terminal
       - epson-inkjet-printer-escpr
       - epson-inkjet-printer-escpr2
       - evince
       - fastfetch
       - fish
       - firewall-config
-      - gnome-shell-extension-gsconnect
-      - ibus-mozc
-      - input-remapper
-      - nautilus-gsconnect
+      - lm_sensors
       - pulseaudio-utils
-      - thefuck
       - wl-clipboard
-      - open-any-terminal #open-any-terminal from julianve/open-any-terminal
+      #gsconnect
+      - gnome-shell-extension-gsconnect
+      - nautilus-gsconnect
       #icons
       - morewaita-icon-theme #morewaita from dusansimic/themes
       - papirus-icon-theme
       #tilix
       - tilix
       - tilix-nautilus
+      #pop-shell
+      - gnome-shell-extension-pop-shell
     remove:
       - firefox
       - firefox-langpacks

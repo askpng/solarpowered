@@ -71,13 +71,13 @@ modules:
         - Ubuntu
         - UbuntuMono
       google-fonts:
+        - Figtree
         - IBM Plex Sans
         - IBM Plex Sans Condensed
         - IBM Plex Sans JP
         - IBM Plex Mono
         - Kosugi Maru
         - Martian Mono
-        - Orienta
         - Ruda
 
   - type: default-flatpaks

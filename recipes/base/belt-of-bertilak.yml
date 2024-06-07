@@ -17,14 +17,14 @@ modules:
       - lm_sensors
       - pulseaudio-utils
       - wl-clipboard
+      #blackbox
+      - blackbox-terminal
       #gsconnect
       - gnome-shell-extension-gsconnect
       - nautilus-gsconnect
       #icons
       - morewaita-icon-theme #morewaita from dusansimic/themes
       - papirus-icon-theme
-      #wezterm
-      - wezterm
       #pop-shell
       #- gnome-shell-extension-pop-shell
     remove:

@@ -1,17 +1,64 @@
 #!/usr/bin/bash
 
+# Check for native Ptyxis
 if command -v /usr/bin/ptyxis > /dev/null; then
-  if [[ -z "$@" ]]; then
-    /usr/bin/ptyxis
-  else
-    /usr/bin/ptyxis -- "$@"
-  fi
-elif grep '^app\.devsuite\.Ptyxis$' <<< $(/usr/bin/flatpak list --app --columns=application); then
-  if [[ -z "$@" ]]; then
-    /usr/bin/flatpak run app.devsuite.Ptyxis
-  else
-    /usr/bin/flatpak run app.devsuite.Ptyxis -- "$@"
-  fi
-else
-  /usr/bin/wezterm -- "$@"
+  /usr/bin/ptyxis "$@"
 fi
+
+# Check for Flatpak Wezterm
+if grep '^org\.wezfurlong\.wezterm$' <<< $(/usr/bin/flatpak list --app --columns=application); then
+  /usr/bin/flatpak run org.wezfurlong.wezterm "$@"
+fi
+
+# Check for Flatpak Ptyxis (again)
+if grep '^app\.devsuite\.Ptyxis$' <<< $(/usr/bin/flatpak list --app --columns=application); then
+  /usr/bin/flatpak run app.devsuite.Ptyxis "$@"
+fi
+
+# Check for native blackbox-terminal as fallback
+if command -v /usr/bin/blackbox-terminal > /dev/null; then
+  /usr/bin/blackbox-terminal "$@"
+fi
+
+# ---- #
+
+# above, but with elif logic
+
+#if command -v /usr/bin/ptyxis > /dev/null; then
+#  /usr/bin/ptyxis "$@"
+#else
+#  if grep '^org\.wezfurlong\.wezterm$' <<< $(/usr/bin/flatpak list --app --columns=application); then
+#    /usr/bin/flatpak run org.wezfurlong.wezterm "$@"
+#  elif grep '^app\.devsuite\.Ptyxis$' <<< $(/usr/bin/flatpak list --app --columns=application); then
+#    /usr/bin/flatpak run app.devsuite.Ptyxis "$@"
+#  else
+#    if command -v /usr/bin/blackbox-terminal > /dev/null; then
+#      /usr/bin/blackbox-terminal "$@"
+#    else
+#      # No match, fallback (optional)
+#      echo "No preferred terminal found"
+#      # /usr/bin/xterm "$@"  # replace xterm with your default
+#    fi
+#  fi
+#fi
+
+# ---- #
+
+# original modified script
+
+#if command -v /usr/bin/ptyxis > /dev/null; then
+#  if [[ -z "$@" ]]; then
+#    /usr/bin/ptyxis
+#  else
+#    /usr/bin/ptyxis -- "$@"
+#  fi
+#elif grep '^app\.devsuite\.Ptyxis$' <<< $(/usr/bin/flatpak list --app --columns=application); then
+#  if [[ -z "$@" ]]; then
+#    /usr/bin/flatpak run app.devsuite.Ptyxis
+#  else
+#    /usr/bin/flatpak run app.devsuite.Ptyxis -- "$@"
+#  fi
+#else
+#  /usr/bin/blackbox-terminal -- "$@"
+#fi
+

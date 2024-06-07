@@ -13,5 +13,5 @@ elif grep '^app\.devsuite\.Ptyxis$' <<< $(/usr/bin/flatpak list --app --columns=
     /usr/bin/flatpak run app.devsuite.Ptyxis -- "$@"
   fi
 else
-  /usr/bin/blackbox-terminal -- "$@"
+  /usr/bin/wezterm -- "$@"
 fi

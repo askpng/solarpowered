@@ -1,7 +1,7 @@
 name: solarpowered-pro
 on:
   schedule:
-    - cron: "20 17 * * 5,6,0" # build at 17:00 UTC every Fri, Sat, Sun
+    - cron: "20 17 * * 5,6" # build at 17:00 UTC every Fri, Sat
     
   push:
     paths: # trigger build only if recipes/*.yml is updated

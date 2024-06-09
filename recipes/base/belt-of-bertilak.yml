@@ -18,7 +18,6 @@ modules:
       - wl-clipboard
       #blackbox
       #- blackbox-terminal
-      - gnome-console
       #gsconnect
       - gnome-shell-extension-gsconnect
       - nautilus-gsconnect

@@ -17,7 +17,8 @@ modules:
       - pulseaudio-utils
       - wl-clipboard
       #blackbox
-      - blackbox-terminal
+      #- blackbox-terminal
+      - gnome-console
       #gsconnect
       - gnome-shell-extension-gsconnect
       - nautilus-gsconnect

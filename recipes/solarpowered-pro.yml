@@ -16,26 +16,6 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-%OS_VERSION%/zhangyuannie-butter-fedora-%OS_VERSION%.repo #butter
       - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
       - https://copr.fedorainfracloud.org/coprs/wezfurlong/wezterm-nightly/repo/fedora-%OS_VERSION%/wezfurlong-wezterm-nightly-fedora-%OS_VERSION%.repo #wezterm
-    install:
-      # butter
-      - butter
-      - morewaita-icon-theme
-      # igt-gpu-tools
-      - igt-gpu-tools
-      # python-validity
-      - fprintd-clients
-      - fprintd-clients-pam
-      - open-fprintd
-      - python3-validity
-      # tlp
-      - tlp
-      - tlp-rdw
-      # throttled
-      - throttled
-      #wezterm
-      - wezterm
-      # zcfan
-      - zcfan
     remove:
       - htop
       - nvtop
@@ -72,6 +52,26 @@ modules:
       - power-profiles-daemon
       # throtled-conflicts
       - thermald
+    install:
+      # butter
+      - butter
+      - morewaita-icon-theme
+      # igt-gpu-tools
+      - igt-gpu-tools
+      # python-validity
+      - fprintd-clients
+      - fprintd-clients-pam
+      - open-fprintd
+      - python3-validity
+      # tlp
+      - tlp
+      - tlp-rdw
+      # throttled
+      - throttled
+      #gnome-console
+      - gnome-console
+      # zcfan
+      - zcfan
   
   - type: systemd
     system:

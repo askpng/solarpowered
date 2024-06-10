@@ -5,6 +5,25 @@ modules:
     repos:
       - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-%OS_VERSION%/zhangyuannie-butter-fedora-%OS_VERSION%.repo #butter
       - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
+    install:
+      - butter #butter from zhangyuannie/butter
+      - epson-inkjet-printer-escpr
+      - epson-inkjet-printer-escpr2
+      - evince
+      - fastfetch
+      - fish
+      - firewall-config
+      - lm_sensors
+      - pulseaudio-utils
+      - wl-clipboard
+      #gnome-console
+      #- gnome-console
+      #gsconnect
+      - gnome-shell-extension-gsconnect
+      - nautilus-gsconnect
+      #icons
+      - morewaita-icon-theme #morewaita from dusansimic/themes
+      - papirus-icon-theme
     remove:
       - firefox
       - firefox-langpacks
@@ -26,27 +45,6 @@ modules:
       #gnome xorg
       - gnome-classic-session
       - gnome-classic-session-xsession
-    install:
-      - butter #butter from zhangyuannie/butter
-      - epson-inkjet-printer-escpr
-      - epson-inkjet-printer-escpr2
-      - evince
-      - fastfetch
-      - fish
-      - firewall-config
-      - lm_sensors
-      - pulseaudio-utils
-      - wl-clipboard
-      #gnome-console
-      - gnome-console
-      #gsconnect
-      - gnome-shell-extension-gsconnect
-      - nautilus-gsconnect
-      #icons
-      - morewaita-icon-theme #morewaita from dusansimic/themes
-      - papirus-icon-theme
-      #pop-shell
-      #- gnome-shell-extension-pop-shell
 
   - type: gnome-extensions
     install:
@@ -59,7 +57,6 @@ modules:
       - Light Style
       - Logo Menu
       - Night Theme Switcher
-      #- [QSTweak] Quick Setting Tweaker
 
   - type: fonts
     fonts:
@@ -70,7 +67,6 @@ modules:
         - Ubuntu
         - UbuntuMono
       google-fonts:
-        - Figtree
         - Kosugi Maru
         - Martian Mono
         - Ruda

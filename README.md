@@ -25,7 +25,7 @@ Fetch. (More will come!)
 | --- | --- | --- | --- |
 | **Status** | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) </center> | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) </center> | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-pro.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-pro.yml) </center> |
 | **Description** | This image contains packages optimized for Lenovo T480s. | This image is a work-in-progress for my future AMD desktop. | This is an experimental build which tweaks [Bluefin](https://github.com/ublue-os/bluefin). |
-| **Scheduled build** | 17:00 UTC Tue, Fri, Sat, Sun | 17:10 UTC Fri, Sat, Sun | 17:20 UTC, Fri, Sat, Sun |
+| **Scheduled build** | 17:00 UTC on Tuesdays | 17:00 UTC on Saturdays | 17:00 UTC on Saturdays |
 
 </center>
 

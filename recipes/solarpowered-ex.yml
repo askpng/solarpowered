@@ -18,6 +18,7 @@ modules:
       #system76-scheduler
       - system76-scheduler
       - gnome-shell-extension-system76-scheduler
+      - gnome-console
     #remove:
       #-
       #-

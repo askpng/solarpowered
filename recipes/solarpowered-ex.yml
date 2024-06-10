@@ -5,9 +5,9 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 40
 
 modules:
-  - type: files
-    files:
-      - usr: /usr
+  # - type: files
+  #  files:
+  #    - usr: /usr
   
   #EX/desktop exclusives
   - type: rpm-ostree
@@ -16,21 +16,22 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
     install:
       #system76-scheduler
-      - system76-scheduler
-      - gnome-shell-extension-system76-scheduler
-      - gnome-console
-    #remove:
-      #-
-      #-
+    #  - system76-scheduler
+    #  - gnome-shell-extension-system76-scheduler
+      - vte291
+      - sakura
+    remove:
+      - gnome-terminal-nautilus
+      - gnome-terminal
 
   #base packages (belt of bertilak)
-  - from-file: base/belt-of-bertilak.yml
+  #- from-file: base/belt-of-bertilak.yml
 
-  - type: yafti
-    custom-flatpaks:
-      - Heroic Games Launcher: com.heroicgameslauncher.hgl
-      - Steam: com.valvesoftware.Steam
-      - ProtonPlus: com.vysp3r.ProtonPlus
-      - Celeste: com.hunterwittenborn.Celeste
+  #- type: yafti
+  #  custom-flatpaks:
+  #    - Heroic Games Launcher: com.heroicgameslauncher.hgl
+  #    - Steam: com.valvesoftware.Steam
+  #    - ProtonPlus: com.vysp3r.ProtonPlus
+  #    - Celeste: com.hunterwittenborn.Celeste
 
   - type: signing

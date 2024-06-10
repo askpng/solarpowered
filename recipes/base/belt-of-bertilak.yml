@@ -33,8 +33,8 @@ modules:
       #unnecessary gnomies
       - gnome-software-rpm-ostree
       - gnome-tour
-      - gnome-terminal
-      - gnome-terminal-nautilus
+      #- gnome-terminal
+      #- gnome-terminal-nautilus
       - yelp
       #fedora default gnome extensions
       - gnome-shell-extension-apps-menu

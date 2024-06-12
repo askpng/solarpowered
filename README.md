@@ -35,18 +35,15 @@ In addition to the default packages installed in the `silverblue-main` base imag
 
 > Packages are being adjusted very frequently and the README is not always up-to-date. Refer to the `.yml`s instead.
 
-- `butter` by [zhangyuannie](https://github.com/zhangyuannie/butter)
-- `blackbox-terminal`, eventually will be replaced with Ptyxis
+- `butter` by [zhangyuannie](https://github.com/zhangyuannie/butter) for BTRFS snapshots
+- `blackbox-terminal` as the default fallback terminal
 - `epson-inkjet-printer-escpr` and `epson-inkjet-printer-escpr2`
 - `fastfetch`
 - `fish`
 - `firewall-config`
-- `gnome-shell-extension-gsconnect` to ensure all dependencies are installed
-- `ibus-mozc` for experimental purposes (`ibus-anthy` has better toggles for non-JIS keyboards)
-- `igt-gpu-tools`
-- `open-any-terminal` from [julianve/open-any-terminal](https://copr.fedorainfracloud.org/coprs/julianve/open-any-terminal)
+- `gnome-shell-extension-gsconnect` and `nautilus-gsconnect`
+- `lm_sensors`
 - `pulseaudio-utils`
-- `thefuck` - a must have!
 - `wl-clipboard`
 
 The following packages are removed from the base image.
@@ -56,6 +53,7 @@ The following packages are removed from the base image.
 - `vim-enhanced`
 - GNOMies I don't use: `gnome-software-rpm-ostree`, `gnome-tour`, `gnome-terminal`, `gnome-terminal-nautilus`, and `yelp`
 - GNOME Classic: `gnome-classic-session`, `gnome-classic-session-xsession`
+- Default GNOME Extensions: Apps Menu, Background Logo, Launch new instance, Places Menu, and Windows List
 
 ### Icons
 These icon themes are installed.
@@ -66,16 +64,16 @@ These icon themes are installed.
 ### Fonts
 These fonts are installed via the `fonts` module.
 
-- [IBM Plex](https://fonts.google.com/?query=IBM+Plex) Mono, Sans, Sans Condensed, Sans JP
 - JetBrains Mono
+- [Kosugi Maru](https://fonts.google.com/specimen/Kosugi+Maru)
 - [Martian Mono](https://fonts.google.com/specimen/Martian+Mono)
 - Nerd Fonts Symbols Only
-- [Orienta](https://fonts.google.com/specimen/Orienta)
 - [Ruda](https://fonts.google.com/specimen/Ruda)
 - Ubuntu, Ubuntu Mono
 
 ### solarpowered: T480/s exclusive packages
 The following packages are installed by default for improving Lenovo T480/s power management, performance, and features:
+- `igt-gpu-tools` for monitoring GPU use
 - `python-validity` forked by [sneexy](https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/)
 - `tlp` and `tlp-rdw`
 - `throttled`
@@ -95,6 +93,8 @@ The following packages are explicitly removed from the base image due to conflic
 This is a work-in-progress. My computer system will be AMD, so I am looking into things that I will need to do and/or install. So far I have decided on:
 
 - `system76-scheduler` and `gnome-shell-extension-system76-scheduler` from [kylegospo/system76-scheduler](https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/)
+- `lact` from [matte-schwartz](https://copr.fedorainfracloud.org/coprs/matte-schwartz/lact/)
+- [radeontop](https://packages.fedoraproject.org/pkgs/radeontop/radeontop)
 
 ## Automatic updates
 `rpm-ostreed-automatic.timer` is set to 17:45 UTC daily. Feel free to override in `/etc/systemd/system/rpm-ostreed-automatic.timer.d/override.conf`.

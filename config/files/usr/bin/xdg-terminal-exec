@@ -8,7 +8,7 @@ else
   elif grep '^app\.devsuite\.Ptyxis$' <<< $(/usr/bin/flatpak list --app --columns=application); then
     /usr/bin/flatpak run app.devsuite.Ptyxis "$@"
   else
-      /usr/bin/sakura "$@"
+      /usr/bin/blackbox-terminal "$@"
   fi
 fi
 

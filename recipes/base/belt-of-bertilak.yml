@@ -16,8 +16,8 @@ modules:
       - lm_sensors
       - pulseaudio-utils
       - wl-clipboard
-      #sakura
-      - sakura
+      #blackbox-terminal
+      - blackbox-terminal
       #gsconnect
       - gnome-shell-extension-gsconnect
       - nautilus-gsconnect

@@ -94,7 +94,6 @@ The following packages are explicitly removed from the base image due to conflic
 ### solarpowered-ex: Desktop exclusive packages
 This is a work-in-progress. My computer system will be AMD and will be used for gaming purposes on top of multimedia uses, so I am looking into things that I will need to do and/or install. So far I have decided on:
 
-- `gamemode` from [FeralInteractive](https://github.com/FeralInteractive/gamemode)
 - `inxi`
 - `lact` from [matte-schwartz](https://copr.fedorainfracloud.org/coprs/matte-schwartz/lact/)
 - `system76-scheduler` and `gnome-shell-extension-system76-scheduler` from [kylegospo/system76-scheduler](https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/)

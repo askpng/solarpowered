@@ -92,7 +92,6 @@ modules:
   - type: gnome-extensions
     install:
       - Alphabetical App Grid
-      - '[QSTweak] Quick Setting Tweaker'
       - AppIndicator and KStatusNotifierItem Support
       - Blur my Shell
       - Caffeine
@@ -101,5 +100,6 @@ modules:
       - Light Style
       - Logo Menu
       - Night Theme Switcher
+      #- quick-settings-tweaksqwreey.v27
 
   - type: signing

@@ -19,7 +19,7 @@ echo 'Exclude official kernel from updates'
 sed -i '/^\[updates\]/a\exclude\=kernel\*' /etc/yum.repos.d/fedora-updates.repo
 
 echo 'Install uksmd'
-rpm-ostree install libcap-ng-devel procps-ng-devel uksmd-lts
+rpm-ostree install libcap-ng-devel procps-ng-devel uksmd
 systemctl enable uksmd.service
 
 ### source: https://github.com/deus0ne/beret/blob/main/config/scripts/cachyos-kernel-override.sh ###

@@ -2,7 +2,7 @@
 
 I started solarpowered as a learning project. My main goal is to better understand OCI images as a concept and in practice. Another goal is to eventually end up with the ideal base image for my laptop and future devices.
 
-Solarpowered without a doubt contains errors and roundabout approaches. I *am* however learning to correct these errors and find more straightforward means of achieving what I want!
+This image without a doubt contains half-baked functionalities, unoptimized codes and roundabout approaches. I *am* however learning to correct these errors and find more straightforward means of achieving what I want!
 
 ## Why did you name this 'solarpowered'?
 Because I like Gawain from Fate/Extra & Fate/Grand Order.
@@ -25,6 +25,7 @@ Fetch. (More will come!)
 | --- | --- | --- | --- |
 | **Status** | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) </center> | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) </center> | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-pro.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-pro.yml) </center> |
 | **Description** | This image contains packages optimized for Lenovo T480s. | This image is a work-in-progress for my future AMD desktop. | This is an experimental build which tweaks [Bluefin](https://github.com/ublue-os/bluefin). |
+| **Functional status** | Functional (stable daily drive) | Functional (in theory) | Untested | 
 | **Scheduled build** | 17:00 UTC on Tuesdays | 17:00 UTC on Saturdays | 17:00 UTC on Saturdays |
 
 </center>
@@ -35,7 +36,7 @@ In addition to the default packages installed in the `silverblue-main` base imag
 
 > Packages are being adjusted very frequently and the README is not always up-to-date. Refer to the `.yml`s instead.
 
-- `butter` by [zhangyuannie](https://github.com/zhangyuannie/butter) for BTRFS snapshots
+- `butter` by [zhangyuannie](https://github.com/zhangyuannie/butter) for BTRFS snapshots (I don't do BTRFS snapshot restores, but it's still nice to have. Might eventually switch to BTRFS Assistant for the maintenance utilities)
 - `blackbox-terminal` as the default fallback terminal
 - `epson-inkjet-printer-escpr` and `epson-inkjet-printer-escpr2`
 - `fastfetch`
@@ -44,6 +45,7 @@ In addition to the default packages installed in the `silverblue-main` base imag
 - `gnome-shell-extension-gsconnect` and `nautilus-gsconnect`
 - `lm_sensors`
 - `pulseaudio-utils`
+- `starship`
 - `wl-clipboard`
 
 The following packages are removed from the base image.
@@ -90,11 +92,16 @@ The following packages are explicitly removed from the base image due to conflic
 `tlp.service` is enabled by default. `systemd-rfkill.{service,socket}` is disabled by default.
 
 ### solarpowered-ex: Desktop exclusive packages
-This is a work-in-progress. My computer system will be AMD, so I am looking into things that I will need to do and/or install. So far I have decided on:
+This is a work-in-progress. My computer system will be AMD and will be used for gaming purposes on top of multimedia uses, so I am looking into things that I will need to do and/or install. So far I have decided on:
 
-- `system76-scheduler` and `gnome-shell-extension-system76-scheduler` from [kylegospo/system76-scheduler](https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/)
+- `gamemode` from [FeralInteractive](https://github.com/FeralInteractive/gamemode)
+- `inxi`
 - `lact` from [matte-schwartz](https://copr.fedorainfracloud.org/coprs/matte-schwartz/lact/)
-- [radeontop](https://packages.fedoraproject.org/pkgs/radeontop/radeontop)
+- `system76-scheduler` and `gnome-shell-extension-system76-scheduler` from [kylegospo/system76-scheduler](https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/)
+- `steam-devices`
+- `radeontop`
+
+> This version has the kernel default replaced with [CachyOS LTS](https://copr.fedorainfracloud.org/coprs/0xdeafbeef/kernel-cachyos/).
 
 ## Automatic updates
 `rpm-ostreed-automatic.timer` is set to 17:45 UTC daily. Feel free to override in `/etc/systemd/system/rpm-ostreed-automatic.timer.d/override.conf`.
@@ -138,9 +145,7 @@ The following extensions are explicitly installed via `gnome-extensions` module.
 
 # Installation
 
-> Do at your own risk. This build is a heavy work in progress and ~~even I don't use it on bare metal~~ while I do use it on my personal/work/production device, I cannot guarantee it will run 100% well on yours. Changes will be frequent, breaking or not.
-
-If you managed to even get here and read this far, first of all, why? Second of all, maybe you shouldn't, but if you insist, do try out and help me make this a better build (please).
+If you managed to even get here and read this far, first of all, why? Second of all, maybe you shouldn't, but if you insist, do try out and help me make this a better atomic image.
 
 ## Rebase
 To rebase from a Silverblue installation, follow the steps below.

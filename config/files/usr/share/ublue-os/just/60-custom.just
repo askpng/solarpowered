@@ -1,4 +1,4 @@
-# set kernel parameters for sysrq, thinkpad fan control, and i915 guc-fbc
+# [solarpowered-ex] set kernel parameters for sysrq, thinkpad fan control, and i915 guc-fbc
 set-kargs:
     rpm-ostree kargs \
       --append-if-missing="sysrq_always_enabled=1" \
@@ -34,7 +34,7 @@ install-system-flatpaks:
          io.github.dvlv.boxbuddyrs \
          org.mozilla.firefox
      
-# install t480s flatpaks
+# [solarpowered-ex] install t480s flatpaks
 # - tlp ui
 install-t480s-flatpaks:
     flatpak install --system flathub --noninteractive --assumeyes \
@@ -57,7 +57,7 @@ set-junction:
 set-flameshot:
      flatpak install --user --noninteractive --assumeyes org.flameshot.Flameshot && flatpak permission-set screenshot screenshot org.flameshot.Flameshot yes
 
-# set python3-validity
+# [solarpowered-ex] set python3-validity
 # NEEDS VALIDATION (lol)
 premature-set-fingerprint-sensor:
      sudo systemctl start python3-validity.service \
@@ -65,5 +65,9 @@ premature-set-fingerprint-sensor:
      sudo systemctl enable open-fprintd-resume.service open-fprintd-suspend.service open-fprintd.service python3-validity.service \
      sudo authselect enable-feature with-fingerprint \
      sudo authselect apply-changes \
-     sudo authselect current \
+     sudo authselect current
 
+# [solarpowered-ex] configure gamemode for the first time
+ex-configure-gamemode:
+     sudo usermod -a -G gamemode $(whoami)
+     echo "Configuration done. Reboot before using."

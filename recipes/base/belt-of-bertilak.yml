@@ -5,6 +5,7 @@ modules:
     repos:
       - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-%OS_VERSION%/zhangyuannie-butter-fedora-%OS_VERSION%.repo #butter
       - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
+      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo #starship
     install:
       - butter #butter from zhangyuannie/butter
       - epson-inkjet-printer-escpr
@@ -15,6 +16,7 @@ modules:
       - firewall-config
       - lm_sensors
       - pulseaudio-utils
+      - starship
       - wl-clipboard
       #blackbox-terminal
       - blackbox-terminal
@@ -32,6 +34,7 @@ modules:
       - vim-enhanced
       #unnecessary gnomies
       - gnome-software-rpm-ostree
+      - gnome-system-monitor
       - gnome-tour
       - gnome-terminal
       - gnome-terminal-nautilus
@@ -67,6 +70,7 @@ modules:
         - Ubuntu
         - UbuntuMono
       google-fonts:
+        - Kiwi Maru
         - Kosugi Maru
         - Martian Mono
         - Ruda

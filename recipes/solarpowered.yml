@@ -44,7 +44,7 @@ modules:
 
   - type: script
     scripts:
-      - cachy-lts-kernel.sh
+      - cachy-kernel.sh
 
   - type: systemd
     system:

@@ -39,7 +39,11 @@ modules:
       - power-profiles-daemon
       # throtled-conflicts
       - thermald
-  
+
+  - type: script
+    scripts:
+      - cachy-lts-kernel.sh
+
   - type: systemd
     system:
       enabled:

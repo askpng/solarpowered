@@ -25,7 +25,6 @@ modules:
       - nautilus-gsconnect
       #icons
       - morewaita-icon-theme #morewaita from dusansimic/themes
-      - papirus-icon-theme
     remove:
       - firefox
       - firefox-langpacks
@@ -70,7 +69,6 @@ modules:
         - Ubuntu
         - UbuntuMono
       google-fonts:
-        - Kiwi Maru
         - Kosugi Maru
         - Martian Mono
         - Ruda

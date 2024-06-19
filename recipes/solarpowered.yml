@@ -16,6 +16,8 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/abn/throttled/repo/fedora-%OS_VERSION%/abn-throttled-fedora-%OS_VERSION%.repo
       # sneexy/python-validity
       - https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/repo/fedora-%OS_VERSION%/sneexy-python-validity-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/0xdeafbeef/kernel-cachyos/repo/fedora-%OS_VERSION%/0xdeafbeef-kernel-cachyos-fedora-%OS_VERSION%.repo #cachy kernel
+      - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-addons-fedora-%OS_VERSION%.repo #cachy uksmd
     install:
       # igt-gpu-tools
       - igt-gpu-tools

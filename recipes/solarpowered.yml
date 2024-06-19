@@ -42,10 +42,6 @@ modules:
       # throtled-conflicts
       - thermald
 
-  - type: script
-    scripts:
-      - cachy-kernel.sh
-
   - type: systemd
     system:
       enabled:

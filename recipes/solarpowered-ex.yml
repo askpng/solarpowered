@@ -31,7 +31,7 @@ modules:
   
   - type: script
     scripts:
-      - kernel-override.sh
+      - cachy-lts-kernel.sh
       - block-ads.sh
 
   #base packages (belt of bertilak)

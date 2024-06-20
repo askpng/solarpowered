@@ -10,12 +10,10 @@ modules:
       - butter #butter from zhangyuannie/butter
       - epson-inkjet-printer-escpr
       - epson-inkjet-printer-escpr2
-      - evince
       - fastfetch
       - fish
       - firewall-config
       - lm_sensors
-      - pulseaudio-utils
       - starship
       - wl-clipboard
       #blackbox-terminal
@@ -72,6 +70,7 @@ modules:
         - Kosugi Maru
         - Martian Mono
         - Ruda
+        - Sintony
 
   - type: default-flatpaks
     system:

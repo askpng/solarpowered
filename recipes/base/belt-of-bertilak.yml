@@ -67,6 +67,7 @@ modules:
         - Ubuntu
         - UbuntuMono
       google-fonts:
+        - Fira Sans
         - Kosugi Maru
         - Martian Mono
         - Ruda

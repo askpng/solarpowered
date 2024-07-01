@@ -16,6 +16,7 @@ modules:
       - lm_sensors
       - starship
       - wl-clipboard
+      - xwaylandvideobridge
       #blackbox-terminal
       - blackbox-terminal
       #gsconnect
@@ -26,6 +27,9 @@ modules:
     remove:
       - firefox
       - firefox-langpacks
+      - google-noto-sans-balinese-fonts
+      - google-noto-sans-javanese-fonts
+      - google-noto-sans-sundanese-fonts
       - htop
       - nvtop
       - vim-enhanced
@@ -62,7 +66,7 @@ modules:
     fonts:
       nerd-fonts:
       #remember to not add spaces or Nerd Fonts suffix!
-        - JetBrainsMono
+      #  - JetBrainsMono
         - NerdFontsSymbolsOnly
         - Ubuntu
         - UbuntuMono

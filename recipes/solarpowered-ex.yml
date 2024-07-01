@@ -15,7 +15,7 @@ modules:
       #kylegospo/system76-scheduler
       - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/matte-schwartz/lact/repo/fedora-%OS_VERSION%/matte-schwartz-lact-fedora-%OS_VERSION%.repo #lact
-      - https://copr.fedorainfracloud.org/coprs/0xdeafbeef/kernel-cachyos/repo/fedora-%OS_VERSION%/0xdeafbeef-kernel-cachyos-fedora-%OS_VERSION%.repo #cachy kernel
+      - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-addons-fedora-%OS_VERSION%.repo#cachy kernel
       - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-addons-fedora-%OS_VERSION%.repo #cachy uksmd
     install:
       #- steam-devices

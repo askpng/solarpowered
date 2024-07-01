@@ -18,7 +18,9 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/0xdeafbeef/kernel-cachyos/repo/fedora-%OS_VERSION%/0xdeafbeef-kernel-cachyos-fedora-%OS_VERSION%.repo #cachy kernel
       - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-addons-fedora-%OS_VERSION%.repo #cachy uksmd
     install:
-      - steam-devices
+      #- steam-devices
+      #- steam
+      - openrgb
       - inxi
       #system76-scheduler
       - system76-scheduler
@@ -33,6 +35,7 @@ modules:
     scripts:
       - cachy-kernel.sh
       - block-ads.sh
+      - install-openrgb.sh
 
   #base packages (belt of bertilak)
   - from-file: base/belt-of-bertilak.yml

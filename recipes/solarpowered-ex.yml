@@ -5,6 +5,8 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 40
 
 modules:
+  - from-file: base/fsync-kernel.yml
+
   - type: files
     files:
       - usr: /usr
@@ -13,10 +15,9 @@ modules:
   - type: rpm-ostree
     repos:
       #kylegospo/system76-scheduler
-      - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo #system76-scheduler
       - https://copr.fedorainfracloud.org/coprs/matte-schwartz/lact/repo/fedora-%OS_VERSION%/matte-schwartz-lact-fedora-%OS_VERSION%.repo #lact
-      - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-fedora-%OS_VERSION%.repo #cachy kernel
-      - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-addons-fedora-%OS_VERSION%.repo #cachy uksmd
+
     install:
       #- steam-devices
       #- steam
@@ -33,12 +34,16 @@ modules:
   
   - type: script
     scripts:
-      - cachy-kernel.sh
       - block-ads.sh
       - install-openrgb.sh
 
   #base packages (belt of bertilak)
   - from-file: base/belt-of-bertilak.yml
+
+  - type: systemd
+    system:
+      enabled:
+        - com.system76.Scheduler.service
 
   - type: yafti
     custom-flatpaks:

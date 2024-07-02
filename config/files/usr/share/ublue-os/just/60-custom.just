@@ -1,4 +1,4 @@
-# [solarpowered-ex] set kernel parameters for sysrq, thinkpad fan control, and i915 guc-fbc
+# [solarpowered] set kernel parameters for sysrq, thinkpad fan control, and i915 guc-fbc
 set-kargs:
     rpm-ostree kargs \
       --append-if-missing="sysrq_always_enabled=1" \
@@ -7,10 +7,13 @@ set-kargs:
       --append-if-missing="i915.enable_fbc=1" \
       --append-if-missing="page_alloc.shuffle=1"
 
+# [solarpowered-ex] configure VRR
+ex-gnome-vrr:
+     gsettings set org.gnome.mutter experimental-features "['variable-refresh-rate']"
+
 # install user flatpak selection
 install-user-flatpaks:
      flatpak install --user flathub --noninteractive --assumeyes \
-         io.github.spacingbat3.webcord \
          com.vscodium.codium \
          com.bitwarden.desktop \
          com.quexten.Goldwarden \
@@ -19,7 +22,7 @@ install-user-flatpaks:
          io.github.nokse22.minitext \
          io.github.quodlibet.QuodLibet \
          io.github.shiftey.Desktop \
-         io.github.spacingbat3.webcord \
+         io.github.milkshiift.GoofCord \
          io.gitlab.librewolf-community \
          io.github.seadve.Kooha \
          org.chromium.Chromium \
@@ -34,7 +37,7 @@ install-system-flatpaks:
          io.github.dvlv.boxbuddyrs \
          org.mozilla.firefox
      
-# [solarpowered-ex] install t480s flatpaks
+# [solarpowered] install t480s flatpaks
 # - tlp ui
 install-t480s-flatpaks:
     flatpak install --system flathub --noninteractive --assumeyes \
@@ -55,19 +58,15 @@ set-junction:
 
 # install flameshot and grant screenshot permission
 set-flameshot:
-     flatpak install --user --noninteractive --assumeyes org.flameshot.Flameshot && flatpak permission-set screenshot screenshot org.flameshot.Flameshot yes
+     flatpak install --user --noninteractive --assumeyes org.flameshot.Flameshot
+     flatpak permission-set screenshot screenshot org.flameshot.Flameshot yes
 
 # [solarpowered-ex] set python3-validity
 # NEEDS VALIDATION (lol)
 premature-set-fingerprint-sensor:
-     sudo systemctl start python3-validity.service \
-     sudo systemctl start open-fprintd.service \
-     sudo systemctl enable open-fprintd-resume.service open-fprintd-suspend.service open-fprintd.service python3-validity.service \
-     sudo authselect enable-feature with-fingerprint \
-     sudo authselect apply-changes \
+     sudo systemctl start python3-validity.service
+     sudo systemctl start open-fprintd.service
+     sudo systemctl enable open-fprintd-resume.service open-fprintd-suspend.service open-fprintd.service python3-validity.service
+     sudo authselect enable-feature with-fingerprint
+     sudo authselect apply-changes
      sudo authselect current
-
-# [solarpowered-ex] configure gamemode for the first time
-ex-configure-gamemode:
-     sudo usermod -a -G gamemode $(whoami)
-     echo "Configuration done. Reboot before using."

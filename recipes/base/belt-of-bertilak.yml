@@ -5,7 +5,7 @@ modules:
     repos:
       - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-%OS_VERSION%/zhangyuannie-butter-fedora-%OS_VERSION%.repo #butter
       - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
-      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo #starship
+      - https://copr.fedorainfracloud.org/coprs/shdwchn10/AllTheTools/repo/fedora-%OS_VERSION%/shdwchn10-AllTheTools-fedora-%OS_VERSION%.repo #starship & topgrade
     install:
       - butter #butter from zhangyuannie/butter
       - epson-inkjet-printer-escpr
@@ -16,6 +16,7 @@ modules:
       - lm_sensors
       - pulseaudio-utils
       - starship
+      - topgrade
       - wl-clipboard
       #blackbox-terminal
       - blackbox-terminal

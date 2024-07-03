@@ -29,8 +29,8 @@ modules:
       # AMD stuff
       - lact
       - radeontop
-    #remove:
-      #- 
+    remove:
+      - power-profiles-daemon 
   
   - type: script
     scripts:

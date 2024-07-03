@@ -1,0 +1,92 @@
+name: solarpowered-raw
+description: Custom desktop image based on the official Fedora image
+
+base-image: ghcr.io/fedora/fedora-silverblue
+image-version: 40
+
+modules:
+  - from-file: kernels/fsync-kernel.yml
+
+  - type: files
+    files:
+      - usr: /usr
+  
+  - type: rpm-ostree
+    repos:
+      # rpmfusion
+      - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
+      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+    install:
+      # basic stuff
+      - adw-gtk3-theme
+      - alsa-firmware
+      - distrobox
+      - ffmpeg
+      - ffmpeg-libs
+      - ffmpegthumbnailer
+      - flatpak-spawn
+      - gnome-epub-thumbnailer
+      - gnome-tweaks
+      - gvfs-nfs
+      - heif-pixbuf-loader
+      - inxi
+      - intel-media-driver
+      - just
+      - openrgb
+      - libheif-freeworld
+      - libheif-tools
+      - libva-utils
+      - openrgb-udev-rules
+      - openssl
+      - pipewire-codec-aptx
+      - wireguard-tools
+      - zstd
+      # igt-gpu-tools
+      - igt-gpu-tools
+      # luminance
+      - https://github.com/sidevesh/Luminance/releases/download/1.1.0/luminance-1.1.0.rpm
+      #system76-scheduler
+      - system76-scheduler
+      - gnome-shell-extension-system76-scheduler
+      # AMD stuff
+      - lact
+      - radeontop
+    remove:
+      - power-profiles-daemon
+  
+  - type: script
+    scripts:
+      - raw/disable-repos.sh
+      - block-ads.sh
+      - install-openrgb.sh
+
+  #base packages (belt of bertilak)
+  - from-file: base/belt-of-bertilak.yml
+
+  - type: systemd
+    system:
+      enabled:
+        - com.system76.Scheduler.service
+
+  - type: yafti
+    custom-flatpaks:
+      #gaming
+      - Cartridges: page.kramo.Cartridges
+      - Celeste: com.hunterwittenborn.Celeste
+      - Heroic Games Launcher: com.heroicgameslauncher.hgl
+      - Itch.io: io.itch.itch
+      - Lutris: net.lutris.Lutris
+      - ProtonPlus: com.vysp3r.ProtonPlus
+      - Ryujinx: org.ryujinx.Ryujinx
+      - Steam: com.valvesoftware.Steam
+      - Adwaita for Steam: io.github.Foldex.AdwSteamGtk
+      #media
+      - Celluloid: io.github.celluloid_player.Celluloid
+      - Parabolic: org.nickvision.tubeconverter
+      #utilities
+      - Bitwarden: com.bitwarden.desktop
+      - Github Desktop: io.github.shiftey.Desktop
+      - Main Menu: page.codeberg.libre_menu_editor.LibreMenuEditor
+
+  - type: signing
+

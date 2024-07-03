@@ -1,7 +1,7 @@
 name: solarpowered-raw
 description: Custom desktop image based on the official Fedora image
 
-base-image: ghcr.io/fedora/fedora-silverblue
+base-image: quay.io/fedora/fedora-silverblue
 image-version: 40
 
 modules:

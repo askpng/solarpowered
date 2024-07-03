@@ -14,9 +14,9 @@ modules:
       - fish
       - firewall-config
       - lm_sensors
+      - pulseaudio-utils
       - starship
       - wl-clipboard
-      - xwaylandvideobridge
       #blackbox-terminal
       - blackbox-terminal
       #gsconnect

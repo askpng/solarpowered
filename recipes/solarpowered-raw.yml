@@ -10,12 +10,15 @@ modules:
   - type: files
     files:
       - usr: /usr
-  
+
+  - type: script
+    scripts:
+      - raw/rpmfusion.sh
+
   - type: rpm-ostree
     repos:
-      # rpmfusion
-      - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
-      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+      - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo #system76-scheduler
+      - https://copr.fedorainfracloud.org/coprs/matte-schwartz/lact/repo/fedora-%OS_VERSION%/matte-schwartz-lact-fedora-%OS_VERSION%.repo #lact
     install:
       # basic stuff
       - adw-gtk3-theme
@@ -58,7 +61,6 @@ modules:
     scripts:
       - raw/disable-repos.sh
       - block-ads.sh
-      - install-openrgb.sh
 
   #base packages (belt of bertilak)
   - from-file: base/belt-of-bertilak.yml

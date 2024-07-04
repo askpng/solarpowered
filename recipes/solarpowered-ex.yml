@@ -14,7 +14,6 @@ modules:
   #EX/desktop exclusives
   - type: rpm-ostree
     repos:
-      #kylegospo/system76-scheduler
       - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo #system76-scheduler
       - https://copr.fedorainfracloud.org/coprs/matte-schwartz/lact/repo/fedora-%OS_VERSION%/matte-schwartz-lact-fedora-%OS_VERSION%.repo #lact
 
@@ -27,6 +26,7 @@ modules:
       - system76-scheduler
       - gnome-shell-extension-system76-scheduler
       # AMD stuff
+      - https://github.com/Umio-Yasuno/amdgpu_top/releases/download/v0.8.5/amdgpu_top-0.8.5-1.x86_64.rpm
       - lact
       - radeontop
     remove:

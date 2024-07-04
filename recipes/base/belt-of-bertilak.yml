@@ -23,6 +23,8 @@ modules:
       #gsconnect
       - gnome-shell-extension-gsconnect
       - nautilus-gsconnect
+      # luminance
+      - https://github.com/sidevesh/Luminance/releases/download/1.1.0/luminance-1.1.0.rpm
       #icons
       - morewaita-icon-theme #morewaita from dusansimic/themes
     remove:

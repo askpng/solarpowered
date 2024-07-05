@@ -20,10 +20,7 @@ modules:
     install:
       # controllers
       - steam-devices
-      - joystick-support
-      - linuxconsoletools
       - jstest-gtk
-      - xpadneo
       #- steam
       - openrgb
       - inxi

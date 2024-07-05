@@ -25,7 +25,7 @@ Fetch. (More will come!)
 | --- | --- | --- | --- |
 | **Status** | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) </center> | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) </center> | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-pro.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-pro.yml) </center> |
 | **Description** | This image contains packages optimized for Lenovo T480s. | This image is a work-in-progress for my future AMD desktop. | This is an experimental build which tweaks [Bluefin](https://github.com/ublue-os/bluefin). |
-| **Functional status** | Functional (stable daily drive) | Functional (in theory) | Untested | 
+| **Functional status** | Functional (stable daily drive) | Functional (stable daily drive) | Untested | 
 | **Scheduled build** | 17:00 UTC on Tuesdays | 17:00 UTC on Saturdays | 17:00 UTC on Saturdays |
 
 </center>
@@ -44,8 +44,10 @@ In addition to the default packages installed in the `silverblue-main` base imag
 - `firewall-config`
 - `gnome-shell-extension-gsconnect` and `nautilus-gsconnect`
 - `lm_sensors`
+- `luminance` by [sidevesh](https://github.com/sidevesh/Luminance)
 - `pulseaudio-utils`
 - `starship`
+- `topgrade`
 - `wl-clipboard`
 
 The following packages are removed from the base image.
@@ -92,15 +94,36 @@ The following packages are explicitly removed from the base image due to conflic
 `tlp.service` is enabled by default. `systemd-rfkill.{service,socket}` is disabled by default.
 
 ### solarpowered-ex: Desktop exclusive packages
-This is a work-in-progress. My computer system will be AMD and will be used for gaming purposes on top of multimedia uses, so I am looking into things that I will need to do and/or install. So far I have decided on:
+This configuration is intended to support my desktop configuration. Changes to this image will be frequent.
 
+<details>
+  <summary>Desktop configuration details</summary>
+  
+  | Type | Model|
+  | --- | --- |
+  | Motherboard | ASRock B550M WiFi SE |
+  | CPU | AMD Ryzen 5 5600 |
+  | GPU | Sapphire AMD Navi 23 Radeon RX 6600 |
+  | Wireless adapter | Intel Dual Band Wireless-AC 3168NGW |
+  | Bluetooth adapter | Intel Wireless-AC 3168 Bluetooth |
+  | Storage | [Solidigm P41 Plus 1 TB](https://www.solidigm.com/products/client/plus-series/p41.html) |
+  | Controller | [Fantech Nova PRO WGP14V2 STARONE](https://fantechworld.com/products/nova-pro-wgp14v2) recognized as `Sony DualShock 4 [CUH-ZCT2x]` |
+
+</details>
+
+> This version has the kernel default replaced with [fsync kernel](https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/)
+
+- `amdgpu_top` from [Umio-Yasuno](https://github.com/Umio-Yasuno/amdgpu_top)
 - `inxi`
+- `joystick-support`
+- `jstest-gtk`
 - `lact` from [matte-schwartz](https://copr.fedorainfracloud.org/coprs/matte-schwartz/lact/)
-- `system76-scheduler` and `gnome-shell-extension-system76-scheduler` from [kylegospo/system76-scheduler](https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/)
-- `steam-devices`
+- `linuxconsoletools`
+- `openrgb`
 - `radeontop`
-
-> This version has the kernel default replaced with [CachyOS LTS](https://copr.fedorainfracloud.org/coprs/0xdeafbeef/kernel-cachyos/).
+- `steam-devices`
+- `system76-scheduler` and `gnome-shell-extension-system76-scheduler` from [kylegospo/system76-scheduler](https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/)
+- `xpadneo`
 
 ## Automatic updates
 `rpm-ostreed-automatic.timer` is set to 17:45 UTC daily. Feel free to override in `/etc/systemd/system/rpm-ostreed-automatic.timer.d/override.conf`.

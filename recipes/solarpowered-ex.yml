@@ -18,7 +18,10 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/matte-schwartz/lact/repo/fedora-%OS_VERSION%/matte-schwartz-lact-fedora-%OS_VERSION%.repo #lact
 
     install:
-      #- steam-devices
+      - steam-devices
+      - joystick-support
+      - linuxconsoletools
+      - jstest-gtk
       #- steam
       - openrgb
       - inxi

@@ -22,8 +22,9 @@ modules:
       - steam-devices
       - jstest-gtk
       #- steam
-      - openrgb
       - inxi
+      - mangohud
+      - goverlay
       #system76-scheduler
       - system76-scheduler
       - gnome-shell-extension-system76-scheduler
@@ -31,6 +32,7 @@ modules:
       - https://github.com/Umio-Yasuno/amdgpu_top/releases/download/v0.8.5/amdgpu_top-0.8.5-1.x86_64.rpm
       - lact
       - radeontop
+      - openrgb
     remove:
       - power-profiles-daemon 
   

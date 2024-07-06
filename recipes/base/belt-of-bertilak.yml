@@ -76,8 +76,6 @@ modules:
       google-fonts:
         - Fira Sans
         - Kosugi Maru
-        - Martian Mono
-        - Ruda
         - Sintony
 
   - type: default-flatpaks

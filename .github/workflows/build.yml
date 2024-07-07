@@ -1,7 +1,7 @@
 name: solarpowered
 on:
   schedule:
-    - cron: "00 17 * * 2" # build at 17:00 UTC every Tuesday
+    - cron: "00 17 * * 6" # build at 17:00 UTC every Saturday
     
   push:
     paths:

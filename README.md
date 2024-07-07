@@ -26,7 +26,7 @@ Fetch. (More will come!)
 | **Status** | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) </center> | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) </center> | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-pro.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-pro.yml) </center> |
 | **Description** | This image contains packages optimized for Lenovo T480s. | This image is a work-in-progress for my future AMD desktop. | This is an experimental build which tweaks [Bluefin](https://github.com/ublue-os/bluefin). |
 | **Functional status** | Functional (stable daily drive) | Functional (stable daily drive) | Untested | 
-| **Scheduled build** | 17:00 UTC on Tuesdays | 17:00 UTC on Saturdays | 17:00 UTC on Saturdays |
+| **Scheduled build** | 17:00 UTC on Saturdays | 17:00 UTC on Saturdays | 17:00 UTC on Saturdays |
 
 </center>
 
@@ -126,7 +126,7 @@ This configuration is intended to support my desktop configuration. Changes to t
 - `xpadneo`
 
 ## Automatic updates
-`rpm-ostreed-automatic.timer` is set to 17:45 UTC daily. Feel free to override in `/etc/systemd/system/rpm-ostreed-automatic.timer.d/override.conf`.
+Override automatic updates by creating `/etc/systemd/system/rpm-ostreed-automatic.timer.d/override.conf`.
 
 ## Flatpak
 The following apps are installed as *system* Flatpaks by default.

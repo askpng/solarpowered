@@ -1,7 +1,0 @@
-[Timer]
-RandomizedDelaySec=10m
-OnCalendar=*-*-* 05:00:00 UTC
-Persistent=true
-
-[Install]
-WantedBy=timers.target

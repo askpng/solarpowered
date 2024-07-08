@@ -1,6 +1,0 @@
-[Unit]
-Description=Automatically update all distroboxes
-[Service]
-Type=simple
-ExecStart=distrobox-upgrade --all
-StandardOutput=null

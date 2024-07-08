@@ -1,0 +1,11 @@
+[Unit]
+Description=Topgrade update service timer
+
+[Timer]
+RandomizedDelaySec=5m
+OnBootSec=2m
+OnCalendar=*-*-* 12:00:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

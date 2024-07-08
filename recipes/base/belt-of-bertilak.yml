@@ -68,20 +68,17 @@ modules:
   - type: fonts
     fonts:
       nerd-fonts:
-      #remember to not add spaces or Nerd Fonts suffix!
-      #  - JetBrainsMono
         - NerdFontsSymbolsOnly
-        - Ubuntu
         - UbuntuMono
       google-fonts:
         - Fira Sans
         - Kosugi Maru
-        - Sintony
 
   - type: default-flatpaks
     system:
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      repo-name: flathub
       install:
-        - app.devsuite.Ptyxis
         - com.github.tchx84.Flatseal
         - com.github.rafostar.Clapper
         - com.mattjakeman.ExtensionManager
@@ -102,6 +99,10 @@ modules:
     system:
       disabled:
         - NetworkManager-wait-online.service
+        - flatpak-system-update.timer
+        - flatpak-system-update.service
+        - flatpak-user-update.timer
+        - flatpak-user-update.service
 
   #DO NOT UNCOMMENT BEFORE EVERYTHING
   #IS PROPERLY CONFIGURED AND TESTED

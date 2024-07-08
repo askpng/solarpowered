@@ -16,20 +16,14 @@ modules:
     repos:
       - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo #system76-scheduler
       - https://copr.fedorainfracloud.org/coprs/matte-schwartz/lact/repo/fedora-%OS_VERSION%/matte-schwartz-lact-fedora-%OS_VERSION%.repo #lact
-      - https://copr.fedorainfracloud.org/coprs/atim/xpadneo/repo/fedora-%OS_VERSION%/atim-xpadneo-fedora-%OS_VERSION%.repo # xpadneo
     install:
-      # controllers
-      - steam-devices
-      - jstest-gtk
-      #- steam
       - inxi
       - mangohud
       - goverlay
       #system76-scheduler
       - system76-scheduler
       - gnome-shell-extension-system76-scheduler
-      # AMD stuff
-      - https://github.com/Umio-Yasuno/amdgpu_top/releases/download/v0.8.5/amdgpu_top-0.8.5-1.x86_64.rpm
+      #AMD stuff
       - lact
       - radeontop
       - openrgb
@@ -49,24 +43,10 @@ modules:
       enabled:
         - com.system76.Scheduler.service
 
-  - type: yafti
-    custom-flatpaks:
-      #gaming
-      - Cartridges: page.kramo.Cartridges
-      - Celeste: com.hunterwittenborn.Celeste
-      - Heroic Games Launcher: com.heroicgameslauncher.hgl
-      - Itch.io: io.itch.itch
-      - Lutris: net.lutris.Lutris
-      - ProtonPlus: com.vysp3r.ProtonPlus
-      - Ryujinx: org.ryujinx.Ryujinx
-      - Steam: com.valvesoftware.Steam
-      - Adwaita for Steam: io.github.Foldex.AdwSteamGtk
-      #media
-      - Celluloid: io.github.celluloid_player.Celluloid
-      - Parabolic: org.nickvision.tubeconverter
-      #utilities
-      - Bitwarden: com.bitwarden.desktop
-      - Github Desktop: io.github.shiftey.Desktop
-      - Main Menu: page.codeberg.libre_menu_editor.LibreMenuEditor
+  #DO NOT UNCOMMENT BEFORE EVERYTHING
+  #IS PROPERLY CONFIGURED AND TESTED
+  #- type: gschema-overrides
+    #include:
+      #- z0-pbuild-custom.gschema.override
 
   - type: signing

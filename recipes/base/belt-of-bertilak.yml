@@ -58,6 +58,7 @@ modules:
       - Alphabetical App Grid
       - AppIndicator and KStatusNotifierItem Support
       - Blur my Shell
+      - Bluetooth battery indicator
       - Caffeine
       - Dash to Dock
       - Just Perfection

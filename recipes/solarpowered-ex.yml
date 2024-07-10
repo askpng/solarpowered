@@ -27,8 +27,8 @@ modules:
       - lact
       - radeontop
       - openrgb
-    remove:
-      - power-profiles-daemon 
+    #remove:
+      #- power-profiles-daemon 
   
   - type: script
     scripts:

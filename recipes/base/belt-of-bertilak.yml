@@ -74,6 +74,7 @@ modules:
       google-fonts:
         - Fira Sans
         - Kosugi Maru
+        - Victor Mono
 
   - type: default-flatpaks
     system:

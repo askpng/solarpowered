@@ -1,0 +1,8 @@
+[Unit]
+Description=B550 boards suspend fix
+
+[Service]
+ExecStart=/bin/sh -c "/bin/echo GPP0 > /proc/acpi/wakeup"
+
+[Install]
+WantedBy=multi-user.target

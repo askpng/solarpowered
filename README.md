@@ -37,7 +37,7 @@ In addition to the default packages installed in the `silverblue-main` base imag
 > Packages are being adjusted very frequently and the README is not always up-to-date. Refer to the `.yml`s instead.
 
 - `butter` by [zhangyuannie](https://github.com/zhangyuannie/butter) for BTRFS snapshots (I don't do BTRFS snapshot restores, but it's still nice to have. Might eventually switch to BTRFS Assistant for the maintenance utilities)
-- `blackbox-terminal` as the default fallback terminal
+- `blackbox-terminal` as the default terminal
 - `epson-inkjet-printer-escpr` and `epson-inkjet-printer-escpr2`
 - `fastfetch`
 - `fish`
@@ -63,17 +63,15 @@ The following packages are removed from the base image.
 These icon themes are installed.
 
 - [Morewaita](https://github.com/somepaulo/MoreWaita)
-- [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)
 
 ### Fonts
 These fonts are installed via the `fonts` module.
 
-- JetBrains Mono
-- [Kosugi Maru](https://fonts.google.com/specimen/Kosugi+Maru)
-- [Martian Mono](https://fonts.google.com/specimen/Martian+Mono)
+- Fira Sans
+- Kosugi Maru
 - Nerd Fonts Symbols Only
-- [Ruda](https://fonts.google.com/specimen/Ruda)
-- Ubuntu, Ubuntu Mono
+- Ubuntu Mono
+- Victor Mono
 
 ### solarpowered: T480/s exclusive packages
 The following packages are installed by default for improving Lenovo T480/s power management, performance, and features:
@@ -107,23 +105,24 @@ This configuration is intended to support my desktop configuration. Changes to t
   | Wireless adapter | Intel Dual Band Wireless-AC 3168NGW |
   | Bluetooth adapter | Intel Wireless-AC 3168 Bluetooth |
   | Storage | [Solidigm P41 Plus 1 TB](https://www.solidigm.com/products/client/plus-series/p41.html) |
-  | Controller | [Fantech Nova PRO WGP14V2 STARONE](https://fantechworld.com/products/nova-pro-wgp14v2) recognized as `Sony DualShock 4 [CUH-ZCT2x]` |
+  | Controller | [Fantech Nova PRO WGP14V2](https://fantechworld.com/products/nova-pro-wgp14v2) recognized as `Sony DualShock 4 [CUH-ZCT2x]` |
 
 </details>
 
 > This version has the kernel default replaced with [fsync kernel](https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/)
 
-- `amdgpu_top` from [Umio-Yasuno](https://github.com/Umio-Yasuno/amdgpu_top)
+- `goverlay`
 - `inxi`
-- `joystick-support`
-- `jstest-gtk`
 - `lact` from [matte-schwartz](https://copr.fedorainfracloud.org/coprs/matte-schwartz/lact/)
-- `linuxconsoletools`
-- `openrgb`
+- `mangohud`
 - `radeontop`
-- `steam-devices`
 - `system76-scheduler` and `gnome-shell-extension-system76-scheduler` from [kylegospo/system76-scheduler](https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/)
-- `xpadneo`
+
+#### B550 suspend fix
+
+This image includes the fix to [B550 boards suspend issue](https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#PC_will_not_wake_from_sleep_on_A520I_and_B550I_motherboards). If your computer is affected, enable it with the following command:
+
+```sudo systemctl enable --now b550-suspend-fix.service```
 
 ## Automatic updates
 Override automatic updates by creating `/etc/systemd/system/rpm-ostreed-automatic.timer.d/override.conf`.
@@ -131,7 +130,7 @@ Override automatic updates by creating `/etc/systemd/system/rpm-ostreed-automati
 ## Flatpak
 The following apps are installed as *system* Flatpaks by default.
 
-> Eventually Flatpaks in `default-flatpaks.yml` will be stripped down to just the essentials; the remaining system and user Flatpaks will be available for batch installation via `ujust` scripts.
+> `default-flatpaks` seem to not be working as I intend it to right now. 
 
 - Clapper
 - Extension Manager
@@ -154,6 +153,7 @@ The following apps are installed as *system* Flatpaks by default.
 
 ## GNOME Extensions
 The following extensions are explicitly installed via `gnome-extensions` module. Eventually will be replaced with GSettings schemas. 
+
 - Alphabetical App Grid
 - AppIndicators Support
 - Blur My Shell
@@ -163,7 +163,6 @@ The following extensions are explicitly installed via `gnome-extensions` module.
 - Light Style
 - Logo Menu
 - Night Theme Switcher
-- ~~QSTweak~~ currently not included due to the changes in the BlueBuild `gnome-extensions` module
 
 # Installation
 
@@ -172,7 +171,7 @@ If you managed to even get here and read this far, first of all, why? Second of 
 ## Rebase
 To rebase from a Silverblue installation, follow the steps below.
 
-## T480/s image
+### T480/s image
 1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot automatically:
   ```
   rpm-ostree rebase ostree-unverified-registry:ghcr.io/askpng/solarpowered:latest --reboot
@@ -182,7 +181,7 @@ To rebase from a Silverblue installation, follow the steps below.
   rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/solarpowered:latest --reboot
   ```
 
-## EX/desktop image
+### EX/desktop image
 1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot automatically:
   ```
   rpm-ostree rebase ostree-unverified-registry:ghcr.io/askpng/solarpowered-ex:latest --reboot

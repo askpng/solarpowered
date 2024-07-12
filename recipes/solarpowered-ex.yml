@@ -26,9 +26,6 @@ modules:
       #AMD stuff
       - lact
       - radeontop
-      - openrgb
-    #remove:
-      #- power-profiles-daemon 
   
   - type: script
     scripts:

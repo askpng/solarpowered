@@ -17,6 +17,7 @@ modules:
       - pulseaudio-utils
       - starship
       - topgrade
+      - waydroid
       - wl-clipboard
       #blackbox-terminal
       - blackbox-terminal

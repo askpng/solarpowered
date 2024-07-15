@@ -13,7 +13,9 @@ modules:
       - fastfetch
       - fish
       - firewall-config
+      - input-remapper
       - lm_sensors
+      - playerctl
       - pulseaudio-utils
       - starship
       - topgrade
@@ -110,5 +112,11 @@ modules:
   #DO NOT UNCOMMENT BEFORE EVERYTHING
   #IS PROPERLY CONFIGURED AND TESTED
   #- type: gschema-overrides
-    #include:
-      #- z0-pbuild-custom.gschema.override
+  #  include:
+  #    - 01-org-gnome-shell-extensions.gschema.override
+  #    - 02-org-gnome-desktop-background.gschema.override
+  #    - 03-org-gnome-desktop-interface.gschema.override
+  #    - 05-org-gnome-desktop-wm-preferences.gschema.override
+  #    - 06-org-gnome-software.gschema.override
+  #    - 08-org-gnome-desktop-interface.gschema.override
+  #    - 09-org-gnome-mutter.gschema.override

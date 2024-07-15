@@ -1,0 +1,12 @@
+[org.gnome.shell.extensions.dash-to-panel]
+
+appicon-margin=1
+appicon-padding=1
+appicon-style='NORMAL'
+dot-color-dominant=true
+dot-size=2
+dot-style-focused='METRO'
+dot-style-unfocused='DASHES'
+focus-highlighted=true
+focus-highlight-dominant=false
+hide-overview-on-startup=true

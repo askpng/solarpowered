@@ -1,0 +1,3 @@
+[org.gnome.desktop.wm.preferences]
+action-double-click-titlebar='toggle-maximize'
+button-layout='appmenu:close'

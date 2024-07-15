@@ -1,0 +1,10 @@
+[org.gnome.shell]
+
+## user extensions ##
+
+disable-user-extensions=false
+enabled-extensions = ['AlphabeticalAppGrid@stuarthayhurst', 'caffeine@patapon.info', 'gsconnect@andyholmes.github.io', 'quick-settings-tweaks@qwreey', 'nightthemeswitcher@romainvigier.fr', 'appindicatorsupport@rgcjonas.gmail.com'']
+
+## pinned apps ##
+
+favorite-apps = ['org.mozilla.firefox.desktop', io.github.milkshiift.GoofCord, 'io.github.spacingbat3.webcord.desktop', 'com.spotify.Client.desktop', 'io.github.quodlibet.QuodLibet.desktop', 'io.github.celluloid_player.Celluloid.desktop', 'page.kramo.Cartridges', 'org.gnome.Evolution.desktop', 'org.gnome.Nautilus.desktop', 'io.missioncenter.MissionCenter', 'io.github.nokse22.minitext.desktop', 'org.gnome.TextEditor.desktop', 'com.vscodium.codium.desktop', 'io.github.shiftey.Desktop']

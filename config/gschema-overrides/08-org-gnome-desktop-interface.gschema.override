@@ -1,0 +1,3 @@
+[org.gnome.desktop.interface]
+gtk-theme='adw-gtk3'
+show-battery-percentage=true

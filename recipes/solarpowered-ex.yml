@@ -43,7 +43,7 @@ modules:
   #DO NOT UNCOMMENT BEFORE EVERYTHING
   #IS PROPERLY CONFIGURED AND TESTED
   #- type: gschema-overrides
-    #include:
-      #- z0-pbuild-custom.gschema.override
+  #  include:
+  #    - 07-org-gnome-shell-extensions-dash-to-panel.gschema.override
 
   - type: signing

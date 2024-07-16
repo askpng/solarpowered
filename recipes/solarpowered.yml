@@ -55,5 +55,12 @@ modules:
   #base packages (belt of bertilak)
   - from-file: base/belt-of-bertilak.yml
   
+  #DO NOT UNCOMMENT BEFORE EVERYTHING
+  #IS PROPERLY CONFIGURED AND TESTED
+  #- type: gschema-overrides
+  #  include:
+  #    - 04-org-gnome-touchpad.gschema.override
+  #    - 07-org-gnome-shell-extensions-dash-to-dock.gschema.override
+
   - type: signing
 

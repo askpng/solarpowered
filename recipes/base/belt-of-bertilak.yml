@@ -13,11 +13,13 @@ modules:
       - fastfetch
       - fish
       - firewall-config
+      - ibus-mozc
       - input-remapper
       - lm_sensors
       - playerctl
       - pulseaudio-utils
       - starship
+      - steam-devices
       - topgrade
       - waydroid
       - wl-clipboard

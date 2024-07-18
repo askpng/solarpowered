@@ -16,6 +16,7 @@ modules:
       - ibus-mozc
       - input-remapper
       - lm_sensors
+      - lzip
       - playerctl
       - pulseaudio-utils
       - starship

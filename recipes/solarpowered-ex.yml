@@ -15,7 +15,6 @@ modules:
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo #system76-scheduler
-      - https://copr.fedorainfracloud.org/coprs/matte-schwartz/lact/repo/fedora-%OS_VERSION%/matte-schwartz-lact-fedora-%OS_VERSION%.repo #lact
     install:
       - inxi
       - mangohud
@@ -24,7 +23,7 @@ modules:
       - system76-scheduler
       - gnome-shell-extension-system76-scheduler
       #AMD stuff
-      - lact
+      - https://github.com/ilya-zlobintsev/LACT/releases/download/v0.5.5/lact-0.5.5-0.x86_64.fedora-40.rpm
       - radeontop
   
   - type: script

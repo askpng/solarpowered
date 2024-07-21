@@ -4,7 +4,8 @@ Description=Topgrade update service timer
 [Timer]
 RandomizedDelaySec=5m
 OnBootSec=2m
-OnCalendar=*-*-* 12:00:00 UTC
+OnUnitActiveSec=12h
+# OnCalendar=*-*-* 12:00:00 UTC
 Persistent=true
 
 [Install]

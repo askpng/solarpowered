@@ -17,7 +17,6 @@ modules:
       - input-remapper
       - lm_sensors
       - playerctl
-      - ptyxis
       - pulseaudio-utils
       - starship
       - steam-devices

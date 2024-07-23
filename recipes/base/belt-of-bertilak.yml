@@ -32,8 +32,8 @@ modules:
       #icons
       - morewaita-icon-theme #morewaita from dusansimic/themes
       #waydroid
-      #- lzip
-      #- waydroid
+      - lzip
+      - waydroid
     remove:
       - firefox
       - firefox-langpacks

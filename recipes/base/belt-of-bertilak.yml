@@ -41,7 +41,6 @@ modules:
       - google-noto-sans-javanese-fonts
       - google-noto-sans-sundanese-fonts
       - htop
-      - nvtop
       - vim-enhanced
       #unnecessary gnomies
       - gnome-software-rpm-ostree

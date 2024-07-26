@@ -5,7 +5,7 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 40
 
 modules:
-  - from-file: kernels/fsync-kernel.yml
+  #- from-file: kernels/fsync-kernel.yml
 
   - type: files
     files:
@@ -38,6 +38,7 @@ modules:
     system:
       enabled:
         - com.system76.Scheduler.service
+        - lactd.service
 
   #DO NOT UNCOMMENT BEFORE EVERYTHING
   #IS PROPERLY CONFIGURED AND TESTED

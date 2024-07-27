@@ -10,6 +10,3 @@ set -oue pipefail
 # Your code goes here.
 echo 'Replace default kernel with fsync kernel'
 rpm-ostree override replace --experimental --freeze --from repo='copr:copr.fedorainfracloud.org:sentry:kernel-fsync' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
-
-echo 'Exclude official kernel from updates'
-sed -i '/^\[updates\]/a\exclude\=kernel\*' /etc/yum.repos.d/fedora-updates.repo

@@ -80,6 +80,7 @@ modules:
       google-fonts:
         - Fira Sans
         - Kosugi Maru
+        - Ruda
         - Victor Mono
 
   - type: default-flatpaks

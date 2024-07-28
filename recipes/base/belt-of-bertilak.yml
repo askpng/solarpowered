@@ -18,6 +18,7 @@ modules:
       - lm_sensors
       - playerctl
       - pulseaudio-utils
+      - rsms-inter-fonts
       - starship
       - steam-devices
       - topgrade
@@ -41,7 +42,6 @@ modules:
       - google-noto-sans-javanese-fonts
       - google-noto-sans-sundanese-fonts
       - htop
-      - vim-enhanced
       #unnecessary gnomies
       - gnome-software-rpm-ostree
       - gnome-system-monitor
@@ -84,9 +84,10 @@ modules:
         - Victor Mono
 
   - type: default-flatpaks
+    notify: true
     system:
       repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      repo-name: flathub
+      repo-name: flathub-system
       install:
         - com.github.tchx84.Flatseal
         - com.github.rafostar.Clapper

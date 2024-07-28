@@ -7,3 +7,8 @@ modules:
   - type: script
     scripts:
       - cachy-kernel.sh
+
+  - type: systemd
+    system:
+      enabled:
+        - uksmd.service

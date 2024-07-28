@@ -1,32 +1,25 @@
 # <center>☀️ solarpowered ☀️</center>
 
-I started solarpowered as a learning project. My main goal is to better understand OCI images as a concept and in practice. Another goal is to eventually end up with the ideal base image for my laptop and future devices.
+solarpowered is a learning and hobby project. My main goal is to better understand OCI images as a concept and in practice, and to eventually end up with the ideal base image for my laptop and future devices.
 
-This image without a doubt contains half-baked functionalities, unoptimized codes and roundabout approaches. I *am* however learning to correct these errors and find more straightforward means of achieving what I want!
+These images boot and are fully functional for daily operations - further than that, I do not guarantee anything.
 
 ## Why did you name this 'solarpowered'?
 Because I like Gawain from Fate/Extra & Fate/Grand Order.
 
-## Fetch?
-
-Fetch. (More will come!)
-
-![solarpowered fastfetch](/config/files/usr/etc/fastfetch/sample.png)
-
 # Image details
 - [BlueBuild Template](https://github.com/blue-build/template) with actions set up. WIthout BlueBuild, I would never have come up with the idea of exploring OCI images.
-- [silverblue-main](https://github.com/ublue-os/main/pkgs/container/silverblue-main) as base image for solarpowered and solarpowered-ex.
-- [Bluefin](https://github.com/ublue-os/bluefin) as base image for solarpowered-pro.
+- [silverblue-main](https://github.com/ublue-os/main/pkgs/container/silverblue-main) as base image for solarpowered and solarpowered-ex. Only the latest Fedora relase is supported. Release versions will be bumped 1-2 months after it is made available for public.
 
 ## Build status
 <center>
 
-| | solarpowered / T480s image | solarpowered-ex / desktop image | solarpowered-pro / HIGHLY EXPERIMENTAL |
-| --- | --- | --- | --- |
-| **Status** | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) </center> | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) </center> | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-pro.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-pro.yml) </center> |
-| **Description** | This image contains packages optimized for Lenovo T480s. | This image is a work-in-progress for my future AMD desktop. | This is an experimental build which tweaks [Bluefin](https://github.com/ublue-os/bluefin). |
-| **Functional status** | Functional (stable daily drive) | Functional (stable daily drive) | Untested | 
-| **Scheduled build** | 03:00 UTC on Fridays | 03:00 UTC on Fridays | 03:00 UTC on Fridays |
+| | solarpowered / T480s image | solarpowered-ex / desktop image
+| --- | --- | --- |
+| **Status** | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) </center> | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) </center> |
+| **Description** | This image contains fingerprint drivers and power management tools for Lenovo T480/s. | This image is built to support my AMD computer. Intended for daily use, multimedia, and gaming. |
+| **Functional status** | Fully functional | Fully functional |
+| **Scheduled build** | 03:00 UTC on Fridays | 03:00 UTC on Fridays |
 
 </center>
 
@@ -34,7 +27,7 @@ Fetch. (More will come!)
 
 In addition to the default packages installed in the `silverblue-main` base image, the following packages are installed by default. 
 
-> Packages are being adjusted very frequently and the README is not always up-to-date. Refer to the `.yml`s instead.
+> Change is frequent and the README is not always up-to-date. 
 
 - `butter` by [zhangyuannie](https://github.com/zhangyuannie/butter) for BTRFS snapshots (I don't do BTRFS snapshot restores, but it's still nice to have. Might eventually switch to BTRFS Assistant for the maintenance utilities)
 - `blackbox-terminal` as the default terminal
@@ -43,18 +36,21 @@ In addition to the default packages installed in the `silverblue-main` base imag
 - `fish`
 - `firewall-config`
 - `gnome-shell-extension-gsconnect` and `nautilus-gsconnect`
+- `ibus-mocz`
 - `lm_sensors`
 - `luminance` by [sidevesh](https://github.com/sidevesh/Luminance)
+- `lzip`
+- `playerctl`
 - `pulseaudio-utils`
 - `starship`
 - `topgrade`
 - `wl-clipboard`
+- `waydroid`
 
 The following packages are removed from the base image.
 - `firefox` and `firefox-langpacks` - Firefox will be installed as a Flatpak
 - `htop`
 - `nvtop`
-- `vim-enhanced`
 - GNOMies I don't use: `gnome-software-rpm-ostree`, `gnome-tour`, `gnome-terminal`, `gnome-terminal-nautilus`, and `yelp`
 - GNOME Classic: `gnome-classic-session`, `gnome-classic-session-xsession`
 - Default GNOME Extensions: Apps Menu, Background Logo, Launch new instance, Places Menu, and Windows List
@@ -67,21 +63,22 @@ These icon themes are installed.
 ### Fonts
 These fonts are installed via the `fonts` module.
 
-- Fira Sans
+- Inter
 - Kosugi Maru
 - Nerd Fonts Symbols Only
+- Ruda
 - Ubuntu Mono
 - Victor Mono
 
 ### solarpowered: T480/s exclusive packages
 The following packages are installed by default for improving Lenovo T480/s power management, performance, and features:
-- `igt-gpu-tools` for monitoring GPU use
+- `igt-gpu-tools`
 - `python-validity` forked by [sneexy](https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/)
 - `tlp` and `tlp-rdw`
 - `throttled`
 > `throttled` is shipped with [default values](https://github.com/erpalma/throttled/blob/master/etc/throttled.conf) but slightly different defaults. I use universal values for AC and battery so there is no `[UNDERVOLT.AC]` nor `[UNDERVOLT.BATTERY]`, only `[UNDERVOLT]`. Documented in the `throttled` [README](https://github.com/erpalma/throttled#undervolt).
-- `zcfan` for easy and straightforward fan control
-> `zcfan` needs `rpm-ostree kargs --append=thinkpad_acpi.fan_control=1` to work. You can also run `ujust --choose` and select `set-kargs` to apply it with other kernel parameters.
+- `zcfan`
+> `zcfan` needs `rpm-ostree kargs --append=thinkpad_acpi.fan_control=1` to work. You can also run `ujust set-kargs` to apply it with other kernel parameters.
 
 The following packages are explicitly removed from the base image due to conflicts.
 - `fprintd`
@@ -89,10 +86,10 @@ The following packages are explicitly removed from the base image due to conflic
 - `power-profiles-daemon`
 - `thermald`
 
-`tlp.service` is enabled by default. `systemd-rfkill.{service,socket}` is disabled by default.
+`tlp.service` is enabled by default with TLP defaults. `systemd-rfkill.{service,socket}` is disabled by default.
 
 ### solarpowered-ex: Desktop exclusive packages
-This configuration is intended to support my desktop configuration. Changes to this image will be frequent.
+This configuration is intended to support my desktop configuration. Changes to this image is frequent.
 
 <details>
   <summary>Desktop configuration details</summary>
@@ -106,50 +103,36 @@ This configuration is intended to support my desktop configuration. Changes to t
   | Bluetooth adapter | Intel Wireless-AC 3168 Bluetooth |
   | Storage | [Solidigm P41 Plus 1 TB](https://www.solidigm.com/products/client/plus-series/p41.html) |
   | Controller | [Fantech Nova PRO WGP14V2](https://fantechworld.com/products/nova-pro-wgp14v2) recognized as `Sony DualShock 4 [CUH-ZCT2x]` |
+  | Webcam/Mic | 0c45:636b Microdia Lumi Cam |
 
 </details>
 
-> This version has the kernel default replaced with [fsync kernel](https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/)
+#### Packages
 
 - `goverlay`
 - `inxi`
-- `lact` from [matte-schwartz](https://copr.fedorainfracloud.org/coprs/matte-schwartz/lact/)
+- `lact` from [ilya-zlobintsev](https://github.com/ilya-zlobintsev/LACT)
 - `mangohud`
 - `radeontop`
 - `system76-scheduler` and `gnome-shell-extension-system76-scheduler` from [kylegospo/system76-scheduler](https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/)
 
+#### Kernel
+
+The Fedora default kernel is replaced with the [Fsync kernel](https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/).
+
 #### B550 suspend fix
 
-This image includes the fix to [B550 boards suspend issue](https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#PC_will_not_wake_from_sleep_on_A520I_and_B550I_motherboards). If your computer is affected, enable it with the following command:
+This image includes the fix to [B550 boards suspend issue](https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#PC_will_not_wake_from_sleep_on_A520I_and_B550I_motherboards). Enable the fix with the following command:
 
 ```sudo systemctl enable --now b550-suspend-fix.service```
 
 ## Automatic updates
-Override automatic updates by creating `/etc/systemd/system/rpm-ostreed-automatic.timer.d/override.conf`.
 
-## Flatpak
-The following apps are installed as *system* Flatpaks by default.
+> Better writeup planned! 
 
-> `default-flatpaks` seem to not be working as I intend it to right now. 
+System updates are handled by `rpm-ostreed-automatic.service`. To override the timer settings, create `/etc/systemd/system/rpm-ostreed-automatic.timer.d/override.conf`.
 
-- Clapper
-- Extension Manager
-- File Roller
-- Flatseal
-- GNOME Clocks
-- GNOME Document Viewer (Evince)
-- GNOME Firmware
-- GNOME Image Viewer (Loupe)
-- GNOME Passwords and Keys (Seahorse)
-- GNOME Text Editor
-- GNOME Weather
-- Junction
-- Ptyxis
-- Warehouse
-
-### TBA - System Flatpaks
-- Evolution
-- GNOME Calendar
+Other updates are handled by `topgrade.service`. Enable with `sudo systemctl enable --now topgrade.{timer,service}.` To override the timer settings, create `/etc/systemd/system/topgrade.timer/override.conf`.
 
 ## GNOME Extensions
 The following extensions are explicitly installed via `gnome-extensions` module. Eventually will be replaced with GSettings schemas. 
@@ -166,7 +149,7 @@ The following extensions are explicitly installed via `gnome-extensions` module.
 
 # Installation
 
-If you managed to even get here and read this far, first of all, why? Second of all, maybe you shouldn't, but if you insist, do try out and help me make this a better atomic image.
+You can install by rebasing from Silverblue or generating an ISO file yourself. If you decide to give this a go, and would like to provide feedback and/or suggestions, feel free to open a new issue!
 
 ## Rebase
 To rebase from a Silverblue installation, follow the steps below.
@@ -193,8 +176,6 @@ To rebase from a Silverblue installation, follow the steps below.
 
 ## ISO
 An ISO file for a fresh install can be generated using `docker` or `podman` from a Silverblue system.
-
-> For the EX/desktop version, append `-ex` to `solarpowered`.
 
 ### Docker: solarpowered
 ```

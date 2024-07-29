@@ -35,6 +35,7 @@ In addition to the default packages installed in the `silverblue-main` base imag
 - `fastfetch`
 - `fish`
 - `firewall-config`
+- `fonts-tweak-tool`
 - `gnome-shell-extension-gsconnect` and `nautilus-gsconnect`
 - `ibus-mocz`
 - `lm_sensors`
@@ -118,7 +119,9 @@ This configuration is intended to support my desktop configuration. Changes to t
 
 #### Kernel
 
-The Fedora default kernel is replaced with the [Fsync kernel](https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/).
+~~The Fedora default kernel is replaced with the [Fsync kernel](https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/).~~
+
+The Fedora default kernel is currently being used; I've been experiencing unexpected boot failures upon Fsync kernel updates with the following error in the boot log: `Linux Kernel panic: VFS: Unable to mount root fs`. Unable to find fixes yet; if you happen to know it, please kindly open an issue and inform me.
 
 #### B550 suspend fix
 

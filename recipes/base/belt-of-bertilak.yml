@@ -13,6 +13,7 @@ modules:
       - fastfetch
       - fish
       - firewall-config
+      - fonts-tweak-tool
       - ibus-mozc
       - input-remapper
       - lm_sensors

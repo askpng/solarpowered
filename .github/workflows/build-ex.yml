@@ -1,7 +1,7 @@
 name: solarpowered-ex
 on:
   schedule:
-    - cron: "00 03 * * 5" # build at 03:00 UTC every Friday
+    - cron: "00 03 * * *" # build at 03:00 UTC daily
     
   push:
     paths: # trigger build only if solarpowered-ex.yml is updated

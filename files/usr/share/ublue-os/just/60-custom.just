@@ -9,7 +9,7 @@ t480s-set-kargs:
 # - tlp ui
 t480s-install-flatpaks:
     flatpak install --system flathub --noninteractive --assumeyes \
-         com.github.d4nj1.tlpui
+      com.github.d4nj1.tlpui
 
 # configure T480s fingerprint sensor
 t480s-set-fingerprint-sensor:
@@ -27,23 +27,15 @@ ex-gnome-vrr:
 # set amd_pstate_epp-related kernel arguments
 ex-epp-enable
      rpm-ostree kargs \
-          --append-if-missing=amd_pstate=active \
-          --append-if-missing=amd_pstate.shared_mem=1
-
-# set EPP power preference to balance_performance 
-epp-balance-performance:
-     echo "balance_performance" | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference
-
-# set EPP power preference to performance
-epp-performance:
-     echo "performance" | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference
+       --append-if-missing=amd_pstate=active \
+       --append-if-missing=amd_pstate.shared_mem=1
 
 # set kernel arguments for sysrq, memory shuffle & apple keyboard drivers
 set-essential-kargs:
      rpm-ostree kargs \
-          --append-if-missing=sysrq_always_enabled=1 \
-          --append-if-missing=page_alloc.shuffle=1 \
-          --append-if-missing=hid_apple.fnmode=0
+       --append-if-missing=sysrq_always_enabled=1 \
+       --append-if-missing=page_alloc.shuffle=1 \
+       --append-if-missing=hid_apple.fnmode=0
     
 # install arch, debian, bluebuild-cli distroboxes
 # needs distrobox.ini
@@ -58,4 +50,3 @@ set-junction:
 set-flameshot:
      flatpak install --noninteractive --assumeyes org.flameshot.Flameshot
      flatpak permission-set screenshot screenshot org.flameshot.Flameshot yes
-

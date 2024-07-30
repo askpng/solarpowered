@@ -23,63 +23,18 @@ Because I like Gawain from Fate/Extra & Fate/Grand Order.
 
 </center>
 
-## Packages
+## solarpowered for T4809s
 
-In addition to the default packages installed in the `silverblue-main` base image, the following packages are installed by default. 
+This image supports Lenovo T4809(s) and contains:
 
-> Change is frequent and the README is not always up-to-date. 
-
-- `butter` by [zhangyuannie](https://github.com/zhangyuannie/butter) for BTRFS snapshots (I don't do BTRFS snapshot restores, but it's still nice to have. Might eventually switch to BTRFS Assistant for the maintenance utilities)
-- `blackbox-terminal` as the default terminal
-- `epson-inkjet-printer-escpr` and `epson-inkjet-printer-escpr2`
-- `fastfetch`
-- `fish`
-- `firewall-config`
-- `fonts-tweak-tool`
-- `gnome-shell-extension-gsconnect` and `nautilus-gsconnect`
-- `ibus-mocz`
-- `lm_sensors`
-- `luminance` by [sidevesh](https://github.com/sidevesh/Luminance)
-- `lzip`
-- `playerctl`
-- `pulseaudio-utils`
-- `starship`
-- `topgrade`
-- `wl-clipboard`
-- `waydroid`
-
-The following packages are removed from the base image.
-- `firefox` and `firefox-langpacks` - Firefox will be installed as a Flatpak
-- `htop`
-- `nvtop`
-- GNOMies I don't use: `gnome-software-rpm-ostree`, `gnome-tour`, `gnome-terminal`, `gnome-terminal-nautilus`, and `yelp`
-- GNOME Classic: `gnome-classic-session`, `gnome-classic-session-xsession`
-- Default GNOME Extensions: Apps Menu, Background Logo, Launch new instance, Places Menu, and Windows List
-
-### Icons
-These icon themes are installed.
-
-- [Morewaita](https://github.com/somepaulo/MoreWaita)
-
-### Fonts
-These fonts are installed via the `fonts` module.
-
-- Inter
-- Kosugi Maru
-- Nerd Fonts Symbols Only
-- Ruda
-- Ubuntu Mono
-- Victor Mono
-
-### solarpowered: T480/s exclusive packages
-The following packages are installed by default for improving Lenovo T480/s power management, performance, and features:
 - `igt-gpu-tools`
 - `python-validity` forked by [sneexy](https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/)
 - `tlp` and `tlp-rdw`
+> `tlp.service` is enabled by default with TLP default configs. `systemd-rfkill.{service,socket}` is disabled by default.
 - `throttled`
-> `throttled` is shipped with [default values](https://github.com/erpalma/throttled/blob/master/etc/throttled.conf) but slightly different defaults. I use universal values for AC and battery so there is no `[UNDERVOLT.AC]` nor `[UNDERVOLT.BATTERY]`, only `[UNDERVOLT]`. Documented in the `throttled` [README](https://github.com/erpalma/throttled#undervolt).
+> `throttled` is shipped with the [defaults](https://github.com/erpalma/throttled/blob/master/etc/throttled.conf) but slightly different configuration structure. I use universal values for AC and battery so there is no `[UNDERVOLT.AC]` nor `[UNDERVOLT.BATTERY]`, only `[UNDERVOLT]`. Documented in the `throttled` [README](https://github.com/erpalma/throttled#undervolt).
 - `zcfan`
-> `zcfan` needs `rpm-ostree kargs --append=thinkpad_acpi.fan_control=1` to work. You can also run `ujust set-kargs` to apply it with other kernel parameters.
+> Before enabling `zcfan`, run `rpm-ostree kargs --append=thinkpad_acpi.fan_control=1` and reboot for it to work. If you are running a full Intel T480(s), you can also run `ujust t480s-set-kargs` to apply it with other kernel parameters to enable GuC a& FBC and reboot. Then, run `sudo systemctl enable --now zcfan`.
 
 The following packages are explicitly removed from the base image due to conflicts.
 - `fprintd`
@@ -87,9 +42,7 @@ The following packages are explicitly removed from the base image due to conflic
 - `power-profiles-daemon`
 - `thermald`
 
-`tlp.service` is enabled by default with TLP defaults. `systemd-rfkill.{service,socket}` is disabled by default.
-
-### solarpowered-ex: Desktop exclusive packages
+## solarpowered-ex: Desktop exclusive packages
 This configuration is intended to support my desktop configuration. Changes to this image is frequent.
 
 <details>
@@ -108,7 +61,7 @@ This configuration is intended to support my desktop configuration. Changes to t
 
 </details>
 
-#### Packages
+This image contains:
 
 - `goverlay`
 - `inxi`
@@ -117,13 +70,13 @@ This configuration is intended to support my desktop configuration. Changes to t
 - `radeontop`
 - `system76-scheduler` and `gnome-shell-extension-system76-scheduler` from [kylegospo/system76-scheduler](https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/)
 
-#### Kernel
+### Kernel
 
-~~The Fedora default kernel is replaced with the [Fsync kernel](https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/).~~
+The Fedora default kernel is replaced with the [Fsync kernel](https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/).
 
-The Fedora default kernel is currently being used; I've been experiencing unexpected boot failures upon Fsync kernel updates with the following error in the boot log: `Linux Kernel panic: VFS: Unable to mount root fs`. Unable to find fixes yet; if you happen to know it, please kindly open an issue and inform me.
+> NOTE: Fsync kernel updates have been a bit wonky recently, causing booting failures with the `Linux Kernel panic: VFS: Unable to mount root fs` error message in the boot logs. I am monitoring the behavior at the moment - expect frequent changes to the kernel choice. Might eventually switch to other kernels if the situation does not improve.
 
-#### B550 suspend fix
+### B550 suspend fix
 
 This image includes the fix to [B550 boards suspend issue](https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#PC_will_not_wake_from_sleep_on_A520I_and_B550I_motherboards). Enable the fix with the following command:
 
@@ -137,19 +90,6 @@ System updates are handled by `rpm-ostreed-automatic.service`. To override the t
 
 Other updates are handled by `topgrade.service`. Enable with `sudo systemctl enable --now topgrade.{timer,service}.` To override the timer settings, create `/etc/systemd/system/topgrade.timer/override.conf`.
 
-## GNOME Extensions
-The following extensions are explicitly installed via `gnome-extensions` module. Eventually will be replaced with GSettings schemas. 
-
-- Alphabetical App Grid
-- AppIndicators Support
-- Blur My Shell
-- Dash-to-Dock
-- Caffeine
-- Just Perfection
-- Light Style
-- Logo Menu
-- Night Theme Switcher
-
 # Installation
 
 You can install by rebasing from Silverblue or generating an ISO file yourself. If you decide to give this a go, and would like to provide feedback and/or suggestions, feel free to open a new issue!
@@ -157,7 +97,7 @@ You can install by rebasing from Silverblue or generating an ISO file yourself. 
 ## Rebase
 To rebase from a Silverblue installation, follow the steps below.
 
-### T480/s image
+### T480(s) image
 1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot automatically:
   ```
   rpm-ostree rebase ostree-unverified-registry:ghcr.io/askpng/solarpowered:latest --reboot

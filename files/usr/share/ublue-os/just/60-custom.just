@@ -25,8 +25,9 @@ ex-gnome-vrr:
      gsettings set org.gnome.mutter experimental-features "['variable-refresh-rate']"
 
 # set amd_pstate=enable kernel argument for amd_pstate_epp
-ex-epp-enable
-     rpm-ostree kargs --append-if-missing=amd_pstate=active
+ex-epp-enable:
+     rpm-ostree kargs \
+       --append-if-missing=amd_pstate=active
 
 # set kernel arguments for sysrq, memory shuffle & apple keyboard drivers
 set-essential-kargs:

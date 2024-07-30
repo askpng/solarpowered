@@ -6,4 +6,4 @@
 set -oue pipefail
 
 echo 'Replace default kernel with tkg-zen2-preempt kernel'
-rpm-ostree override replace --experimental --freeze --from repo='copr:copr.fedorainfracloud.org:whitehara:kernel-tkg-zen2-preempt' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra
+rpm-ostree override replace --experimental --freeze --from repo='copr:copr.fedorainfracloud.org:whitehara:kernel-tkg' kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra

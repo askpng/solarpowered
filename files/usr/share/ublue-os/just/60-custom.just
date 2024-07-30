@@ -26,8 +26,7 @@ ex-gnome-vrr:
 
 # set amd_pstate=enable kernel argument for amd_pstate_epp
 ex-epp-enable
-     rpm-ostree kargs \
-       --append-if-missing=amd_pstate=active
+     rpm-ostree kargs --append-if-missing=amd_pstate=active
 
 # set kernel arguments for sysrq, memory shuffle & apple keyboard drivers
 set-essential-kargs:

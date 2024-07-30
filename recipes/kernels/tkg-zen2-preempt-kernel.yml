@@ -1,0 +1,8 @@
+modules:
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/whitehara/kernel-tkg-zen2-preempt/repo/fedora-%OS_VERSION%/whitehara-kernel-tkg-zen2-preempt-fedora-%OS_VERSION%.repo
+  
+  - type: script
+    scripts:
+      - tkg-zen2-preempt-kernel.sh

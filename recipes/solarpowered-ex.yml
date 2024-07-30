@@ -27,7 +27,7 @@ modules:
       #AMD stuff
       - https://github.com/ilya-zlobintsev/LACT/releases/download/v0.5.5/lact-0.5.5-0.x86_64.fedora-40.rpm
       - radeontop
-      - https://gitlab.com/ryzen-controller-team/ryzen-controller/-/jobs/3178939815/artifacts/file/dist/rpm/ryzen-controller-2.6.0.x86_64.rpm #ryzencontroller
+      - https://gitlab.com/ryzen-controller-team/ryzen-controller/-/jobs/3178939815/artifacts/raw/dist/rpm/ryzen-controller-2.6.0.x86_64.rpm #ryzencontroller
     #remove:
     #  - power-profiles-daemon
 

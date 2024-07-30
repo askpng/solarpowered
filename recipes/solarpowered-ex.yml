@@ -5,7 +5,7 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 40
 
 modules:
-  #- from-file: kernels/fsync-kernel.yml
+  - from-file: kernels/fsync-kernel.yml
   #- from-file: kernels/cachy-kernel.yml
 
   - type: files
@@ -19,16 +19,17 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo #system76-scheduler
     install:
       - inxi
-      - mangohud
       - goverlay
+      - mangohud
       #system76-scheduler
-      - system76-scheduler
       - gnome-shell-extension-system76-scheduler
+      - system76-scheduler
       #AMD stuff
+      - corectrl
       - https://github.com/ilya-zlobintsev/LACT/releases/download/v0.5.5/lact-0.5.5-0.x86_64.fedora-40.rpm
       - radeontop
-    remove:
-      - power-profiles-daemon
+    #remove:
+    #  - power-profiles-daemon
 
   - type: script
     scripts:

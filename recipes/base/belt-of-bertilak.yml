@@ -16,6 +16,7 @@ modules:
       - firewall-config
       - fonts-tweak-tool
       - ibus-mozc
+      - ifuse
       - input-remapper
       - lm_sensors
       - playerctl
@@ -85,6 +86,10 @@ modules:
         - Kosugi Maru
         - Ruda
         - Victor Mono
+  
+  - type: script
+    snippets:
+      - "wget https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji.ttf -P /usr/share/fonts/AppleColorEmoji/"
 
   - type: default-flatpaks
     notify: true

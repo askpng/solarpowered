@@ -1,18 +1,33 @@
+# modules:
+#  - type: rpm-ostree
+#    repos:
+#      - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-fedora-%OS_VERSION%.repo #cachy kernel
+#      - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-addons-fedora-%OS_VERSION%.repo #cachy uksmd
+#    install:
+#    - libcap-ng
+#    - libcap-ng-devel
+#    - procps-ng
+#    - procps-ng-devel
+#    - uksmd
+#   
+#  - type: script
+#    scripts:
+#      - cachy-kernel.sh
+#
 modules:
   - type: rpm-ostree
     repos:
-      - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-fedora-%OS_VERSION%.repo #cachy kernel
-      - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-addons-fedora-%OS_VERSION%.repo #cachy uksmd
+      - - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-addons-fedora-%OS_VERSION%.repo #cachy uksmd
     install:
     - libcap-ng
     - libcap-ng-devel
     - procps-ng
     - procps-ng-devel
     - uksmd
-    
-  - type: script
-    scripts:
-      - cachy-kernel.sh
+    replace:
+      - from-repo: https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-fedora-%OS_VERSION%.repo
+        packages:
+        - kernel-cachyos
 
   - type: systemd
     system:

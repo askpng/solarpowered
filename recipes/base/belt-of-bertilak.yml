@@ -7,8 +7,10 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
       - https://copr.fedorainfracloud.org/coprs/shdwchn10/AllTheTools/repo/fedora-%OS_VERSION%/shdwchn10-AllTheTools-fedora-%OS_VERSION%.repo #starship & topgrade
       - https://copr.fedorainfracloud.org/coprs/david35mm/yaru-theme/repo/fedora-%OS_VERSION%/david35mm-yaru-theme-fedora-%OS_VERSION%.repo #yaru-theme
+      - https://copr.fedorainfracloud.org/coprs/qoijjj/vscodium/repo/fedora-%OS_VERSION%/qoijjj-vscodium-fedora-%OS_VERSION%.repo #vscodium
     install:
       - butter #butter from zhangyuannie/butter
+      - codium
       - epson-inkjet-printer-escpr
       - epson-inkjet-printer-escpr2
       - fastfetch
@@ -26,8 +28,9 @@ modules:
       - steam-devices
       - topgrade
       - wl-clipboard
-      #blackbox-terminal
+      #terminals
       - blackbox-terminal
+      - ptyxis
       #gsconnect
       - gnome-shell-extension-gsconnect
       - nautilus-gsconnect

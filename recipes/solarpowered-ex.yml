@@ -9,11 +9,6 @@ modules:
   #- from-file: kernels/cachy-kernel.yml
   #- from-file:kernels/tkg-kernel.yml
 
-  - type: files
-    files:
-      - source: usr
-        destination: /usr
-
   #EX/desktop exclusives
   - type: rpm-ostree
     repos:
@@ -28,8 +23,6 @@ modules:
       #AMD stuff
       - https://github.com/ilya-zlobintsev/LACT/releases/download/v0.5.5/lact-0.5.5-0.x86_64.fedora-40.rpm
       - radeontop
-    #remove:
-    #  - power-profiles-daemon
 
   - type: script
     scripts:

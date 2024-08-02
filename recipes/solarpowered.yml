@@ -4,12 +4,7 @@ description: Custom image formulated for my Lenovo T480s
 base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 40
 
-modules:
-  - type: files
-    files:
-      - source: usr
-        destination: /usr
-  
+modules: 
   #T480s exclusives
   - type: rpm-ostree
     repos:

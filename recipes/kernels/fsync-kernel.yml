@@ -1,3 +1,12 @@
+#modules:
+#  - type: rpm-ostree
+#    repos:
+#      - https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-%OS_VERSION%/sentry-kernel-fsync-fedora-%OS_VERSION%.repo
+#  
+#  - type: script
+#    scripts:
+#      - fsync-kernel.sh
+
 modules:
   - type: rpm-ostree
     replace:

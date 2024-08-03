@@ -79,11 +79,11 @@ modules:
       - Blur my Shell
       - Bluetooth battery indicator
       - Caffeine
-      - Dash to Dock
       - Just Perfection
       - Light Style
       - Logo Menu
       - Night Theme Switcher
+      - 5446 #QSTweak
 
   - type: fonts
     fonts:

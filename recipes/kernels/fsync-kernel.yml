@@ -12,6 +12,6 @@ modules:
         - kernel-modules-core
         - kernel-modules-extra
 
-  - type: script
-    scripts:
-      - fsync-kernel.sh
+  #- type: script
+  #  scripts:
+  #    - fsync-kernel.sh

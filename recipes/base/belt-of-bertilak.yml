@@ -28,15 +28,13 @@ modules:
       - input-remapper
       - lm_sensors
       - playerctl
+      - ptyxis
       - pulseaudio-utils
       - rsms-inter-fonts
       - starship
       - steam-devices
       - topgrade
       - wl-clipboard
-      #terminals
-      - blackbox-terminal
-      - ptyxis
       #gsconnect
       - gnome-shell-extension-gsconnect
       - nautilus-gsconnect
@@ -91,6 +89,7 @@ modules:
         - NerdFontsSymbolsOnly
         - UbuntuMono
       google-fonts:
+        - DotGothic16 t
         - Fira Sans
         - Kosugi Maru
         - Ruda

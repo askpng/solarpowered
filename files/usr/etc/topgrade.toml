@@ -13,9 +13,9 @@
 # Sudo command to be used
 # sudo_command = "sudo"
 # Disable specific steps - same options as the command line flag
-disable = ["system", "emacs", "containers"]
+disable = ["system", "containers"]
 # Ignore failures for these steps
-ignore_failures = ["toolbx", "distrobox"]
+# ignore_failures = ["toolbx", "distrobox"]
 # List of remote machines with Topgrade installed on them
 # remote_topgrades = ["toothless", "pi", "parnas"]
 # Path to Topgrade executable on remote machines
@@ -157,7 +157,8 @@ cleanup = true
 
 # Additional git repositories to pull
 repos = [
-    "$HOME/"
+    "$HOME/*/",
+    "$HOME/git/*/",
 ]
 
 # Don't pull the predefined git repos

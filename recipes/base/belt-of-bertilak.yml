@@ -94,11 +94,10 @@ modules:
         - Fira Sans
         - Kosugi Maru
         - Ruda
-        - Victor Mono
   
   - type: script
     snippets:
-      - "wget https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji.ttf -P /usr/share/fonts/AppleColorEmoji/"
+      - "wget https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji.ttf -P /usr/share/fonts/apple-color-emoji/"
 
   - type: default-flatpaks
     notify: true
@@ -130,6 +129,10 @@ modules:
         - flatpak-system-update.service
         - flatpak-user-update.timer
         - flatpak-user-update.service
+    user:
+      enabled:
+        - topgrade.timer
+        - topgrade.service
 
   #DO NOT UNCOMMENT BEFORE EVERYTHING
   #IS PROPERLY CONFIGURED AND TESTED

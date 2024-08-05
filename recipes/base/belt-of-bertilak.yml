@@ -35,6 +35,7 @@ modules:
       - steam-devices
       - topgrade
       - wl-clipboard
+      - xorg-x11-server-Xwayland
       #gsconnect
       - gnome-shell-extension-gsconnect
       - nautilus-gsconnect
@@ -69,6 +70,14 @@ modules:
       #gnome xorg
       - gnome-classic-session
       - gnome-classic-session-xsession
+    replace:
+      - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
+        packages:
+        - gdm
+        - gnome-shell
+        - mutter
+        - mutter-common
+        - xorg-x11-server-Xwayland
 
   - type: gnome-extensions
     install:
@@ -89,7 +98,7 @@ modules:
         - NerdFontsSymbolsOnly
         - UbuntuMono
       google-fonts:
-        - DotGothic16 t
+        - DotGothic16
         - Fira Sans
         - Kosugi Maru
         - Ruda

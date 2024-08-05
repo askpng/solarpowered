@@ -99,6 +99,7 @@ modules:
         - DotGothic16
         - Fira Sans
         - Kosugi Maru
+        - M PLUS 1
         - Ruda
   
   - type: script

@@ -13,7 +13,6 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-%OS_VERSION%/zhangyuannie-butter-fedora-%OS_VERSION%.repo #butter
       - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
       - https://copr.fedorainfracloud.org/coprs/shdwchn10/AllTheTools/repo/fedora-%OS_VERSION%/shdwchn10-AllTheTools-fedora-%OS_VERSION%.repo #starship & topgrade
-      - https://copr.fedorainfracloud.org/coprs/david35mm/yaru-theme/repo/fedora-%OS_VERSION%/david35mm-yaru-theme-fedora-%OS_VERSION%.repo #yaru-theme
     install:
       - butter #butter from zhangyuannie/butter
       - codium
@@ -43,7 +42,6 @@ modules:
       - https://github.com/sidevesh/Luminance/releases/download/1.1.0/luminance-1.1.0.rpm
       #icons
       - morewaita-icon-theme #morewaita from dusansimic/themes
-      - yaru-theme #loaded yaru-theme from david35mm/yaru-theme
       #waydroid
       - lzip
       - waydroid

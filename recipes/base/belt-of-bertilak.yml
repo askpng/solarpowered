@@ -33,6 +33,7 @@ modules:
       - starship
       - steam-devices
       - topgrade
+      - uxplay
       - wl-clipboard
       - xorg-x11-server-Xwayland
       #gsconnect

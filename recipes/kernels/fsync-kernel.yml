@@ -16,6 +16,7 @@ modules:
     base: fsync
     install:
       - v4l2loopback
+      - winesync
 
   #- type: script
   #  scripts:

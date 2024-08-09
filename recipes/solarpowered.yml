@@ -18,6 +18,7 @@ modules:
       # sneexy/python-validity
       - https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/repo/fedora-%OS_VERSION%/sneexy-python-validity-fedora-%OS_VERSION%.repo
     install:
+      - gstreamer1-plugin-openh264
       # igt-gpu-tools
       - igt-gpu-tools
       # python-validity

@@ -16,6 +16,7 @@ modules:
     install:
       - inxi
       - goverlay
+      - gstreamer1-plugin-openh264
       - mangohud
       #system76-scheduler
       - gnome-shell-extension-system76-scheduler

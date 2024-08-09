@@ -5,6 +5,11 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 40
 
 modules: 
+  - type: akmods
+    base: main
+    install:
+      - v4l2loopback
+      
   #T480s exclusives
   - type: rpm-ostree
     repos:

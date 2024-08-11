@@ -37,6 +37,8 @@ modules:
       - uxplay
       - wl-clipboard
       - xorg-x11-server-Xwayland
+      - x264
+      - x265
       #gsconnect
       - gnome-shell-extension-gsconnect
       - nautilus-gsconnect

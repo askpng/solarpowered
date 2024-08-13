@@ -2,11 +2,11 @@
 
 set -oue pipefail
 
-echo 'Prepare directory for cloning...'
+echo 'Preparing directory for cloning...'
 
-mkdir /tmp/clone/
-cd /tmp/clone/
-echo 'Directory created. Cloning git repo...'
+mkdir -p /tmp/clone/Qogir/
+cd /tmp/clone/Qogir/
+echo 'Directory created.'
 
 git clone https://github.com/vinceliuice/Qogir-icon-theme.git
 echo 'Repo cloned. Running install script...'

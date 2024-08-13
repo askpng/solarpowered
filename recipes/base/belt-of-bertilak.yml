@@ -103,6 +103,8 @@ modules:
         - Ruda
   
   - type: script
+    scripts:
+      - qogir-icon-theme.sh
     snippets:
       - "wget https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji.ttf -P /usr/share/fonts/apple-color-emoji/"
 

@@ -100,8 +100,8 @@ modules:
         - DotGothic16
         - Fira Sans
         - Kosugi Maru
-        - M PLUS 1
         - Ruda
+        - Titillium Web
   
   - type: script
     scripts:

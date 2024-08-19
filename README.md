@@ -19,7 +19,7 @@ Because I like Gawain from Fate/Extra & Fate/Grand Order.
 | **Status** | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) </center> | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) </center> |
 | **Description** | This image contains fingerprint drivers and power management tools for Lenovo T480/s. | This image is built to support my AMD computer. Intended for daily use, multimedia, and gaming. |
 | **Functional status** | Fully functional | Fully functional |
-| **Scheduled build** | 17:00 UTC on Fridays | 17:00 UTC daily |
+| **Scheduled build** | 17:00 UTC on Thursdays | 17:00 UTC daily |
 
 </center>
 
@@ -74,7 +74,7 @@ This image contains:
 
 The Fedora default kernel is replaced with the [Fsync kernel](https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/).
 
-> NOTE: Fsync kernel updates have been a bit wonky recently, causing booting failures with the `Linux Kernel panic: VFS: Unable to mount root fs` error message in the boot logs. I am monitoring the behavior at the moment - expect frequent changes to the kernel choice. Might eventually switch to other kernels if the situation does not improve.
+> NOTE: Make sure to enable Initramfs regeneration by running `rpm-ostree initramfs`.
 
 ### B550 suspend fix
 

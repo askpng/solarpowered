@@ -35,6 +35,7 @@ modules:
       - steam-devices
       - topgrade
       - uxplay
+      - v4l-utils
       - wl-clipboard
       - xorg-x11-server-Xwayland
       - x264

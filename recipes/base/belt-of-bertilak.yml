@@ -52,6 +52,9 @@ modules:
       - https://github.com/sidevesh/Luminance/releases/download/1.1.0/luminance-1.1.0.rpm
       #icons
       - morewaita-icon-theme #morewaita from dusansimic/themes
+      #waydroid
+      - lzip
+      - waydroid
     remove:
       - firefox
       - firefox-langpacks

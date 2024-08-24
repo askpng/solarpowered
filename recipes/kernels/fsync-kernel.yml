@@ -12,10 +12,10 @@ modules:
         - kernel-modules-core
         - kernel-modules-extra
 
-  - type: akmods
-    base: fsync
-    install:
-      - v4l2loopback
+  #- type: akmods
+  #  base: fsync
+  #  install:
+  #    - v4l2loopback
       
   #- type: script
   #  scripts:

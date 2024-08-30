@@ -41,6 +41,14 @@ set-essential-kargs:
 assemble-containers:
      distrobox assemble create --file /etc/distrobox/distrobox.ini
 
+# install Arch Linux box for CLI & media player use
+init-box:
+     distrobox-assemble create --name box --file="/etc/distrobox.ini"
+
+# install Arch Linux box for games
+init-gamebox:
+     distrobox-assemble create --name gamebox --file="/etc/distrobox.ini"
+
 # set junction as default for browsers
 set-junction:
      xdg-settings set default-web-browser re.sonny.Junction.desktop

@@ -1,5 +1,8 @@
 name: solarpowered-ex
 description: Custom image formulated for my personal desktop system
+alt-tags:
+  - testing
+  - cloak
 
 base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 40

@@ -21,7 +21,7 @@ modules:
       - gnome-shell-extension-system76-scheduler
       - system76-scheduler
       #AMD stuff
-      - https://github.com/ilya-zlobintsev/LACT/releases/download/v0.5.5/lact-0.5.5-0.x86_64.fedora-40.rpm
+      - https://github.com/ilya-zlobintsev/LACT/releases/download/v0.5.6/lact-0.5.6-0.x86_64.fedora-40.rpm
       - radeontop
 
   - type: script

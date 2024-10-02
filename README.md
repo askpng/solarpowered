@@ -14,7 +14,7 @@ Because I like Gawain from Fate/Extra & Fate/Grand Order.
 ## Build status
 <center>
 
-| | solarpowered / T480s image | solarpowered-ex / desktop image
+| | solarpowered / T480(s) image | solarpowered-ex / desktop image
 | --- | --- | --- |
 | **Status** | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) </center> | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) </center> |
 | **Description** | This image contains fingerprint drivers and power management tools for Lenovo T480/s. | This image is built to support my AMD computer. Intended for daily use, multimedia, and gaming. |
@@ -23,9 +23,9 @@ Because I like Gawain from Fate/Extra & Fate/Grand Order.
 
 </center>
 
-## solarpowered for T4809s
+## solarpowered for T480(s)
 
-This image supports Lenovo T4809(s) and contains:
+This image supports Lenovo T480(s) and contains:
 
 - `igt-gpu-tools`
 - `python-validity` forked by [sneexy](https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/)

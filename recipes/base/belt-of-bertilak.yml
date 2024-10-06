@@ -22,7 +22,6 @@ modules:
       - fish
       - firewall-config
       - fonts-tweak-tool
-      - gstreamer1-plugin-openh264
       - ibus-mozc
       - ifuse
       - input-remapper

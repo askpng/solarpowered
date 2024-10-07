@@ -19,7 +19,7 @@ Because I like Gawain from Fate/Extra & Fate/Grand Order.
 | **Status** | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) </center> | <center> [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) </center> |
 | **Description** | This image contains fingerprint drivers and power management tools for Lenovo T480/s. | This image is built to support my AMD computer. Intended for daily use, multimedia, and gaming. |
 | **Functional status** | Fully functional | Fully functional |
-| **Scheduled build** | 17:00 UTC on Thursdays | 17:00 UTC daily |
+| **Scheduled build** | 17:00 UTC on Thursdays | 17:00 UTC on Mondays & Thursdays |
 
 </center>
 

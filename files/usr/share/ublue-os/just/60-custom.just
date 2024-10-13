@@ -24,10 +24,11 @@ t480s-set-fingerprint-sensor:
 ex-gnome-vrr:
      gsettings set org.gnome.mutter experimental-features "['variable-refresh-rate']"
 
-# set amd_pstate=enable kernel argument for amd_pstate_epp
-ex-epp-enable:
+# set amd_pstate=enable kernel and amdgpu.ppfeaturemask argument for amd_pstate_epp and amdgpu control
+ex-amd-kargs:
      rpm-ostree kargs \
-       --append-if-missing=amd_pstate=active
+       --append-if-missing=amd_pstate=active \
+       --append-if-missing=$(printf 'amdgpu.ppfeaturemask=0x%x\n' "$(($(cat /sys/module/amdgpu/parameters/ppfeaturemask) | 0x4000))")
 
 # set kernel arguments for sysrq, memory shuffle & apple keyboard drivers
 set-essential-kargs:

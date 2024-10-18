@@ -112,6 +112,7 @@ modules:
   
   - type: script
     scripts:
+      - morewaita-icon-theme.sh
       - tela-icon-theme.sh
       - qogir-icon-theme.sh
     snippets:

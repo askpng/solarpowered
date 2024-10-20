@@ -15,8 +15,9 @@ modules:
     install:
       - butter #butter from zhangyuannie/butter
       - codium
-      - epson-inkjet-printer-escpr
-      - epson-inkjet-printer-escpr2
+      #- epson-inkjet-printer-escpr
+      #- epson-inkjet-printer-escpr2
+      - https://download3.ebz.epson.net/dsc/f/03/00/15/64/87/dc4086f166498791134f168a1db8f92d1911a619/epson-inkjet-printer-201207w-1.0.1-1.x86_64.rpm
       - fastfetch
       - fish
       - firewall-config

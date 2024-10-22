@@ -92,11 +92,11 @@ modules:
       - Bluetooth battery indicator
       - Caffeine
       - Dim Background Windows
-      - Default Workspace
       - Just Perfection
       - Night Theme Switcher
       - 5446 #QSTweak
       - 5985 #Do Not Disturb While Screen Sharing Or Recording
+      - 4783 #Default Workspace
 
   - type: fonts
     fonts:

@@ -96,7 +96,6 @@ modules:
       - Night Theme Switcher
       - 5446 #QSTweak
       - 5985 #Do Not Disturb While Screen Sharing Or Recording
-      - 4783 #Default Workspace
 
   - type: fonts
     fonts:

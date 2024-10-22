@@ -5,7 +5,7 @@ set -oue pipefail
 echo 'Preparing directory for cloning...'
 
 mkdir -p /tmp/clone/MoreWaita/
-cd /tmp/clone/WoreWaita/
+cd /tmp/clone/MoreWaita/
 echo 'Directory created.'
 
 git clone https://github.com/somepaulo/MoreWaita.git

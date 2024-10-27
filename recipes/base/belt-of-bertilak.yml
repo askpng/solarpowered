@@ -121,7 +121,7 @@ modules:
     notify: true
     system:
       repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      repo-name: flathub-system
+      repo-name: flathub
       install:
         - ca.desrt.dconf-editor
         - com.github.tchx84.Flatseal

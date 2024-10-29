@@ -35,7 +35,7 @@ modules:
       - topgrade
       - uxplay
       - wl-clipboard
-      #- xorg-x11-server-Xwayland
+      - xorg-x11-server-Xwayland
       # v4l2
       - libcamera-v4l2
       - pipewire-v4l2
@@ -72,6 +72,9 @@ modules:
       - gnome-shell-extension-launch-new-instance
       - gnome-shell-extension-places-menu
       - gnome-shell-extension-window-list
+      #gnome xorg
+      - gnome-classic-session
+      - gnome-classic-session-xsession
     replace:
       - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
         packages:

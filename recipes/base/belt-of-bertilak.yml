@@ -74,7 +74,6 @@ modules:
       - gnome-shell-extension-window-list
       #gnome xorg
       - gnome-classic-session
-      - gnome-classic-session-xsession
     replace:
       - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
         packages:

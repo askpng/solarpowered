@@ -2,7 +2,7 @@ name: solarpowered
 description: Custom image formulated for my Lenovo T480s
 
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 40
+image-version: 41
 
 modules: 
   - type: akmods
@@ -37,7 +37,8 @@ modules:
       - fprintd
       - fprintd-pam
       # tlp conflicts
-      - power-profiles-daemon
+      #- power-profiles-daemon
+      - tuned
       # throtled-conflicts
       - thermald
 

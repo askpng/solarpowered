@@ -5,12 +5,17 @@ alt-tags:
   - cloak
 
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 40
+image-version: 41
 
 modules:
-  - from-file: kernels/fsync-kernel.yml
+  #- from-file: kernels/fsync-kernel.yml
   #- from-file: kernels/cachy-kernel.yml
   #- from-file:kernels/tkg-kernel.yml
+
+  - type: akmods
+    base: main
+    install:
+      - v4l2loopback
 
   #EX/desktop exclusives
   - type: rpm-ostree
@@ -24,7 +29,7 @@ modules:
       - gnome-shell-extension-system76-scheduler
       - system76-scheduler
       #AMD stuff
-      - https://github.com/ilya-zlobintsev/LACT/releases/download/v0.5.5/lact-0.5.5-0.x86_64.fedora-40.rpm
+      - https://github.com/ilya-zlobintsev/LACT/releases/download/v0.5.6/lact-libadwaita-0.5.6-0.x86_64.fedora-40.rpm
       - radeontop
 
   - type: script

@@ -65,8 +65,6 @@ modules:
       - gnome-software
       - gnome-system-monitor
       - gnome-tour
-      - gnome-terminal
-      - gnome-terminal-nautilus
       - yelp
       #fedora default gnome extensions
       - gnome-shell-extension-apps-menu
@@ -110,7 +108,7 @@ modules:
       - tela-icon-theme.sh
       - qogir-icon-theme.sh
     snippets:
-      - "wget https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji.ttf -P /usr/share/fonts/apple-color-emoji/"
+      - "wget https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji.ttf -P '/usr/share/fonts/apple-color-emoji/'"
 
   - type: default-flatpaks
     notify: true

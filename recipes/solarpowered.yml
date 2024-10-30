@@ -2,7 +2,7 @@ name: solarpowered
 description: Custom image formulated for my Lenovo T480s
 
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 40
+image-version: 41
 
 modules: 
   - type: akmods
@@ -13,8 +13,8 @@ modules:
   #T480s exclusives
   - type: rpm-ostree
     repos:
-     #abn/throttled 
-      - https://copr.fedorainfracloud.org/coprs/abn/throttled/repo/fedora-%OS_VERSION%/abn-throttled-fedora-%OS_VERSION%.repo
+      # larvitz/throttled for F41
+      - https://copr.fedorainfracloud.org/coprs/larvitz/throttled/repo/fedora-%OS_VERSION%/larvitz-throttled-fedora-%OS_VERSION%.repo
       # sneexy/python-validity
       - https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/repo/fedora-%OS_VERSION%/sneexy-python-validity-fedora-%OS_VERSION%.repo
     install:
@@ -37,7 +37,8 @@ modules:
       - fprintd
       - fprintd-pam
       # tlp conflicts
-      - power-profiles-daemon
+      - tuned-ppd
+      - tuned
       # throtled-conflicts
       - thermald
 

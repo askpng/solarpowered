@@ -21,9 +21,13 @@ modules:
       #system76-scheduler
       - gnome-shell-extension-system76-scheduler
       - system76-scheduler
+      - power-profiles-daemon
       #AMD stuff
       - https://github.com/ilya-zlobintsev/LACT/releases/download/v0.5.6/lact-libadwaita-0.5.6-0.x86_64.fedora-40.rpm
       - radeontop
+    remove:
+      - tuned-ppd
+      - tuned 
 
   - type: script
     scripts:

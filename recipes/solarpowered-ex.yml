@@ -13,10 +13,10 @@ modules:
   #- from-file: kernels/cachy-kernel.yml
   #- from-file:kernels/tkg-kernel.yml
 
-  - type: akmods
-    base: main
-    install:
-      - v4l2loopback
+  #- type: akmods
+  #  base: main
+  #  install:
+  #    - v4l2loopback
 
   #EX/desktop exclusives
   - type: rpm-ostree

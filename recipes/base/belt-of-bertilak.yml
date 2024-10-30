@@ -34,15 +34,12 @@ modules:
       - topgrade
       - uxplay
       - wl-clipboard
-      - xorg-x11-server-Xwayland
       # v4l2
       - libcamera-v4l2
       - pipewire-v4l2
       - v4l2ucp
       - libva-v4l2-request
       - v4l-utils
-      - x264
-      - x265
       #gsconnect
       - gnome-shell-extension-gsconnect
       - nautilus-gsconnect
@@ -74,16 +71,13 @@ modules:
       - gnome-shell-extension-places-menu
       - gnome-shell-extension-window-list
       #gnome xorg
-      - gnome-classic-session
-      - gnome-classic-session-xsession
+      # - gnome-classic-session
     replace:
       - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
         packages:
-        - gdm
         - gnome-shell
         - mutter
         - mutter-common
-        - xorg-x11-server-Xwayland
 
   - type: gnome-extensions
     install:
@@ -94,7 +88,7 @@ modules:
       - Dim Background Windows
       - Just Perfection
       - Night Theme Switcher
-      - 5446 #QSTweak
+      # - 5446 #QSTweak
       - 5985 #Do Not Disturb While Screen Sharing Or Recording
 
   - type: fonts
@@ -103,11 +97,9 @@ modules:
         - NerdFontsSymbolsOnly
         - UbuntuMono
       google-fonts:
-        - DotGothic16
         - Fira Sans
         - Kosugi Maru
         - Ruda
-        - Titillium Web
   
   - type: script
     scripts:
@@ -115,13 +107,12 @@ modules:
       - tela-icon-theme.sh
       - qogir-icon-theme.sh
     snippets:
-      - "wget https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji.ttf -P /usr/share/fonts/apple-color-emoji/"
+      - "wget https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji.ttf -P /usr/share/fonts/apple-color-emoji/AppleColorEmoji.ttf"
 
   - type: default-flatpaks
     notify: true
     system:
       repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      repo-name: flathub
       install:
         - ca.desrt.dconf-editor
         - com.github.tchx84.Flatseal

@@ -13,21 +13,17 @@ modules:
   #EX/desktop exclusives
   - type: rpm-ostree
     repos:
-      - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo #system76-scheduler
+      # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo #system76-scheduler
     install:
       - inxi
       - goverlay
       - mangohud
       #system76-scheduler
-      - gnome-shell-extension-system76-scheduler
-      - system76-scheduler
-      - power-profiles-daemon
+      # - gnome-shell-extension-system76-scheduler
+      # - system76-scheduler
       #AMD stuff
       - https://github.com/ilya-zlobintsev/LACT/releases/download/v0.5.6/lact-libadwaita-0.5.6-0.x86_64.fedora-40.rpm
       - radeontop
-    remove:
-      - tuned-ppd
-      - tuned 
 
   - type: script
     scripts:
@@ -40,7 +36,7 @@ modules:
   - type: systemd
     system:
       enabled:
-        - com.system76.Scheduler.service
+        # - com.system76.Scheduler.service
         - lactd.service
 
   #DO NOT UNCOMMENT BEFORE EVERYTHING

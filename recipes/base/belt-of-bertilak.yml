@@ -86,7 +86,6 @@ modules:
       - Bluetooth battery indicator
       - Caffeine
       - Dim Background Windows
-      - GSConnect
       - Just Perfection
       - Night Theme Switcher
       # - 5446 #QSTweak

@@ -39,7 +39,7 @@ This image supports Lenovo T480(s) and contains:
 The following packages are explicitly removed from the base image due to conflicts.
 - `fprintd`
 - `fprintd-pam`
-- `power-profiles-daemon`
+- `tuned` and `tuned-ppd`
 - `thermald`
 
 ## solarpowered-ex: Desktop exclusive packages
@@ -68,13 +68,12 @@ This image contains:
 - `lact` from [ilya-zlobintsev](https://github.com/ilya-zlobintsev/LACT)
 - `mangohud`
 - `radeontop`
-- `system76-scheduler` and `gnome-shell-extension-system76-scheduler` from [kylegospo/system76-scheduler](https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/)
 
 ### Kernel
 
-The Fedora default kernel is replaced with the [Fsync kernel](https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/).
+The Fedora default kernel is replaced with [kernel-fsync](https://copr.fedorainfracloud.org/coprs/sentry/kernel-blu/).
 
-> NOTE: Make sure to enable Initramfs regeneration by running `rpm-ostree initramfs`.
+> NOTE: Make sure to enable initramfs regeneration by running `rpm-ostree initramfs` before rebasing to prevent boot failure.
 
 ### B550 suspend fix
 

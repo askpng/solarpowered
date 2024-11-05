@@ -11,6 +11,7 @@ modules:
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-%OS_VERSION%/zhangyuannie-butter-fedora-%OS_VERSION%.repo #butter
+      - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
       - https://copr.fedorainfracloud.org/coprs/shdwchn10/AllTheTools/repo/fedora-%OS_VERSION%/shdwchn10-AllTheTools-fedora-%OS_VERSION%.repo #starship & topgrade
     install:
       - butter #butter from zhangyuannie/butter
@@ -25,6 +26,7 @@ modules:
       - ifuse
       - input-remapper
       - lm_sensors
+      - morewaita-icon-theme
       - playerctl
       - ptyxis
       - pulseaudio-utils
@@ -103,7 +105,6 @@ modules:
   
   - type: script
     scripts:
-      - morewaita-icon-theme.sh
       - tela-icon-theme.sh
       - qogir-icon-theme.sh
     snippets:

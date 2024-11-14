@@ -5,10 +5,13 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 41
 
 modules: 
-  - type: akmods
-    base: main
-    install:
-      - v4l2loopback
+  - from-file: kernels/blu-kernel.yml
+
+  #only when using fedora kernel  
+  #- type: akmods
+  #  base: main
+  #  install:
+  #    - v4l2loopback
       
   #T480s exclusives
   - type: rpm-ostree

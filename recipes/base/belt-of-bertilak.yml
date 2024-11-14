@@ -84,7 +84,7 @@ modules:
     install:
       - Alphabetical App Grid
       - AppIndicator and KStatusNotifierItem Support
-      - Bluetooth battery indicator
+      - Bluetooth Battery Meter
       - Caffeine
       - Dim Background Windows
       - Just Perfection

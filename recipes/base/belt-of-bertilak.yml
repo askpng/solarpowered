@@ -27,7 +27,6 @@ modules:
       - input-remapper
       - lm_sensors
       - morewaita-icon-theme
-      - playerctl
       - ptyxis
       - pulseaudio-utils
       - rsms-inter-fonts

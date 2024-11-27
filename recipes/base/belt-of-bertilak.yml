@@ -97,7 +97,7 @@ modules:
       nerd-fonts:
         - NerdFontsSymbolsOnly
         - UbuntuMono
-        - UbuntuNerdFont
+        - Ubuntu
       google-fonts:
         - Fira Sans
         - Kosugi Maru

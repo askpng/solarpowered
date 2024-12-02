@@ -86,7 +86,6 @@ modules:
       - AppIndicator and KStatusNotifierItem Support
       - Bluetooth Battery Meter
       - Caffeine
-      - Dim Background Windows
       - Just Perfection
       - Night Theme Switcher
       # - 5446 #QSTweak

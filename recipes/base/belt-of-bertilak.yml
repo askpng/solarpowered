@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
-
 modules:
   - type: files
     files:
@@ -88,8 +86,7 @@ modules:
       - Caffeine
       - Just Perfection
       - Night Theme Switcher
-      # - 5446 #QSTweak
-      - 5985 #Do Not Disturb While Screen Sharing Or Recording
+      - Do Not Disturb While Screen Sharing Or Recording
 
   - type: fonts
     fonts:

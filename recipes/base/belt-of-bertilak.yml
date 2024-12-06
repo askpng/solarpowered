@@ -1,4 +1,4 @@
-# this file contains solarpowered base packages
+# yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
 
 modules:
   - type: files

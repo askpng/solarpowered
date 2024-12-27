@@ -24,6 +24,7 @@ modules:
       - ifuse
       - input-remapper
       - lm_sensors
+      - libappindicator
       - morewaita-icon-theme
       - ptyxis
       - pulseaudio-utils

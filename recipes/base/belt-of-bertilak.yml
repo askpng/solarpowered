@@ -49,6 +49,8 @@ modules:
       #waydroid
       - lzip
       - waydroid
+      #windscribe rpm
+      - https://github.com/Windscribe/Desktop-App/releases/download/v2.13.5/windscribe_2.13.5_beta_x86_64_fedora.rpm
     remove:
       - firefox
       - firefox-langpacks

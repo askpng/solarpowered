@@ -87,6 +87,7 @@ modules:
       - AppIndicator and KStatusNotifierItem Support
       - Bluetooth Battery Meter
       - Caffeine
+      - Default Workspace
       - Just Perfection
       - Night Theme Switcher
       - Do Not Disturb While Screen Sharing Or Recording

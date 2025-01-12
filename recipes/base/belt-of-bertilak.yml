@@ -47,6 +47,8 @@ modules:
       - lzip
       - waydroid
     remove:
+      - firefox
+      - firefox-langpacks
       - google-noto-sans-balinese-fonts
       - google-noto-sans-javanese-fonts
       - google-noto-sans-sundanese-fonts

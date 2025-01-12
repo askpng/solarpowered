@@ -1,5 +1,5 @@
 # set kernel parameters for sysrq, thinkpad fan control, and i915 guc-fbc
-t480s-set-kargs:
+t480s-kargs:
     rpm-ostree kargs \
       --append-if-missing="thinkpad_acpi.fan_control=1" \
       --append-if-missing="i915.enable_guc=2" \
@@ -21,17 +21,17 @@ t480s-set-fingerprint-sensor:
      sudo authselect current
 
 # configure experimental GNOME VRR
-ex-gnome-vrr:
+gnome-vrr:
      gsettings set org.gnome.mutter experimental-features "['variable-refresh-rate']"
 
 # set amd_pstate=enable kernel and amdgpu.ppfeaturemask argument for amd_pstate_epp and amdgpu control
-ex-amd-kargs:
+kargs-essential-amd:
      rpm-ostree kargs \
        --append-if-missing=amd_pstate=active \
        --append-if-missing=$(printf 'amdgpu.ppfeaturemask=0x%x\n' "$(($(cat /sys/module/amdgpu/parameters/ppfeaturemask) | 0x4000))")
 
 # set kernel arguments for sysrq, memory shuffle & apple keyboard drivers
-set-essential-kargs:
+kargs-essential:
      rpm-ostree kargs \
        --append-if-missing=sysrq_always_enabled=1 \
        --append-if-missing=page_alloc.shuffle=1 \
@@ -40,7 +40,7 @@ set-essential-kargs:
 # install arch, debian, bluebuild-cli distroboxes
 # needs distrobox.ini
 assemble-containers:
-     distrobox assemble create --file /etc/distrobox/distrobox.ini
+     distrobox assemble create --file "/etc/distrobox/distrobox.ini"
 
 # install Arch Linux box for CLI & media player use
 init-box:
@@ -51,10 +51,54 @@ init-gamebox:
      distrobox-assemble create --name gamebox --file="/etc/distrobox.ini"
 
 # set junction as default for browsers
-set-junction:
+setup-junction:
      xdg-settings set default-web-browser re.sonny.Junction.desktop
 
 # install flameshot and grant screenshot permission
-set-flameshot:
+setup-flameshot:
      flatpak install --noninteractive --assumeyes org.flameshot.Flameshot
      flatpak permission-set screenshot screenshot org.flameshot.Flameshot yes
+
+# anbox-modules
+anbox-modules-install:
+     sudo dkms install anbox-ashmem/1
+     sudo dkms install anbox-binder/1
+     sudo modprobe ashmem_linux
+     sudo modprobe binder_linux
+     lsmod | grep -e ashmem_linux -e binder_linux
+     ls -alh /dev/binder /dev/ashmem
+
+# anbox-modules
+anbox-modules-uninstall:
+     sudo dkms remove anbox-ashmem/1
+     sudo dkms remove anbox-binder/1
+     failed_checks=0
+     if sudo modprobe ashmem_linux > /dev/null 2>&1; then
+          failed_checks=1
+     else
+          failed_checks=0
+     fi
+
+     if sudo modprobe binder_linux > /dev/null 2>&1; then
+          failed_checks=1
+     else
+          failed_checks=0
+     fi
+
+     if lsmod | grep -e ashmem_linux -e binder_linux > /dev/null 2>&1; then
+          failed_checks=1
+     else
+          failed_checks=0
+     fi
+
+     if ls -alh /dev/binder /dev/ashmem > /dev/null 2>&1; then
+          failed_checks=1
+     else
+          failed_checks=0
+     fi
+
+     if [ $failed_checks == 1 ]; then
+          echo "Please restart your device and rerun this script to verify changes"
+     else
+          echo "Modules not installed"
+     fi

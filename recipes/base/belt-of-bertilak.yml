@@ -14,6 +14,7 @@ modules:
     install:
       - butter #butter from zhangyuannie/butter
       - codium
+      - dkms
       - epson-inkjet-printer-escpr
       - epson-inkjet-printer-escpr2
       - fastfetch
@@ -35,12 +36,6 @@ modules:
       - uxplay
       - wl-clipboard
       - xorg-x11-server-Xwayland
-      # v4l2
-      - libcamera-v4l2
-      - pipewire-v4l2
-      - v4l2ucp
-      - libva-v4l2-request
-      - v4l-utils
       #gsconnect
       - openssl
       - nautilus-python
@@ -106,8 +101,8 @@ modules:
     scripts:
       - tela-icon-theme.sh
       - qogir-icon-theme.sh
-    snippets:
-      - "wget https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji.ttf -P /usr/share/fonts/apple-color-emoji/AppleColorEmoji.ttf"
+    #snippets:
+    #  - "wget https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji.ttf -P /usr/share/fonts/apple-color-emoji/AppleColorEmoji.ttf"
 
   - type: default-flatpaks
     notify: true

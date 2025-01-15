@@ -92,7 +92,10 @@ modules:
         - UbuntuMono
         - Ubuntu
       google-fonts:
+        - Asap
+        - Assistant
         - Fira Sans
+        - IBM Plex Sans
         - Kosugi Maru
         - Ruda
   

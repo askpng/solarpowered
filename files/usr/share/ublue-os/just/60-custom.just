@@ -67,34 +67,3 @@ anbox-modules-install:
      sudo modprobe binder_linux
      lsmod | grep -e ashmem_linux -e binder_linux
      ls -alh /dev/binder /dev/ashmem
-
-# anbox-modules
-anbox-modules-uninstall:
-     sudo dkms remove anbox-ashmem/1
-     sudo dkms remove anbox-binder/1
-     failed_checks=0
-     if sudo modprobe ashmem_linux > /dev/null 2>&1; then
-     failed_checks=1
-     else
-     failed_checks=0
-     fi
-     if sudo modprobe binder_linux > /dev/null 2>&1; then
-     failed_checks=1
-     else
-     failed_checks=0
-     fi
-     if lsmod | grep -e ashmem_linux -e binder_linux > /dev/null 2>&1; then
-     failed_checks=1
-     else
-     failed_checks=0
-     fi
-     if ls -alh /dev/binder /dev/ashmem > /dev/null 2>&1; then
-     failed_checks=1
-     else
-     failed_checks=0
-     fi
-     if [ $failed_checks == 1 ]; then
-     echo "Please restart your device and rerun this script to verify changes"
-     else
-     echo "Modules not installed"
-     fi

@@ -20,10 +20,6 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/larvitz/throttled/repo/fedora-%OS_VERSION%/larvitz-throttled-fedora-%OS_VERSION%.repo
       # sneexy/python-validity
       - https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/repo/fedora-%OS_VERSION%/sneexy-python-validity-fedora-%OS_VERSION%.repo
-      # zen
-      - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo
-    optfix:
-      - zen
     install:
       # igt-gpu-tools
       - igt-gpu-tools
@@ -39,8 +35,6 @@ modules:
       - throttled
       # zcfan
       - zcfan
-      # zen
-      - zen-browser
     remove:
       # python-validity conflicts
       - fprintd

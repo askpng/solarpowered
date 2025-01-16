@@ -13,6 +13,9 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-%OS_VERSION%/zhangyuannie-butter-fedora-%OS_VERSION%.repo #butter
       - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
       - https://copr.fedorainfracloud.org/coprs/shdwchn10/AllTheTools/repo/fedora-%OS_VERSION%/shdwchn10-AllTheTools-fedora-%OS_VERSION%.repo #starship & topgrade
+      - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo #zen
+    optfix:
+      - zen
     install:
       - butter #butter from zhangyuannie/butter
       - codium
@@ -37,6 +40,8 @@ modules:
       - uxplay
       - wl-clipboard
       - xorg-x11-server-Xwayland
+      # zen
+      - zen-browser
       #gsconnect
       - openssl
       - nautilus-python

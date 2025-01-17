@@ -5,8 +5,6 @@ modules:
         destination: /usr
       - source: etc
         destination: /etc
-      - source: lib
-        destination: /lib
 
   - type: rpm-ostree
     repos:

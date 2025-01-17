@@ -1,0 +1,43 @@
+[Unit]
+Description=Zero-configuration fan control for ThinkPad
+Conflicts=thinkfan.service
+# 
+[Service]
+ExecStart=/bin/zcfan
+Restart=always
+RestartSec=500ms
+# 
+MemoryDenyWriteExecute=yes
+NoNewPrivileges=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=
+RestrictRealtime=yes
+ 
+# We don't need to do any substantial clean up, so if something hangs it's
+# going to stay that way. Just forcefully kill and get it over with.
+TimeoutStopSec=2
+
+[Install]
+WantedBy=default.target
+
+# /usr/lib/systemd/system/service.d/10-timeout-abort.conf
+# This file is part of the systemd package.
+# See https://fedoraproject.org/wiki/Changes/Shorter_Shutdown_Timer.
+#
+# To facilitate debugging when a service fails to stop cleanly,
+# TimeoutStopFailureMode=abort is set to "crash" services that fail to stop in
+# the time allotted. This will cause the service to be terminated with SIGABRT
+# and a coredump to be generated.
+#
+# To undo this configuration change, create a mask file:
+#   sudo mkdir -p /etc/systemd/system/service.d
+#   sudo ln -sv /dev/null /etc/systemd/system/service.d/10-timeout-abort.conf
+
+[Service]
+TimeoutStopFailureMode=abort
+
+# /usr/lib/systemd/system/service.d/50-keep-warm.conf
+# Disable freezing of user sessions to work around kernel bugs.
+# See https://bugzilla.redhat.com/show_bug.cgi?id=2321268
+[Service]
+Environment=SYSTEMD_SLEEP_FREEZE_USER_SESSIONS=0

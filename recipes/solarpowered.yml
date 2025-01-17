@@ -59,6 +59,13 @@ modules:
 
   #base packages (belt of bertilak)
   - from-file: base/belt-of-bertilak.yml
+
+  - type: files
+    files:
+    - source: solarpowered/usr
+      destination: /usr
+    - source: solarpowered/etc
+      destination: /etc
   
   #DO NOT UNCOMMENT BEFORE EVERYTHING
   #IS PROPERLY CONFIGURED AND TESTED

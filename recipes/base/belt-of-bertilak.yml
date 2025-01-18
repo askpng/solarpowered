@@ -118,7 +118,6 @@ modules:
         - com.github.tchx84.Flatseal
         - com.github.rafostar.Clapper
         - com.mattjakeman.ExtensionManager
-        - dev.vencord.Vesktop
         - io.github.flattool.Warehouse
         - io.github.nokse22.minitext
         - net.nokyan.Resources

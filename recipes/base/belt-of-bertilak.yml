@@ -13,6 +13,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/shdwchn10/AllTheTools/repo/fedora-%OS_VERSION%/shdwchn10-AllTheTools-fedora-%OS_VERSION%.repo #starship & topgrade
       - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo #zen
     optfix:
+      - windscribe
       - zen
     install:
       - butter #butter from zhangyuannie/butter
@@ -47,8 +48,10 @@ modules:
       #luminance
       - https://github.com/sidevesh/Luminance/releases/download/1.1.0/luminance-1.1.0.rpm
       #waydroid
-      - lzip
-      - waydroid
+      # - lzip
+      # - waydroid
+      # windscribe
+      - https://github.com/Windscribe/Desktop-App/releases/download/v2.12.7/windscribe_2.12.7_x86_64_fedora.rpm
     remove:
       - firefox
       - firefox-langpacks

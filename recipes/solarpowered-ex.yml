@@ -5,10 +5,15 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 41
 
 modules:
-  - from-file: kernels/blu-kernel.yml
+  #- from-file: kernels/blu-kernel.yml
   #- from-file: kernels/fsync-kernel.yml
   #- from-file: kernels/cachy-kernel.yml
   #- from-file:kernels/tkg-kernel.yml
+  - type: containerfile
+    snippets: 
+      - FROM ghcr.io/ublue-os/bazzite-kernel:41-6.12.10-202.bazzite.fc41.x86_64 AS kernel
+
+  - type: initramfs
 
   #EX/desktop exclusives
   - type: rpm-ostree

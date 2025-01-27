@@ -13,8 +13,6 @@ modules:
     snippets: 
       - FROM ghcr.io/ublue-os/bazzite-kernel:41-6.12.10-202.bazzite.fc41.x86_64 AS kernel
 
-  - type: initramfs
-
   #EX/desktop exclusives
   - type: rpm-ostree
     repos:

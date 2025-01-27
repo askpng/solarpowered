@@ -3,6 +3,8 @@ description: Custom image formulated for my personal desktop system
 
 base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 41
+alt-tags:
+  - cloak
 
 modules:
   #- from-file: kernels/blu-kernel.yml

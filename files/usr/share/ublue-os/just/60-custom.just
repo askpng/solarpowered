@@ -52,3 +52,17 @@ setup-junction:
 setup-flameshot:
      flatpak install --noninteractive --assumeyes org.flameshot.Flameshot
      flatpak permission-set screenshot screenshot org.flameshot.Flameshot yes
+
+# Setup box
+box:
+     distrobox-assemble create --file /etc/distrobox.ini -n box && distrobox-enter box
+
+# Setup gamebox
+gamebox:
+     distrobox-assemble create --file /etc/distrobox.ini -n gamebox && \
+          distrobox-enter gamebox
+
+# Setup bluebuild-cli
+bluebuild-cli:
+     distrobox-assemble create --file /etc/distrobox.ini -n bluebuild-cli && \
+          distrobox-enter bluebuild-cli

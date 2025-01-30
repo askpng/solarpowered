@@ -29,6 +29,7 @@ modules:
       - ibus-mozc
       - ifuse
       - input-remapper
+      - inxi
       - lm_sensors
       - libappindicator
       - morewaita-icon-theme

@@ -16,13 +16,6 @@ modules:
       # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo #system76-scheduler
       - https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/repo/fedora-%OS_VERSION%/ilyaz-LACT-fedora-%OS_VERSION%.repo #lact
     install:
-      - inxi
-      - goverlay
-      - mangohud
-      #system76-scheduler
-      # - gnome-shell-extension-system76-scheduler
-      # - system76-scheduler
-      #AMD stuff
       - lact-libadwaita
       - radeontop
 

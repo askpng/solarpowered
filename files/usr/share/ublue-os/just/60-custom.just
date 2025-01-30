@@ -60,7 +60,7 @@ box:
 # Setup gamebox
 gamebox:
      distrobox-assemble create --file https://raw.githubusercontent.com/askpng/gamebox/refs/heads/main/gamebox.ini && \
-          distrobox-enter gamebox -- ' /usr/bin/curl -sSL https://raw.githubusercontent.com/askpng/gamebox/838a42db99bbda5c9cf2bd7287a7e366eaf210bc/scripts/distrobox/post-install.sh | sh'
+          distrobox-enter gamebox -- 'sh　https://raw.githubusercontent.com/askpng/gamebox/refs/heads/main/scripts/distrobox/post-install.sh'
 
 # Setup bluebuild-cli
 bluebuild-cli:

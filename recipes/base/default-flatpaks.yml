@@ -1,0 +1,24 @@
+modules:
+  - type: default-flatpaks
+    notify: true
+    system:
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      install:
+        - ca.desrt.dconf-editor
+        - com.github.tchx84.Flatseal
+        - com.github.rafostar.Clapper
+        - com.mattjakeman.ExtensionManager
+        - io.github.flattool.Warehouse
+        - io.github.nokse22.minitext
+        - net.nokyan.Resources
+        - org.gnome.clocks
+        - org.gnome.Epiphany
+        - org.gnome.FileRoller
+        - org.gnome.Firmware
+        - org.gnome.Loupe
+        - org.gnome.seahorse.Application
+        - org.gnome.SimpleScan
+        - org.gnome.Snapshot
+        - org.gnome.TextEditor
+        - org.gnome.Weather
+        - re.sonny.Junction

@@ -1,0 +1,12 @@
+modules:
+  - type: rpm-ostree
+    repos:
+    - https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/repo/fedora-%OS_VERSION%/ilyaz-LACT-fedora-%OS_VERSION%.repo #lact
+    install:
+    - lact-libadwaita
+    - nvtop
+
+  - type: systemd
+    system:
+      enabled:
+        - lactd.service

@@ -1,0 +1,43 @@
+modules:
+  - type: rpm-ostree
+    repos:
+      # larvitz/throttled for F41
+      - https://copr.fedorainfracloud.org/coprs/larvitz/throttled/repo/fedora-%OS_VERSION%/larvitz-throttled-fedora-%OS_VERSION%.repo
+      # sneexy/python-validity
+      - https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/repo/fedora-%OS_VERSION%/sneexy-python-validity-fedora-%OS_VERSION%.repo
+    install:
+    - igt-gpu-tools
+    - intel-media-driver
+    # python-validity
+    - fprintd-clients
+    - fprintd-clients-pam
+    - open-fprintd
+    - python3-validity    
+    # tlp
+    - tlp
+    - tlp-rdw
+    # throttled
+    - throttled
+    # zcfan
+    - zcfan
+    remove:
+    # python-validity conflicts
+    - fprintd
+    - fprintd-pam
+    # tlp conflicts
+    - tuned-ppd
+    - tuned
+    # throtled-conflicts
+    - thermald
+
+  - type: systemd
+    system:
+      enabled:
+        # tlp
+        - tlp.service
+        # throttled
+        # throttled.service
+      masked: 
+        # tlp
+        - systemd-rfkill.service
+        - systemd-rfkill.socket

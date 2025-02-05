@@ -14,10 +14,15 @@ modules:
       - windscribe
       - zen
     install:
+      - android-udev-rules
+      - anthy-unicode
       - baobab
+      - bluez-cups
       - cairo
+      - cups
       - dconf
       - dconf-editor
+      - flatpak-spawn
       - fuse
       - fuse-common
       - fuse-libs
@@ -58,11 +63,13 @@ modules:
       - NetworkManager-openconnect-gnome
       - NetworkManager-openvpn
       - NetworkManager-openvpn-gnome
+      - NetworkManager-ppp
       - NetworkManager-pptp
       - NetworkManager-pptp-gnome
       - NetworkManager-ssh
       - NetworkManager-ssh-gnome
       - NetworkManager-vpnc
+      - NetworkManager-vpnc-gnome
       - NetworkManager-wwan
       - pango
       - ptyxis

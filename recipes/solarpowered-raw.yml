@@ -5,6 +5,8 @@ base-image: quay.io/fedora/fedora-bootc
 image-version: 41
 
 modules:
+  - from-file: kernels/cachy-kernel.yml
+
   - type: files
     files:
       - etc: /etc
@@ -26,12 +28,15 @@ modules:
       - zen
     install:
       # gnome
+      - baobab
       - cairo
       - dconf
       - dconf-editor
       - gdm
       - glib2
+      - gnome-boxes
       - gnome-control-center
+      - gnome-disk-utility
       - gnome-session
       - gnome-shell
       - google-noto-sans-cjk-fonts
@@ -57,6 +62,7 @@ modules:
       - ffmpegthumbnailer
       - fish
       - flatpak
+      - fwupd
       - firewall-config
       - fonts-tweak-tool
       - gnome-epub-thumbnailer
@@ -98,17 +104,73 @@ modules:
       - xorg-x11-server-Xwayland
       - yaru-sound-theme
       - zstd
-    #remove:
+      - zen-browser
+    remove:
       #- gnome-classic-session
       #- gnome-software
       #- gnome-system-monitor
-      #- gnome-tour
+      - gnome-tour
       #- gnome-shell-extension-apps-menu
       #- gnome-shell-extension-background-logo
       #- gnome-shell-extension-launch-new-instance
       #- gnome-shell-extension-places-menu
       #- gnome-shell-extension-window-list
       #- yelp
+    replace:
+      - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
+        packages:
+        - gnome-shell
+        - mutter
+        - mutter-common
+        - xorg-x11-server-Xwayland
+
+  - type: gnome-extensions
+    install:
+      - Alphabetical App Grid
+      - AppIndicator and KStatusNotifierItem Support
+      - Bluetooth Battery Meter
+      - Caffeine
+      - Just Perfection
+      - Night Theme Switcher
+      - Do Not Disturb While Screen Sharing Or Recording
+  
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - NerdFontsSymbolsOnly
+        - UbuntuMono
+        - Ubuntu
+      google-fonts:
+        - Asap
+        - Assistant
+        - Fira Sans
+        - IBM Plex Sans
+        - Kosugi Maru
+        - Ruda
+
+  - type: default-flatpaks
+    notify: true
+    system:
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      install:
+        - ca.desrt.dconf-editor
+        - com.github.tchx84.Flatseal
+        - com.github.rafostar.Clapper
+        - com.mattjakeman.ExtensionManager
+        - io.github.flattool.Warehouse
+        - io.github.nokse22.minitext
+        - net.nokyan.Resources
+        - org.gnome.clocks
+        - org.gnome.Epiphany
+        - org.gnome.FileRoller
+        - org.gnome.Firmware
+        - org.gnome.Loupe
+        - org.gnome.seahorse.Application
+        - org.gnome.SimpleScan
+        - org.gnome.Snapshot
+        - org.gnome.TextEditor
+        - org.gnome.Weather
+        - re.sonny.Junction
 
   - type: signing
 

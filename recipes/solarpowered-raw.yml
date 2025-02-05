@@ -5,8 +5,6 @@ base-image: quay.io/fedora/fedora-bootc
 image-version: 41
 
 modules:
-  - from-file: kernels/cachy-kernel.yml
-
   - type: files
     files:
       - etc: /etc
@@ -27,11 +25,16 @@ modules:
       - windscribe
       - zen
     install:
-      # gnome
       - baobab
       - cairo
       - dconf
       - dconf-editor
+      - fuse
+      - fuse-common
+      - fuse-libs
+      - fuse-overlayfs
+      - fuse3
+      - fuse3-libs
       - gdm
       - glib2
       - gnome-boxes
@@ -41,12 +44,47 @@ modules:
       - gnome-shell
       - google-noto-sans-cjk-fonts
       - gtk3
+      - gvfs
+      - gvfs-afc
+      - gvfs-afp
+      - gvfs-archive
+      - gvfs-client
+      - gvfs-fuse
+      - gvfs-goa
+      - gvfs-gphoto2
+      - gvfs-mtp
+      - gvfs-nfs
+      - gvfs-smb
+      - ifuse
+      - kernel-modules-extra
       - mutter
       - nautilus
+      - NetworkManager
+      - NetworkManager-adsl
+      - NetworkManager-bluetooth
+      - NetworkManager-config-connectivity-fedora
+      - NetworkManager-openconnect
+      - NetworkManager-openconnect-gnome
+      - NetworkManager-openvpn
+      - NetworkManager-openvpn-gnome
+      - NetworkManager-pptp
+      - NetworkManager-pptp-gnome
+      - NetworkManager-ssh
+      - NetworkManager-ssh-gnome
+      - NetworkManager-vpnc
+      - NetworkManager-wwan
       - pango
       - ptyxis
+      - python3-pyxdg
       - rsms-inter-fonts
       - gsettings-desktop-schemas
+      - xdg-dbus-proxy
+      - xdg-desktop-portal
+      - xdg-desktop-portal-gnome
+      - xdg-desktop-portal-gtk
+      - xdg-user-dirs
+      - xdg-user-dirs-gtk
+      - xdg-utils
       # basic stuff
       - adw-gtk3-theme
       - alsa-firmware
@@ -67,7 +105,6 @@ modules:
       - fonts-tweak-tool
       - gnome-epub-thumbnailer
       - gnome-tweaks
-      - gvfs-nfs
       - heif-pixbuf-loader
       - hunspell
       - hunspell-en
@@ -81,7 +118,6 @@ modules:
       - libheif-tools
       - libva-utils
       - lm_sensors
-      - https://github.com/sidevesh/Luminance/releases/download/1.1.0/luminance-1.1.0.rpm
       - lzip
       - morewaita-icon-theme
       - nautilus-extensions
@@ -92,30 +128,20 @@ modules:
       - oxygen-sounds
       - pipewire-codec-aptx
       - pop-sound-theme
-      - ptyxis
-      - pulseaudio-utils
-      - rsms-inter-fonts
       - starship
       - topgrade
       - uxplay
       - waydroid
       - wl-clipboard
-      - https://github.com/Windscribe/Desktop-App/releases/download/v2.13.8/windscribe_2.13.8_x86_64_fedora.rpm
       - xorg-x11-server-Xwayland
       - yaru-sound-theme
-      - zstd
       - zen-browser
+      - zstd
+      - https://github.com/sidevesh/Luminance/releases/download/1.1.0/luminance-1.1.0.rpm
+      - https://github.com/Windscribe/Desktop-App/releases/download/v2.13.8/windscribe_2.13.8_x86_64_fedora.rpm
     remove:
-      #- gnome-classic-session
-      #- gnome-software
-      #- gnome-system-monitor
       - gnome-tour
-      #- gnome-shell-extension-apps-menu
-      #- gnome-shell-extension-background-logo
-      #- gnome-shell-extension-launch-new-instance
-      #- gnome-shell-extension-places-menu
-      #- gnome-shell-extension-window-list
-      #- yelp
+      - rygel
     replace:
       - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
         packages:
@@ -123,6 +149,8 @@ modules:
         - mutter
         - mutter-common
         - xorg-x11-server-Xwayland
+
+  - from-file: kernels/tkg-kernel.yml
 
   - type: gnome-extensions
     install:

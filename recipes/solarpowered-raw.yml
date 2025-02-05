@@ -130,6 +130,7 @@ modules:
       - pop-sound-theme
       - starship
       - topgrade
+      - unzip
       - uxplay
       - waydroid
       - wl-clipboard
@@ -196,6 +197,20 @@ modules:
         - org.gnome.TextEditor
         - org.gnome.Weather
         - re.sonny.Junction
+
+  - type: systemd
+    system:
+      disabled:
+        - NetworkManager-wait-online.service
+        - flatpak-add-fedora-repos.service
+        # - flatpak-system-update.timer
+        # - flatpak-system-update.service
+        # - flatpak-user-update.timer
+        # - flatpak-user-update.service
+    user:
+      enabled:
+        - topgrade.timer
+        - topgrade.service
 
   - type: signing
 

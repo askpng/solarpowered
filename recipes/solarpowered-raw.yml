@@ -7,6 +7,7 @@ image-version: 41
 modules:
   - type: files
     files:
+      - etc: /etc
       - usr: /usr
 
   - type: bling
@@ -45,7 +46,7 @@ modules:
       - adw-gtk3-theme
       - alsa-firmware
       - android-tools
-      - butter # butter from zhangyuannie/butter
+      - butter
       - codium
       - deepin-sound-theme
       - distrobox

@@ -9,7 +9,20 @@ modules:
     files:
       - usr: /usr
 
+  - type: bling
+    install:
+    - rpmfusion
+
   - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-%OS_VERSION%/zhangyuannie-butter-fedora-%OS_VERSION%.repo #butter
+      - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
+      - https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/repo/fedora-%OS_VERSION%/ilyaz-LACT-fedora-%OS_VERSION%.repo #lact
+      - https://copr.fedorainfracloud.org/coprs/shdwchn10/AllTheTools/repo/fedora-%OS_VERSION%/shdwchn10-AllTheTools-fedora-%OS_VERSION%.repo #starship & topgrade
+      - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo #zen browser
+    optfix:
+      - windscribe
+      - zen
     install:
       # gnome
       - cairo
@@ -28,19 +41,6 @@ modules:
       - ptyxis
       - rsms-inter-fonts
       - gsettings-desktop-schemas
-
-  - type: bling
-    install:
-    - rpmfusion
-    - gnome-vrr 
-
-  - type: rpm-ostree
-    repos:
-      - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-%OS_VERSION%/zhangyuannie-butter-fedora-%OS_VERSION%.repo #butter
-      - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
-      - https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/repo/fedora-%OS_VERSION%/ilyaz-LACT-fedora-%OS_VERSION%.repo #lact
-      - https://copr.fedorainfracloud.org/coprs/shdwchn10/AllTheTools/repo/fedora-%OS_VERSION%/shdwchn10-AllTheTools-fedora-%OS_VERSION%.repo #starship & topgrade
-      - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo #ze
       # basic stuff
       - adw-gtk3-theme
       - alsa-firmware
@@ -53,10 +53,9 @@ modules:
       - epson-inkjet-printer-escpr2
       - fastfetch
       - ffmpeg
-      - ffmpeg-libs
       - ffmpegthumbnailer
       - fish
-      - flatpak-spawn
+      - flatpak
       - firewall-config
       - fonts-tweak-tool
       - gnome-epub-thumbnailer
@@ -65,14 +64,11 @@ modules:
       - heif-pixbuf-loader
       - hunspell
       - hunspell-en
-      - ibus-mozc
-      - ifuse
       - igt-gpu-tools
-      - input-remapper
       - inxi
       - intel-media-driver
       - just
-      - lact
+      - lact-libadwaita
       - libappindicator
       - libheif-freeworld
       - libheif-tools
@@ -93,7 +89,6 @@ modules:
       - pulseaudio-utils
       - rsms-inter-fonts
       - starship
-      - steam-devices
       - topgrade
       - uxplay
       - waydroid
@@ -106,28 +101,13 @@ modules:
       #- gnome-classic-session
       #- gnome-software
       #- gnome-system-monitor
-      - gnome-tour
+      #- gnome-tour
       #- gnome-shell-extension-apps-menu
       #- gnome-shell-extension-background-logo
       #- gnome-shell-extension-launch-new-instance
       #- gnome-shell-extension-places-menu
       #- gnome-shell-extension-window-list
-      - yelp
-      - firefox
-      - firefox-langpacks
-      - power-profiles-daemon
-    replace:
-      - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
-        packages:
-        - gnome-shell
-        - mutter
-        - mutter-common
-        - xorg-x11-server-Xwayland
-
-  - type: systemd
-    system:
-      disabled:
-        - NetworkManager-wait-online.service
+      #- yelp
 
   - type: signing
 

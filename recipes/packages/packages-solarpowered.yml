@@ -21,14 +21,9 @@ modules:
     # zcfan
     - zcfan
     remove:
-    # python-validity conflicts
-    - fprintd
-    - fprintd-pam
     # tlp conflicts
     - tuned-ppd
     - tuned
-    # throtled-conflicts
-    - thermald
 
   - type: systemd
     system:

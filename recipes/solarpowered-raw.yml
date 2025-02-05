@@ -15,7 +15,6 @@ modules:
       - cairo
       - dconf
       - dconf-editor
-      - dejavu-fonts
       - gdm
       - glib2
       - gnome-control-center
@@ -28,7 +27,6 @@ modules:
       - pango
       - ptyxis
       - rsms-inter-fonts
-      - xorg-fonts
       - gsettings-desktop-schemas
 
   - type: bling

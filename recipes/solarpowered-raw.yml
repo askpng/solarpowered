@@ -97,7 +97,7 @@ modules:
       - xorg-x11-server-Xwayland
       - yaru-sound-theme
       - zstd
-    remove:
+    #remove:
       #- gnome-classic-session
       #- gnome-software
       #- gnome-system-monitor

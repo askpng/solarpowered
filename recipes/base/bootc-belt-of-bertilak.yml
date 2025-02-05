@@ -25,6 +25,8 @@ modules:
       - fuse3
       - fuse3-libs
       - gdm
+      - git
+      - git-credential-libsecret
       - glib2
       - gnome-boxes
       - gnome-control-center

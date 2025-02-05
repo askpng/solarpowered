@@ -1,0 +1,34 @@
+name: solarpowered-bootc
+description: Lenovo T480s image based on Fedora's bootc image.
+
+base-image: quay.io/fedora/fedora-bootc
+image-version: 41
+
+modules:
+  - type: files
+    files:
+      - etc: /etc
+      - usr: /usr
+
+  - from-file: base/bootc-belt-of-bertilak.yml
+
+  - from-file: packages/packages-solarpowered.yml # also includes systemd services for TLP
+
+  - from-file: base/fonts.yml
+
+  - from-file: base/gnome-extensions.yml
+
+  - from-file: base/scripts.yml
+
+  - from-file: base/systemd.yml
+
+  - from-file: kernels/blu-kernel.yml
+
+  - type: files
+    files:
+    - source: solarpowered/usr
+      destination: /usr
+    - source: solarpowered/etc
+      destination: /etc
+
+  - type: signing

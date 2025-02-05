@@ -14,11 +14,11 @@ Because I like Gawain from Fate/Extra & Fate/Grand Order.
 ## Build status
 <center>
 
-|  	| solarpowered 	| solarpowered-bootc 	| solarpowered-ex 	| solarpowered-ex-bootc 	|
+|  	| solarpowered 	| solarpowered-bootc **WIP** 	| solarpowered-ex 	| solarpowered-ex-bootc **WIP**	|
 |---	|---	|---	|---	|---	|
 | **Description** 	| Optimized for Lenovo T480/s devices, based on Universal Blue's `silverblue-main` image 	| Optimized for Lenovo T480/s devices, based on `fedora-bootc` image 	| Optimized for desktop PCs with AMD internals, based on Universal Blue's `silverblue-main` image  	| Optimized for desktop PCs with AMD internals, based on `fedora-bootc` image 	|
 | **Build status** 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-bootc.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-bootc.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex-bootc.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex-bootc.yml) 	|
-| **Functional status** 	| Fully functional & DD 	| Under review 	| Fully functional & DD 	| Under review 	|
+| **Functional status** 	| Fully functional & DD 	| **Not ready for use**	| Fully functional & DD 	| **Not ready for use** 	|
 | **Build schedule** 	| Thursdays, 17:00 UTC 	| Thursdays, 18:00 UTC 	| Mondays & Thursdays, 17:00 UTC 	| Thursdays, 17:00 UTC 	|
 
 </center>

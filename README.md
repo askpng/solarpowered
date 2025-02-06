@@ -14,12 +14,12 @@ Because I like Gawain from Fate/Extra & Fate/Grand Order.
 ## Build status
 <center>
 
-|  	| solarpowered 	| solarpowered-bootc **WIP** 	| solarpowered-ex 	| solarpowered-ex-bootc **WIP**	|
-|---	|---	|---	|---	|---	|
-| **Description** 	| Optimized for Lenovo T480/s devices, based on Universal Blue's `silverblue-main` image 	| Optimized for Lenovo T480/s devices, based on `fedora-bootc` image 	| Optimized for desktop PCs with AMD internals, based on Universal Blue's `silverblue-main` image  	| Optimized for desktop PCs with AMD internals, based on `fedora-bootc` image 	|
-| **Build status** 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-bootc.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-bootc.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex-bootc.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex-bootc.yml) 	|
-| **Functional status** 	| Fully functional & DD 	| **Not ready for use**	| Fully functional & DD 	| **Not ready for use** 	|
-| **Build schedule** 	| Thursdays, 17:00 UTC 	| Thursdays, 18:00 UTC 	| Mondays & Thursdays, 17:00 UTC 	| Thursdays, 17:00 UTC 	|
+|  	| solarpowered-raw 	| solarpowered 	| solarpowered-ex 	|
+|---	|---	|---	|---	|
+| **Description** 	| Base image built upon vanilla Silverblue 	| Optimized for Lenovo T480/s devices 	| Optimized for desktop PCs with AMD internals 	|
+| **Build status** 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-raw.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-raw.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) 	|
+| **Functional status** 	| Fully functional & DD 	| Fully functional & DD 	| Fully functional & DD 	|
+| **Build schedule** 	| Mondays & Fridays, 17:00 UTC 	| Thursdays, 17:30 UTC 	| Mondays & Thursdays, 17:30 UTC 	|
 
 </center>
 
@@ -27,6 +27,7 @@ Because I like Gawain from Fate/Extra & Fate/Grand Order.
 
 This image supports Lenovo T480(s) and contains:
 
+- [blu kernel](https://copr.fedorainfracloud.org/coprs/sentry/kernel-blu/)
 - `igt-gpu-tools`
 - `python-validity` forked by [sneexy](https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/)
 - `tlp` and `tlp-rdw`
@@ -34,7 +35,6 @@ This image supports Lenovo T480(s) and contains:
 - `throttled`
 > `throttled` is shipped with the [defaults](https://github.com/erpalma/throttled/blob/master/etc/throttled.conf) but slightly different configuration structure. I use universal values for AC and battery so there is no `[UNDERVOLT.AC]` nor `[UNDERVOLT.BATTERY]`, only `[UNDERVOLT]`. Documented in the `throttled` [README](https://github.com/erpalma/throttled#undervolt).
 - `zcfan`
-> Before enabling `zcfan`, run `rpm-ostree kargs --append=thinkpad_acpi.fan_control=1` and reboot for it to work. If you are running a full Intel T480(s), you can also run `ujust t480s-set-kargs` to apply it with other kernel parameters to enable GuC a& FBC and reboot. Then, run `sudo systemctl enable --now zcfan`.
 
 The following packages are explicitly removed from the base image due to conflicts.
 - `fprintd`
@@ -63,31 +63,15 @@ This configuration is intended to support my desktop configuration. Changes to t
 
 This image contains:
 
-- `goverlay`
-- `inxi`
-- `lact` from [ilya-zlobintsev](https://github.com/ilya-zlobintsev/LACT)
-- `mangohud`
-- `radeontop`
-
-### Kernel
-
-The Fedora default kernel is replaced with [kernel-fsync](https://copr.fedorainfracloud.org/coprs/sentry/kernel-blu/).
-
-> NOTE: Make sure to enable initramfs regeneration by running `rpm-ostree initramfs` before rebasing to prevent boot failure.
+- [cachy kernel](https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/)
+- `lact-libadwaita` from [ilya-zlobintsev](https://github.com/ilya-zlobintsev/LACT)
+- `nvtop `
 
 ### B550 suspend fix
 
 This image includes the fix to [B550 boards suspend issue](https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#PC_will_not_wake_from_sleep_on_A520I_and_B550I_motherboards). Enable the fix with the following command:
 
 ```sudo systemctl enable --now b550-suspend-fix.service```
-
-## Automatic updates
-
-> Better writeup planned! 
-
-System updates are handled by `rpm-ostreed-automatic.service`. To override the timer settings, create `/etc/systemd/system/rpm-ostreed-automatic.timer.d/override.conf`.
-
-Other updates are handled by `topgrade.service`. Enable with `sudo systemctl enable --now topgrade.{timer,service}.` To override the timer settings, create `/etc/systemd/system/topgrade.timer/override.conf`.
 
 # Installation
 
@@ -96,7 +80,7 @@ You can install by rebasing from Silverblue or generating an ISO file yourself. 
 ## Rebase
 To rebase from a Silverblue installation, follow the steps below.
 
-### T480(s) image
+### solarpowered
 1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot automatically:
   ```
   rpm-ostree rebase ostree-unverified-registry:ghcr.io/askpng/solarpowered:latest --reboot
@@ -106,7 +90,7 @@ To rebase from a Silverblue installation, follow the steps below.
   rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/solarpowered:latest --reboot
   ```
 
-### EX/desktop image
+### solarpowered-ex
 1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot automatically:
   ```
   rpm-ostree rebase ostree-unverified-registry:ghcr.io/askpng/solarpowered-ex:latest --reboot

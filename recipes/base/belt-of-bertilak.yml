@@ -16,6 +16,7 @@ modules:
       - windscribe
       - zen
     install:
+      - baobab
       - butter #butter from zhangyuannie/butter
       - codium
       - epson-inkjet-printer-escpr

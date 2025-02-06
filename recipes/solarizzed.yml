@@ -6,8 +6,9 @@ image-version: stable
 
 modules:
   - type: files
-    source: shared/etc/
-    destination: /etc
+    files:
+      - source: shared/etc/
+        destination: /etc
 
   - type: rpm-ostree
     repos:

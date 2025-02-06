@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+/usr/bin/just --justfile /ust/share/appends/appends.just "${@}"

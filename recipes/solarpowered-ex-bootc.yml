@@ -11,8 +11,6 @@ modules:
 
   - from-file: kernels/tkg.yml
 
-  - from-file: packages/packages-core.yml
-
   - from-file: packages/packages-ex.yml
 
   - from-file: shared/fonts.yml

@@ -11,8 +11,6 @@ modules:
 
   - from-file: kernels/blu.yml
 
-  - from-file: packages/packages-core.yml
-
   - from-file: shared/fonts.yml
 
   - from-file: shared/gnome-extensions.yml

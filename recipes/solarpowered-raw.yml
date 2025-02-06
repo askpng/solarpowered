@@ -12,7 +12,7 @@ modules:
 
   - from-file: base/raw.yml
 
-  - from-file: base/default-flatpaks
+  - from-file: base/default-flatpaks.yml
 
   - from-file: base/fonts.yml
 

@@ -1,7 +1,7 @@
 name: solarizzed
-description: Based on bazzite-deck
+description: Based on bazzite-deck-gnome
 
-base-image: ghcr.io/ublue-os/bazzite-deck
+base-image: ghcr.io/ublue-os/bazzite-deck-gnome
 image-version: stable
 
 modules:
@@ -28,11 +28,12 @@ modules:
       - zen-browser
       - https://github.com/Windscribe/Desktop-App/releases/download/v2.13.8/windscribe_2.13.8_x86_64_fedora.rpm
     remove:
-      - gnome-shell-extension-user-theme
+      - gnome-shell-extension-blur-my-shell
       - gnome-shell-extension-compiz-windows-effect
       - gnome-shell-extension-compiz-alike-magic-lamp-effect
       - gnome-shell-extension-coverflow-alt-tab
       - gnome-shell-extension-hanabi
+      - gnome-shell-extension-user-theme
       - ibus-pinyin
       - ibus-table-chinese-cangjie
       - ibus-table-chinese-quick

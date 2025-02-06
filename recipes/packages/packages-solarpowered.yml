@@ -6,27 +6,27 @@ modules:
       # sneexy/python-validity
       - https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/repo/fedora-%OS_VERSION%/sneexy-python-validity-fedora-%OS_VERSION%.repo
     install:
-    - igt-gpu-tools
-    - intel-media-driver
-    # python-validity
-    - fprintd-clients
-    - fprintd-clients-pam
-    - open-fprintd
-    - python3-validity    
-    # tlp
-    - tlp
-    - tlp-rdw
-    # throttled
-    - throttled
-    # zcfan
-    - zcfan
+      - igt-gpu-tools
+      - intel-media-driver
+      # python-validity
+      - fprintd-clients
+      - fprintd-clients-pam
+      - open-fprintd
+      - python3-validity    
+      # tlp
+      - tlp
+      - tlp-rdw
+      # throttled
+      - throttled
+      # zcfan
+      - zcfan
     remove:
-    # python-validity conflicts
-    - fprintd
-    - fprintd-pam
-    # tlp conflicts
-    - tuned-ppd
-    - tuned
+      # python-validity conflicts
+      - fprintd
+      - fprintd-pam
+      # tlp conflicts
+      - tuned-ppd
+      - tuned
 
   - type: systemd
     system:

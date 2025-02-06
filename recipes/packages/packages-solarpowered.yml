@@ -21,6 +21,12 @@ modules:
     # zcfan
     - zcfan
     remove:
+    # python-validity conflicts
+    - fprintd
+    - fprintd-pam
+    # tlp conflicts
+    - tuned-ppd
+    - tuned
     # tlp conflicts
     - tuned-ppd
     - tuned

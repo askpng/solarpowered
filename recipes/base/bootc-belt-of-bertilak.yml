@@ -13,34 +13,70 @@ modules:
     optfix:
       - windscribe
       - zen
-    install:
+    install: 
+      - alsa-sof-firmware
+      - alsa-ucm
+      - alsa-utils
       - android-udev-rules
       - anthy-unicode
+      - apr
+      - apr-util
+      - apr-util-lmdb
+      - apr-util-openssl
+      - audit
+      - audit-rules
+      - avahi-gobject
+      - avahi-tools
       - baobab
       - bluez-cups
       - cairo
+      - cldr-emoji-annotation
+      - cldr-emoji-annotation-dtd
+      - cosign
       - cups
+      - dbus-glib
       - dconf
-      - dconf-editor
+      - default-fonts-cjk-mono
+      - default-fonts-cjk-serif
+      - default-fonts-core-emoji
+      - default-fonts-core-math
+      - default-fonts-core-mono
+      - default-fonts-core-serif
+      - default-fonts-other-mono
+      - default-fonts-other-sans
+      - default-fonts-other-serif
+      - desktop-backgrounds-gnome
+      - dhcp-client
+      - dhcp-common
+      - distribution-gpg-keys
+      - djvulibre-libs
+      - dnf5-plugins
+      - dotconf
       - flatpak-spawn
+      - fprintd-pam
       - fuse
       - fuse-common
       - fuse-libs
       - fuse-overlayfs
       - fuse3
       - fuse3-libs
+      - gamemode
       - gdm
       - git
       - git-credential-libsecret
-      - glib2
+      - glib-networking
       - gnome-boxes
+      - gnome-bluetooth
+      - gnome-browser-connector
       - gnome-control-center
       - gnome-disk-utility
-      - gnome-session
+      - gnome-epub-thumbnailer
+      - gnome-session-wayland-session
       - gnome-shell
+      - gnome-user-share
+      - google-noto-color-emoji-fonts
       - google-noto-sans-cjk-fonts
-      - gtk3
-      - gvfs
+      - gsettings-desktop-schemas
       - gvfs-afc
       - gvfs-afp
       - gvfs-archive
@@ -51,36 +87,40 @@ modules:
       - gvfs-mtp
       - gvfs-nfs
       - gvfs-smb
+      - ibus-anthy
       - ifuse
+      - iwlwifi-dvm-firmware
+      - iwlwifi-mvm-firmware
       - kernel-modules-extra
+      - mesa-dri-drivers
+      - mesa-libEGL
+      - ModemManager
       - mutter
       - nautilus
       - NetworkManager
       - NetworkManager-adsl
       - NetworkManager-bluetooth
-      - NetworkManager-config-connectivity-fedora
-      - NetworkManager-openconnect
       - NetworkManager-openconnect-gnome
-      - NetworkManager-openvpn
       - NetworkManager-openvpn-gnome
       - NetworkManager-ppp
       - NetworkManager-pptp
       - NetworkManager-pptp-gnome
-      - NetworkManager-ssh
       - NetworkManager-ssh-gnome
-      - NetworkManager-vpnc
       - NetworkManager-vpnc-gnome
       - NetworkManager-wwan
+      - PackageKit-command-not-found
+      - PackageKit-gtk3-module
       - pango
+      - polkit
       - ptyxis
       - python3-pyxdg
       - rsms-inter-fonts
-      - gsettings-desktop-schemas
+      - sane-backends-drivers-scanners
+      - sushi
       - xdg-dbus-proxy
       - xdg-desktop-portal
       - xdg-desktop-portal-gnome
       - xdg-desktop-portal-gtk
-      - xdg-user-dirs
       - xdg-user-dirs-gtk
       - xdg-utils
       # basic stuff
@@ -125,6 +165,7 @@ modules:
       - pop-sound-theme
       - starship
       - topgrade
+      - ublue-os-just
       - unzip
       - uxplay
       - waydroid

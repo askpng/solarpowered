@@ -17,14 +17,13 @@ modules:
       - zen
     install:
       - baobab
-      - butter #butter from zhangyuannie/butter
+      - butter
       - codium
       - epson-inkjet-printer-escpr
       - epson-inkjet-printer-escpr2
-      - fastfetch
       - fish
       - firewall-config
-      - fonts-tweak-tool
+      - gnome-boxes
       - hunspell
       - hunspell-en
       - ibus-mozc
@@ -33,7 +32,6 @@ modules:
       - inxi
       - lm_sensors
       - libappindicator
-      - morewaita-icon-theme
       - ptyxis
       - pulseaudio-utils
       - rsms-inter-fonts
@@ -43,25 +41,26 @@ modules:
       - uxplay
       - wl-clipboard
       - xorg-x11-server-Xwayland
-      # zen
       - zen-browser
-      #gsconnect
       - openssl
       - nautilus-python
       - nautilus-extensions
-      #luminance
       - https://github.com/sidevesh/Luminance/releases/download/1.1.0/luminance-1.1.0.rpm
-      #waydroid
-      - lzip
-      - waydroid
-      - android-tools
-      # windscribe
-      - https://github.com/Windscribe/Desktop-App/releases/download/v2.13.8/windscribe_2.13.8_x86_64_fedora.rpm
       # extra niceties
       - deepin-sound-theme
+      - fastfetch
+      - fonts-tweak-tool
+      - morewaita-icon-theme
       - oxygen-sounds
       - pop-sound-theme
+      - ublue-motd
       - yaru-sound-theme
+      # waydroid
+      - android-tools
+      - lzip
+      - waydroid
+      # windscribe
+      - https://github.com/Windscribe/Desktop-App/releases/download/v2.13.8/windscribe_2.13.8_x86_64_fedora.rpm
     remove:
       - firefox
       - firefox-langpacks
@@ -98,9 +97,10 @@ modules:
       - AppIndicator and KStatusNotifierItem Support
       - Bluetooth Battery Meter
       - Caffeine
+      - Do Not Disturb While Screen Sharing Or Recording
       - Just Perfection
       - Night Theme Switcher
-      - Do Not Disturb While Screen Sharing Or Recording
+      - Transparent Top Bar (Adjustable transparency)
 
   - type: fonts
     fonts:
@@ -118,10 +118,9 @@ modules:
   
   - type: script
     scripts:
+      - adwaita-colors-icon-theme.sh
       - tela-icon-theme.sh
       - qogir-icon-theme.sh
-    #snippets:
-    #  - "wget https://github.com/samuelngs/apple-emoji-linux/releases/latest/download/AppleColorEmoji.ttf -P /usr/share/fonts/apple-color-emoji/AppleColorEmoji.ttf"
 
   - type: default-flatpaks
     notify: true

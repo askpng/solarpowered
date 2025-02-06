@@ -1,8 +1,8 @@
 name: solarpowered
 description: Custom image formulated for my Lenovo T480s
 
-base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 41
+base-image: ghcr.io/askpng/solarpowered-raw
+image-version: latest
 
 modules: 
   - from-file: kernels/blu-kernel.yml

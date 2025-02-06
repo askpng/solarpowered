@@ -46,7 +46,6 @@ modules:
       - libcamera-tools
       - libcamera-gstreamer
       - libcamera-ipa
-      - libfdk-aac
       - libratbag-ratbagd
       - libva-utils
       - net-tools
@@ -54,7 +53,6 @@ modules:
       - nvtop
       - openrgb-udev-rules
       - openssl
-      - pipewire-libs-extra
       - pipewire-plugin-libcamera
       - smartmontools
       - squashfs-tools

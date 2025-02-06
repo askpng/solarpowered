@@ -27,9 +27,6 @@ modules:
     # tlp conflicts
     - tuned-ppd
     - tuned
-    # tlp conflicts
-    - tuned-ppd
-    - tuned
 
   - type: systemd
     system:

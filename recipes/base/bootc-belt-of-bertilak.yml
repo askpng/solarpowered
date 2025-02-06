@@ -9,12 +9,12 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
       - https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/repo/fedora-%OS_VERSION%/ilyaz-LACT-fedora-%OS_VERSION%.repo #lact
       - https://copr.fedorainfracloud.org/coprs/shdwchn10/AllTheTools/repo/fedora-%OS_VERSION%/shdwchn10-AllTheTools-fedora-%OS_VERSION%.repo #starship & topgrade
+      - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo # ublue-os staging
       - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo #zen browser
     optfix:
       - windscribe
       - zen
     install: 
-      - alsa-sof-firmware
       - alsa-ucm
       - alsa-utils
       - android-udev-rules
@@ -29,11 +29,12 @@ modules:
       - avahi-tools
       - baobab
       - bluez-cups
+      - buildah
       - cairo
       - cldr-emoji-annotation
       - cldr-emoji-annotation-dtd
-      - cosign
       - cups
+      - cups-filters
       - dbus-glib
       - dconf
       - default-fonts-cjk-mono
@@ -52,6 +53,8 @@ modules:
       - djvulibre-libs
       - dnf5-plugins
       - dotconf
+      - firewall-config
+      - flatpak
       - flatpak-spawn
       - fprintd-pam
       - fuse
@@ -60,8 +63,10 @@ modules:
       - fuse-overlayfs
       - fuse3
       - fuse3-libs
+      - fwupd
       - gamemode
       - gdm
+      - ghostscript
       - git
       - git-credential-libsecret
       - glib-networking
@@ -76,7 +81,13 @@ modules:
       - gnome-user-share
       - google-noto-color-emoji-fonts
       - google-noto-sans-cjk-fonts
-      - gsettings-desktop-schemas
+      - gsettings1-desktop-schemas
+      - gstreamer1-plugin-libav
+      - gstreamer1-plugin-openh264
+      - gstreamer1-plugins-bad-free
+      - gstreamer1-plugins-good
+      - gstreamer1-plugins-ugly-free
+      - gutenprint
       - gvfs-afc
       - gvfs-afp
       - gvfs-archive
@@ -92,11 +103,13 @@ modules:
       - iwlwifi-dvm-firmware
       - iwlwifi-mvm-firmware
       - kernel-modules-extra
+      - mesa ////
       - mesa-dri-drivers
       - mesa-libEGL
       - ModemManager
       - mutter
       - nautilus
+      - nss-mdns
       - NetworkManager
       - NetworkManager-adsl
       - NetworkManager-bluetooth
@@ -107,16 +120,26 @@ modules:
       - NetworkManager-pptp-gnome
       - NetworkManager-ssh-gnome
       - NetworkManager-vpnc-gnome
+      - NetworkManager-wifi
       - NetworkManager-wwan
       - PackageKit-command-not-found
+      - PackageKit-gstreamer-plugin
       - PackageKit-gtk3-module
       - pango
+      - pipewire
+      - pipewire-alsa
+      - pipewire-pulseaudio
+      - pipewire-utils
       - polkit
       - ptyxis
       - python3-pyxdg
       - rsms-inter-fonts
+      - samba-client
       - sane-backends-drivers-scanners
       - sushi
+      - system-config-printer-udev
+      - wireguard-tools
+      - wireplumber
       - xdg-dbus-proxy
       - xdg-desktop-portal
       - xdg-desktop-portal-gnome
@@ -137,11 +160,7 @@ modules:
       - ffmpeg
       - ffmpegthumbnailer
       - fish
-      - flatpak
-      - fwupd
-      - firewall-config
-      - fonts-tweak-tool
-      - gnome-epub-thumbnailer
+      - fonts-tweak-toos
       - gnome-tweaks
       - heif-pixbuf-loader
       - hunspell
@@ -161,7 +180,6 @@ modules:
       - openrgb-udev-rules
       - openssl
       - oxygen-sounds
-      - pipewire-codec-aptx
       - pop-sound-theme
       - starship
       - topgrade

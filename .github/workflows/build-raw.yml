@@ -11,7 +11,7 @@ on:
   workflow_dispatch: # allow manually triggering builds
 jobs:
   bluebuild:
-    name: Build solarpowered-raw
+    name: Build
     runs-on: ubuntu-latest
     permissions:
       contents: read

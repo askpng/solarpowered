@@ -1,11 +1,11 @@
 name: Build bootc images
 on:
   schedule:
-    - cron: "00 18 * * 4" # build at 17:00 UTC every Thursday
+    - cron: "00 18 * * 4" # build at 18:00 UTC every Thursday
     
   push:
     paths:
-      - "recipes/base/base-bootc.yml"
+      - "recipes/base/base-bootc.yml" # base of bootc images
       - "recipes/solarpowered-bootc.yml" # solarpowered-bootc recipe
       - "recipes/solarpowered-ex-bootc.yml" # solarpowered-bootc recipe
       
@@ -13,7 +13,7 @@ on:
   workflow_dispatch: # allow manually triggering builds
 jobs:
   bluebuild:
-    name: Build bootc images
+    name: Build
     runs-on: ubuntu-latest
     permissions:
       contents: read

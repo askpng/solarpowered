@@ -32,7 +32,6 @@ modules:
       - gnome-shell-extension-compiz-windows-effect
       - gnome-shell-extension-compiz-alike-magic-lamp-effect
       - gnome-shell-extension-coverflow-alt-tab
-      - gnome-shell-extension-blur-my-shell
       - gnome-shell-extension-hanabi
       - ibus-pinyin
       - ibus-table-chinese-cangjie

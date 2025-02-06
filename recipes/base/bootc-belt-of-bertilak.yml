@@ -161,7 +161,6 @@ modules:
       - ffmpeg
       - ffmpegthumbnailer
       - fish
-      - fonts-tweak-tools
       - gnome-tweaks
       - heif-pixbuf-loader
       - hunspell

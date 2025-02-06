@@ -24,10 +24,6 @@ modules:
 
   - from-file: kernels/tkg-kernel.yml
 
-  - type: bling
-    install:
-    - gnome-vrr
-
   - type: files
     files:
     - source: solarpowered-ex/usr

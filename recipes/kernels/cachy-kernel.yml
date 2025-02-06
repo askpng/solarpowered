@@ -9,14 +9,15 @@ modules:
     - procps-ng
     - procps-ng-devel
     - uksmd
-#    replace:
-#      - from-repo: https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-fedora-%OS_VERSION%.repo
-#        packages:
-#        - kernel-cachyos
 
   - type: script
-    scripts:
-      - cachy-kernel.sh
+    snippets:
+    - "echo 'Enable SElinux policy' && setsebool -P domain_kernel_load_modules on"
+    - "echo 'CachyOS kernel override' && rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-cachyos"
+
+#  - type: script
+#    scripts:
+#      - cachy-kernel.sh
 
   - type: systemd
     system:

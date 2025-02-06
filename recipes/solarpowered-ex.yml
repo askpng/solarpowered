@@ -1,46 +1,35 @@
 name: solarpowered-ex
-description: Custom image formulated for my personal desktop system
+description: Custom image optimized for AMD PCs on top of Silverblue
 
 base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 41
 
 modules:
-  #- from-file: kernels/blu-kernel.yml
-  #- from-file: kernels/fsync-kernel.yml
-  - from-file: kernels/cachy-kernel.yml
-  #- from-file: kernels/tkg-kernel.yml
+  - from-file: shared/files.yml
 
-  #EX/desktop exclusives
-  - type: rpm-ostree
-    repos:
-      # - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo #system76-scheduler
-      - https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/repo/fedora-%OS_VERSION%/ilyaz-LACT-fedora-%OS_VERSION%.repo #lact
-    install:
-      - lact-libadwaita
-      - radeontop
+  # - from-file: kernels/blu.yml 
+  - from-file: kernels/cachy.yml
+  # - from-file: kernels/tkg.yml
 
-  - type: script
-    scripts:
-      # - block-ads.sh
-      - install-openrgb.sh
+  - from-file: packages/packages-core.yml
 
-  #base packages (belt of bertilak)
-  - from-file: base/belt-of-bertilak.yml
+  - from-file: packages/packages-ex.yml
+
+  - from-file: shared/fonts.yml
+
+  - from-file: shared/gnome-extensions.yml
+
+  - from-file: shared/script.yml
+
+  - from-file: shared/systemd.yml
+
+  - from-file: shared/script.yml
+
+  - from-file: shared/systemd.yml
 
   - type: files
     files:
-    - source: solarpowered-ex/usr
-      destination: /usr
-
-  - type: systemd
-    system:
-      enabled:
-        - lactd.service
-
-  #DO NOT UNCOMMENT BEFORE EVERYTHING
-  #IS PROPERLY CONFIGURED AND TESTED
-  #- type: gschema-overrides
-  #  include:
-  #    - 07-org-gnome-shell-extensions-dash-to-panel.gschema.override
+    - source: solarpowered-ex
+      destination: /
 
   - type: signing

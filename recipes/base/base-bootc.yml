@@ -21,8 +21,6 @@ modules:
       - anthy-unicode
       - apr
       - apr-util
-      - apr-util-lmdb
-      - apr-util-openssl
       - audit
       - audit-rules
       - avahi-gobject

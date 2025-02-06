@@ -1,22 +1,31 @@
 name: solarpowered
-description: Custom image formulated for my Lenovo T480s
+description: Custom T480s image built on top of Silverblue
 
 base-image: ghcr.io/askpng/solarpowered-raw
 image-version: latest
 
-modules: 
-  - from-file: kernels/blu-kernel.yml
-      
-  - from-file: packages/packages-solarpowered.yml
+modules:
+  - from-file: shared/files.yml
 
-  - from-file: base/belt-of-bertilak.yml
+  - from-file: kernels/blu.yml 
+  #- from-file: kernels/cachy.yml
+  # - from-file: kernels/tkg.yml
+
+  - from-file: packages/packages-core.yml
+
+  - from-file: packages/packages.yml
+
+  - from-file: shared/fonts.yml
+
+  - from-file: shared/gnome-extensions.yml
+
+  - from-file: shared/script.yml
+
+  - from-file: shared/systemd.yml
 
   - type: files
     files:
-    - source: solarpowered/usr
-      destination: /usr
-    - source: solarpowered/etc
-      destination: /etc
-  
-  - type: signing
+    - source: solarpowered
+      destination: /
 
+  - type: signing

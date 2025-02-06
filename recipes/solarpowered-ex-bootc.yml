@@ -5,28 +5,25 @@ base-image: quay.io/fedora/fedora-bootc
 image-version: 41
 
 modules:
-  - type: files
-    files:
-      - etc: /etc
-      - usr: /usr
+  - from-file: shared/files.yml
 
-  - from-file: base/bootc-belt-of-bertilak.yml
+  - from-file: base/base-bootc.yml
 
-  - from-file: packages/packages-solarpowered-ex.yml # also includes systemd services for TLP
+  - from-file: kernels/tkg.yml
 
-  - from-file: base/fonts.yml
+  - from-file: packages/packages-ex.yml
 
-  - from-file: base/gnome-extensions.yml
+  - from-file: shared/fonts.yml
 
-  - from-file: base/scripts.yml
+  - from-file: shared/gnome-extensions.yml
 
-  - from-file: base/systemd.yml
+  - from-file: shared/script.yml
 
-  - from-file: kernels/tkg-kernel.yml
+  - from-file: shared/systemd.yml
 
   - type: files
     files:
-    - source: solarpowered-ex/usr
-      destination: /usr
+    - source: solarpowered-ex
+      destination: /
 
   - type: signing

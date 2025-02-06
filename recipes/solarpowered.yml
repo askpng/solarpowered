@@ -6,58 +6,9 @@ image-version: 41
 
 modules: 
   - from-file: kernels/blu-kernel.yml
-
-  #only when using fedora kernel  
-  #- type: akmods
-  #  base: main
-  #  install:
-  #    - v4l2loopback
       
-  #T480s exclusives
-  - type: rpm-ostree
-    repos:
-      # larvitz/throttled for F41
-      - https://copr.fedorainfracloud.org/coprs/larvitz/throttled/repo/fedora-%OS_VERSION%/larvitz-throttled-fedora-%OS_VERSION%.repo
-      # sneexy/python-validity
-      - https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/repo/fedora-%OS_VERSION%/sneexy-python-validity-fedora-%OS_VERSION%.repo
-    install:
-      # igt-gpu-tools
-      - igt-gpu-tools
-      # python-validity
-      - fprintd-clients
-      - fprintd-clients-pam
-      - open-fprintd
-      - python3-validity
-      # tlp
-      - tlp
-      - tlp-rdw
-      # throttled
-      - throttled
-      # zcfan
-      - zcfan
-    remove:
-      # python-validity conflicts
-      - fprintd
-      - fprintd-pam
-      # tlp conflicts
-      - tuned-ppd
-      - tuned
-      # throtled-conflicts
-      - thermald
+  - from-file: packages/packages-solarpowered.yml
 
-  - type: systemd
-    system:
-      enabled:
-        # tlp
-        - tlp.service
-        # throttled
-        # throttled.service
-      masked: 
-        # tlp
-        - systemd-rfkill.service
-        - systemd-rfkill.socket
-
-  #base packages (belt of bertilak)
   - from-file: base/belt-of-bertilak.yml
 
   - type: files
@@ -67,12 +18,5 @@ modules:
     - source: solarpowered/etc
       destination: /etc
   
-  #DO NOT UNCOMMENT BEFORE EVERYTHING
-  #IS PROPERLY CONFIGURED AND TESTED
-  #- type: gschema-overrides
-  #  include:
-  #    - 04-org-gnome-touchpad.gschema.override
-  #    - 07-org-gnome-shell-extensions-dash-to-dock.gschema.override
-
   - type: signing
 

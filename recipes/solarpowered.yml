@@ -11,6 +11,8 @@ modules:
   #- from-file: kernels/cachy.yml
   # - from-file: kernels/tkg.yml
 
+  - from-file: packages/packages-removals.yml
+
   - from-file: packages/packages-core.yml
 
   - from-file: packages/packages.yml

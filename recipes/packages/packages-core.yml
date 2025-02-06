@@ -54,28 +54,6 @@ modules:
       - waydroid
       # windscribe
       - https://github.com/Windscribe/Desktop-App/releases/download/v2.13.8/windscribe_2.13.8_x86_64_fedora.rpm
-    remove:
-      - firefox
-      - firefox-langpacks
-      - google-noto-sans-balinese-fonts
-      - google-noto-sans-javanese-fonts
-      - google-noto-sans-sundanese-fonts
-      - htop
-      - rygel
-      - ublue-os-update-services
-      #unnecessary gnomies
-      - gnome-software
-      - gnome-system-monitor
-      - gnome-tour
-      - yelp
-      #fedora default gnome extensions
-      - gnome-shell-extension-apps-menu
-      - gnome-shell-extension-background-logo
-      - gnome-shell-extension-launch-new-instance
-      - gnome-shell-extension-places-menu
-      - gnome-shell-extension-window-list
-      #gnome xorg
-      - gnome-classic-session
     replace:
       - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
         packages:

@@ -5,10 +5,10 @@ base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 41
 
 modules:
-  - from-file: kernels/blu-kernel.yml
+  #- from-file: kernels/blu-kernel.yml
   #- from-file: kernels/fsync-kernel.yml
-  #- from-file: kernels/cachy-kernel.yml
-  #- from-file:kernels/tkg-kernel.yml
+  - from-file: kernels/cachy-kernel.yml
+  #- from-file: kernels/tkg-kernel.yml
 
   #EX/desktop exclusives
   - type: rpm-ostree
@@ -35,7 +35,6 @@ modules:
   - type: systemd
     system:
       enabled:
-        # - com.system76.Scheduler.service
         - lactd.service
 
   #DO NOT UNCOMMENT BEFORE EVERYTHING

@@ -24,6 +24,8 @@ modules:
       # python-validity conflicts
       - fprintd
       - fprintd-pam
+      # throttled-conflicts
+      - thermald
       # tlp conflicts
       - tuned-ppd
       - tuned

@@ -8,10 +8,10 @@ modules:
   - from-file: shared/files.yml
 
   - from-file: kernels/blu.yml 
-  #- from-file: kernels/cachy.yml
+  # - from-file: kernels/cachy.yml
   # - from-file: kernels/tkg.yml
 
-  - from-file: packages/packages-removals.yml
+  # - from-file: packages/packages-removals.yml
 
   - from-file: packages/packages-core.yml
 

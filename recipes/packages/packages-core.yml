@@ -46,7 +46,6 @@ modules:
       - morewaita-icon-theme
       - oxygen-sounds
       - pop-sound-theme
-      - ublue-motd
       - yaru-sound-theme
       # waydroid
       - android-tools

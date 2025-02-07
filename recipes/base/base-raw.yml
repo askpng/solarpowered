@@ -10,8 +10,17 @@ modules:
       - default-fonts-cjk-sans
       - fdk-aac-free
       - ffmpeg-free
+      - firefox
+      - firefox-langpacks
+      - gnome-shell-extension-apps-menu
+      - gnome-shell-extension-background-logo
+      - gnome-shell-extension-launch-new-instance
+      - gnome-shell-extension-places-menu
+      - gnome-shell-extension-window-list
+      - gnome-software
       - gnome-software-rpm-ostree
-      - google-noto-sans-cjk-vf-fonts
+      - gnome-system-monitor
+      - gnome-tour
       - libavcodec-free
       - libavdevice-free
       - libavfilter-free
@@ -21,6 +30,7 @@ modules:
       - libswresample-free
       - libswscale-free
       - totem-video-thumbnailer
+      - yelp
     install:
       - adw-gtk3-theme
       - alsa-firmware

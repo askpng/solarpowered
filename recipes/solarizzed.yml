@@ -1,7 +1,7 @@
 name: solarizzed
-description: Based on bazzite-deck-gnome
+description: Based on bazzite-deck
 
-base-image: ghcr.io/ublue-os/bazzite-deck-gnome
+base-image: ghcr.io/ublue-os/bazzite-deck
 image-version: stable
 
 modules:
@@ -11,36 +11,28 @@ modules:
         destination: /etc
 
   - type: rpm-ostree
-    repos:
-      - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo #morewaita
-      - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo #zen
     optfix:
       - windscribe
-      - zen
     install:
       - codium
       - deepin-sound-theme
-      - fonts-tweak-tool
       - morewaita-icon-theme
       - oxygen-sounds
       - pop-sound-theme
       - yaru-sound-theme
-      - zen-browser
       - https://github.com/Windscribe/Desktop-App/releases/download/v2.13.8/windscribe_2.13.8_x86_64_fedora.rpm
     remove:
-      # - gnome-shell-extension-blur-my-shell
-      # - gnome-shell-extension-compiz-windows-effect
-      # - gnome-shell-extension-compiz-alike-magic-lamp-effect
-      # - gnome-shell-extension-coverflow-alt-tab
-      # - gnome-shell-extension-hanabi
-      # - gnome-shell-extension-user-theme
-      - ibus-pinyin
-      - ibus-table-chinese-cangjie
-      - ibus-table-chinese-quick
       - openssh-askpass
   
   - from-file: shared/fonts.yml
 
   - from-file: shared/script.yml
+
+  - type: script
+    scripts:
+      - solarizzed/layan.sh
+      - solarizzed/plasma-overdose.sh
+      - tela-icon-theme.sh
+      - qogir-icon-theme.sh
 
   - type: signing

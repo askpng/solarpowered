@@ -16,7 +16,7 @@ cp -r ./Plasma-Overdose/aurorae /usr/share/aurorae/themes/
 # cursors
 cp -r ./Plasma-Overdose/cursors /usr/share/icons/CursorsOverdose/
 # colorscheme
-cp -r ./Plasma-Overdose/colorscheme /usr/share/color-schemes/
+cp -r ./Plasma-Overdose/colorschemes /usr/share/color-schemes/
 # global theme
 cp -r ./Plasma-Overdose/plasma /usr/share/
 echo 'Folders copied. Cleaning up!'

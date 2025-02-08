@@ -6,31 +6,7 @@ modules:
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo # ublue-os staging
-    remove:
-      - default-fonts-cjk-sans
-      - fdk-aac-free
-      - ffmpeg-free
-      - firefox
-      - firefox-langpacks
-      - gnome-shell-extension-apps-menu
-      - gnome-shell-extension-background-logo
-      - gnome-shell-extension-launch-new-instance
-      - gnome-shell-extension-places-menu
-      - gnome-shell-extension-window-list
-      - gnome-software
-      - gnome-software-rpm-ostree
-      - gnome-system-monitor
-      - gnome-tour
-      - libavcodec-free
-      - libavdevice-free
-      - libavfilter-free
-      - libavformat-free
-      - libavutil-free
-      - libpostproc-free
-      - libswresample-free
-      - libswscale-free
-      - totem-video-thumbnailer
-      - yelp
+
     install:
       - adw-gtk3-theme
       - alsa-firmware
@@ -71,4 +47,29 @@ modules:
       - traceroute
       - wireguard-tools
       - wl-clipboard
-      - zstd      
+      - zstd
+    remove:
+      - default-fonts-cjk-sans
+      - fdk-aac-free
+      - ffmpeg-free
+      - firefox
+      - firefox-langpacks
+      - gnome-shell-extension-apps-menu
+      - gnome-shell-extension-background-logo
+      - gnome-shell-extension-launch-new-instance
+      - gnome-shell-extension-places-menu
+      - gnome-shell-extension-window-list
+      - gnome-software
+      - gnome-software-rpm-ostree
+      - gnome-system-monitor
+      - gnome-tour
+      - libavcodec-free
+      - libavdevice-free
+      - libavfilter-free
+      - libavformat-free
+      - libavutil-free
+      - libpostproc-free
+      - libswresample-free
+      - libswscale-free
+      - totem-video-thumbnailer
+      - yelp

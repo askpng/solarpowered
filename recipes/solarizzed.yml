@@ -16,7 +16,6 @@ modules:
     install:
       - codium
       - deepin-sound-theme
-      - morewaita-icon-theme
       - oxygen-sounds
       - pop-sound-theme
       - yaru-sound-theme

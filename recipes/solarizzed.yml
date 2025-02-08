@@ -26,8 +26,6 @@ modules:
   
   - from-file: shared/fonts.yml
 
-  - from-file: shared/script.yml
-
   - type: script
     scripts:
       - solarizzed/layan.sh

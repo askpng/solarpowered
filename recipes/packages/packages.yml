@@ -7,7 +7,6 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/repo/fedora-%OS_VERSION%/sneexy-python-validity-fedora-%OS_VERSION%.repo
     install:
       - igt-gpu-tools
-      - intel-media-driver
       # python-validity
       - fprintd-clients
       - fprintd-clients-pam

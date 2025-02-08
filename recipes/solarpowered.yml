@@ -1,7 +1,7 @@
 name: solarpowered
 description: Custom T480s image built on top of Silverblue
 
-base-image: ghcr.io/askpng/solarpowered-raw
+base-image: ghcr.io/ublue-os/silverblue-main
 image-version: latest
 
 modules:
@@ -11,7 +11,7 @@ modules:
   # - from-file: kernels/cachy.yml
   # - from-file: kernels/tkg.yml
 
-  # - from-file: packages/packages-removals.yml
+  - from-file: packages/packages-removals.yml
 
   - from-file: packages/packages-core.yml
 

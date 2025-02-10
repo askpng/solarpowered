@@ -18,7 +18,6 @@ modules:
       - fish
       - firewall-config
       - fontconfig-font-replacements
-      - fontconfig-enhanced-defaults
       - gnome-boxes
       - hunspell
       - hunspell-en

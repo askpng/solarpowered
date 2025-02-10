@@ -54,6 +54,7 @@ modules:
       - ffmpeg-free
       - firefox
       - firefox-langpacks
+      - gnome-classic-session
       - gnome-shell-extension-apps-menu
       - gnome-shell-extension-background-logo
       - gnome-shell-extension-launch-new-instance

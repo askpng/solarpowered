@@ -16,17 +16,17 @@ modules:
     install:
       - codium
       - deepin-sound-theme
+      - kvantum
       - oxygen-sounds
       - pop-sound-theme
       - yaru-sound-theme
       - https://github.com/Windscribe/Desktop-App/releases/download/v2.13.8/windscribe_2.13.8_x86_64_fedora.rpm
-    remove:
-      - openssh-askpass
   
   - from-file: shared/fonts.yml
 
   - type: script
     scripts:
+      - solarizzed/chromeos.sh
       - solarizzed/layan.sh
       - solarizzed/plasma-overdose.sh
       - tela-icon-theme.sh

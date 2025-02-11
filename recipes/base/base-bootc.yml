@@ -51,8 +51,6 @@ modules:
       - djvulibre-libs
       - dnf5-plugins
       - dotconf
-      - fedora-release-identity-silverblue
-      - fedora-release-silverblue
       - firewall-config
       - flatpak
       - flatpak-spawn

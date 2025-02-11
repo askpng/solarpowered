@@ -11,11 +11,14 @@ modules:
         destination: /etc
 
   - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/hyperreal/better_fonts/repo/fedora-%OS_VERSION%/hyperreal-better_fonts-fedora-%OS_VERSION%.repo #better fonts
     optfix:
       - windscribe
     install:
       - codium
       - deepin-sound-theme
+      - fontconfig-font-replacements
       - kvantum
       - oxygen-sounds
       - pop-sound-theme
@@ -28,7 +31,6 @@ modules:
     scripts:
       - solarizzed/chromeos.sh
       - solarizzed/layan.sh
-      - solarizzed/plasma-overdose.sh
       - tela-icon-theme.sh
       - qogir-icon-theme.sh
 

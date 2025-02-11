@@ -14,16 +14,16 @@ Because I like Gawain from Fate/Extra & Fate/Grand Order.
 ## Build status
 <center>
 
-|  	| solarpowered-raw 	| solarpowered 	| solarpowered-ex 	|
-|---	|---	|---	|---	|
-| **Description** 	| Base image built upon vanilla Silverblue 	| Optimized for Lenovo T480/s devices 	| Optimized for desktop PCs with AMD internals 	|
-| **Build status** 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-raw.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-raw.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) 	|
-| **Functional status** 	| Fully functional & DD 	| Fully functional & DD 	| Fully functional & DD 	|
-| **Build schedule** 	| Mondays & Fridays, 17:00 UTC 	| Thursdays, 17:30 UTC 	| Mondays & Thursdays, 17:30 UTC 	|
+|  	| solarpowered-raw 	| solarpowered 	| solarpowered-ex 	| solarizzed 	|
+|---	|---	|---	|---	|---	|
+| **Description** 	| Base image built upon vanilla Silverblue 	| Optimized for Lenovo T480/s devices 	| Optimized for desktop PCs with AMD internals 	| Image based on `bazzite-deck` with added desktop prettifiers and VPN 	|
+| **Build status** 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-raw.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-raw.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-solarizzed.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-solarizzed.yml) 	|
+| **Functional status** 	| Fully functional & DD 	| Fully functional & DD 	| Fully functional & DD 	| Fully functional & DD 	|
+| **Build schedule** 	| Mondays & Fridays, 17:00 UTC 	| Thursdays, 17:30 UTC 	| Mondays & Thursdays, 17:30 UTC 	| Mondays, 6:00 UTC 	|
 
 </center>
 
-## solarpowered for T480(s)
+## solarpowered
 
 This image supports Lenovo T480(s) and contains:
 
@@ -42,7 +42,7 @@ The following packages are explicitly removed from the base image due to conflic
 - `tuned` and `tuned-ppd`
 - `thermald`
 
-## solarpowered-ex: Desktop exclusive packages
+## solarpowered-ex
 This configuration is intended to support my desktop configuration. Changes to this image is frequent.
 
 <details>
@@ -73,6 +73,16 @@ This image includes the fix to [B550 boards suspend issue](https://wiki.archlinu
 
 ```sudo systemctl enable --now b550-suspend-fix.service```
 
+### solarizzed
+
+This image contains the following minor additions:
+
+- VSCodium installed natively
+- Windscribe VPN client
+- Fonts
+- Multiple sound themes (Deepin, Oxygen, Pop!, and Yaru)
+- Multiple icon sets (Tela and Qogir) and themes (ChromeOS, Layan, Plasma-Overdose)
+
 # Installation
 
 You can install by rebasing from Silverblue or generating an ISO file yourself. If you decide to give this a go, and would like to provide feedback and/or suggestions, feel free to open a new issue!
@@ -99,6 +109,17 @@ To rebase from a Silverblue installation, follow the steps below.
   ```
   rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/solarpowered-ex:latest --reboot
   ```
+
+### solarizzed
+1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot automatically:
+  ```
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/askpng/solarizzed:latest --reboot
+  ```
+2. Rebase to the signed image and reboot automatically:
+  ```
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/solarizzed:latest --reboot
+  ```
+
 
 ## ISO
 An ISO file for a fresh install can be generated using `docker` or `podman` from a Silverblue system.

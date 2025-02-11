@@ -8,7 +8,9 @@ modules:
       google-fonts:
         - Asap
         - Assistant
+        - DotGothic16
         - Fira Sans
         - IBM Plex Sans
         - Kosugi Maru
         - Ruda
+        - VT323

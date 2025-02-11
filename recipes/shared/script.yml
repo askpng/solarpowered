@@ -2,5 +2,6 @@ modules:
   - type: script
     scripts:
       - adwaita-colors-icon-theme.sh
+      - nautilus-copy-path.sh
       - tela-icon-theme.sh
       - qogir-icon-theme.sh

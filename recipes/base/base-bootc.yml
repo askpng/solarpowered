@@ -51,6 +51,8 @@ modules:
       - djvulibre-libs
       - dnf5-plugins
       - dotconf
+      - fedora-release-identity-silverblue
+      - fedora-release-silverblue
       - firewall-config
       - flatpak
       - flatpak-spawn
@@ -97,10 +99,12 @@ modules:
       - gvfs-nfs
       - gvfs-smb
       - ibus-anthy
+      - ibus-gtk4
       - ifuse
       - iwlwifi-dvm-firmware
       - iwlwifi-mvm-firmware
       - kernel-modules-extra
+      - langpacks-core-en
       - mesa-dri-drivers
       - mesa-libEGL
       - mesa-va-drivers
@@ -112,6 +116,7 @@ modules:
       - NetworkManager
       - NetworkManager-adsl
       - NetworkManager-bluetooth
+      - NetworkManager-config-connectivity-fedora
       - NetworkManager-openconnect-gnome
       - NetworkManager-openvpn-gnome
       - NetworkManager-ppp
@@ -129,6 +134,7 @@ modules:
       - pipewire-alsa
       - pipewire-pulseaudio
       - pipewire-utils
+      - plymouth
       - polkit
       - ptyxis
       - python3-pyxdg

@@ -1,5 +1,2 @@
 [org.gnome.desktop.interface]
-document-font-name='Inter Variable Regular 11'
 enable-hot-corners=false
-font-name='Inter Variable Regular 11'
-monospace-font-name='Source Code Pro 10'

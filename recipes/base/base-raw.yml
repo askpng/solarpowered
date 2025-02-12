@@ -2,6 +2,7 @@ modules:
   - type: bling
     install:
       - rpmfusion
+      - dconf-update-service
   
   - type: rpm-ostree
     repos:

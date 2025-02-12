@@ -6,13 +6,13 @@ modules:
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo # ublue-os staging
-
     install:
       - adw-gtk3-theme
       - alsa-firmware
       - android-udev-rules
       - apr
       - apr-util
+      - bootc
       - distrobox
       - ffmpeg
       - ffmpeg-libs

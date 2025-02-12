@@ -9,4 +9,6 @@ modules:
 
   - from-file: base/base-raw.yml
 
+  - from-file: packages/packages-core.yml
+
   - type: signing

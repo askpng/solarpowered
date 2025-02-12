@@ -13,18 +13,19 @@ modules:
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/hyperreal/better_fonts/repo/fedora-%OS_VERSION%/hyperreal-better_fonts-fedora-%OS_VERSION%.repo #better fonts
+      - https://copr.fedorainfracloud.org/coprs/birkch/Koi/repo/fedora-%OS_VERSION%41/birkch-Koi-fedora-%OS_VERSION%.repo #koi
     optfix:
       - windscribe
     install:
       - codium
       - deepin-sound-theme
       - fontconfig-font-replacements
+      - koi
       - kvantum
       - oxygen-sounds
       - pop-sound-theme
       - yaru-sound-theme
-      - https://github.com/Windscribe/Desktop-App/releases/download/v2.13.8/windscribe_2.13.8_x86_64_fedora.rpm
-  
+      - https://github.com/Windscribe/Desktop-App/releases/download/v2.14.4/windscribe_2.14.4_guinea_pig_x86_64_fedora.rpm  
   - from-file: shared/fonts.yml
 
   - type: script

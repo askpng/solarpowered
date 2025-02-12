@@ -11,4 +11,10 @@ modules:
 
   - from-file: packages/packages-core.yml
 
+  - from-file: shared/gnome-extensions.yml
+
+  - from-file: shared/script.yml
+
+  - from-file: shared/gschema-overrides.yml
+
   - type: signing

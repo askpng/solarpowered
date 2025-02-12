@@ -20,7 +20,7 @@ modules:
       - codium
       - deepin-sound-theme
       - fontconfig-font-replacements
-      - koi
+      - Koi
       - kvantum
       - oxygen-sounds
       - pop-sound-theme

@@ -6,5 +6,4 @@ disable-user-extensions=false
 enabled-extensions = ['background-logo@fedorahosted.org', 'AlphabeticalAppGrid@stuarthayhurst', 'appindicatorsupport@rgcjonas.gmail.com', 'nightthemeswitcher@romainvigier.fr', 'containers@royg', 'default-workspace@mateusrodcosta.com', 'appmenu-is-back@fthx', 'system-monitor@gnome-shell-extensions.gcampax.github.com', 'freon@UshakovVasilii_Github.yahoo.com', 'just-perfection-desktop@just-perfection', 'do-not-disturb-while-screen-sharing-or-recording@marcinjahn.com', 'qs-touchpad-toggle@crystal', 'Bluetooth-Battery-Meter@maniacx.github.com', 'bluetooth-battery@michalw.github.com', 'transparent-top-bar@ftpix.com', 'caffeine@patapon.info', 'gsconnect@andyholmes.github.io', 'ddterm@amezin.github.com', 'quick-settings-tweaks@qwreey']
 
 ## pinned apps ##
-
-favorite-apps = ['zen-browser.desktop', 'com.spotify.Client.desktop', 'io.github.quodlibet.QuodLibet.desktop', 'org.gnome.Nautilus.desktop', 'io.github.nokse22.minitext.desktop', 'codium.desktop']
+## favorite-apps = ['zen-browser.desktop', 'com.spotify.Client.desktop', 'io.github.quodlibet.QuodLibet.desktop', 'org.gnome.Nautilus.desktop', 'io.github.nokse22.minitext.desktop', 'codium.desktop'] ##

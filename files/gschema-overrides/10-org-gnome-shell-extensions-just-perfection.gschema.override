@@ -1,0 +1,12 @@
+[org.gnome.shell.extensions.just-perfection]
+
+activities-button='false'
+animation=5
+clock-menu='true'
+controls-manager-spacing-size=0
+dash-icon-size=32
+keyboard-layout=true
+max-displayed-search-results=3
+ripple-box=false
+workspace=false
+workspaces-in-app-grid=false

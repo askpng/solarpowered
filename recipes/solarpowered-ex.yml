@@ -4,7 +4,7 @@ name: solarpowered-ex
 description: Custom image optimized for AMD PCs on top of solarpowered-raw
 
 # defines base image // not to be changed
-base-image: quay.io/askpng/solarpowered-raw 
+base-image: ghcr.io/askpng/solarpowered-raw 
 # base image is locked to latest // not to be changed
 image-version: latest 
 

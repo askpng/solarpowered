@@ -5,6 +5,12 @@ base-image: quay.io/fedora/fedora-silverblue
 image-version: 41
 
 modules:
+
+  # this image obsoletes the need to specify many modules in derivative images
+  # and will only require the following modules:
+  # 1. image-specific packages (& related systemd services), if any
+  # 2. image-specific kernel
+
   # contains repo files for codium, configs and services that will be shared across images
   - from-file: shared/files.yml
 
@@ -13,6 +19,10 @@ modules:
     install:
       - rpmfusion
       # - dconf-update-service
+
+  # installs icons packs & nautilus extensions
+  # crucial to have early on for negativo17 packages & deps
+  - from-file: shared/script.yml
 
   # installs and removes packages, this will apply to all solarpowered images
   # includes installation entries for audio & codecs, CLI utilities, GUI apps,
@@ -35,17 +45,8 @@ modules:
   # configures gschema for extensions, desktop, touchpad, and WM prefs
   - from-file: shared/gschema-overrides.yml
 
-  # installs more icons packs & nautilus extensions
-  - from-file: shared/script.yml
-
   # disables NetworkManager-online-service, flatpak update services,
   # and enables topgrade updater
   - from-file: shared/systemd.yml
-
-  # this image obsoletes the need to specify many modules in derivative images
-  # and will only require the following modules:
-  # image-specific packages
-  # image-specific kernel
-  # image-specific systemd 
 
   - type: signing

@@ -39,9 +39,11 @@ modules:
       - apr
       - apr-util
       - bootc
+      - cosign
       - distrobox
       - fastfetch
       - fish
+      - fzf
       - ifuse
       - inxi
       - just
@@ -149,6 +151,7 @@ modules:
     - firefox
     - firefox-langpacks
     - rygel
+    - yelp
     replace:
       # this module replaces gnome packages with patched versions
       - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo

@@ -11,4 +11,3 @@ modules:
     user:
       enabled:
         - topgrade.timer
-        - topgrade.service

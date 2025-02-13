@@ -1,0 +1,160 @@
+modules:
+  - type: rpm-ostree
+    repos:
+      # better fonts
+      -  https://copr.fedorainfracloud.org/coprs/hyperreal/better_fonts/repo/fedora-%OS_VERSION%/hyperreal-better_fonts-fedora-%OS_VERSION%.repo
+      # butter
+      - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-%OS_VERSION%/zhangyuannie-butter-fedora-%OS_VERSION%.repo
+      # morewaita
+      - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo
+      # starship & topgrade
+      - https://copr.fedorainfracloud.org/coprs/shdwchn10/AllTheTools/repo/fedora-%OS_VERSION%/shdwchn10-AllTheTools-fedora-%OS_VERSION%.repo
+      # ublue-os staging
+      - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo 
+      # zen-browser
+      - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo
+    # package installs
+    optfix:
+      - zen
+    install:
+      # this module installs various packages, organized under categories below
+      # ---
+      # audio & codecs
+      - alsa-firmware
+      - ffmpeg
+      - ffmpeg-libs
+      - ffmpegthumbnailer
+      - gnome-epub-thumbnailer
+      - heif-pixbuf-loader
+      - intel-vaapi-driver
+      - libavutil
+      - libcamera
+      - libcamera-gstreamer
+      - libcamera-ipa
+      - libcamera-tools
+      - libva-utils
+      - pipewire-plugin-libcamera
+      - pulseaudio-utils
+      - uxplay
+      # CLI utilities
+      - apr
+      - apr-util
+      - bootc
+      - distrobox
+      - fastfetch
+      - fish
+      - ifuse
+      - inxi
+      - just
+      - kernel-tools
+      - lm_sensors
+      - lzip
+      - net-tools
+      - nvme-cli
+      - nvtop
+      - openssl
+      - smartmontools
+      - squashfs-tools
+      - starship
+      - symlinks
+      - tcpdump
+      - topgrade
+      - traceroute
+      - wireguard-tools
+      - wl-clipboard
+      - zstd
+      # GUI
+      - baobab
+      - butter
+      - codium
+      - firewall-config
+      - gnome-boxes
+      - gnome-tweaks
+      - nautilus-extensions
+      - nautilus-python
+      - ptyxis
+      - zen-browser
+      # other system
+      - flatpak-spawn
+      - fuse
+      - grub2-tools-extra
+      - gvfs-nfs
+      - hunspell
+      - hunspell-en
+      - ibus-mozc
+      - input-remapper
+      - libappindicator
+      - libratbag-ratbagd
+      - openrgb-udev-rules
+      - steam-devices
+      - xorg-x11-server-Xwayland
+      # pretties
+      - adw-gtk3-theme
+      - fontconfig-font-replacements
+      - fonts-tweak-tool
+      - morewaita-icon-theme
+      - deepin-sound-theme
+      - oxygen-sounds
+      - pop-sound-theme
+      - yaru-sound-theme
+      # printing
+      - epson-inkjet-printer-escpr
+      - epson-inkjet-printer-escpr2
+      # waydroid
+      - android-tools
+      - android-udev-rules
+      - waydroid
+    remove:
+    # package removals
+    # this module removes redundant fedora packages, undesired gnome packages, multimedia packages that will be replaced with RPMFusion packages, etc
+    # ---
+    # fedora
+    # repos are also removed because the image will not be used to layer things locally
+    - fedora-bookmarks
+    - fedora-chromium-config
+    - fedora-chromium-config-gnome
+    - fedora-flathub-remote
+    - fedora-repos-archive
+    - fedora-repos-ostree
+    - fedora-third-party
+    - fedora-workstation-repositories
+    - fedora-workstation-backgrounds
+    # ---
+    # gnome
+    - gnome-classic-session
+    - gnome-shell-extension-apps-menu
+    - gnome-shell-extension-background-logo
+    - gnome-shell-extension-launch-new-instance
+    - gnome-shell-extension-places-menu
+    - gnome-shell-extension-window-list
+    - gnome-software
+    - gnome-software-rpm-ostree
+    - gnome-system-monitor
+    - gnome-tour
+    # ---
+    # multimedia codecs
+    - fdk-aac-free
+    - ffmpeg-free
+    - libavcodec-free
+    - libavdevice-free
+    - libavfilter-free
+    - libavformat-free
+    - libavutil-free
+    - libpostproc-free
+    - libswresample-free
+    - libswscale-free 
+    - totem-video-thumbnailer   
+    # ---
+    # others
+    - default-fonts-cjk-sans
+    - firefox
+    - firefox-langpacks
+    - rygel
+    replace:
+      # this module replaces gnome packages with patched versions
+      - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
+        packages:
+        - gnome-shell
+        - mutter
+        - mutter-common
+        - xorg-x11-server-Xwayland

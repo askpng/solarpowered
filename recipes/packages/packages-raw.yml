@@ -27,7 +27,6 @@ modules:
       - gnome-epub-thumbnailer
       - heif-pixbuf-loader
       - intel-vaapi-driver
-      - libavutil
       - libcamera
       - libcamera-gstreamer
       - libcamera-ipa

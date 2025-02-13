@@ -20,7 +20,7 @@ modules:
   # also includes removal entries for undesired fedora, gnome, free multimedia packages,
   # and native installation of firefox 
   # also replaces gnome-shell & mutter packages with patched version
-  - from-file: raw/raw-packages.yml
+  - from-file: packages/packages-raw.yml
 
   # contains direct links for luminance & windscribe
   - from-file: shared/shared-rpms.yml

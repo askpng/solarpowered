@@ -25,9 +25,15 @@ modules:
   # contains direct links for luminance & windscribe
   - from-file: shared/shared-rpms.yml
 
+  # installs shared fonts
+  - from-file: shared/fonts.yml
+
   # contains gnome extensions that will be shared across all images
   # does not contain several other extensions that must be installed locally
   - from-file: shared/gnome-extensions.yml
+
+  # configures gschema for extensions, desktop, touchpad, and WM prefs
+  - from-file: shared/gschema-overrides.yml
 
   # installs more icons packs & nautilus extensions
   - from-file: shared/script.yml
@@ -35,12 +41,6 @@ modules:
   # disables NetworkManager-online-service, flatpak update services,
   # and enables topgrade updater
   - from-file: shared/systemd.yml
-
-  # installs shared fonts
-  - from-file: shared/fonts.yml
-
-  # configures gschema for extensions, desktop, touchpad, and WM prefs
-  - from-file: shared/gschema-overrides.yml
 
   # this image obsoletes the need to specify many modules in derivative images
   # and will only require the following modules:

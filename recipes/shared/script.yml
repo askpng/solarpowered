@@ -3,5 +3,6 @@ modules:
     scripts:
       - adwaita-colors-icon-theme.sh
       - nautilus-copy-path.sh
+      - negativo17-multimedia-repo.sh
       - tela-icon-theme.sh
       - qogir-icon-theme.sh

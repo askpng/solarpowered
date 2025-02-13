@@ -5,16 +5,47 @@ base-image: quay.io/fedora/fedora-silverblue
 image-version: 41
 
 modules:
+  # contains repo files for codium, configs and services that will be shared across images
   - from-file: shared/files.yml
 
-  - from-file: base/base-raw.yml
+  # installs RPMFusion and dconf updater
+  - type: bling
+    install:
+      - rpmfusion
+      # - dconf-update-service
 
-  - from-file: packages/packages-core.yml
+  # installs and removes packages, this will apply to all solarpowered images
+  # includes installation entries for audio & codecs, CLI utilities, GUI apps,
+  # other system tools, prettifying packages, printing drivers for EPSON, and waydroid
+  # also includes removal entries for undesired fedora, gnome, free multimedia packages,
+  # and native installation of firefox 
+  # also replaces gnome-shell & mutter packages with patched version
+  - from-file: raw/raw-packages.yml
 
+  # contains direct links for luminance & windscribe
+  - from-file: shared/shared-rpms.yml
+
+  # contains gnome extensions that will be shared across all images
+  # does not contain several other extensions that must be installed locally
   - from-file: shared/gnome-extensions.yml
 
+  # installs more icons packs & nautilus extensions
   - from-file: shared/script.yml
 
+  # disables NetworkManager-online-service, flatpak update services,
+  # and enables topgrade updater
+  - from-file: shared/systemd.yml
+
+  # installs shared fonts
+  - from-file: shared/fonts.yml
+
+  # configures gschema for extensions, desktop, touchpad, and WM prefs
   - from-file: shared/gschema-overrides.yml
+
+  # this image obsoletes the need to specify many modules in derivative images
+  # and will only require the following modules:
+  # image-specific packages
+  # image-specific kernel
+  # image-specific systemd 
 
   - type: signing

@@ -20,7 +20,7 @@ modules:
   # and should not be added here.
   # systemd services related to image-specific packages
   # may also be placed within this module for simplicity.
-  - from-file: packages/packages.yml
+  - from-file: packages/packages-solarpowered.yml
 
   # files module
   # copies files into /

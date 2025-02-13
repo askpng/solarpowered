@@ -1,0 +1,35 @@
+# enter image name here
+name:
+# enter image description here
+description:
+
+# defines base image // not to be changed
+base-image: quay.io/askpng/solarpowered-raw 
+# base image is locked to latest // not to be changed
+image-version: latest 
+
+modules:
+  # kernel selection. select ONE of the following from-file line
+  # or uncomment all three to opt to use stock fedora kernel
+  # - from-file: kernels/blu.yml 
+  # - from-file: kernels/cachy.yml
+  # - from-file: kernels/tkg.yml
+
+  # image-specific packages module
+  # base/core packages are all handled by solarpowered-raw
+  # and should not be added here.
+  # systemd services related to image-specific packages
+  # may also be placed within this module for simplicity.
+  - from-file: packages/packages-[image-name].yml
+
+  # files module
+  # copies files into /
+  - type: files
+    files:
+    # create a folder under files/ with the image name
+    # and place directories and files appropriately.
+    # source entry should be the same name as the image name.
+    - source: # image name, or folder as named under files/
+      destination: /
+
+  - type: signing

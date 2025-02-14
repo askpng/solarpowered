@@ -5,6 +5,8 @@ base-image: ghcr.io/ublue-os/bazzite-deck
 image-version: stable
 
 modules:
+
+  # contains repo files for codium
   - type: files
     files:
       - source: shared/etc/
@@ -12,12 +14,16 @@ modules:
 
   - type: rpm-ostree
     repos:
-      - https://copr.fedorainfracloud.org/coprs/hyperreal/better_fonts/repo/fedora-%OS_VERSION%/hyperreal-better_fonts-fedora-%OS_VERSION%.repo #better fonts
-      - https://copr.fedorainfracloud.org/coprs/birkch/Koi/repo/fedora-%OS_VERSION%/birkch-Koi-fedora-%OS_VERSION%.repo #koi
+      # better-fonts repo for fontconfig-font-replacements
+      - https://copr.fedorainfracloud.org/coprs/hyperreal/better_fonts/repo/fedora-%OS_VERSION%/hyperreal-better_fonts-fedora-%OS_VERSION%.repo
+      # Koi
+      - https://copr.fedorainfracloud.org/coprs/birkch/Koi/repo/fedora-%OS_VERSION%/birkch-Koi-fedora-%OS_VERSION%.repo
     optfix:
       - windscribe
     install:
       - codium
+      - https://github.com/Windscribe/Desktop-App/releases/download/v2.14.4/windscribe_2.14.4_guinea_pig_x86_64_fedora.rpm
+      # prettifying packages
       - deepin-sound-theme
       - fontconfig-font-replacements
       - Koi
@@ -25,13 +31,15 @@ modules:
       - oxygen-sounds
       - pop-sound-theme
       - yaru-sound-theme
-      - https://github.com/Windscribe/Desktop-App/releases/download/v2.14.4/windscribe_2.14.4_guinea_pig_x86_64_fedora.rpm  
+
+  # installs shared fonts
   - from-file: shared/fonts.yml
 
+  # installs themes & icons
   - type: script
     scripts:
-      - solarizzed/chromeos.sh
-      - solarizzed/layan.sh
+      # - solarizzed/chromeos.sh
+      # - solarizzed/layan.sh
       - tela-icon-theme.sh
       - qogir-icon-theme.sh
 

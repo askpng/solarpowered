@@ -9,8 +9,9 @@ base-image: ghcr.io/askpng/solarpowered-raw
 image-version: latest 
 
 modules:
-  # kernel selection. select ONE of the following from-file line
-  # or uncomment all three to opt to use stock fedora kernel
+  # kernel selection
+  # select ONE of the following from-file line
+  # or leave all three uncommented to use stock fedora kernel
   # - from-file: kernels/blu.yml 
   # - from-file: kernels/cachy.yml
   # - from-file: kernels/tkg.yml
@@ -19,7 +20,7 @@ modules:
   # base/core packages are all handled by solarpowered-raw
   # and should not be added here.
   # systemd services related to image-specific packages
-  # may also be placed within this module for simplicity.
+  # may also be placed within this module for simplicity
   - from-file: packages/packages-[image-name].yml
 
   # files module
@@ -27,8 +28,8 @@ modules:
   - type: files
     files:
     # create a folder under files/ with the image name
-    # and place directories and files appropriately.
-    # source entry should be the same name as the image name.
+    # and place directories and files appropriately
+    # source entry should be the same name as the image name
     - source: # image name, or folder as named under files/
       destination: /
 

@@ -11,4 +11,4 @@ modules:
     # - 07-org-gnome-shell-extensions-dash-to-panel.gschema.override
     - 08-org-gnome-desktop-interface.gschema.override
     - 09-org.gnome-mutter.gschema.override
-    - 10-org-gnome-shell-extensions-just-perfection.gschema.override
+    # - 10-org-gnome-shell-extensions-just-perfection.gschema.override

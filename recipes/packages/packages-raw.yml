@@ -39,7 +39,6 @@ modules:
       - apr
       - apr-util
       - bootc
-      - cosign
       - distrobox
       - fastfetch
       - fish

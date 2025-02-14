@@ -42,15 +42,78 @@ setup-flameshot:
 
 # Setup box
 box:
-     distrobox-assemble create --file https://raw.githubusercontent.com/askpng/box/refs/heads/main/box.ini && \
-        distrobox-enter box
+     distrobox-assemble create --file https://raw.githubusercontent.com/askpng/box/refs/heads/main/box.ini
+     distrobox-enter box
 
 # Setup gamebox
-gamebox:
-     distrobox-assemble create --file https://raw.githubusercontent.com/askpng/box/refs/heads/main/gaming-box.ini && \
-        distrobox-enter gaming-box
+gaming-box:
+     distrobox-assemble create --file https://raw.githubusercontent.com/askpng/box/refs/heads/main/gaming-box.ini
+     distrobox-enter gaming-box
 
 # Setup bluebuild-cli
 bluebuild-cli:
-     distrobox-assemble create --file /etc/distrobox.ini -n bluebuild-cli && \
-        distrobox-enter bluebuild-cli
+     distrobox-assemble create --file /etc/distrobox.ini -n bluebuild-cli
+     distrobox-enter bluebuild-cli
+
+# Boot into this device's BIOS/UEFI screen
+bios:
+    #!/usr/bin/bash
+    if [ -d /sys/firmware/efi ]; then
+      systemctl reboot --firmware-setup
+    else
+      echo "Rebooting to legacy BIOS from OS is not supported."
+    fi
+
+# Regenerate GRUB config
+regenerate-grub:
+    #!/usr/bin/env bash
+    if [ -d /sys/firmware/efi ]; then
+      sudo grub2-mkconfig -o /etc/grub2-efi.cfg
+    else
+      sudo grub2-mkconfig -o /etc/grub2.cfg
+    fi
+
+# Check for local overrides
+check-local-overrides:
+    #!/usr/bin/env bash
+    diff -r \
+      --suppress-common-lines \
+      --color="always" \
+      --exclude "passwd*" \
+      --exclude "group*" \
+      --exclude="subgid*" \
+      --exclude="subuid*" \
+      --exclude="machine-id" \
+      --exclude="adjtime" \
+      --exclude="fstab" \
+      --exclude="system-connections" \
+      --exclude="shadow*" \
+      --exclude="gshadow*" \
+      --exclude="ssh_host*" \
+      --exclude="cmdline" \
+      --exclude="crypttab" \
+      --exclude="hostname" \
+      --exclude="localtime" \
+      --exclude="locale*" \
+      --exclude="*lock" \
+      --exclude=".updated" \
+      --exclude="*LOCK" \
+      --exclude="vconsole*" \
+      --exclude="00-keyboard.conf" \
+      --exclude="grub" \
+      --exclude="system.control*" \
+      --exclude="cdi" \
+      --exclude="default.target" \
+      /usr/etc /etc 2>/dev/null | sed '/Binary\ files\ /d'
+
+# Show changelog between deployments
+changelogs:
+    rpm-ostree db diff --changelogs
+
+# Clean up old up unused podman images, volumes, flatpak packages and rpm-ostree content
+clean-system:
+    #!/usr/bin/env bash
+    podman image prune -af
+    podman volume prune -f
+    flatpak uninstall --unused
+    rpm-ostree cleanup -bm

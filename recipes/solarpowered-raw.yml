@@ -20,9 +20,12 @@ modules:
       - rpmfusion
       # - dconf-update-service
 
-  # installs icons packs & nautilus extensions
-  # crucial to have early on for negativo17 packages & deps
-  - from-file: shared/script.yml
+  # installs negativo17-multimedia-repo & Cosign
+  # installed separately from the shared scripts module to ensure icons are installed properly
+  - type: script
+    scripts:
+      - cosign.sh
+      - negativo17-multimedia-repo.sh
 
   # installs and removes packages, this will apply to all solarpowered images
   # includes installation entries for audio & codecs, CLI utilities, GUI apps,
@@ -34,6 +37,9 @@ modules:
 
   # contains direct links for luminance & windscribe
   - from-file: shared/shared-rpms.yml
+
+  # installs icons packs & nautilus extensions
+  - from-file: shared/script.yml
 
   # installs shared fonts
   - from-file: shared/fonts.yml

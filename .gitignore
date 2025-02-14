@@ -1,3 +1,6 @@
 cosign.key
 cosign.private
 /Containerfile
+/Containerfile-tmp
+recipes/tmp.yml
+recipes/recipe-tmp.yml

@@ -1,5 +1,7 @@
 modules:
   - type: rpm-ostree
+    install:
+      - openssl-devel
     replace:
       - from-repo: https://copr.fedorainfracloud.org/coprs/sentry/kernel-blu/repo/fedora-%OS_VERSION%/sentry-kernel-blu-fedora-%OS_VERSION%.repo
         packages:
@@ -11,12 +13,3 @@ modules:
         - kernel-modules-extra
 
   - type: initramfs
-
-  #- type: akmods
-  #  base: fsync
-  #  install:
-  #    - v4l2loopback
-      
-  #- type: script
-  #  scripts:
-  #  - fsync-kernel.sh

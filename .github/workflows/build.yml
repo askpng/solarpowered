@@ -5,8 +5,10 @@ on:
     
   push:
     paths:
-      - "recipes/solarpowered.yml" # solarpowered recipe
-      - "recipes/solarpowered-ex.yml" # solarpowered-ex recipe
+      # - "recipes/solarpowered.yml" # solarpowered recipe
+      # - "recipes/solarpowered-ex.yml" # solarpowered-ex recipe
+      - "recipes/solarpowered-tmpfix.yml" # solarpowered recipe
+      - "recipes/solarpowered-ex-tmpfix.yml" # solarpowered-ex recipe
       
   pull_request: # allow PRs triggering builds
   workflow_dispatch: # allow manually triggering builds
@@ -22,8 +24,10 @@ jobs:
       fail-fast: false # stop GH from cancelling all matrix builds if one fails
       matrix:
         recipe:
-          - solarpowered.yml
-          - solarpowered-ex.yml
+          # - solarpowered.yml
+          # - solarpowered-ex.yml
+          - solarpowered-tmpfix.yml
+          - solarpowered-ex-tmpfix.yml
     steps:
        # the build is fully handled by the reusable github action
       - name: Build Custom Image

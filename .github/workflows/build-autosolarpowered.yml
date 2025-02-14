@@ -1,0 +1,40 @@
+name: Build solarpowered
+on:
+  schedule:
+    - cron: "30 17 * * 1,5" # build at 17:30 every Monday & Friday
+    
+  push:
+    paths:
+      - "recipes/images/autosolarpowered.yml" # solarpowered recipe
+      - "recipes/images/autosolarpowered-ex.yml" # solarpowered-ex recipe
+      # - "recipes/solarpowered-tmpfix.yml" # solarpowered recipe
+      # - "recipes/solarpowered-ex-tmpfix.yml" # solarpowered-ex recipe
+      
+  pull_request: # allow PRs triggering builds
+  workflow_dispatch: # allow manually triggering builds
+jobs:
+  bluebuild:
+    name: Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    strategy:
+      fail-fast: false # stop GH from cancelling all matrix builds if one fails
+      matrix:
+        recipe:
+          - autosolarpowered.yml
+          - autosolarpowered-ex.yml
+          # - solarpowered-tmpfix.yml
+          # - solarpowered-ex-tmpfix.yml
+    steps:
+       # the build is fully handled by the reusable github action
+      - name: Build Custom Image
+        uses: blue-build/github-action@v1.8
+        with:
+          recipe: ${{ matrix.recipe }}
+          rechunk: true
+          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
+          registry_token: ${{ github.token }}
+          pr_event_number: ${{ github.event.number }}

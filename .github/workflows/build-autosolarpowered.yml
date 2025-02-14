@@ -1,4 +1,4 @@
-name: Build solarpowered
+name: Build autosolarpowered
 on:
   schedule:
     - cron: "30 17 * * 1,5" # build at 17:30 every Monday & Friday

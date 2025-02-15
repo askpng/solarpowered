@@ -2,7 +2,8 @@
 
 solarpowered is a learning and hobby project. My main goal is to better understand OCI images as a concept and in practice, and to eventually end up with the ideal base image for my laptop and future devices.
 
-These images boot and are fully functional for daily operations - further than that, I do not guarantee anything.
+These images boot and are fully functional for daily operations - further than that, I do not guarantee anything. I also deploy experiments every so often, and breakages or mishaps may happen. If you choose to daily-drive any of my images, kindly notify me so I know when to hold back.
+
 
 ## Why did you name this 'solarpowered'?
 Because I like Gawain from Fate/Extra & Fate/Grand Order.
@@ -14,74 +15,56 @@ Because I like Gawain from Fate/Extra & Fate/Grand Order.
 ## Build status
 <center>
 
-|  	| solarpowered-raw 	| solarpowered 	| solarpowered-ex 	| solarizzed 	|
-|---	|---	|---	|---	|---	|
-| **Description** 	| Base image built upon vanilla Silverblue 	| Optimized for Lenovo T480/s devices 	| Optimized for desktop PCs with AMD internals 	| Image based on `bazzite-deck` with added desktop prettifiers and VPN 	|
-| **Build status** 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-raw.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-raw.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-ex.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-solarizzed.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-solarizzed.yml) 	|
-| **Functional status** 	| Fully functional & DD 	| Fully functional & DD 	| Fully functional & DD 	| Fully functional & DD 	|
-| **Build schedule** 	| Mondays & Fridays, 17:00 UTC 	| Thursdays, 17:30 UTC 	| Mondays & Thursdays, 17:30 UTC 	| Mondays, 6:00 UTC 	|
+|  	| solarpowered 	| solarpowered-ex 	| autosolarpowered 	| autosolarpowered-ex 	| solarizzed 	|
+|---	|---	|---	|---	|---	|---	|
+| description 	| Silverblue image based on UBlue's `silverblue-main`, built for Lenovo T480/s devices 	| Silverblue image based on UBlue's  `silverblue-main`, built for AMD devices in mind 	| Silverblue image based on vanilla Silverblue, built for Lenovo T480/s devices 	| Silverblue image based on vanilla Silverblue, built for AMD devices in mind 	| `bazzite-deck` layered with theming packages, Codium & Windscribe VPN 	|
+| build status 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-autosolarpowered.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-autosolarpowered.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-autosolarpowered.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-autosolarpowered.yml) 	| [![build-ublue](https://github.com/askpng/solarpowered/actions/workflows/build-solarizzed.yml/badge.svg)](https://github.com/askpng/solarpowered/actions/workflows/build-solarizzed.yml) 	|
+| functional status 	| Fully functional for DD 	| Fully functional for DD 	| Fully functional for DD 	| Fully functional for DD 	| Fully functional for DD 	|
+| build schedule 	| 17:30 UTC Mondays & Fridays 	| 17:30 UTC Mondays & Fridays 	| 18:00 UTC Mondays & Fridays 	| 18:00 UTC Mondays & Fridays 	| 06:00 UTC Mondays 	|
 
 </center>
 
-## solarpowered
+# Highlights
 
-This image supports Lenovo T480(s) and contains:
+- Multimedia codecs, `intel-vaapi-driver` & MESA packages from RPMFusion & `fedora-multimedia`
+- `bootc`, `codium`, `distrobox`, `topgrade` installed natively
+- CLI utilities installed natively, such as `fastfetch`, `fish`, `just`, and `wl-clipboard`
+- GNOME Boxes for virtualization installed natively
+- [mutter-patched](https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/) installed
+- `nautilus-extensions` and `nautilus-python` installed - also comes with [nautilus-copy-path](https://github.com/chr314/nautilus-copy-path) installed
+- `adw-gtk3-theme`, Fonts Tweak TZool, Waydroid, Windscribe, and Zen Browser (sneexy) installed natively
+- Natively installed Fedora bookmarks, background, extensions, repos, and Flathub remote removed
+- Natively installed GNOME extensions removed
+- Natively installed Firefox removed
 
-- [blu kernel](https://copr.fedorainfracloud.org/coprs/sentry/kernel-blu/)
-- `igt-gpu-tools`
-- `python-validity` forked by [sneexy](https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/)
-- `tlp` and `tlp-rdw`
-> `tlp.service` is enabled by default with TLP default configs. `systemd-rfkill.{service,socket}` is disabled by default.
-- `throttled`
-> `throttled` is shipped with the [defaults](https://github.com/erpalma/throttled/blob/master/etc/throttled.conf) but slightly different configuration structure. I use universal values for AC and battery so there is no `[UNDERVOLT.AC]` nor `[UNDERVOLT.BATTERY]`, only `[UNDERVOLT]`. Documented in the `throttled` [README](https://github.com/erpalma/throttled#undervolt).
+## auto/solarpowered
+
+Uses [kernel-blu](https://copr.fedorainfracloud.org/coprs/sentry/kernel-blu/).
+
+Includes the following tools for maximum Lenovo T480/s functionality with 0 layering:
+- `igt-gpu-tools` for monitoring iGPU use
+- [python/validity](https://copr.fedorainfracloud.org/coprs/sneexy/python-validity/) (sneexy)
+- [throttled](https://copr.fedorainfracloud.org/coprs/abn/throttled/) (abn)
+- TLP
 - `zcfan`
 
-The following packages are explicitly removed from the base image due to conflicts.
-- `fprintd`
-- `fprintd-pam`
-- `tuned` and `tuned-ppd`
-- `thermald`
+It is recommended to run `append solarpowered-setup` upon installation. This installs TLP-UI Flatpak, configrues necessary kernel arguments & local `initramfs` regeneration, and enables `python-validity` and `zcfan`. It is recommended to reboot afterwards. 
 
-## solarpowered-ex
-This configuration is intended to support my desktop configuration. Changes to this image is frequent.
+> NOTE: This does *not* configure `throttled`, as undervolt stable values differ between machines.
 
-<details>
-  <summary>Desktop configuration details</summary>
-  
-  | Type | Model|
-  | --- | --- |
-  | Motherboard | ASRock B550M WiFi SE |
-  | CPU | AMD Ryzen 5 5600 |
-  | GPU | Sapphire AMD Navi 23 Radeon RX 6600 |
-  | Wireless adapter | Intel Dual Band Wireless-AC 3168NGW |
-  | Bluetooth adapter | Intel Wireless-AC 3168 Bluetooth |
-  | Storage | [Solidigm P41 Plus 1 TB](https://www.solidigm.com/products/client/plus-series/p41.html) |
-  | Controller | [Fantech Nova PRO WGP14V2](https://fantechworld.com/products/nova-pro-wgp14v2) recognized as `Sony DualShock 4 [CUH-ZCT2x]` |
-  | Webcam/Mic | 0c45:636b Microdia Lumi Cam |
+## solarizzed
 
-</details>
+README under construction
 
-This image contains:
+## auto/solarpowered-ex
 
-- [cachy kernel](https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/)
-- `lact-libadwaita` from [ilya-zlobintsev](https://github.com/ilya-zlobintsev/LACT)
-- `nvtop `
+Uses [kernel-cachyos](https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/).
 
-### B550 suspend fix
+Includes the following tools:
+- [LACT-libadwaita](https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/)
+- `nvtop`
 
-This image includes the fix to [B550 boards suspend issue](https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#PC_will_not_wake_from_sleep_on_A520I_and_B550I_motherboards). Enable the fix with the following command:
-
-```sudo systemctl enable --now b550-suspend-fix.service```
-
-### solarizzed
-
-This image contains the following minor additions:
-
-- VSCodium installed natively
-- Windscribe VPN client
-- Fonts
-- Multiple sound themes (Deepin, Oxygen, Pop!, and Yaru)
-- Multiple icon sets (Tela and Qogir) and themes (ChromeOS, Layan, Plasma-Overdose)
+It is recommended to run `append solarpowered-ex-setup` upon installation. This enables the B550 suspend fix systemd service, configures necessary kernel arguments & local `initramfs` regeneration, and enables GNOME Variable Refresh Rate. It is recommended to reboot afterwards. 
 
 # Installation
 
@@ -109,6 +92,25 @@ To rebase from a Silverblue installation, follow the steps below.
   ```
   rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/solarpowered-ex:latest --reboot
   ```
+
+### autosolarpowered
+1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot automatically:
+  ```
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/askpng/autosolarpowered:latest --reboot
+  ```
+2. Rebase to the signed image and reboot automatically:
+  ```
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/autosolarpowered:latest --reboot
+  ```
+
+### autosolarpowered-ex
+1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot automatically:
+  ```
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/askpng/autosolarpowered-ex:latest --reboot
+  ```
+2. Rebase to the signed image and reboot automatically:
+  ```
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/autosolarpowered-ex:latest --reboot
 
 ### solarizzed
 1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot automatically:

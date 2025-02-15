@@ -1,5 +1,6 @@
 # T480s setup in one go
 solarpowered-setup:
+    flatpak install --system flathub --noninteractive --assumeyes com.github.d4nj1.tlpui
     rpm-ostree kargs \
       --append-if-missing="thinkpad_acpi.fan_control=1" \
       --append-if-missing="i915.enable_guc=2" \
@@ -7,25 +8,28 @@ solarpowered-setup:
       --append-if-missing="sysrq_always_enabled=1" \
       --append-if-missing="page_alloc.shuffle=1" \
       --append-if-missing="hid_apple.fnmode=0"
+    rpm-ostree initramfs --enable
     sudo systemctl enable zcfan.service
     sudo systemctl start python3-validity.service
     sudo systemctl start open-fprintd.service
     sudo systemctl enable open-fprintd-resume.service open-fprintd-suspend.service open-fprintd.service python3-validity.service
     sudo authselect enable-feature with-fingerprint
     sudo authselect apply-changes
-    sudo authselect current     
-    flatpak install --system flathub --noninteractive --assumeyes \
-      com.github.d4nj1.tlpui
+    sudo authselect current
+    echo 'Remember to reboot!' 
 
 # AMDPC setup in one go
 solarpowered-ex-setup:
+     sudo systemctl enable --now  b550-suspend-fix.service
      rpm-ostree kargs \
        --append-if-missing=amd_pstate=active \
        --append-if-missing=$(printf 'amdgpu.ppfeaturemask=0x%x\n' "$(($(cat /sys/module/amdgpu/parameters/ppfeaturemask) | 0x4000))") \
        --append-if-missing="sysrq_always_enabled=1" \
        --append-if-missing="page_alloc.shuffle=1" \
        --append-if-missing="hid_apple.fnmode=0"
+     rpm-ostree initramfs --enable
      gsettings set org.gnome.mutter experimental-features "['variable-refresh-rate']"
+     echo 'Remember to reboot!' 
 
 # configure experimental GNOME VRR
 gnome-vrr:

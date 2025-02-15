@@ -1,10 +1,10 @@
 modules:
-  - type: rpm-ostree
-    optfix:
-      - windscribe 
-    install:
-      - https://github.com/sidevesh/Luminance/releases/download/1.1.0/luminance-1.1.0.rpm
-      - https://github.com/Windscribe/Desktop-App/releases/download/v2.14.4/windscribe_2.14.4_guinea_pig_x86_64_fedora.rpm
+  # - type: rpm-ostree
+    # optfix:
+      # - windscribe 
+    # install:
+      # - https://github.com/sidevesh/Luminance/releases/download/1.1.0/luminance-1.1.0.rpm
+      # - https://github.com/Windscribe/Desktop-App/releases/download/v2.14.4/windscribe_2.14.4_guinea_pig_x86_64_fedora.rpm
 
   - type: script
     scripts:

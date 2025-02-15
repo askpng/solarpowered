@@ -12,4 +12,4 @@ modules:
         - kernel-modules-core
         - kernel-modules-extra
 
-  - type: initramfs
+  # - type: initramfs

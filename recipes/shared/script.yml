@@ -1,6 +1,7 @@
 modules:  
   - type: script
     scripts:
+      - base/negativo17-multimedia-repo.sh
       - shared/adwaita-colors-icon-theme.sh
       - shared/nautilus-copy-path.sh
       - shared/tela-icon-theme.sh

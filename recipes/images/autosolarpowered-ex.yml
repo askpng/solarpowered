@@ -4,7 +4,7 @@
 # enter image name here
 name: autosolarpowered-ex
 # enter image description here
-description: autosolarpowered-ex - experiment
+description: Custom image for AMD machines, based on Vanilla Silverblue
 
 # this template is for use with
 # shared/base.yml
@@ -35,7 +35,7 @@ modules:
   # or leave all three uncommented to use stock fedora kernel
   # ---
   # - from-file: kernels/blu.yml 
-  # # - from-file: kernels/cachy.yml
+  - from-file: kernels/cachy.yml
   # - from-file: kernels/tkg.yml
 
   # image-specific packages module

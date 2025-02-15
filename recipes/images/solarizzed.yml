@@ -21,11 +21,11 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/hyperreal/better_fonts/repo/fedora-%OS_VERSION%/hyperreal-better_fonts-fedora-%OS_VERSION%.repo
       # Koi
       - https://copr.fedorainfracloud.org/coprs/birkch/Koi/repo/fedora-%OS_VERSION%/birkch-Koi-fedora-%OS_VERSION%.repo
-    # optfix:
-      # - windscribe
+    optfix:
+      - windscribe
     install:
+      # codium
       - codium
-      # - https://github.com/Windscribe/Desktop-App/releases/download/v2.14.4/windscribe_2.14.4_guinea_pig_x86_64_fedora.rpm
       # prettifying packages
       - deepin-sound-theme
       - fontconfig-font-replacements
@@ -34,6 +34,8 @@ modules:
       - oxygen-sounds
       - pop-sound-theme
       - yaru-sound-theme
+      # windscribe
+      - 'https://github.com/Windscribe/Desktop-App/releases/latest/download/windscribe_$(curl https://api.github.com/repos/Windscribe/Desktop-App/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ")_x86_64_fedora.rpm'
 
   # installs shared fonts
   - from-file: shared/fonts.yml
@@ -41,10 +43,12 @@ modules:
   # installs themes & icons
   - type: script
     scripts:
-      # - solarizzed/chromeos.sh
-      # - solarizzed/layan.sh
-      - shared/windscribe.sh
+      - solarizzed/chromeos.sh
+      - solarizzed/layan.sh
       - shared/tela-icon-theme.sh
       - shared/qogir-icon-theme.sh
+    # snippets:
+      # auto-fetch & install latest version of windscribe
+      # - 'rpm-ostree install https://github.com/Windscribe/Desktop-App/releases/latest/download/windscribe_$(curl https://api.github.com/repos/Windscribe/Desktop-App/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ")_x86_64_fedora.rpm'
 
   - type: signing

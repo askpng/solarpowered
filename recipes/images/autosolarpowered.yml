@@ -4,7 +4,7 @@
 # enter image name here
 name: autosolarpowered
 # enter image description here
-description: autosolarpowered - experiment
+description: Custom image for Lenovo T480/s devices, based on Vanilla Silverblue
 
 # this template is for use with
 # shared/base.yml
@@ -14,7 +14,7 @@ description: autosolarpowered - experiment
 base-image: quay.io/fedora-ostree-desktops/silverblue
 # base-image: quay.io/fedora/fedora-silverblue # needs Cosign.sh
 
-# definves image major version
+# defines image major version
 # ---
 image-version: 41
 

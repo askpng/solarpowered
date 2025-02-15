@@ -117,3 +117,16 @@ clean-system:
     podman volume prune -f
     flatpak uninstall --unused
     rpm-ostree cleanup -bm
+
+# Pull images needed for bluebuild-cli to run
+prepare-bluebuild:
+    #!/usr/bin/env/bash
+    echo '1/5 Pulling Silverbue 41'
+    podman pull quay.io/fedora-ostree-desktops/silverblue:41
+    echo '2/5 Pulling Cosign v2.4.2'
+    podman pull ghcr.io/sigstore/cosign/cosign:v2.4.2
+    echo '3/5 Pulling nushell-image'
+    podman pull ghcr.io/blue-build/nushell-image
+    echo '5/5 Pulling BlueBuild CLI latest-installer'
+    podman pull ghcr.io/blue-build/cli:latest-installer
+    echo 'Done!'

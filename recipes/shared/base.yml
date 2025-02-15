@@ -12,11 +12,8 @@ modules:
       - rpmfusion
       # - dconf-update-service
 
-  # installs negativo17-multimedia-repo
-  # installed separately from the shared scripts module to ensure icons are installed properly
-  - type: script
-    scripts:
-      - base/negativo17-multimedia-repo.sh
+  # installs negativo17-multimedia-repo & icon packs
+  - from-file: shared/script.yml
 
   # installs and removes packages, this will apply to all solarpowered images
   # includes installation entries for audio & codecs, CLI utilities, GUI apps,
@@ -26,7 +23,7 @@ modules:
   # also replaces gnome-shell & mutter packages with patched version
   - from-file: packages/foundation.yml
 
-  # luminance & windscribe
+  # installs luminance & windscribe directly from github releases
   - from-file: shared/rpms.yml
 
   # installs shared fonts

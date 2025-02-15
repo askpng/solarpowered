@@ -1,0 +1,44 @@
+# this is a base modules file to build images on top of quay.io/fedora-ostree-desktops/silverblue
+# or quay.io/fedora/fedora-silverblue, since making a brand new base image does not seem to work.
+# images should start with from-file to this module first thing, then followed by image-specific modules
+
+modules:
+  # contains repo files for codium, configs and services that will be shared across images
+  - from-file: shared/files.yml
+
+  # installs RPMFusion and dconf updater
+  - type: bling
+    install:
+      - rpmfusion
+      # - dconf-update-service
+
+  # installs negativo17-multimedia-repo
+  # installed separately from the shared scripts module to ensure icons are installed properly
+  - type: script
+    scripts:
+      - base/negativo17-multimedia-repo.sh
+
+  # installs and removes packages, this will apply to all solarpowered images
+  # includes installation entries for audio & codecs, CLI utilities, GUI apps,
+  # other system tools, prettifying packages, printing drivers for EPSON, and waydroid
+  # also includes removal entries for undesired fedora, gnome, free multimedia packages,
+  # and native installation of firefox 
+  # also replaces gnome-shell & mutter packages with patched version
+  - from-file: packages/foundation.yml
+
+  # luminance & windscribe
+  - from-file: shared/rpms.yml
+
+  # installs shared fonts
+  - from-file: shared/fonts.yml
+
+  # contains gnome extensions that will be shared across all images
+  # does not contain several other extensions that must be installed locally
+  - from-file: shared/gnome-extensions.yml
+
+  # configures gschema for extensions, desktop, touchpad, and WM prefs
+  - from-file: shared/gschema-overrides.yml
+
+  # disables NetworkManager-online-service, flatpak update services,
+  # and enables topgrade updater
+  - from-file: shared/systemd.yml

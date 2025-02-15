@@ -1,3 +1,6 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+
 # enter image name here
 name: solarpowered
 # enter image description here
@@ -19,15 +22,15 @@ modules:
   # - from-file: kernels/tkg.yml
 
   # removes firefox, unused fonts, undesired gnome packages & other utilities
-  - from-file: packages/packages-removals.yml
+  - from-file: packages/core-discard.yml
   
   # installs necessities such as GUI apps, CLI apps, themes, & replaces mutter packages with patched version
-  - from-file: packages/packages-core.yml
+  - from-file: packages/core.yml
 
   # image-specific packages module
   # systemd services related to image-specific packages
   # may also be placed within this module for simplicity.
-  - from-file: packages/packages-solarpowered.yml
+  - from-file: packages/solarpowered.yml
 
   # installs icons packs & nautilus extensions
   - from-file: shared/script.yml

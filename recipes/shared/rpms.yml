@@ -8,5 +8,5 @@ modules:
 
   - type: script
     scripts:
-      - luminance.sh
-      - windscribe.sh
+      - shared/luminance.sh
+      - shared/windscribe.sh

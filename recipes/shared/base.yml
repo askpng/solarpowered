@@ -7,9 +7,9 @@ modules:
   - from-file: shared/files.yml
 
   # installs RPMFusion and dconf updater
-  - type: bling
-    install:
-      - rpmfusion
+  # - type: bling
+    # install:
+      # - rpmfusion
       # - dconf-update-service
 
   # installs negativo17-multimedia-repo & icon packs

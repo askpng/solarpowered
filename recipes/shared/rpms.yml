@@ -9,8 +9,7 @@ modules:
       - 'rpm-ostree install https://github.com/sidevesh/Luminance/releases/latest/download/luminance-$(curl https://api.github.com/repos/sidevesh/Luminance/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ").rpm'
       # auto-fetch & install latest version of windscribe
       - 'rpm-ostree install https://github.com/Windscribe/Desktop-App/releases/latest/download/windscribe_$(curl https://api.github.com/repos/Windscribe/Desktop-App/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ")_x86_64_fedora.rpm'
+      # cosign
+      # - 'rpm-ostree install https://github.com/sigstore/cosign/releases/latest/download/cosign-$(curl https://api.github.com/repos/sigstore/cosign/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ")}-1.x86_64.rpm'
       # removes all repos except for fedora.repo and fedora-updates.repo
       # - 'find /etc/yum.repos.d/ -type f -not \( -name fedora.repo -o -name fedora-updates.repo \) -delete'
-    # scripts: 
-      # - shared/luminance.sh
-      # - shared/windscribe.sh

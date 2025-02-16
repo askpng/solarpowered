@@ -38,8 +38,6 @@ if [ -d "./$REPO_NAME/kora-pgrey" ]; then
   cp -r "./$REPO_NAME/kora-pgrey" /usr/share/icons/
 fi
 
-# --- End Corrected cp commands ---
-
 echo "Folders copied. Cleaning up!"
 rm -drf "$CLONE_DIR"
 echo "Cloned repo deleted."

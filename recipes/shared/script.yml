@@ -3,6 +3,7 @@ modules:
     scripts:
       - base/negativo17-multimedia-repo.sh
       - shared/adwaita-colors-icon-theme.sh
+      - shared/kora-icon-theme.sh
       - shared/nautilus-copy-path.sh
       - shared/tela-icon-theme.sh
       - shared/qogir-icon-theme.sh

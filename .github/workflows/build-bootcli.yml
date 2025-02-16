@@ -1,4 +1,4 @@
-name: Build solarizzed
+name: Build bootcli
 on:
   schedule:
     - cron: "0 4 1,15 * *"

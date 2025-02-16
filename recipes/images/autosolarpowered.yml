@@ -46,6 +46,9 @@ modules:
   # ---
   - from-file: packages/solarpowered.yml
 
+    # disables all repos except for fedora and fedora-updates
+  - from-file: shared/disable-repos.yml
+
   # files module
   # copies files into /
   # ---

@@ -7,13 +7,7 @@ modules:
   - from-file: shared/files.yml
 
   # installs negativo17 repo & replaces vanilla multimedia codecs
-  - type: bling
-    install:
-      # - dconf-update-service
-      - negativo17
-  - type: script
-    scripts:
-      - base/negativo17-multimedia-repo.sh
+  - from-file: shared/bling.yml
 
   # installs icon packs
   - from-file: shared/script.yml

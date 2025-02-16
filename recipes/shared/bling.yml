@@ -1,0 +1,12 @@
+modules:
+  # installs negativo17 repo
+  - type: bling
+    install:
+      # - dconf-update-service
+      - negativo17
+  - type: script
+    snippets:
+      # replaces mesa with negativo17 versions
+      - 'rpm-ostree override replace --experimental --from repo=fedora-multimedia libheif libva libva-intel-media-driver mesa-dri-drivers mesa-filesystem mesa-libEGL mesa-libGL mesa-libgbm mesa-libglapi mesa-libxatracker mesa-va-drivers mesa-vulkan-drivers'
+      # replaces OpenCL-ICD-Loeader with ocl-icd
+      - 'rpm-ostree override replace --from repo=fedora --experimental --remove=OpenCL-ICD-Loader ocl-icd || true'

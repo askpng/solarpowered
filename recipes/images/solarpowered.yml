@@ -32,6 +32,9 @@ modules:
   # may also be placed within this module for simplicity.
   - from-file: packages/solarpowered.yml
 
+  # disables all repos except for fedora and fedora-updates
+  - from-file: shared/disable-repos.yml
+
   # installs icons packs & nautilus extensions
   - from-file: shared/script.yml
 

@@ -21,10 +21,6 @@ image-version: 41
 modules:
   - from-file: shared/files.yml
 
-  - type: script
-    scripts:
-      - base/negativo-multimedia-repo.sh
-
   - type: bling
     install:
       - negativo17

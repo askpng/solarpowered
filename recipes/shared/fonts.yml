@@ -4,13 +4,14 @@ modules:
       nerd-fonts:
         - NerdFontsSymbolsOnly
         - UbuntuMono
-        - Ubuntu
       google-fonts:
         - Asap
         - Assistant
         - DotGothic16
         - Fira Sans
+        - Georama
         - IBM Plex Sans
         - Kosugi Maru
         - Ruda
+        - Ubuntu Sans
         - VT323

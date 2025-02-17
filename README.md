@@ -52,10 +52,6 @@ It is recommended to run `append solarpowered-setup` upon installation. This ins
 
 > NOTE: This does *not* configure `throttled`, as undervolt stable values differ between machines.
 
-## solarizzed
-
-README under construction
-
 ## auto/solarpowered-ex
 
 Uses [kernel-cachyos](https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/).
@@ -65,6 +61,14 @@ Includes the following tools:
 - `nvtop`
 
 It is recommended to run `append solarpowered-ex-setup` upon installation. This enables the B550 suspend fix systemd service, configures necessary kernel arguments & local `initramfs` regeneration, and enables GNOME Variable Refresh Rate. It is recommended to reboot afterwards. 
+
+## solarizzed
+
+README under construction
+
+## bootcli
+
+Minimal XFCE image to run on a VM. Will be repurposed to test `bootc` images in the (hopefully near) future.
 
 # Installation
 
@@ -111,6 +115,7 @@ To rebase from a Silverblue installation, follow the steps below.
 2. Rebase to the signed image and reboot automatically:
   ```
   rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/autosolarpowered-ex:latest --reboot
+  ```
 
 ### solarizzed
 1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot automatically:
@@ -121,7 +126,6 @@ To rebase from a Silverblue installation, follow the steps below.
   ```
   rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/solarizzed:latest --reboot
   ```
-
 
 ## ISO
 An ISO file for a fresh install can be generated using `docker` or `podman` from a Silverblue system.

@@ -33,8 +33,10 @@ modules:
       - libcamera-tools
       - libva-utils
       - pipewire-plugin-libcamera
+      - pipewire-plugin-vulkan
       - pulseaudio-utils
       - uxplay
+      - vulkan-headers
       # CLI utilities
       - apr
       - apr-util

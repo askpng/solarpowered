@@ -8,7 +8,6 @@ base-image: ghcr.io/ublue-os/bazzite-deck
 image-version: stable
 
 modules:
-
   # contains repo files for codium
   - type: files
     files:
@@ -27,6 +26,7 @@ modules:
       # codium
       - codium
       # prettifying packages
+      - adw-gtk3-theme
       - deepin-sound-theme
       - fontconfig-font-replacements
       - Koi
@@ -34,7 +34,8 @@ modules:
       - oxygen-sounds
       - pop-sound-theme
       - yaru-sound-theme
-
+      # misc
+      - python3-pyclip
   # installs themes & icons
   - type: script
     scripts:

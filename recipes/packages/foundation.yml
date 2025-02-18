@@ -105,6 +105,7 @@ modules:
       # waydroid
       - android-tools
       - android-udev-rules
+      - python3-pyclip
       - waydroid
     remove:
     # package removals

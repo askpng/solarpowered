@@ -1,6 +1,8 @@
 modules:
   - type: rpm-ostree
     repos:
+      # android-udev-rules
+      - https://copr.fedorainfracloud.org/coprs/yohane-shiro/android-udev-rules/repo/fedora-%OS_VERSION%/yohane-shiro-android-udev-rules-fedora-%OS_VERSION%.repo
       # better fonts
       - https://copr.fedorainfracloud.org/coprs/hyperreal/better_fonts/repo/fedora-%OS_VERSION%/hyperreal-better_fonts-fedora-%OS_VERSION%.repo
       # butter
@@ -9,8 +11,6 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo
       # starship & topgrade
       - https://copr.fedorainfracloud.org/coprs/shdwchn10/AllTheTools/repo/fedora-%OS_VERSION%/shdwchn10-AllTheTools-fedora-%OS_VERSION%.repo
-      # ublue-os staging
-      - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo 
       # zen-browser
       - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo
     # package installs

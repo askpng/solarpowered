@@ -22,7 +22,7 @@ echo "Repo cloned. Copying files..."
 
 if [ -f "./$REPO_NAME/install.sh" ]; then
   chmod +x "./$REPO_NAME/install.sh"
-  ./"$REPO_NAME/install.sh"
+  ./"$REPO_NAME/install.sh" -t default -c standard
 fi
 
 echo "Folders copied. Cleaning up!"

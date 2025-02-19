@@ -1,8 +1,7 @@
 [org.gnome.shell.extensions.just-perfection]
 
-activities-button='false'
+## activities-button='false'
 animation=5
-clock-menu='true'
 controls-manager-spacing-size=0
 dash-icon-size=32
 keyboard-layout=true

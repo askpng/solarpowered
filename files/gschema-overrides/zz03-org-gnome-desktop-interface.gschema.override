@@ -1,0 +1,17 @@
+[org.gnome.desktop.interface]
+accent-color='purple'
+enable-hot-corners=false
+clock-format='24h'
+clock-show-weekday=false
+show-battery-percentage=true
+
+## font ##
+font-name='Ubuntu Sans 10.5'
+document-font-name='Ubuntu Sans 10.5'
+font-antialiasing='rgba'
+font-hinting='none'
+font-rendering='automatic'
+
+## gtk-theme ##
+gtk-theme='adw-gtk3'
+

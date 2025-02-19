@@ -1,0 +1,3 @@
+[org.gnome.mutter]
+center-new-windows=true
+check-alive-timeout=30000

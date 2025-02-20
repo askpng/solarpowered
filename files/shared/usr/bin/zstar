@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Define directory & target filename
+directory="$1"
+filename="$2"
+
+# Check if the filename already has .tar.zst; if not, append it
+if [[ ! "$filename" =~ \.tar\.zst$ ]]; then
+    archive="$filename.tar.zst"
+else
+    archive="$filename"
+fi
+
+# Make sure the directory exists
+if [[ ! -d "$directory" ]]; then
+    echo "Directory '$directory' not found."
+    return 1
+fi
+
+# Create the archive with tar and pipe it to zstd
+tar -cvf - "$directory" | zstd -9 -T0 -o "$archive"
+
+# Check for errors during compression
+if [[ $? -ne 0 ]]; then
+    echo "Error during compression."
+    return 1
+fi

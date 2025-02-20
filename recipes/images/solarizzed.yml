@@ -11,8 +11,10 @@ modules:
   # contains repo files for codium
   - type: files
     files:
-      - source: shared/etc/
-        destination: /etc
+      - source: shared/etc/yum.repos.d
+        destination: /etc/yum.repos.d
+      - source: shared/usr
+        destination: /usr
 
   - type: rpm-ostree
     repos:
@@ -33,6 +35,8 @@ modules:
       - kvantum
       - oxygen-sounds
       - pop-sound-theme
+      - rclone
+      - rclone-browser
       - yaru-sound-theme
       # misc
       - python3-pyclip

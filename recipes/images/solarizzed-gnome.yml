@@ -1,0 +1,62 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+
+name: solarizzed-gnome
+description: Based on bazzite-deck-gnome
+
+base-image: ghcr.io/ublue-os/bazzite-deck-gnome
+image-version: stable
+
+modules:
+  # contains repo files for codium
+  - type: files
+    files:
+      - source: shared/etc/yum.repos.d
+        destination: /etc/yum.repos.d
+      # misc stuff
+      - source: shared/usr
+        destination: /usr
+
+  - type: rpm-ostree
+    repos:
+      # better-fonts repo for fontconfig-font-replacements
+      - https://copr.fedorainfracloud.org/coprs/hyperreal/better_fonts/repo/fedora-%OS_VERSION%/hyperreal-better_fonts-fedora-%OS_VERSION%.repo
+      # morewaita
+      - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo
+    install:
+      # codium
+      - codium
+      # prettifying packages
+      - deepin-sound-theme
+      - fontconfig-font-replacements
+      - go-task
+      - morewaita-icon-theme
+      - nautilus-extensions
+      - nautilus-python
+      - oxygen-sounds
+      - pop-sound-theme
+      - rclone
+      - rclone-browser
+      - yaru-sound-theme
+      # misc
+      - python3-pyclip
+
+  # installs ryujinx & steam-rom-manager appimages
+  - type: script
+    scripts:
+      - solarizzed/ryujinx.sh
+      - solarizzed/steam-rom-manager.sh
+  # extensions
+  - type: gnome-extensions
+    install:
+      - Alphabetical App Grid
+      - Bluetooth Battery Meter
+      - Night Theme Switcher
+  # installs themes & icons
+  - from-file: shared/script.yml
+  # installs luminance & windscribe
+  - from-file: shared/rpms.yml
+  # installs shared fonts
+  - from-file: shared/fonts.yml
+
+  - type: signing

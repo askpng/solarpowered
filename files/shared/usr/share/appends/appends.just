@@ -132,3 +132,70 @@ pull-bluebuild:
     echo '3/3 Pulling BlueBuild CLI latest-installer'
     podman pull ghcr.io/blue-build/cli:latest-installer
     echo 'Done!'
+
+# Scripts to initialize, configure, integrate & reset Waydroid
+setup-waydroid:
+     #!/usr/bin/env bash
+
+     # ACTION=$OPTION
+
+     if [ "$OPTION" == "" ]; then
+     echo "${bold}Waydroid utilities${normal}"
+     PS3="Please select an option: "
+     select OPTION in "Initialize Waydroid" "Configure Waydroid" "Select GPU for Waydroid" "Integrate Waydroid windows with desktop" "Logs, clean version" "Reset Waydroid (also removes waydroid-related files from user folder)"; do
+          if [[ -n "$OPTION" ]]; then
+               break
+          else
+               echo "Invalid option, please try again."
+          fi
+     done
+     fi
+
+     if [[ "${OPTION,,}" =~ ^init ]]; then
+          echo "sudo systemctl enable --now waydroid-container"
+          sudo systemctl enable --now waydroid-container
+          echo "sudo waydroid init -c 'https://ota.waydro.id/system' -v 'https://ota.waydro.id/vendor'"
+          sudo waydroid init -c 'https://ota.waydro.id/system' -v 'https://ota.waydro.id/vendor'
+          echo "sudo restorecon -R /var/lib/waydroid"
+          sudo restorecon -R /var/lib/waydroid
+          echo "cp /usr/share/applications/waydroid-container-restart.desktop ~/.local/share/applications"
+          cp /usr/share/applications/waydroid-container-restart.desktop ~/.local/share/applications
+          echo "Waydroid has been initialized. Before continuing, run 'waydroid session start' and ensure it is up and running well."
+
+     elif [[ "${OPTION,,}" =~ ^configure ]]; then
+     echo "git clone https://github.com/askpng/waydroid_script.git --depth 1 /tmp/waydroid_script"
+     git clone https://github.com/askpng/waydroid_script.git --depth 1 /tmp/waydroid_script
+     echo "python -m venv /tmp/waydroid_script/venv"
+     python -m venv /tmp/waydroid_script/venv
+     echo "source /tmp/waydroid_script/venv/bin/activate"
+     source /tmp/waydroid_script/venv/bin/activate
+     echo "sudo pip install -r /tmp/waydroid_script/requirements.txt"
+     sudo pip install -r /tmp/waydroid_script/requirements.txt
+     echo "sudo /tmp/waydroid_script/main.py"
+     sudo /tmp/waydroid_script/main.py
+     # echo "deactivate" # deactivate
+     echo "sudo rm -rf /tmp/waydroid_script"
+     sudo rm -rf /tmp/waydroid_script
+
+     elif [[ "${OPTION,,}" =~ gpu ]]; then
+          echo "This command is not available for use yet!"
+          # sudo /usr/bin/waydroid-choose-gpu
+
+     elif [[ "${OPTION,,}" =~ ^integrate ]]; then
+          echo "waydroid prop set persist.waydroid.multi_windows true"
+          waydroid prop set persist.waydroid.multi_windows true
+          echo "Setting fake touch for Aniplex apps..."
+          waydroid prop set persist.waydroid.fake_touch "com.aniplex.*"
+          # echo "User rotation fix..."
+          # sudo waydroid shell wm set-fix-to-user-rotation enabled
+
+     elif [[ "${OPTION,,}" =~ ^logs ]]; then
+          echo "Grabbing clean logs..."
+          sudo waydroid logcat | grep -vi controller | grep -vi mantis | grep -vi gamepad | grep -v lowmemorykiller | grep -v libprocessgroup
+
+     elif [[ "${OPTION,,}" =~ ^reset ]]; then
+          echo "Resetting Waydroid"
+          echo "bash -c 'sudo rm -rf /var/lib/waydroid /home/.waydroid ~/waydroid ~/.share/waydroid ~/.local/share/applications/*aydroid* ~/.local/share/waydroid'" # bash -c 'sudo rm -rf /var/lib/waydroid /home/.waydroid ~/waydroid ~/.share/waydroid ~/.local/share/applications/*aydroid* ~/.local/share/waydroid'
+          echo "Waydroid has been reset! Re-initialize to get it back up and running."
+
+     fi

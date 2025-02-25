@@ -142,7 +142,7 @@ setup-waydroid:
      if [ "$OPTION" == "" ]; then
      echo "${bold}Waydroid utilities${normal}"
      PS3="Please select an option: "
-     select OPTION in "Initialize Waydroid" "Configure Waydroid" "Select GPU for Waydroid" "Integrate Waydroid windows with desktop" "Logs, clean version" "Reset Waydroid (also removes waydroid-related files from user folder)"; do
+     select OPTION in "Initialize Waydroid" "Configure Waydroid" "Select GPU for Waydroid" "Integrate Waydroid windows with desktop" "Set Waydroid as Pixel 5" "Logs, clean version" "Reset Waydroid (also removes waydroid-related files from user folder)"; do
           if [[ -n "$OPTION" ]]; then
                break
           else
@@ -163,19 +163,19 @@ setup-waydroid:
           echo "Waydroid has been initialized. Before continuing, run 'waydroid session start' and ensure it is up and running well."
 
      elif [[ "${OPTION,,}" =~ ^configure ]]; then
-     echo "git clone https://github.com/askpng/waydroid_script.git --depth 1 /tmp/waydroid_script"
-     git clone https://github.com/askpng/waydroid_script.git --depth 1 /tmp/waydroid_script
-     echo "python -m venv /tmp/waydroid_script/venv"
-     python -m venv /tmp/waydroid_script/venv
-     echo "source /tmp/waydroid_script/venv/bin/activate"
-     source /tmp/waydroid_script/venv/bin/activate
-     echo "sudo pip install -r /tmp/waydroid_script/requirements.txt"
-     sudo pip install -r /tmp/waydroid_script/requirements.txt
-     echo "sudo /tmp/waydroid_script/main.py"
-     sudo /tmp/waydroid_script/main.py
-     # echo "deactivate" # deactivate
-     echo "sudo rm -rf /tmp/waydroid_script"
-     sudo rm -rf /tmp/waydroid_script
+          echo "git clone https://github.com/askpng/waydroid_script.git --depth 1 /tmp/waydroid_script"
+          git clone https://github.com/askpng/waydroid_script.git --depth 1 /tmp/waydroid_script
+          echo "python -m venv /tmp/waydroid_script/venv"
+          python -m venv /tmp/waydroid_script/venv
+          echo "source /tmp/waydroid_script/venv/bin/activate"
+          source /tmp/waydroid_script/venv/bin/activate
+          echo "sudo pip install -r /tmp/waydroid_script/requirements.txt"
+          sudo pip install -r /tmp/waydroid_script/requirements.txt
+          echo "sudo /tmp/waydroid_script/main.py"
+          sudo /tmp/waydroid_script/main.py
+          # echo "deactivate" # deactivate
+          echo "sudo rm -rf /tmp/waydroid_script"
+          sudo rm -rf /tmp/waydroid_script
 
      elif [[ "${OPTION,,}" =~ gpu ]]; then
           echo "This command is not available for use yet!"
@@ -189,13 +189,23 @@ setup-waydroid:
           # echo "User rotation fix..."
           # sudo waydroid shell wm set-fix-to-user-rotation enabled
 
+     elif [[ "${OPTION,,}" =~ ^set ]]; then
+          echo "curl -L "https://raw.githubusercontent.com/YogSottot/waydroid_stuff/refs/heads/master/weston/spoof-device.sh" -o /tmp/spoof-device.sh"
+          curl -L "https://raw.githubusercontent.com/YogSottot/waydroid_stuff/refs/heads/master/weston/spoof-device.sh" -o /tmp/spoof-device.sh
+          echo "chmod +x /tmp/spoof-device.sh"
+          chmod +x /tmp/spoof-device.sh
+          echo "bash -e /tmp/spoof-device.sh"
+          bash -e /tmp/spoof-device.sh
+          rm -f /tmp/spoof-device.sh
+
      elif [[ "${OPTION,,}" =~ ^logs ]]; then
           echo "Grabbing clean logs..."
           sudo waydroid logcat | grep -vi controller | grep -vi mantis | grep -vi gamepad | grep -v lowmemorykiller | grep -v libprocessgroup
 
      elif [[ "${OPTION,,}" =~ ^reset ]]; then
           echo "Resetting Waydroid"
-          echo "bash -c 'sudo rm -rf /var/lib/waydroid /home/.waydroid ~/waydroid ~/.share/waydroid ~/.local/share/applications/*aydroid* ~/.local/share/waydroid'" # bash -c 'sudo rm -rf /var/lib/waydroid /home/.waydroid ~/waydroid ~/.share/waydroid ~/.local/share/applications/*aydroid* ~/.local/share/waydroid'
+          echo "bash -c 'sudo rm -rf /var/lib/waydroid /home/.waydroid ~/waydroid ~/.share/waydroid ~/.local/share/applications/*aydroid* ~/.local/share/waydroid'"
+          bash -c 'sudo rm -rf /var/lib/waydroid /home/.waydroid ~/waydroid ~/.share/waydroid ~/.local/share/applications/*aydroid* ~/.local/share/waydroid'
           echo "Waydroid has been reset! Re-initialize to get it back up and running."
 
      fi

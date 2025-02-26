@@ -21,6 +21,8 @@ modules:
     repos:
       # better-fonts repo for fontconfig-font-replacements
       - https://copr.fedorainfracloud.org/coprs/hyperreal/better_fonts/repo/fedora-%OS_VERSION%/hyperreal-better_fonts-fedora-%OS_VERSION%.repo
+      # lact
+      - https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/repo/fedora-%OS_VERSION%/ilyaz-LACT-fedora-%OS_VERSION%.repo
       # morewaita
       - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo
     install:
@@ -39,7 +41,13 @@ modules:
       - rclone-browser
       - yaru-sound-theme
       # misc
+      - lact-libadwaita
       - python3-pyclip
+  
+  - type: systemd
+    system:
+      enabled:
+        - lactd.service
 
   # installs ryujinx & steam-rom-manager appimages
   - type: script

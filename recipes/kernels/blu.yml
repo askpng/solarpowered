@@ -1,7 +1,6 @@
 modules:
   - type: rpm-ostree
     install:
-      - elfutils
       - glibc-devel
       - openssl-devel
     replace:

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Check if any arguments were passed to the script
+if [ "$#" -gt 0 ]; then
+    # If arguments are passed, include them in the flatpak run command
+    flatpak run io.github.ryubing.Ryujinx "$@"
+else
+    # If no arguments are passed, just run the flatpak without any file
+    flatpak run io.github.ryubing.Ryujinx
+fi

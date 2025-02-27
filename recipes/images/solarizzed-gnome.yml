@@ -49,11 +49,6 @@ modules:
       enabled:
         - lactd.service
 
-  # installs ryujinx & steam-rom-manager appimages
-  - type: script
-    scripts:
-      - solarizzed/ryujinx.sh
-      - solarizzed/steam-rom-manager.sh
   # extensions
   - type: gnome-extensions
     install:

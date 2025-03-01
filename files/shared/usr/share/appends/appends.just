@@ -137,12 +137,10 @@ pull-bluebuild:
 setup-waydroid:
      #!/usr/bin/env bash
 
-     # ACTION=$OPTION
-
      if [ "$OPTION" == "" ]; then
      echo "${bold}Waydroid utilities${normal}"
      PS3="Please select an option: "
-     select OPTION in "Initialize Waydroid" "Configure Waydroid" "Select GPU for Waydroid" "Integrate Waydroid windows with desktop" "Set Waydroid as Pixel 5" "Logs, clean version" "Reset Waydroid (also removes waydroid-related files from user folder)"; do
+     select OPTION in "Initialize Waydroid" "Configure Waydroid" "Select GPU for Waydroid" "Integrate Waydroid windows with desktop" "Set Waydroid as Pixel 8" "Install APKCombo installer and Material Files" "Logs, clean version" "Reset Waydroid (also removes waydroid-related files from user folder)"; do
           if [[ -n "$OPTION" ]]; then
                break
           else
@@ -152,8 +150,8 @@ setup-waydroid:
      fi
 
      if [[ "${OPTION,,}" =~ ^init ]]; then
-          echo "sudo systemctl enable --now waydroid-container"
-          sudo systemctl enable --now waydroid-container
+          echo "sudo systemctl enable --now waydroid-container.service"
+          sudo systemctl enable --now waydroid-container.service
           echo "sudo waydroid init -c 'https://ota.waydro.id/system' -v 'https://ota.waydro.id/vendor'"
           sudo waydroid init -c 'https://ota.waydro.id/system' -v 'https://ota.waydro.id/vendor'
           echo "sudo restorecon -R /var/lib/waydroid"
@@ -169,14 +167,14 @@ setup-waydroid:
           python3 -m venv /tmp/waydroid_script/venv
           echo "source /tmp/waydroid_script/venv/bin/activate"
           source /tmp/waydroid_script/venv/bin/activate
-          echo "sudo pip install -r /tmp/waydroid_script/requirements.txt"
-          sudo pip install -r /tmp/waydroid_script/requirements.txt
-          echo "sudo /tmp/waydroid_script/main.py"
-          sudo /tmp/waydroid_script/main.py
+          echo "sudo /tmp/waydroid_script/venv/bin/pip install -r /tmp/waydroid_script/requirements.txt"
+          sudo /tmp/waydroid_script/venv/bin/pip install -r /tmp/waydroid_script/requirements.txt
+          echo "/tmp/waydroid_script/venv/bin/python3 /tmp/waydroid_script/main.py"
+          sudo /tmp/waydroid_script/venv/bin/python3 /tmp/waydroid_script/main.py
           echo "deactivate"
           deactivate
           echo "sudo rm -rf /tmp/waydroid_script"
-          sudo rm -rf /tmp/waydroid_script
+          sudo rm -rf /tmp/waydroid_script ~/.cache/waydroid_script
 
      elif [[ "${OPTION,,}" =~ gpu ]]; then
           echo "This command is not available for use yet!"
@@ -191,13 +189,25 @@ setup-waydroid:
           # sudo waydroid shell wm set-fix-to-user-rotation enabled
 
      elif [[ "${OPTION,,}" =~ ^set ]]; then
-          echo "curl -L "https://raw.githubusercontent.com/YogSottot/waydroid_stuff/refs/heads/master/weston/spoof-device.sh" -o /tmp/spoof-device.sh"
-          curl -L "https://raw.githubusercontent.com/YogSottot/waydroid_stuff/refs/heads/master/weston/spoof-device.sh" -o /tmp/spoof-device.sh
-          echo "chmod +x /tmp/spoof-device.sh"
-          chmod +x /tmp/spoof-device.sh
-          echo "bash -e /tmp/spoof-device.sh"
-          bash -e /tmp/spoof-device.sh
-          rm -f /tmp/spoof-device.sh
+          echo "curl -L 'https://raw.githubusercontent.com/askpng/waydroid_script/refs/heads/main/scripts/shiba.sh' -o /tmp/shiba.sh"
+          curl -L 'https://raw.githubusercontent.com/askpng/waydroid_script/refs/heads/main/scripts/shiba.sh' -o /tmp/shiba.sh
+          echo "chmod +x /tmp/shiba.sh"
+          chmod +x /tmp/shiba.sh
+          echo "sudo bash -c /tmp/shiba.sh"
+          sudo bash -c /tmp/shiba.sh
+          echo "rm -f /tmp/shiba.sh"
+          rm -f /tmp/shiba.sh
+
+     elif [[ "${OPTION,,}" =~ ^install ]]; then
+          echo "Installing APKCombo Installer"
+          curl -L "https://static.apkflash.com/files/com.apkcombo.app/apkcombo-installer.apk" -o /tmp/apkcombo-installer.apk
+          waydroid app install /tmp/apkcombo-installer.apk
+          echo "Installing Material Files"
+          curl -L "https://f-droid.org/repo/me.zhanghai.android.files_39.apk" -o /tmp/material-files.apk
+          waydroid app install /tmp/material-files.apk
+          echo "Removing .APK files"
+          rm /tmp/apkcombo-installer.apk /tmp/material-files.apk
+          echo "Success!"
 
      elif [[ "${OPTION,,}" =~ ^logs ]]; then
           echo "Grabbing clean logs..."
@@ -207,6 +217,8 @@ setup-waydroid:
           echo "Resetting Waydroid"
           echo "bash -c 'sudo rm -rf /var/lib/waydroid /home/.waydroid ~/waydroid ~/.share/waydroid ~/.local/share/applications/*aydroid* ~/.local/share/waydroid'"
           bash -c 'sudo rm -rf /var/lib/waydroid /home/.waydroid ~/waydroid ~/.share/waydroid ~/.local/share/applications/*aydroid* ~/.local/share/waydroid'
+          echo "sudo systemctl disable --now waydroid-container.service"
+          sudo systemctl disable --now waydroid-container.service
           echo "Waydroid has been reset! Re-initialize to get it back up and running."
 
      fi

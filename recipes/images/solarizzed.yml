@@ -22,8 +22,11 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/hyperreal/better_fonts/repo/fedora-%OS_VERSION%/hyperreal-better_fonts-fedora-%OS_VERSION%.repo
       # Koi
       - https://copr.fedorainfracloud.org/coprs/birkch/Koi/repo/fedora-%OS_VERSION%/birkch-Koi-fedora-%OS_VERSION%.repo
+      # zen browser
+      - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo
     optfix:
       - windscribe
+      - zen
     install:
       # codium
       - codium
@@ -40,6 +43,7 @@ modules:
       - yaru-sound-theme
       # misc
       - python3-pyclip
+      - zen-browser
   # installs themes & icons
   - type: script
     scripts:

@@ -25,6 +25,10 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/repo/fedora-%OS_VERSION%/ilyaz-LACT-fedora-%OS_VERSION%.repo
       # morewaita
       - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo
+      # zen browser
+      - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo
+    optfix:
+      - zen
     install:
       # codium
       - codium
@@ -43,6 +47,7 @@ modules:
       # misc
       - lact-libadwaita
       - python3-pyclip
+      - zen-browser
   
   - type: systemd
     system:

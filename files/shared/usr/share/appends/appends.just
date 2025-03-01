@@ -165,15 +165,16 @@ setup-waydroid:
      elif [[ "${OPTION,,}" =~ ^configure ]]; then
           echo "git clone https://github.com/askpng/waydroid_script.git --depth 1 /tmp/waydroid_script"
           git clone https://github.com/askpng/waydroid_script.git --depth 1 /tmp/waydroid_script
-          echo "python -m venv /tmp/waydroid_script/venv"
-          python -m venv /tmp/waydroid_script/venv
+          echo "python3 -m venv /tmp/waydroid_script/venv"
+          python3 -m venv /tmp/waydroid_script/venv
           echo "source /tmp/waydroid_script/venv/bin/activate"
           source /tmp/waydroid_script/venv/bin/activate
           echo "sudo pip install -r /tmp/waydroid_script/requirements.txt"
           sudo pip install -r /tmp/waydroid_script/requirements.txt
           echo "sudo /tmp/waydroid_script/main.py"
           sudo /tmp/waydroid_script/main.py
-          # echo "deactivate" # deactivate
+          echo "deactivate"
+          deactivate
           echo "sudo rm -rf /tmp/waydroid_script"
           sudo rm -rf /tmp/waydroid_script
 

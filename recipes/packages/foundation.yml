@@ -87,6 +87,7 @@ modules:
       - input-remapper
       - libappindicator
       - libratbag-ratbagd
+      - ocl-icd
       - openrgb-udev-rules
       - steam-devices
       - xorg-x11-server-Xwayland
@@ -152,6 +153,7 @@ modules:
     - default-fonts-cjk-sans
     - firefox
     - firefox-langpacks
+    - OpenCL-ICD-Loader
     - rygel
     - yelp
     replace:

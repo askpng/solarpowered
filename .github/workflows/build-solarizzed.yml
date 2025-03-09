@@ -5,7 +5,7 @@ on:
     
   push: # build on push
     paths: # build on push of the following files
-      - "recipes/images/solarizzed.yml" # solarizzed recipe
+      # - "recipes/images/solarizzed.yml" # solarizzed recipe
       - "recipes/images/solarizzed-gnome.yml" # solarizzed recipe
       
   pull_request: # allow PRs triggering builds
@@ -26,7 +26,7 @@ jobs:
       fail-fast: false # stop GH from cancelling all matrix builds if one fails
       matrix:
         recipe:
-          - images/solarizzed.yml
+          # - images/solarizzed.yml
           - images/solarizzed-gnome.yml
     steps:
       # the build is fully handled by the reusable github action

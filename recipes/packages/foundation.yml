@@ -4,7 +4,7 @@ modules:
       # android-udev-rules
       - https://copr.fedorainfracloud.org/coprs/yohane-shiro/android-udev-rules/repo/fedora-%OS_VERSION%/yohane-shiro-android-udev-rules-fedora-%OS_VERSION%.repo
       # better fonts
-      - https://copr.fedorainfracloud.org/coprs/hyperreal/better_fonts/repo/fedora-%OS_VERSION%/hyperreal-better_fonts-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/tigro/better_fonts/repo/fedora-%OS_VERSION%/tigro-better_fonts-fedora-%OS_VERSION%.repo
       # butter
       - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-%OS_VERSION%/zhangyuannie-butter-fedora-%OS_VERSION%.repo
       # morewaita

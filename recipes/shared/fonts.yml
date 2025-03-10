@@ -3,7 +3,6 @@ modules:
     fonts:
       nerd-fonts:
         - NerdFontsSymbolsOnly
-        - UbuntuMono
       google-fonts:
         - Asap
         - Assistant
@@ -14,4 +13,5 @@ modules:
         - Kosugi Maru
         - Ruda
         - Ubuntu Sans
+        - Ubuntu Sans Mono
         - VT323

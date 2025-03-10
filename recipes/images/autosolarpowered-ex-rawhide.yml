@@ -1,0 +1,238 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+
+# enter image name here
+name: autosolarpowered-ex-rawhide
+# enter image description here
+description: Custom image for AMD machines, based on Vanilla Silverblue
+
+# defines base image
+# ---
+base-image: quay.io/fedora-ostree-desktops/silverblue
+# defines image major version
+# ---
+image-version: rawhide
+
+modules:
+- type: files
+  files:
+  - source: shared
+    destination: /
+
+- type: bling
+  install:
+  # rpmfusion instead of negativo17 for rawhide
+  - rpmfusion
+
+- type: script
+  scripts:
+  - shared/nautilus-copy-path.sh
+  - shared/tela-icon-theme.sh
+  - shared/qogir-icon-theme.sh
+  
+- type: rpm-ostree
+  repos:
+  - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-rawhide/zhangyuannie-butter-fedora-rawhide.repo
+  - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-rawhide/dusansimic-themes-fedora-rawhide.repo
+  - https://copr.fedorainfracloud.org/coprs/shdwchn10/AllTheTools/repo/fedora-rawhide/shdwchn10-AllTheTools-fedora-rawhide.repo
+  - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-rawhide/sneexy-zen-browser-fedora-rawhide.repo
+  optfix:
+  - zen
+  install:
+  - alsa-firmware
+  - ffmpeg
+  - ffmpeg-libs
+  - ffmpegthumbnailer
+  - gnome-epub-thumbnailer
+  - heif-pixbuf-loader
+  - intel-media-driver
+  - libcamera
+  - libcamera-gstreamer
+  - libcamera-ipa
+  - libcamera-tools
+  - libva-utils
+  - pipewire-plugin-libcamera
+  - pipewire-plugin-vulkan
+  - pulseaudio-utils
+  - uxplay
+  - vulkan-headers
+  - apr
+  - apr-util
+  - bootc
+  - distrobox
+  - fastfetch
+  - fish
+  - fzf
+  - ifuse
+  - inxi
+  - just
+  - kernel-tools
+  - lm_sensors
+  - lzip
+  - net-tools
+  - nvme-cli
+  - nvtop
+  - openssl
+  - smartmontools
+  - squashfs-tools
+  - starship
+  - symlinks
+  - tcpdump
+  - topgrade
+  - traceroute
+  - wireguard-tools
+  - wl-clipboard
+  - zstd
+  - baobab
+  - butter
+  - codium
+  - firewall-config
+  - gnome-boxes
+  - gnome-tweaks
+  - nautilus-extensions
+  - nautilus-python
+  - ptyxis
+  - zen-browser
+  - flatpak-spawn
+  - fuse
+  - grub2-tools-extra
+  - hunspell
+  - hunspell-en
+  - ibus-mozc
+  - input-remapper
+  - libappindicator
+  - libratbag-ratbagd
+  - ocl-icd
+  - openrgb-udev-rules
+  - steam-devices
+  - xorg-x11-server-Xwayland
+  - adw-gtk3-theme
+  - fonts-tweak-tool
+  - morewaita-icon-theme
+  - deepin-sound-theme
+  - oxygen-sounds
+  - pop-sound-theme
+  - yaru-sound-theme
+  - android-tools
+  - python3-pyclip
+  - waydroid
+  # nonfree-codecs
+  - ffmpeg
+  - gstreamer1-plugin-libav
+  - gstreamer1-plugins-bad-free-extras
+  - gstreamer1-plugins-bad-freeworld
+  - gstreamer1-plugins-ugly
+  - gstreamer1-vaapi
+  - mesa-va-drivers-freeworld
+  remove:
+  - fedora-bookmarks
+  - fedora-chromium-config
+  - fedora-chromium-config-gnome
+  - fedora-flathub-remote
+  - fedora-repos-archive
+  - fedora-repos-ostree
+  - fedora-third-party
+  - fedora-workstation-repositories
+  - fedora-workstation-backgrounds
+  - gnome-classic-session
+  - gnome-shell-extension-apps-menu
+  - gnome-shell-extension-background-logo
+  - gnome-shell-extension-launch-new-instance
+  - gnome-shell-extension-places-menu
+  - gnome-shell-extension-window-list
+  - gnome-software
+  - gnome-software-rpm-ostree
+  - gnome-system-monitor
+  - gnome-tour
+  - totem-video-thumbnailer
+  - default-fonts-cjk-sans
+  - firefox
+  - firefox-langpacks
+  - OpenCL-ICD-Loader
+  - rygel
+  - yelp
+  # free codecs
+  - fdk-aac-free
+  - ffmpeg-free
+  - libavcodec-free
+  - libavdevice-free
+  - libavfilter-free
+  - libavformat-free
+  - libavutil-free
+  - libpostproc-free
+  - libswresample-free
+  - libswscale-free
+  - mesa-va-drivers
+  replace:
+  - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-rawhide/trixieua-mutter-patched-fedora-rawhide.repo
+    packages:
+    - gnome-shell
+    - mutter
+    - mutter-common
+    - xorg-x11-server-Xwayland
+- type: rpm-ostree
+  optfix:
+  - windscribe
+# installs luminance & windscribe directly from github releases
+- from-file: shared/rpms.yml
+# installs shared fonts
+- from-file: shared/fonts.yml
+# disables NetworkManager-online-service, flatpak update services,
+# and enables topgrade updater
+- from-file: shared/systemd.yml
+
+# kernel selection
+- type: rpm-ostree
+  repos:
+    - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-rawhide/bieszczaders-kernel-cachyos-addons-fedora-rawhide.repo #cachy uksmd
+    - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/repo/fedora-rawhide/bieszczaders-kernel-cachyos-fedora-rawhide.repo #cachy kernel
+  install:
+  - libcap-ng
+  - libcap-ng-devel
+  - procps-ng
+  - procps-ng-devel
+  - uksmd
+
+- type: script
+  snippets:
+  - "echo 'Enable SElinux policy' && setsebool -P domain_kernel_load_modules on"
+  - "echo 'CachyOS kernel override' && rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-cachyos"
+
+- type: systemd
+  system:
+    enabled:
+      - uksmd.service
+
+# image-specific packages module
+# base/core packages are all handled by solarpowered-raw
+# and should not be added here.
+# systemd services related to image-specific packages
+# may also be placed within this module for simplicity
+# ---
+- type: rpm-ostree
+  repos:
+  - https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/repo/fedora-rawhide/ilyaz-LACT-fedora-rawhide.repo #lact
+  install:
+  - lact-libadwaita
+  - nvtop
+
+- type: systemd
+  system:
+    enabled:
+      - lactd.service
+
+# disables all repos except for fedora and fedora-updates
+- from-file: shared/disable-repos.yml
+
+# files module
+# copies files into /
+# ---
+- type: files
+  files:
+    # create a folder under files/ with the image name
+    # and place directories and files appropriately
+    # source entry should be the same name as the image name
+  - source: solarpowered-ex # image name, or folder as named under files/
+    destination: /
+
+- type: signing

@@ -33,6 +33,7 @@ modules:
 - type: rpm-ostree
   repos:
   - https://copr.fedorainfracloud.org/coprs/zhangyuannie/butter/repo/fedora-rawhide/zhangyuannie-butter-fedora-rawhide.repo
+  - https://copr.fedorainfracloud.org/coprs/tigro/better_fonts/repo/fedora-rawhide/tigro-better_fonts-fedora-rawhide.repo
   - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-rawhide/dusansimic-themes-fedora-rawhide.repo
   - https://copr.fedorainfracloud.org/coprs/shdwchn10/AllTheTools/repo/fedora-rawhide/shdwchn10-AllTheTools-fedora-rawhide.repo
   - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-rawhide/sneexy-zen-browser-fedora-rawhide.repo
@@ -43,6 +44,7 @@ modules:
   - ffmpeg
   - ffmpeg-libs
   - ffmpegthumbnailer
+  - fontconfig-font-replacements
   - gnome-epub-thumbnailer
   - heif-pixbuf-loader
   - intel-media-driver

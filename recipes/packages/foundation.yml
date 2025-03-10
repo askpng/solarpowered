@@ -100,9 +100,6 @@ modules:
       - oxygen-sounds
       - pop-sound-theme
       - yaru-sound-theme
-      # printing
-      - epson-inkjet-printer-escpr
-      - epson-inkjet-printer-escpr2
       # waydroid
       - android-tools
       - android-udev-rules

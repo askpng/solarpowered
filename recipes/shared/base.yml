@@ -28,7 +28,7 @@ modules:
 
   # contains gnome extensions that will be shared across all images
   # does not contain several other extensions that must be installed locally
-  - from-file: shared/gnome-extensions.yml
+  # - from-file: shared/gnome-extensions.yml
 
   # configures gschema for extensions, desktop, touchpad, and WM prefs
   - from-file: shared/gschema-overrides.yml

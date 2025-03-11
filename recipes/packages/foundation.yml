@@ -1,8 +1,6 @@
 modules:
   - type: rpm-ostree
     repos:
-      # android-udev-rules
-      - https://copr.fedorainfracloud.org/coprs/yohane-shiro/android-udev-rules/repo/fedora-%OS_VERSION%/yohane-shiro-android-udev-rules-fedora-%OS_VERSION%.repo
       # better fonts
       - https://copr.fedorainfracloud.org/coprs/tigro/better_fonts/repo/fedora-%OS_VERSION%/tigro-better_fonts-fedora-%OS_VERSION%.repo
       # butter
@@ -21,12 +19,12 @@ modules:
       # ---
       # audio & codecs
       - alsa-firmware
-      - ffmpeg
+      # - ffmpeg # installed within bling.yml
       - ffmpeg-libs
       - ffmpegthumbnailer
       - gnome-epub-thumbnailer
       - heif-pixbuf-loader
-      - intel-vaapi-driver
+      - intel-media-driver # rpm-fusion uses intel-media-driver instead of intel-vaapi-driver
       - libcamera
       - libcamera-gstreamer
       - libcamera-ipa
@@ -35,7 +33,7 @@ modules:
       - pipewire-plugin-libcamera
       - pipewire-plugin-vulkan
       - pulseaudio-utils
-      - uxplay
+      # -  uxplay
       - vulkan-headers
       # CLI utilities
       - apr
@@ -80,7 +78,6 @@ modules:
       - flatpak-spawn
       - fuse
       - grub2-tools-extra
-      - gvfs-nfs
       - hunspell
       - hunspell-en
       - ibus-mozc
@@ -102,7 +99,6 @@ modules:
       - yaru-sound-theme
       # waydroid
       - android-tools
-      - android-udev-rules
       - python3-pyclip
       - waydroid
     remove:
@@ -132,18 +128,6 @@ modules:
     - gnome-software-rpm-ostree
     - gnome-system-monitor
     - gnome-tour
-    # ---
-    # multimedia codecs
-    - fdk-aac-free
-    - ffmpeg-free
-    - libavcodec-free
-    - libavdevice-free
-    - libavfilter-free
-    - libavformat-free
-    - libavutil-free
-    - libpostproc-free
-    - libswresample-free
-    - libswscale-free 
     - totem-video-thumbnailer   
     # ---
     # others

@@ -2,8 +2,31 @@ modules:
   # installs negativo17 repo
   - type: bling
     install:
-      - negativo17
-  - type: script
-    snippets:
+      - rpmfusion
+  # - type: script
+    # snippets:
       # replaces mesa with negativo17 versions
-      - 'rpm-ostree override replace --experimental --from repo=fedora-multimedia libheif libva libva-intel-media-driver mesa-dri-drivers mesa-filesystem mesa-libEGL mesa-libGL mesa-libgbm mesa-libxatracker mesa-va-drivers mesa-vulkan-drivers'
+      # - 'rpm-ostree override replace --experimental --from repo=fedora-multimedia libheif libva libva-intel-media-driver mesa-dri-drivers mesa-filesystem mesa-libEGL mesa-libGL mesa-libgbm mesa-libxatracker mesa-va-drivers mesa-vulkan-drivers'
+  - type: rpm-ostree
+    install:
+      # nonfree codecs
+      - ffmpeg
+      - gstreamer1-plugin-libav
+      - gstreamer1-plugins-bad-free-extras
+      - gstreamer1-plugins-bad-freeworld
+      - gstreamer1-plugins-ugly
+      - gstreamer1-vaapi
+      - mesa-va-drivers-freeworld
+    remove:
+      # free codecs
+      - fdk-aac-free
+      - ffmpeg-free
+      - libavcodec-free
+      - libavdevice-free
+      - libavfilter-free
+      - libavformat-free
+      - libavutil-free
+      - libpostproc-free
+      - libswresample-free
+      - libswscale-free
+      - mesa-va-drivers

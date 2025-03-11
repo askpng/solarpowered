@@ -1,12 +1,12 @@
-name: Build autosolarpowered-rawhide
+name: Build solarpowered-rawhide
 on:
   # schedule:
     # - cron: "00 18 * * 1,5" # build at 17:30 every Monday & Friday
     
   push: # build on push
     paths: # build on push of the following files
-      - "recipes/images/autosolarpowered-rawhide.yml" # solarpowered recipe
-      - "recipes/images/autosolarpowered-ex-rawhide.yml" # solarpowered-ex recipe
+      - "recipes/images/solarpowered-rawhide.yml" # solarpowered recipe
+      - "recipes/images/solarpowered-ex-rawhide.yml" # solarpowered-ex recipe
       
   pull_request: # allow PRs triggering builds
   workflow_dispatch: # allow manually triggering builds
@@ -26,8 +26,8 @@ jobs:
       fail-fast: false # stop GH from cancelling all matrix builds if one fails
       matrix:
         recipe:
-          - images/autosolarpowered-rawhide.yml
-          - images/autosolarpowered-ex-rawhide.yml
+          - images/solarpowered-rawhide.yml
+          - images/solarpowered-ex-rawhide.yml
     steps:
       # the build is fully handled by the reusable github action
       - name: Build Custom Image

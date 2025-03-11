@@ -5,7 +5,7 @@ modules:
       # - glibc-devel
       # - openssl-devel
     replace:
-      - from-repo: https://copr.fedorainfracloud.org/coprs/sentry/kernel-blu/repo/fedora-%OS_VERSION%/sentry-kernel-blu-fedora-%OS_VERSION%.repo
+      - from-repo: https://copr.fedorainfracloud.org/coprs/sentry/kernel-blu/repo/fedora-rawhide/sentry-kernel-blu-fedora-rawhide.repo
         packages:
         - kernel
         - kernel-core

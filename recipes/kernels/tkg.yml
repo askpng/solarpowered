@@ -1,7 +1,7 @@
 modules:
   - type: rpm-ostree
     replace:
-      - from-repo: https://copr.fedorainfracloud.org/coprs/whitehara/kernel-tkg/repo/fedora-%OS_VERSION%/whitehara-kernel-tkg-zen2-preempt-fedora-%OS_VERSION%.repo
+      - from-repo: https://copr.fedorainfracloud.org/coprs/whitehara/kernel-tkg/repo/fedora-rawhide/whitehara-kernel-tkg-zen2-preempt-fedora-rawhide.repo
         packages:
         - kernel
         - kernel-core

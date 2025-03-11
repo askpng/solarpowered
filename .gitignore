@@ -3,7 +3,7 @@ cosign.private
 /Containerfile
 /Containerfile-tmp
 /tmp.yml
-recipes/tmp.yml
-recipes/recipe-tmp.yml
 *tmp.*
 tmp.*
+recipes/images/solarizzed.yml
+recipes/images/solarizzed-gnome.yml

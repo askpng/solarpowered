@@ -137,11 +137,11 @@ modules:
     - OpenCL-ICD-Loader
     - rygel
     - yelp
-    replace:
+    # replace:
       # this module replaces gnome packages with patched versions
-      - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
-        packages:
-        - gnome-shell
-        - mutter
-        - mutter-common
-        - xorg-x11-server-Xwayland
+      # - from-repo: https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/repo/fedora-%OS_VERSION%/trixieua-mutter-patched-fedora-%OS_VERSION%.repo
+        # packages:
+        # - gnome-shell
+        # - mutter
+        # - mutter-common
+        # - xorg-x11-server-Xwayland

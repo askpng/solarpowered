@@ -1,0 +1,65 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+
+# enter image name here
+name: solarpowered
+# enter image description here
+description: Custom image optimized for AMD PCs on top of Silverblue
+
+# defines base image // not to be changed
+base-image: ghcr.io/ublue-os/silverblue-main
+# base image is locked to latest // not to be changed
+image-version: 41
+
+modules:
+  # contains repo files for codium, configs and services that will be shared across images
+  - from-file: shared/files.yml
+
+  # kernel selection. select ONE of the following from-file line
+  # or uncomment all three to opt to use stock fedora kernel
+  - from-file: kernels/blu.yml 
+  # - from-file: kernels/cachy.yml
+  # - from-file: kernels/tkg.yml
+
+  # removes firefox, unused fonts, undesired gnome packages & other utilities
+  - from-file: packages/core-discard.yml
+  
+  # installs necessities such as GUI apps, CLI apps, themes, & replaces mutter packages with patched version
+  - from-file: packages/core.yml
+
+  # image-specific packages module
+  # systemd services related to image-specific packages
+  # may also be placed within this module for simplicity.
+  - from-file: packages/solarpowered.yml
+
+  # disables all repos except for fedora and fedora-updates
+  - from-file: shared/disable-repos.yml
+
+  # installs icons packs & nautilus extensions
+  - from-file: shared/script.yml
+
+  # installs shared fonts
+  - from-file: shared/fonts.yml
+
+  # contains gnome extensions that will be shared across all images
+  # does not contain several other extensions that must be installed locally
+  - from-file: shared/gnome-extensions.yml
+
+  # configures gschema for extensions, desktop, touchpad, and WM prefs
+  # - from-file: shared/gschema-overrides.yml
+
+  # disables NetworkManager-online-service, flatpak update services,
+  # and enables topgrade updater
+  - from-file: shared/systemd.yml
+
+  # image-specific files module
+  # copies files into /
+  - type: files
+    files:
+    # create a folder under files/ with the image name
+    # and place directories and files appropriately.
+    # source entry should be the same name as the image name.
+    - source: solarpowered # image name, or folder as named under files/
+      destination: /
+
+  - type: signing

@@ -71,7 +71,6 @@ modules:
       - codium
       - firewall-config
       - gnome-boxes
-      - gnome-tweaks
       - nautilus-extensions
       - nautilus-python
       - ptyxis

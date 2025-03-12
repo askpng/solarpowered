@@ -21,4 +21,5 @@ modules:
         - org.gnome.Snapshot
         - org.gnome.TextEditor
         - org.gnome.Weather
+        - page.tesk.Refine
         - re.sonny.Junction

@@ -3,9 +3,16 @@ modules:
     install:
       - Alphabetical App Grid
       - AppIndicator and KStatusNotifierItem Support
+      - Auto Move Windows
       - Bluetooth Battery Meter
       - Caffeine
+      - ddterm
       - Do Not Disturb While Screen Sharing Or Recording
+      # - Default Workspace
+      # [ERROR] cp: cannot stat '/tmp/default-workspace@mateusrodcosta.com/locale/*': No such file or directory
+      - 841 # Freon
+      - HDR Auto Enable
       - Just Perfection
       - Night Theme Switcher
+      - Quick Settings Tweaks
       - Transparent Top Bar (Adjustable transparency)

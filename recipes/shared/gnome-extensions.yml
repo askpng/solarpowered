@@ -8,8 +8,7 @@ modules:
       - Caffeine
       - ddterm
       - Do Not Disturb While Screen Sharing Or Recording
-      # - Default Workspace
-      # [ERROR] cp: cannot stat '/tmp/default-workspace@mateusrodcosta.com/locale/*': No such file or directory
+      - Default Workspace
       - 841 # Freon
       - HDR Auto Enable
       - Just Perfection

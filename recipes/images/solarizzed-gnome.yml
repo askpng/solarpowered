@@ -5,7 +5,7 @@ name: solarizzed-gnome
 description: Based on bazzite-deck-gnome
 
 base-image: ghcr.io/ublue-os/bazzite-deck-gnome
-image-version: stable
+image-version: testing
 
 modules:
   # contains repo files for codium

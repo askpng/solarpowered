@@ -77,7 +77,6 @@ modules:
       # other system
       - flatpak-spawn
       - fuse
-      - grub2-tools-extra
       - hunspell
       - hunspell-en
       - ibus-mozc

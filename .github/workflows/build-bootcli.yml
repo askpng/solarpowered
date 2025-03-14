@@ -1,7 +1,7 @@
 name: Build bootcli
 on:
-  schedule:
-    - cron: "0 4 1,15 * *"
+  # schedule:
+    # - cron: "0 4 1,15 * *"
     
   push: # build on push
     paths: # build on push of the following files

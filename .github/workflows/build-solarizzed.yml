@@ -1,6 +1,6 @@
 name: Build solarizzed
 on:
-  schedule:
+  # schedule:
     # - cron: "00 6 * * 1,5" # build at 6 AM UTC every Monday & Friday
     
   push: # build on push

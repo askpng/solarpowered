@@ -1,21 +1,35 @@
 modules:
-  - type: rpm-ostree
-    repos:
-      - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-addons-fedora-%OS_VERSION%.repo #cachy uksmd
-      - https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/repo/fedora-%OS_VERSION%/bieszczaders-kernel-cachyos-fedora-%OS_VERSION%.repo #cachy kernel
-    install:
-    - libcap-ng
-    - libcap-ng-devel
-    - procps-ng
-    - procps-ng-devel
-    - uksmd
-
   - type: script
     snippets:
     - "echo 'Enable SElinux policy' && setsebool -P domain_kernel_load_modules on"
-    - "echo 'CachyOS kernel override' && rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-cachyos"
 
-  - type: systemd
-    system:
-      enabled:
-        - uksmd.service
+  - type: dnf
+    source: ghcr.io/blue-build/modules/dnf:dnf-module
+    repos:
+      cleanup: true
+      copr:
+        - bieszczaders/kernel-cachyos-addons
+        - bieszczaders/kernel-cachyos
+    # remove:
+    #   packages:
+    #     - kernel
+    install:
+      allow-erasing: true
+      install-weak-deps: false
+      packages:
+        - cachyos-ksm-settings
+        - cachyos-settings
+        - libcap-ng
+        - libcap-ng-devel
+        - procps-ng
+        - procps-ng-devel
+    replace:
+      - from-repo: copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos
+        allow-erasing: true
+        packages:
+          - old: kernel
+            new: kernel-cachyos
+          - old: kernel-core
+            new: kernel-cachyos-core
+          - old: kernel-modules
+            new: kernel-cachyos-modules            

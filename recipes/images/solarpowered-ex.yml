@@ -12,7 +12,6 @@ description: Custom image for AMD machines, based on Vanilla Silverblue
 # defines base image
 # ---
 base-image: quay.io/fedora/fedora-silverblue
-# base-image: quay.io/fedora/fedora-silverblue # needs Cosign.sh
 
 # definves image major version
 # ---
@@ -47,7 +46,7 @@ modules:
   - from-file: packages/solarpowered-ex.yml
 
   # disables all repos except for fedora and fedora-updates
-  - from-file: shared/disable-repos.yml
+  # - from-file: shared/disable-repos.yml
 
   # files module
   # copies files into /

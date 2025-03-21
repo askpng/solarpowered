@@ -1,11 +1,14 @@
 modules:
-  - type: rpm-ostree
+  - type: dnf
+    source: ghcr.io/blue-build/modules/dnf:dnf-module
     repos:
-    - https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/repo/fedora-%OS_VERSION%/ilyaz-LACT-fedora-%OS_VERSION%.repo #lact
+      cleanup: true
+      copr:
+        - ilyaz/LACT
     install:
-    - lact-libadwaita
-    - nvtop
-
+      packages:
+      - lact-libadwaita
+      
   - type: systemd
     system:
       enabled:

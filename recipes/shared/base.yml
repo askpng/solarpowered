@@ -7,18 +7,17 @@ modules:
   - from-file: shared/files.yml
 
   # installs negativo17 repo & replaces vanilla multimedia codecs
-  - from-file: shared/bling.yml
-
-  # installs icon packs
-  - from-file: shared/script.yml
+  - from-file: shared/bling-negativo17.yml
 
   # installs and removes packages, this will apply to all solarpowered images
   # includes installation entries for audio & codecs, CLI utilities, GUI apps,
   # other system tools, prettifying packages, printing drivers for EPSON, and waydroid
   # also includes removal entries for undesired fedora, gnome, free multimedia packages,
   # and native installation of firefox 
-  # also replaces gnome-shell & mutter packages with patched version
   - from-file: packages/foundation.yml
+
+  # installs icon packs
+  - from-file: shared/script.yml
 
   # installs luminance & windscribe directly from github releases
   - from-file: shared/rpms.yml
@@ -32,6 +31,9 @@ modules:
 
   # configures gschema for extensions, desktop, touchpad, and WM prefs
   - from-file: shared/gschema-overrides.yml
+
+  # flatpaks
+  - from-file: shared/default-flatpaks.yml
 
   # disables NetworkManager-online-service, flatpak update services,
   # and enables topgrade updater

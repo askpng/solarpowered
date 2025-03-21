@@ -2,15 +2,13 @@ modules:
   - type: gnome-extensions
     install:
       - Alphabetical App Grid
-      - AppIndicator and KStatusNotifierItem Support
+      # - AppIndicator and KStatusNotifierItem Support
       - Auto Move Windows
       - Bluetooth Battery Meter
       - Caffeine
       - Do Not Disturb While Screen Sharing Or Recording
       - Default Workspace
       - 841 # Freon
-      - HDR Auto Enable
       - Just Perfection
       - Night Theme Switcher
       - Quick Settings Tweaks
-      - Transparent Top Bar (Adjustable transparency)

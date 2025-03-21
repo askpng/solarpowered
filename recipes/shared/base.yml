@@ -32,6 +32,9 @@ modules:
   # configures gschema for extensions, desktop, touchpad, and WM prefs
   - from-file: shared/gschema-overrides.yml
 
+  # flatpaks
+  - from-file: shared/default-flatpaks.yml
+
   # disables NetworkManager-online-service, flatpak update services,
   # and enables topgrade updater
   - from-file: shared/systemd.yml

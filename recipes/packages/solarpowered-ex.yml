@@ -8,7 +8,6 @@ modules:
     install:
       packages:
       - lact-libadwaita
-      - nvtop
       
   - type: systemd
     system:

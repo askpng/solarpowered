@@ -1,11 +1,13 @@
 modules:
-  - type: rpm-ostree
-    # install:
-      # - elfutils
-      # - glibc-devel
-      # - openssl-devel
+  - type: dnf
+    source: ghcr.io/blue-build/modules/dnf:dnf-module
+    repos:
+      cleanup: true
+      copr:
+        - sentry/kernel-blu
     replace:
-      - from-repo: https://copr.fedorainfracloud.org/coprs/sentry/kernel-blu/repo/fedora-%OS_VERSION%/sentry-kernel-blu-fedora-%OS_VERSION%.repo
+        skip-unavailabe: true
+        from-repo: copr:copr.fedorainfracloud.org:sentry:kernel-blu
         packages:
         - kernel
         - kernel-core

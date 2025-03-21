@@ -6,8 +6,6 @@ modules:
       nonfree: rpmfusion
     remove:
       packages:
-        # free codecs
-        - fdk-aac-free
         - intel-media-driver
         - libavdevice-free
         - libavfilter-free
@@ -26,7 +24,6 @@ modules:
         - old: libavcodec
           new: libavcodec-freeworld
     install:
-      allow-erasing: true
       install-weak-deps: false
       packages:
         - gstreamer1-plugin-libav

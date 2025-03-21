@@ -3,24 +3,25 @@ modules:
     source: ghcr.io/blue-build/modules/dnf:dnf-module
     repos:
       nonfree: negativo17
-    install:
-      packages:
-      # - repo: fedora-multimedia
-        packages:
-          - intel-media-driver
-          - libheif
-          - mesa-libxatracker
+    # install:
+    #   packages:
+    #     from-repo: fedora-multimedia
+    #     allow-erasing: true
+    #     packages:
+    #       - libheif
+    #       - mesa-libxatracker
     replace:
       - from-repo: fedora-multimedia
         packages:
           - old: ffmpeg-free
             new: ffmpeg
+          # - old: libavcodec-free
+          #   new: libavcodec
           - old: libfdk-aac-free
             new: libfdk-aac
-          - old: libavcodec-free
-            new: libavcodec
+          - old: intel-media-driver
+            new: libva-intel-media-driver
           - libva
-          - libva-intel-media-driver
           - mesa-dri-drivers
           - mesa-filesystem
           - mesa-libEGL

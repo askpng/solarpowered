@@ -8,46 +8,44 @@ base-image: ghcr.io/ublue-os/bazzite-deck-gnome
 image-version: stable
 
 modules:
-  # contains repo files for codium
   - type: files
     files:
-      - source: shared/etc/yum.repos.d
-        destination: /etc/yum.repos.d
-      # misc stuff
       - source: shared/usr
         destination: /usr
 
-  - type: rpm-ostree
+  - type: dnf
+    source: ghcr.io/blue-build/modules/dnf:dnf-module
     repos:
-      # better-fonts repo for fontconfig-font-replacements
-      - https://copr.fedorainfracloud.org/coprs/hyperreal/better_fonts/repo/fedora-%OS_VERSION%/hyperreal-better_fonts-fedora-%OS_VERSION%.repo
-      # lact
-      - https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/repo/fedora-%OS_VERSION%/ilyaz-LACT-fedora-%OS_VERSION%.repo
-      # morewaita
-      - https://copr.fedorainfracloud.org/coprs/dusansimic/themes/repo/fedora-%OS_VERSION%/dusansimic-themes-fedora-%OS_VERSION%.repo
-      # zen browser
-      - https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/repo/fedora-%OS_VERSION%/sneexy-zen-browser-fedora-%OS_VERSION%.repo
+      cleanup: true
+      files:
+        - codium.repo
+      copr:
+        - tigro/better_fonts
+        - dusansimic/themes
+        - sneexy/zen-browser
+        - ilyaz/LACT
     optfix:
       - zen
     install:
-      # codium
-      - codium
-      # prettifying packages
-      - deepin-sound-theme
-      - fontconfig-font-replacements
-      - go-task
-      - morewaita-icon-theme
-      - nautilus-extensions
-      - nautilus-python
-      - oxygen-sounds
-      - pop-sound-theme
-      - rclone
-      - rclone-browser
-      - yaru-sound-theme
-      # misc
-      - lact-libadwaita
-      - python3-pyclip
-      - zen-browser
+      packages:
+        # codium
+        - codium
+        # prettifying packages
+        - deepin-sound-theme
+        - fontconfig-font-replacements
+        - go-task
+        - morewaita-icon-theme
+        - nautilus-extensions
+        - nautilus-python
+        - oxygen-sounds
+        - pop-sound-theme
+        - rclone
+        - rclone-browser
+        - yaru-sound-theme
+        # misc
+        - lact-libadwaita
+        - python3-pyclip
+        - zen-browser
   
   - type: script
     scripts:
@@ -63,6 +61,7 @@ modules:
   - type: gnome-extensions
     install:
       - Alphabetical App Grid
+      - Battery time
       - Bluetooth Battery Meter
       - Night Theme Switcher
   # installs themes & icons

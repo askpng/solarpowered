@@ -7,7 +7,7 @@ modules:
   - from-file: shared/files.yml
 
   # installs negativo17 repo & replaces vanilla multimedia codecs
-  - from-file: shared/bling-negativo17.yml
+  - from-file: shared/bling-rpmfusion.yml
 
   # installs and removes packages, this will apply to all solarpowered images
   # includes installation entries for audio & codecs, CLI utilities, GUI apps,

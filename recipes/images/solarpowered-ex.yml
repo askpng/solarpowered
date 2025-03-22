@@ -11,11 +11,11 @@ description: Custom image for AMD machines, based on Vanilla Silverblue
 
 # defines base image
 # ---
-base-image: quay.io/fedora/fedora-silverblue
+base-image: quay.io/fedora-ostree-desktops/silverblue
 
-# definves image major version
+# defines image major version
 # ---
-image-version: latest
+image-version: rawhide
 
 modules:
   # this includes everything except for image-specific modifications

@@ -27,6 +27,7 @@ modules:
     optfix:
       - zen
     install:
+      install-weak-deps: false
       packages:
         # codium
         - codium

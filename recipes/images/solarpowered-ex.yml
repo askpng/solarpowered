@@ -11,11 +11,11 @@ description: Custom image for AMD machines, based on Vanilla Silverblue
 
 # defines base image
 # ---
-base-image: quay.io/fedora-ostree-desktops/silverblue
+base-image: quay.io/fedora/fedora-silverblue
 
 # defines image major version
 # ---
-image-version: rawhide
+image-version: latest
 
 modules:
   # this includes everything except for image-specific modifications
@@ -34,8 +34,8 @@ modules:
   # or leave all three uncommented to use stock fedora kernel
   # ---
   # - from-file: kernels/blu.yml 
-  - from-file: kernels/cachy.yml
-  # - from-file: kernels/tkg.yml
+  # - from-file: kernels/cachy.yml
+  - from-file: kernels/bazzite.yml
 
   # image-specific packages module
   # base/core packages are all handled by solarpowered-raw

@@ -6,7 +6,6 @@ modules:
       nonfree: rpmfusion
     remove:
       packages:
-        - intel-media-driver
         - libavdevice-free
         - libavfilter-free
         - libavformat-free

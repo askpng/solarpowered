@@ -121,5 +121,6 @@ modules:
         - default-fonts-cjk-sans
         - firefox
         - firefox-langpacks
+        - google-noto-sans-cjk-vf-fonts        
         - rygel
         - yelp

@@ -15,7 +15,7 @@ base-image: quay.io/fedora-ostree-desktops/silverblue
 
 # defines image major version
 # ---
-image-version: rawhide
+image-version: 42
 
 modules:
   # this includes everything except for image-specific modifications

@@ -4,15 +4,15 @@ modules:
     repos:
       cleanup: true
       nonfree: rpmfusion
-    remove:
-      packages:
-        - libavdevice-free
-        - libavfilter-free
-        - libavformat-free
-        - libavutil-free
-        - libpostproc-free
-        - libswresample-free
-        - libswscale-free
+    # remove:
+    #   packages:
+    #     - libavdevice-free
+    #     - libavfilter-free
+    #     - libavformat-free
+    #     - libavutil-free
+    #     - libpostproc-free
+    #     - libswresample-free
+    #     - libswscale-free
     replace:
       - from-repo: rpmfusion
         packages:
@@ -22,6 +22,9 @@ modules:
           new: mesa-va-drivers-freeworld
         - old: libavcodec
           new: libavcodec-freeworld
+      - from-repo: rpmfusion-nonfree
+        packages:
+          - intel-media-driver
     install:
       install-weak-deps: false
       packages:
@@ -31,7 +34,7 @@ modules:
         - gstreamer1-plugins-ugly
         - gstreamer1-vaapi
         - libheif-freeworld
-        - mesa-libxatracker        
-        - repo: rpmfusion-nonfree
-          packages:
-            - intel-media-driver
+        # - mesa-libxatracker        
+        # - repo: rpmfusion-nonfree
+        #   packages:
+        #     - intel-media-driver

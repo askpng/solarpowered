@@ -8,8 +8,8 @@ modules:
         from-repo: fedora-multimedia
         allow-erasing: true
         packages:
+          - gstreamer1-plugin-vaapi
           - libheif
-          - mesa-libxatracker
     replace:
       - from-repo: fedora-multimedia
         packages:

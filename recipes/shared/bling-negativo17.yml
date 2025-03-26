@@ -2,6 +2,7 @@ modules:
   - type: dnf
     source: ghcr.io/blue-build/modules/dnf:dnf-module
     repos:
+      cleanup: true
       nonfree: negativo17
     install:
       packages:

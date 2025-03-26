@@ -23,6 +23,7 @@ modules:
         - libcap-ng-devel
         - procps-ng
         - procps-ng-devel
+        - scx-scheds
     replace:
       - from-repo: copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos
         allow-erasing: true

@@ -47,6 +47,9 @@ modules:
         - lact-libadwaita
         - python3-pyclip
         - zen-browser
+    remove:
+      packages:
+        - gnome-tweaks
   
   - type: script
     scripts:
@@ -58,13 +61,24 @@ modules:
       enabled:
         - lactd.service
 
+  - type: default-flatpaks
+    notify: true
+    system:
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      install:
+        - page.tesk.Refine
+
   # extensions
   - type: gnome-extensions
     install:
       - Alphabetical App Grid
-      - Battery time
+      - Auto Move Windows
+      - 5425 # Battery time
       - Bluetooth Battery Meter
       - Night Theme Switcher
+      - Default Workspace
+      - 841 # Freon
+      - Quick Settings Tweaks
   # installs themes & icons
   - from-file: shared/script.yml
   # installs luminance & windscribe

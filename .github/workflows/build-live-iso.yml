@@ -8,7 +8,7 @@ on:
 
 env:
   IMAGE_REGISTRY: "ghcr.io/askpng"
-  IMAGE_NAME: "bootcli"
+  IMAGE_NAME: "solarpowered-ex"
   DEFAULT_TAG: "latest"
 
 concurrency:

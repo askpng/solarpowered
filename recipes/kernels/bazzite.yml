@@ -23,7 +23,7 @@ modules:
     install:
       allow-erasing: true
       packages:
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-6.13.8-103.bazzite.42.x86_64.rpm
+        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-6.13.8-103.bazzite.fc42.x86_64.rpm
         - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-core-6.13.8-103.bazzite.fc42.x86_64.rpm 
         - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-modules-6.13.8-103.bazzite.fc42.x86_64.rpm
         - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-modules-core-6.13.8-103.bazzite.fc42.x86_64.rpm

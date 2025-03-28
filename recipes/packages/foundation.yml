@@ -19,13 +19,13 @@ modules:
         packages:
           old: OpenCL-ICD-Loader
           new: ocl-icd
-      # - from-repo: copr:copr.fedorainfracloud.org:trixieua:mutter-patched
-      #   allow-erasing: true
-      #   packages:
-      #     - gdm
-      #     - gnome-shell
-      #     - mutter
-      #     - mutter-common
+      - from-repo: copr:copr.fedorainfracloud.org:trixieua:mutter-patched
+        allow-erasing: true
+        packages:
+          - gdm
+          - gnome-shell
+          - mutter
+          - mutter-common
     install:
       allow-erasing: true
       install-weak-deps: false

@@ -1,6 +1,13 @@
 modules:
   - type: dnf
     source: ghcr.io/blue-build/modules/dnf:dnf-module
+    repos:
+      cleanup: true
+      copr:
+        - bieszczaders/kernel-cachyos-addons  
+    install:
+      packages:
+        - scx-scheds    
     remove:
       packages:
         - kernel
@@ -14,23 +21,9 @@ modules:
     snippets:
       - 'rm -drf /usr/lib/modules/*'
 
-  - type: dnf
-    source: ghcr.io/blue-build/modules/dnf:dnf-module    
-    repos:
-      cleanup: true
-      copr:
-        - bieszczaders/kernel-cachyos-addons        
-    install:
-      allow-erasing: true
-      packages:
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-6.13.8-103.bazzite.fc42.x86_64.rpm
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-core-6.13.8-103.bazzite.fc42.x86_64.rpm 
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-modules-6.13.8-103.bazzite.fc42.x86_64.rpm
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-modules-core-6.13.8-103.bazzite.fc42.x86_64.rpm
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-modules-6.13.8-103.bazzite.fc42.x86_64.rpm
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-modules-extra-6.13.8-103.bazzite.fc42.x86_64.rpm
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-uki-virt-6.13.8-103.bazzite.fc42.x86_64.rpm
-        - scx-scheds
+  - type: script
+    scripts:
+      - base/bazzite.sh
 
   - type: initramfs
 

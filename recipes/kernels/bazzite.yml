@@ -23,13 +23,13 @@ modules:
     install:
       allow-erasing: true
       packages:
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-6.13.8-103.bazzite.fc41.x86_64.rpm
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-core-6.13.8-103.bazzite.fc41.x86_64.rpm 
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-modules-6.13.8-103.bazzite.fc41.x86_64.rpm
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-modules-core-6.13.8-103.bazzite.fc41.x86_64.rpm
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-modules-6.13.8-103.bazzite.fc41.x86_64.rpm
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-modules-extra-6.13.8-103.bazzite.fc41.x86_64.rpm
-        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-103/kernel-uki-virt-6.13.8-103.bazzite.fc41.x86_64.rpm
+        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-104/kernel-6.13.8-104.bazzite.fc41.x86_64.rpm
+        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-104/kernel-core-6.13.8-104.bazzite.fc41.x86_64.rpm 
+        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-104/kernel-modules-6.13.8-104.bazzite.fc41.x86_64.rpm
+        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-104/kernel-modules-core-6.13.8-104.bazzite.fc41.x86_64.rpm
+        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-104/kernel-modules-6.13.8-104.bazzite.fc41.x86_64.rpm
+        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-104/kernel-modules-extra-6.13.8-104.bazzite.fc41.x86_64.rpm
+        - https://github.com/bazzite-org/kernel-bazzite/releases/download/6.13.8-104/kernel-uki-virt-6.13.8-104.bazzite.fc41.x86_64.rpm
         - scx-scheds
 
   - type: initramfs

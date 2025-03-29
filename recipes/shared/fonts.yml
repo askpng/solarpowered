@@ -16,6 +16,6 @@ modules:
         - Ubuntu Sans Mono
         - VT323
   # NFCode
-  - type: script
-    snippets:
-      - curl -fLs --create-dirs https://github.com/sgigou/NF-Code/releases/download/v0.001/NFCode-Regular.otf -o /usr/share/fonts/nfcode/NFCode-Regular.otf        
+  # - type: script
+  #   snippets:
+  #     - curl -fLs --create-dirs https://github.com/sgigou/NF-Code/releases/download/v0.001/NFCode-Regular.otf -o /usr/share/fonts/nfcode/NFCode-Regular.otf        

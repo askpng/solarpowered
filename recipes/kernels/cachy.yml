@@ -1,7 +1,17 @@
 modules:
+  - type: dnf
+    source: ghcr.io/blue-build/modules/dnf:dnf-module
+    remove:
+      packages:
+        - kernel
+        - kernel-core
+        - kernel-modules
+        - kernel-modules-core
+        - kernel-modules-extra
+
   - type: script
     snippets:
-    - "echo 'Enable SElinux policy' && setsebool -P domain_kernel_load_modules on"
+      - 'rm -drf /usr/lib/modules/*'
 
   - type: dnf
     source: ghcr.io/blue-build/modules/dnf:dnf-module
@@ -10,27 +20,23 @@ modules:
       copr:
         - bieszczaders/kernel-cachyos-addons
         - bieszczaders/kernel-cachyos
-    # remove:
-    #   packages:
-    #     - kernel
     install:
       allow-erasing: true
       install-weak-deps: false
+      skip-unavailable: true      
       packages:
         - cachyos-ksm-settings
         - cachyos-settings
+        - kernel-cachyos
         - libcap-ng
         - libcap-ng-devel
         - procps-ng
         - procps-ng-devel
         - scx-scheds
-    replace:
-      - from-repo: copr:copr.fedorainfracloud.org:bieszczaders:kernel-cachyos
-        allow-erasing: true
-        packages:
-          - old: kernel
-            new: kernel-cachyos
-          - old: kernel-core
-            new: kernel-cachyos-core
-          - old: kernel-modules
-            new: kernel-cachyos-modules            
+
+  - type: initramfs
+
+  - type: systemd
+    system:
+      enabled:
+      - scx_loader.service

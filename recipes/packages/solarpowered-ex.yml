@@ -4,11 +4,20 @@ modules:
     repos:
       cleanup: true
       copr:
+        - bazzite-org/bazzite-multilib
+        - bazzite-org/bazzite     
+        - bazzite-org/rom-properties
         - ilyaz/LACT
     install:
+      allow-erasing: true
       packages:
+      - repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib
+        packages:
+        - gamescope
+      - gamescope-libs
+      - gamescope-shaders      
       - lact-libadwaita
-      
+      - rom-properties-gtk3
   - type: systemd
     system:
       enabled:

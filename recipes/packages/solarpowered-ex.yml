@@ -9,11 +9,12 @@ modules:
         - bazzite-org/rom-properties
         - ilyaz/LACT
     install:
+      install-weak-deps: false
       allow-erasing: true
       packages:
       - repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib
         packages:
-        - gamescope
+        - gamescope.x86_64
       - gamescope-libs
       - gamescope-shaders      
       - lact-libadwaita

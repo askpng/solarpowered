@@ -8,7 +8,7 @@ GITREPO=$(echo "$GIT" | sed -E 's#https://github.com/([^/]+)/([^/]+)(\.git)*#\2#
 
 KERNEL_TAG=$(curl https://api.github.com/repos/$GITOWNER/$GITREPO/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ")
 KERNEL_VERSION=$KERNEL_TAG
-OS_VERSION=${rpm -E %fedora}
+OS_VERSION=$(rpm -E %fedora)
 
 echo 'Installing Bazzite kernel.'
 dnf5 install -y \

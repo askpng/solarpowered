@@ -50,12 +50,7 @@ modules:
     remove:
       packages:
         - gnome-tweaks
-  
-  - type: script
-    scripts:
-      # citron appimage + /usr/bin link
-      - solarizzed/citron.sh
-  
+   
   - type: systemd
     system:
       enabled:

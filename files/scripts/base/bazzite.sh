@@ -8,7 +8,7 @@ GITREPO=$(echo "$GIT" | sed -E 's#https://github.com/([^/]+)/([^/]+)(\.git)*#\2#
 
 KERNEL_TAG=$(curl https://api.github.com/repos/$GITOWNER/$GITREPO/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ")
 KERNEL_VERSION=$KERNEL_TAG
-OS_VERSION=42
+OS_VERSION=$(rpm -E %fedora)
 
 echo 'Installing Bazzite kernel.'
 dnf5 install -y \
@@ -17,6 +17,19 @@ dnf5 install -y \
     https://github.com/$GITOWNER/$GITREPO/releases/download/$KERNEL_TAG/kernel-modules-$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64.rpm \
     https://github.com/$GITOWNER/$GITREPO/releases/download/$KERNEL_TAG/kernel-modules-core-$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64.rpm \
     https://github.com/$GITOWNER/$GITREPO/releases/download/$KERNEL_TAG/kernel-modules-extra-$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64.rpm \
-    https://github.com/$GITOWNER/$GITREPO/releases/download/$KERNEL_TAG/kernel-uki-virt-$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64.rpm # \
-    #c https://github.com/$GITOWNER/$GITREPO/releases/download/$KERNEL_TAG/kernel-devel-$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64.rpm \
-    # https://github.com/$GITOWNER/$GITREPO/releases/download/$KERNEL_TAG/kernel-devel-matched-$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64.rpm \
+    https://github.com/$GITOWNER/$GITREPO/releases/download/$KERNEL_TAG/kernel-uki-virt-$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64.rpm \
+    https://github.com/$GITOWNER/$GITREPO/releases/download/$KERNEL_TAG/kernel-devel-$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64.rpm \
+    https://github.com/$GITOWNER/$GITREPO/releases/download/$KERNEL_TAG/kernel-devel-matched-$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64.rpm
+
+echo 'Downloading ublue-os akmods COPR repo file'
+curl -L https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-$(rpm -E %fedora)/ublue-os-akmods-fedora-$(rpm -E %fedora).repo -o /etc/yum.repos.d/_copr_ublue-os-akmods.repo
+
+echo 'Installing zenergy kmod'
+dnf install -y \
+    akmod-zenergy-*.fc$OS_VERSION.x86_64
+akmods --force --kernels $KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64 --kmod zenergy
+modinfo /usr/lib/modules/$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64/extra/zenergy/zenergy.ko.xz > /dev/null \
+|| (find /var/cache/akmods/zenergy/ -name \*.log -print -exec cat {} \; && exit 1)
+
+echo 'Removing ublue-os akmods COPR repo file'
+rm /etc/yum.repos.d/_copr_ublue-os-akmods.repo

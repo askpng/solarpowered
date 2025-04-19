@@ -136,11 +136,12 @@ pull-bluebuild:
 # Scripts to initialize, configure, integrate & reset Waydroid
 setup-waydroid:
      #!/usr/bin/env bash
+     set -e
 
      if [ "$OPTION" == "" ]; then
      echo "${bold}Waydroid utilities${normal}"
      PS3="Please select an option: "
-     select OPTION in "Initialize Waydroid" "Configure Waydroid" "Update Android 13" "Integrate Waydroid windows with desktop" "Set Waydroid as Pixel 8" "Install APKCombo installer and Material Files" "Logs, clean version" "Reset Waydroid (also removes waydroid-related files from user folder)"; do
+     select OPTION in "Initialize Waydroid" "Configure Waydroid" "Upgrade Android 13" "Integrate Waydroid windows with desktop" "Set Waydroid as Pixel 8" "Install APKCombo installer and Material Files" "Logs, clean version" "Reset Waydroid (also removes waydroid-related files from user folder)"; do
           if [[ -n "$OPTION" ]]; then
                break
           else
@@ -160,59 +161,75 @@ setup-waydroid:
           cp /usr/share/applications/waydroid-container-restart.desktop ~/.local/share/applications
           echo "Waydroid has been initialized. Before continuing, run 'waydroid session start' and ensure it is up and running well."
 
-     elif [[ "${OPTION,,}" =~ ^update ]]; then
+     elif [[ "${OPTION,,}" =~ ^upgrade ]]; then
           VENDOR_RSS="https://sourceforge.net/projects/waydroid/rss?path=/images/vendor/waydroid_x86_64"
           SYSTEM_RSS="https://sourceforge.net/projects/waydroid/rss?path=/images/system/lineage/waydroid_x86_64"
-
-          echo "Stopping running Waydroid sessions"
-          waydroid session stop
 
           echo "Getting latest lineage-20-* images"
           get_latest_image_url() {
           local RSS_URL=$1
           local VERSION_PREFIX=$2
+          local FLAVOR=$3
+          local SUFFIX=$4
+
           local LATEST_URL=$(curl -s "$RSS_URL" |
-               xmllint --xpath '//item[link[contains(., "'"$VERSION_PREFIX"'")]]/link/text()' - |
-               sort -r | head -n 1)  # Get the most recent matching file
+               xmllint --xpath "//item[link[contains(., '$VERSION_PREFIX') and contains(., '$FLAVOR') and contains(., '$SUFFIX')]]/link/text()" - |
+               sort -r | head -n 1)
+
           echo "$LATEST_URL"
           }
 
-          echo "Downloading the latest lineage-20-* vendor image"
-          VENDOR_URL=$(get_latest_image_url "$VENDOR_RSS" "lineage-20-")
+          echo "Downloading the latest lineage-20-* system images"
+          SYSTEM_URL="$(get_latest_image_url "$SYSTEM_RSS" "lineage-20-" "VANILLA" "waydroid_x86_64-system.zip")"
+
+          if [ -n "$SYSTEM_URL" ]; then
+               echo "Downloading latest system image from $SYSTEM_URL"
+               sudo curl -L "$SYSTEM_URL" -o /tmp/system.zip
+               if [ $? -ne 0 ]; then
+                    echo "Error: Failed to download system image."
+                    exit 1
+               fi
+          else
+               echo "No matching lineage-20-* system image found."
+               exit 1
+          fi
+
+          echo "Downloading the latest lineage-20-*-MAINLINE vendor image"
+          VENDOR_URL="$(get_latest_image_url "$VENDOR_RSS" "lineage-20-" "MAINLINE" "waydroid_x86_64-vendor.zip")"
+
           if [ -n "$VENDOR_URL" ]; then
                echo "Downloading latest vendor image from $VENDOR_URL"
                sudo curl -L "$VENDOR_URL" -o /tmp/vendor.zip
+               if [ $? -ne 0 ]; then
+                    echo "Error: Failed to download vendor image."
+                    exit 1
+               fi
           else
-               echo "No matching lineage-20-* vendor image found."
+               echo "No matching lineage-20-*-MAINLINE vendor image found."
+               exit 1
           fi          
 
-          echo "Downloading thelatest lineage-20-* system image"
-          SYSTEM_URL=$(get_latest_image_url "$SYSTEM_RSS" "lineage-20-")
-          if [ -n "$SYSTEM_URL" ]; then
-               echo "Downloading latest system image from $SYSTEM_URL"
-               sudo curl -L "$SYSTEM_URL" -o /tmp/system.zip          
-          else
-               echo "No matching lineage-20-* system image found."
-          fi
+          echo "Downloads finished, starting upgrade now. Stopping running Waydroid session."
+          waydroid session stop
 
           if [ -f /var/lib/waydroid/images/system.img ]; then
-               echo "Removing previous system.img"
+               echo "Removing previous system.img..."
                sudo rm /var/lib/waydroid/images/system.img
           fi
 
           if [ -f /var/lib/waydroid/images/vendor.img ]; then
-               echo "Removing previous vendor.img"
+               echo "Removing previous vendor.img..."
                sudo rm /var/lib/waydroid/images/vendor.img
           fi
 
-          echo "Unzipping vendor.zip"
-          sudo unzip /tmp/vendor.zip -d /var/lib/waydroid/images
-          sudo rm /tmp/vendor.zip
-          echo "Unzipping system.zip"
+          echo "Unzipping system.zip..."
           sudo unzip /tmp/system.zip -d /var/lib/waydroid/images
           sudo rm /tmp/system.zip
+          echo "Unzipping vendor.zip..."
+          sudo unzip /tmp/vendor.zip -d /var/lib/waydroid/images
+          sudo rm /tmp/vendor.zip
 
-          echo "Update done!"
+          echo "Upgrade done."
 
      elif [[ "${OPTION,,}" =~ gpu ]]; then
           echo "This command is not available for use yet!"

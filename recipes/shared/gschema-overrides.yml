@@ -7,5 +7,4 @@ modules:
     - zz04-org-gnome-touchpad.gschema.override
     - zz05-org-gnome-desktop-wm-preferences.gschema.override
     - zz06-org.gnome-mutter.gschema.override
-    - zz07-org-gnome-shell-extensions-just-perfection.gschema.override
     - zz08.org.gnome.nautilus.gschema.override

@@ -3,7 +3,7 @@ modules:
     source: ghcr.io/blue-build/modules/dnf:dnf-module
     repos:
       cleanup: true
-      nonfree: fedora-multimedia
+      nonfree: negativo17
       copr:
         - bazzite-org/bazzite-multilib
         - bazzite-org/bazzite     

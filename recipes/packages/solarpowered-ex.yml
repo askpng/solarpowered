@@ -3,13 +3,37 @@ modules:
     source: ghcr.io/blue-build/modules/dnf:dnf-module
     repos:
       cleanup: true
+      nonfree: fedora-multimedia
       copr:
+        - bazzite-org/bazzite-multilib
+        - bazzite-org/bazzite     
+        - bazzite-org/rom-properties
         - ilyaz/LACT
+        - jackgreiner/lutris-git
     install:
+      install-weak-deps: false
+      allow-erasing: true
       packages:
+      - repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib
+        packages:
+        - gamescope.x86_64
+      - gamescope-libs
+      - gamescope-shaders
       - lact-libadwaita
-      
+      - repo: copr:copr.fedorainfracloud.org:jackgreiner:lutris-git
+        packages:      
+        - lutris
+      - rocm-cl
+      - rocm-hip
+      - rocm-clinfo
+      - rocm-smi
+      - rom-properties-gtk3
+      - steam
   - type: systemd
     system:
       enabled:
         - lactd.service
+  - type: script
+    snippets:
+    - curl -Lo /usr/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
+    - chmod +x /usr/bin/winetricks

@@ -23,7 +23,6 @@ modules:
       - repo: copr:copr.fedorainfracloud.org:jackgreiner:lutris-git
         packages:      
         - lutris
-      - rocm-cl
       - rocm-hip
       - rocm-clinfo
       - rocm-smi

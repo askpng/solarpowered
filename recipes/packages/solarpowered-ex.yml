@@ -3,11 +3,13 @@ modules:
     source: ghcr.io/blue-build/modules/dnf:dnf-module
     repos:
       cleanup: true
+      nonfree: negativo17
       copr:
         - bazzite-org/bazzite-multilib
         - bazzite-org/bazzite     
         - bazzite-org/rom-properties
         - ilyaz/LACT
+        - jackgreiner/lutris-git
     install:
       install-weak-deps: false
       allow-erasing: true
@@ -16,10 +18,19 @@ modules:
         packages:
         - gamescope.x86_64
       - gamescope-libs
-      - gamescope-shaders      
+      - gamescope-shaders
       - lact-libadwaita
+      - lutris
+      - rocm-hip
+      - rocm-clinfo
+      - rocm-smi
       - rom-properties-gtk3
+      - steam
   - type: systemd
     system:
       enabled:
         - lactd.service
+  - type: script
+    snippets:
+    - curl -Lo /usr/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
+    - chmod +x /usr/bin/winetricks

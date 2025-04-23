@@ -1,6 +1,4 @@
 [org.gnome.shell.extensions.just-perfection]
-
-## activities-button='false'
 animation=5
 controls-manager-spacing-size=0
 dash-icon-size=32

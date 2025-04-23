@@ -20,9 +20,7 @@ modules:
       - gamescope-libs
       - gamescope-shaders
       - lact-libadwaita
-      - repo: copr:copr.fedorainfracloud.org:jackgreiner:lutris-git
-        packages:      
-        - lutris
+      - lutris
       - rocm-hip
       - rocm-clinfo
       - rocm-smi

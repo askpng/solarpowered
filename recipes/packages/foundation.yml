@@ -40,6 +40,7 @@ modules:
         - zen-browser
         # audio & codecs
         - alsa-firmware
+        - celluloid
         - ffmpegthumbnailer
         - heif-pixbuf-loader
         - libcamera-gstreamer
@@ -67,6 +68,7 @@ modules:
         - traceroute
         - wireguard-tools
         - wl-clipboard
+        - yt-dlp
         - zstd
         # GUI
         - baobab
@@ -121,6 +123,6 @@ modules:
         - default-fonts-cjk-sans
         - firefox
         - firefox-langpacks
-        - google-noto-sans-cjk-vf-fonts
+        - google-noto-sans-cjk-vf-fonts        
         - rygel
         - yelp

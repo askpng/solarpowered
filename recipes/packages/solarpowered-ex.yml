@@ -14,6 +14,7 @@ modules:
       install-weak-deps: false
       allow-erasing: true
       packages:
+      - extest
       - repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib
         packages:
         - gamescope.x86_64
@@ -21,11 +22,15 @@ modules:
       - gamescope-shaders
       - lact-libadwaita
       - lutris
+      - mangohud
       - rocm-hip
       - rocm-clinfo
       - rocm-smi
       - rom-properties-gtk3
       - steam
+    remove:
+      packages:
+      - gamemode      
   - type: systemd
     system:
       enabled:

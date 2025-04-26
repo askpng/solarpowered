@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+steam -shutdown

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+/usr/bin/gamescope -W 2560 -H 1080 -b -S auto -F fsr --adaptive-sync --mangoapp -e -- steam -tenfoot

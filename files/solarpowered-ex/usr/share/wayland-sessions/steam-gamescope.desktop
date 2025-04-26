@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Steam (Gamescope)
+Comment=Steam launched as a Gamescope session
+Exec=gamescope-session
+Type=Application
+DesktopNames=gamescope

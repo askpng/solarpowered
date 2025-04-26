@@ -6,8 +6,10 @@ GIT=https://github.com/bazzite-org/kernel-bazzite
 GITOWNER=$(echo "$GIT" | sed -E 's#https://github.com/([^/]+)/([^/]+)(\.git)*#\1#')
 GITREPO=$(echo "$GIT" | sed -E 's#https://github.com/([^/]+)/([^/]+)(\.git)*#\2#')
 
-KERNEL_TAG=$(curl https://api.github.com/repos/$GITOWNER/$GITREPO/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ")
+# KERNEL_TAG=$(curl -s https://api.github.com/repos/$GITOWNER/$GITREPO/releases | grep tag_name | cut -d : -f2 | tr -d 'v", ' | grep -Ev '\-[0-9]+\.[0-9]+$' | head -1)
+KERNEL_TAG=6.13.7-108.1
 KERNEL_VERSION=$KERNEL_TAG
+KERNEL_VERSION=6.13.7-108
 OS_VERSION=$(rpm -E %fedora)
 
 echo 'Installing Bazzite kernel.'
@@ -29,7 +31,7 @@ dnf install -y \
     akmod-zenergy-*.fc$OS_VERSION.x86_64
 akmods --force --kernels $KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64 --kmod zenergy
 modinfo /usr/lib/modules/$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64/extra/zenergy/zenergy.ko.xz > /dev/null \
-|| (find /var/cache/akmods/zenergy/ -name \*.log -print -exec cat {} \; && exit 1)
+    || (find /var/cache/akmods/zenergy/ -name \*.log -print -exec cat {} \; && exit 1)
 
 echo 'Removing ublue-os akmods COPR repo file'
 rm /etc/yum.repos.d/_copr_ublue-os-akmods.repo

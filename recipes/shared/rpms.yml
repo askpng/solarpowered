@@ -5,5 +5,5 @@ modules:
       - windscribe
   - type: script
     snippets:
-      - 'dn5 install https://github.com/sidevesh/Luminance/releases/latest/download/luminance-$(curl https://api.github.com/repos/sidevesh/Luminance/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ").rpm -y'
+      - 'dnf5 install https://github.com/sidevesh/Luminance/releases/latest/download/luminance-$(curl https://api.github.com/repos/sidevesh/Luminance/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ").rpm -y'
       - 'dnf5 install https://github.com/Windscribe/Desktop-App/releases/latest/download/windscribe_$(curl https://api.github.com/repos/Windscribe/Desktop-App/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ")_x86_64_fedora.rpm -y'

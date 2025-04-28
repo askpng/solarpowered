@@ -5,12 +5,10 @@ modules:
       cleanup: true
       nonfree: negativo17
     install:
+      allow-erasing: true
       packages:
-        from-repo: fedora-multimedia
-        allow-erasing: true
-        packages:
-          - gstreamer1-plugin-vaapi
-          - libheif
+        - gstreamer1-plugin-vaapi
+        - libheif
     replace:
       - from-repo: fedora-multimedia
         packages:

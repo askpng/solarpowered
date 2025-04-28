@@ -25,7 +25,7 @@ echo 'Downloading ublue-os akmods COPR repo file'
 curl -L https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-$(rpm -E %fedora)/ublue-os-akmods-fedora-$(rpm -E %fedora).repo -o /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 
 echo 'Installing zenergy kmod'
-dnf install -y \
+dnf5 install -y \
     akmod-zenergy-*.fc$OS_VERSION.x86_64
 akmods --force --kernels $KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64 --kmod zenergy
 modinfo /usr/lib/modules/$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64/extra/zenergy/zenergy.ko.xz > /dev/null \

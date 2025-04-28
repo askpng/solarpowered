@@ -1,6 +1,5 @@
 modules:
   - type: dnf
-    source: ghcr.io/blue-build/modules/dnf:dnf-module
     remove:
       packages:
         - kernel
@@ -14,7 +13,6 @@ modules:
       - 'rm -drf /usr/lib/modules/*'
 
   - type: dnf
-    source: ghcr.io/blue-build/modules/dnf:dnf-module
     repos:
       cleanup: true
       copr:

@@ -1,6 +1,5 @@
 modules:
   - type: dnf
-    source: ghcr.io/blue-build/modules/dnf:dnf-module
     repos:
       cleanup: true
       files:
@@ -17,8 +16,8 @@ modules:
     replace:
       - from-repo: fedora
         packages:
-          old: OpenCL-ICD-Loader
-          new: ocl-icd
+          - old: OpenCL-ICD-Loader
+            new: ocl-icd
       - from-repo: copr:copr.fedorainfracloud.org:trixieua:mutter-patched
         allow-erasing: true
         packages:

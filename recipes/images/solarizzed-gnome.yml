@@ -14,7 +14,6 @@ modules:
         destination: /usr
 
   - type: dnf
-    source: ghcr.io/blue-build/modules/dnf:dnf-module
     repos:
       cleanup: true
       files:

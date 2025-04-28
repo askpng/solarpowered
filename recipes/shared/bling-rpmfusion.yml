@@ -4,15 +4,6 @@ modules:
     repos:
       cleanup: true
       nonfree: rpmfusion
-    # remove:
-    #   packages:
-    #     - libavdevice-free
-    #     - libavfilter-free
-    #     - libavformat-free
-    #     - libavutil-free
-    #     - libpostproc-free
-    #     - libswresample-free
-    #     - libswscale-free
     replace:
       - from-repo: rpmfusion
         packages:
@@ -34,7 +25,3 @@ modules:
         - gstreamer1-plugins-ugly
         - gstreamer1-vaapi
         - libheif-freeworld
-        # - mesa-libxatracker        
-        # - repo: rpmfusion-nonfree
-        #   packages:
-        #     - intel-media-driver

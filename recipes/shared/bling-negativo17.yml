@@ -4,12 +4,10 @@ modules:
       cleanup: true
       nonfree: negativo17
     install:
+      allow-erasing: true
       packages:
-        - repo: fedora-multimedia
-          allow-erasing: true
-          packages:
-            - libheif
-            - mesa-libxatracker
+        - libheif
+        - mesa-libxatracker
     replace:
       - from-repo: fedora-multimedia
         packages:

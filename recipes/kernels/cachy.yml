@@ -4,7 +4,7 @@ modules:
     - "echo 'Enable SElinux policy' && setsebool -P domain_kernel_load_modules on"
 
   - type: dnf
-    source: ghcr.io/blue-build/modules/dnf:dnf-module
+    # source: ghcr.io/blue-build/modules/dnf:dnf-module
     repos:
       cleanup: true
       copr:

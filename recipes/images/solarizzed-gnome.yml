@@ -17,7 +17,7 @@ modules:
     repos:
       cleanup: true
       files:
-        - codium.repo
+        - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
       copr:
         - tigro/better_fonts
         - dusansimic/themes
@@ -66,11 +66,9 @@ modules:
   - type: gnome-extensions
     install:
       - Alphabetical App Grid
-      - Auto Move Windows
       - 5425 # Battery time
       - Bluetooth Battery Meter
       - Night Theme Switcher
-      - Default Workspace
       - 841 # Freon
       - Quick Settings Tweaks
   # installs themes & icons

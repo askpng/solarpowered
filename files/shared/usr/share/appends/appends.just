@@ -180,7 +180,8 @@ setup-waydroid:
           }
 
           echo "Downloading the latest lineage-20-* system images"
-          SYSTEM_URL="$(get_latest_image_url "$SYSTEM_RSS" "lineage-20-" "VANILLA" "waydroid_x86_64-system.zip")"
+          SYSTEM_URL=$(get_latest_image_url "$SYSTEM_RSS" "lineage-20-" "VANILLA" "waydroid_x86_64-system.zip")
+          SYSTEM_URL="${SYSTEM_URL%/download}"
 
           if [ -n "$SYSTEM_URL" ]; then
                echo "Downloading latest system image from $SYSTEM_URL"
@@ -195,7 +196,8 @@ setup-waydroid:
           fi
 
           echo "Downloading the latest lineage-20-*-MAINLINE vendor image"
-          VENDOR_URL="$(get_latest_image_url "$VENDOR_RSS" "lineage-20-" "MAINLINE" "waydroid_x86_64-vendor.zip")"
+          VENDOR_URL=$(get_latest_image_url "$VENDOR_RSS" "lineage-20-" "MAINLINE" "waydroid_x86_64-vendor.zip")
+          VENDOR_URL="${VENDOR_URL%/download}"
 
           if [ -n "$VENDOR_URL" ]; then
                echo "Downloading latest vendor image from $VENDOR_URL"

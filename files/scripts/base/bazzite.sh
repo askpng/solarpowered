@@ -7,9 +7,8 @@ GITOWNER=$(echo "$GIT" | sed -E 's#https://github.com/([^/]+)/([^/]+)(\.git)*#\1
 GITREPO=$(echo "$GIT" | sed -E 's#https://github.com/([^/]+)/([^/]+)(\.git)*#\2#')
 
 # KERNEL_TAG=$(curl -s https://api.github.com/repos/$GITOWNER/$GITREPO/releases | grep tag_name | cut -d : -f2 | tr -d 'v", ' | grep -Ev '\-[0-9]+\.[0-9]+$' | head -1)
-KERNEL_TAG=6.13.7-108.1
+KERNEL_TAG=6.14.4-103
 KERNEL_VERSION=$KERNEL_TAG
-KERNEL_VERSION=6.13.7-108
 OS_VERSION=$(rpm -E %fedora)
 
 echo 'Installing Bazzite kernel.'

@@ -29,7 +29,7 @@ modules:
       - steam
     remove:
       packages:
-      - gamemode
+      - gamemode      
   - type: systemd
     system:
       enabled:

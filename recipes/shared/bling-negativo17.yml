@@ -1,13 +1,14 @@
 modules:
   - type: dnf
+    source: ghcr.io/blue-build/modules/dnf:dnf-module
     repos:
       cleanup: true
       nonfree: negativo17
     install:
       allow-erasing: true
       packages:
+        - gstreamer1-plugin-vaapi
         - libheif
-        - mesa-libxatracker
     replace:
       - from-repo: fedora-multimedia
         packages:

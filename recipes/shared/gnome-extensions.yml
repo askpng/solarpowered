@@ -1,11 +1,9 @@
 modules:
   - type: gnome-extensions
     install:
-      # - AppIndicator and KStatusNotifierItem Support
       - Bluetooth Battery Meter
       - Caffeine
       - Do Not Disturb While Screen Sharing Or Recording
       - 841 # Freon
-      - 6198 # Light Style
+      - Just Perfection
       - Night Theme Switcher
-      - Quick Settings Tweaks

@@ -3,12 +3,11 @@ modules:
     repos:
       cleanup: true
       files:
-        - codium.repo
+        - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
       copr:
         - tigro/better_fonts
         - zhangyuannie/butter
         - dusansimic/themes
-        - shdwchn10/AllTheTools
         - sneexy/zen-browser
         - trixieua/mutter-patched
     optfix:
@@ -31,11 +30,11 @@ modules:
       packages:
         # copr
         - butter
-        - codium
         - fontconfig-font-replacements
         - morewaita-icon-theme
         - starship
         - topgrade
+        - vscodium
         - zen-browser
         # audio & codecs
         - alsa-firmware
@@ -57,14 +56,9 @@ modules:
         - just
         - lm_sensors
         - lzip
-        - net-tools
         - nvtop
         - openssl
         - smartmontools
-        - squashfs-tools
-        - symlinks
-        - tcpdump
-        - traceroute
         - wireguard-tools
         - wl-clipboard
         - yt-dlp

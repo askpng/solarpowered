@@ -58,6 +58,7 @@ modules:
         - lzip
         - nvtop
         - openssl
+        - podman-compose
         - smartmontools
         - wireguard-tools
         - wl-clipboard

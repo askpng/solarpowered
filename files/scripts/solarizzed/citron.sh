@@ -14,14 +14,14 @@ URL="https://github.com/$GITOWNER/$GITREPO/releases/download/v$(curl https://api
 
 echo "Downloading $URL as $APPDIR/$APPNAME.AppImage"
 
-# mkdir -p $APPDIR
+mkdir -p $APPDIR
 
-# curl -L "$URL" -o "$APPDIR/$APPNAME.AppImage"
+curl -L "$URL" -o "$APPDIR/$APPNAME.AppImage"
 
 echo "Download finished! Making $APPNAME executable..."
-# chmod +x $APPDIR/$APPNAME.AppImage
+chmod +x $APPDIR/$APPNAME.AppImage
 
 echo "Creating symlink to /usr/bin/$APPNAME..."
-# ln -sf $APPDIR/$APPNAME.AppImage /usr/bin/$APPNAME
+ln -sf $APPDIR/$APPNAME.AppImage /usr/bin/$APPNAME
 
 echo "/usr/bin/$APPNAME symlink created!"

@@ -33,8 +33,8 @@ modules:
   # select ONE of the following from-file line
   # or leave all three uncommented to use stock fedora kernel
   # ---
-  # - from-file: kernels/bazzite.yml
-  - from-file: kernels/blu.yml 
+  - from-file: kernels/bazzite.yml
+  # - from-file: kernels/blu.yml 
   # - from-file: kernels/cachy.yml
 
   # image-specific packages module

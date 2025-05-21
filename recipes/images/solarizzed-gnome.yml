@@ -5,7 +5,7 @@ name: solarizzed-gnome
 description: Based on bazzite-deck-gnome
 
 base-image: ghcr.io/ublue-os/bazzite-deck-gnome
-image-version: testing
+image-version: stable
 
 modules:
   - type: files
@@ -14,11 +14,10 @@ modules:
         destination: /usr
 
   - type: dnf
-    source: ghcr.io/blue-build/modules/dnf:dnf-module
     repos:
       cleanup: true
       files:
-        - codium.repo
+        - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
       copr:
         - tigro/better_fonts
         - dusansimic/themes
@@ -50,12 +49,7 @@ modules:
     remove:
       packages:
         - gnome-tweaks
-  
-  - type: script
-    scripts:
-      # citron appimage + /usr/bin link
-      - solarizzed/citron.sh
-  
+   
   - type: systemd
     system:
       enabled:
@@ -72,11 +66,9 @@ modules:
   - type: gnome-extensions
     install:
       - Alphabetical App Grid
-      - Auto Move Windows
       - 5425 # Battery time
       - Bluetooth Battery Meter
       - Night Theme Switcher
-      - Default Workspace
       - 841 # Freon
       - Quick Settings Tweaks
   # installs themes & icons

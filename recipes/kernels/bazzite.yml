@@ -22,27 +22,6 @@ modules:
   - type: script
     scripts:
       - base/bazzite.sh
-    # snippets:
-    #   - curl -L https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-$(rpm -E %fedora)/ublue-os-akmods-fedora-$(rpm -E %fedora).repo -o /etc/yum.repos.d/_copr_ublue-os-akmods.repo
-
-  # - type: akmods
-  #   base: bazzite
-  #   install:
-  #     - zenergy
-  #     - zenpower3
-
-  # - type: dnf
-  #   source: ghcr.io/blue-build/modules/dnf:dnf-module
-  #   repos:
-  #     cleanup: true
-  #     copr:
-  #       - ublue-os/akmods 
-  #   install:
-  #     packages:
-  #     - zenergy
-  #     - zenergy-kmod
-  #     - zenpower3
-  #     - zenpower3-kmod
 
   - type: initramfs
 
@@ -50,4 +29,3 @@ modules:
     system:
       enabled:
       - scx_loader.service
-      

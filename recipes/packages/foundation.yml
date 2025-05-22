@@ -40,7 +40,6 @@ modules:
         - alsa-firmware
         - celluloid
         - ffmpegthumbnailer
-        - heif-pixbuf-loader
         - libcamera-gstreamer
         - libcamera-tools
         - libva-utils

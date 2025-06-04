@@ -13,6 +13,7 @@ modules:
       install-weak-deps: false
       allow-erasing: true
       packages:
+      - corectrl
       - extest
       - repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib
         packages:

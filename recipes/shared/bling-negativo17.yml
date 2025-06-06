@@ -6,6 +6,7 @@ modules:
       nonfree: negativo17
     install:
       allow-erasing: true
+      install-weak-deps: false
       packages:
         - gstreamer1-plugin-vaapi
         - libheif

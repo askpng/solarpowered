@@ -52,12 +52,14 @@ modules:
         - fzf
         - ifuse
         - inxi
+        - iwd
         - just
         - lm_sensors
         - lzip
         - nvtop
         - openssl
         - smartmontools
+        - s-tui
         - wireguard-tools
         - wl-clipboard
         - yt-dlp
@@ -65,7 +67,6 @@ modules:
         # GUI
         - baobab
         - firewall-config
-        - gnome-boxes
         - nautilus-python
         # other system
         - flatpak-spawn

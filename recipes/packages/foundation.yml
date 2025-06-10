@@ -59,6 +59,7 @@ modules:
         - nvtop
         - openssl
         - smartmontools
+        - stress
         - s-tui
         - wireguard-tools
         - wl-clipboard

@@ -23,13 +23,14 @@ dnf5 install -y \
 
 echo 'Downloading ublue-os akmods COPR repo file'
 curl -L https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-$(rpm -E %fedora)/ublue-os-akmods-fedora-$(rpm -E %fedora).repo -o /etc/yum.repos.d/_copr_ublue-os-akmods.repo
+sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/_copr_ublue-os-akmods.repo
 
-echo 'Installing zenergy kmod'
-dnf5 install -y \
-    akmod-zenergy-*.fc$OS_VERSION.x86_64
-akmods --force --kernels $KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64 --kmod zenergy
-modinfo /usr/lib/modules/$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64/extra/zenergy/zenergy.ko.xz > /dev/null \
-    || (find /var/cache/akmods/zenergy/ -name \*.log -print -exec cat {} \; && exit 1)
+# echo 'Installing zenergy kmod'
+# dnf5 install -y \
+#     akmod-zenergy-*.fc$OS_VERSION.x86_64
+# akmods --force --kernels $KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64 --kmod zenergy
+# modinfo /usr/lib/modules/$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64/extra/zenergy/zenergy.ko.xz > /dev/null \
+#     || (find /var/cache/akmods/zenergy/ -name \*.log -print -exec cat {} \; && exit 1)
 
-echo 'Removing ublue-os akmods COPR repo file'
-rm /etc/yum.repos.d/_copr_ublue-os-akmods.repo
+# echo 'Removing ublue-os akmods COPR repo file'
+# rm /etc/yum.repos.d/_copr_ublue-os-akmods.repo

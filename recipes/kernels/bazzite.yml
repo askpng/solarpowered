@@ -22,6 +22,19 @@ modules:
   - type: script
     scripts:
       - base/bazzite.sh
+  
+  - type: akmods
+    base: bazzite
+    install:
+      - ryzen-smu
+      - v4l2loopback
+      - zenergy
+
+  - type: script
+    snippets:
+      - echo ryzen-smu > /etc/modprobe.d/ryzen-smu.conf
+      - echo v4l2loopbacl > /etc/modprobe.d/v4l2loopbacl.conf
+      - echo zenergy > /etc/modprobe.d/zenergy.conf
 
   - type: initramfs
 

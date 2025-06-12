@@ -7,13 +7,15 @@ modules:
         - bazzite-org/bazzite-multilib
         - bazzite-org/bazzite     
         - bazzite-org/rom-properties
+        - eaglesemanation/displayconfig-mutter
         - ilyaz/LACT
         - jackgreiner/lutris-git
         - lizardbyte/beta
     install:
       install-weak-deps: false
       allow-erasing: true
-      packages:
+      packages :
+      - displayconfig-mutter
       - extest
       - repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib
         packages:

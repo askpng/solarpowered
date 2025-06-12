@@ -38,5 +38,6 @@ modules:
         - lactd.service
   - type: script
     snippets:
+    - setcap 'cap_sys_admin+p' /usr/bin/sunshine-v* 
     - curl -Lo /usr/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
     - chmod +x /usr/bin/winetricks

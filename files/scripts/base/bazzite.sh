@@ -27,9 +27,20 @@ curl -L https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-$(rp
 echo 'Installing zenergy kmod'
 dnf5 install -y \
     akmod-zenergy-*.fc$OS_VERSION.x86_64
+    # akmod-zenpower3-*.fc$OS_VERSION.x86_64 \
+    # akmod-ryzen-smu-*.fc$OS_VERSION.x86_64 \
+
 akmods --force --kernels $KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64 --kmod zenergy
 modinfo /usr/lib/modules/$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64/extra/zenergy/zenergy.ko.xz > /dev/null \
     || (find /var/cache/akmods/zenergy/ -name \*.log -print -exec cat {} \; && exit 1)
+
+# akmods --force --kernels $KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64 --kmod zenpower3
+# modinfo /usr/lib/modules/$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64/extra/zenpower3/zenpower3.ko.xz > /dev/null \
+#     || (find /var/cache/akmods/zenpower3/ -name \*.log -print -exec cat {} \; && exit 1)
+
+# akmods --force --kernels $KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64 --kmod ryzen-smu
+# modinfo /usr/lib/modules/$KERNEL_VERSION.bazzite.fc$OS_VERSION.x86_64/extra/ryzen-smu/ryzen-smu.ko.xz > /dev/null \
+#     || (find /var/cache/akmods/ryzen-smu/ -name \*.log -print -exec cat {} \; && exit 1)
 
 echo 'Removing ublue-os akmods COPR repo file'
 rm /etc/yum.repos.d/_copr_ublue-os-akmods.repo

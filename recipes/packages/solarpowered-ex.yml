@@ -9,11 +9,11 @@ modules:
         - bazzite-org/rom-properties
         - ilyaz/LACT
         - jackgreiner/lutris-git
+        - lizardbyte/beta
     install:
       install-weak-deps: false
       allow-erasing: true
       packages:
-      # - corectrl
       - extest
       - repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib
         packages:
@@ -28,6 +28,7 @@ modules:
       - rocm-smi
       - rom-properties-gtk3
       - steam
+      - sunshine
     remove:
       packages:
       - gamemode      

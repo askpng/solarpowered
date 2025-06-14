@@ -16,7 +16,7 @@ modules:
       allow-erasing: true
       packages :
       - displayconfig-mutter
-      - extest
+      - extest.i686
       - repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib
         packages:
         - gamescope.x86_64

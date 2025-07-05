@@ -53,7 +53,7 @@ modules:
         - ifuse
         - inxi
         - iwd
-        - just
+        # - just
         - lm_sensors
         - lzip
         - nvtop

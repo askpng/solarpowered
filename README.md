@@ -11,18 +11,18 @@ Because I like Gawain from Fate/Extra & Fate/Grand Order.
 # Image details
 Built using [Bluebuild template](https://github.com/blue-build/template) on top of Fedora's `latest` [Silverblue](https://quay.io/repository/fedora/fedora-silverblue?tab=tags) image.
 
+
 # Highlights
 
 - Multimedia codecs from `fedora-multimedia`
 - `bootc`, `codium`, `distrobox`, `topgrade` installed natively
 - `fastfetch`, `fish`, `just`, and `wl-clipboard` installed natively
-- GNOME Boxes for virtualization installed natively
 - [mutter-patched](https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/)
 - `nautilus-extensions` and `nautilus-python` - also comes with [nautilus-copy-path](https://github.com/chr314/nautilus-copy-path)
 - `adw-gtk3-theme`, Fonts Tweak Tool, Waydroid, Windscribe VPN, and Zen Browser installed natively
 - Native installs of Fedora bookmarks, background, extensions, repos, and Flathub remote removed
 - Native installs of GNOME extensions removed
-- Native installs of Firefox removed
+- Native install of Firefox removed
 - Several sound & icon themes & fonts installed OOTB
 
 ## solarpowered - the original, made to support Lenovo T480/s
@@ -47,6 +47,8 @@ Uses [kernel-bazzite](https://github.com/bazzite-org/kernel-bazzite).
 Includes the following tools:
 - [LACT-libadwaita](https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/)
 - `nvtop`
+- `displayconfig-mutter` and beta version of `sunshine`
+- Native installation of `Steam` and `gamescope`, with `extest.i686` - `Steam.desktop` file is LD_PRELOAD-ed with `extest` to prevent Remote Desktop prompts from appearing
 
 It is recommended to run `append solarpowered-ex-setup` upon installation. This enables the B550 suspend fix systemd service, configures necessary kernel arguments & local `initramfs` regeneration, and enables GNOME Variable Refresh Rate. It is recommended to reboot afterwards. 
 

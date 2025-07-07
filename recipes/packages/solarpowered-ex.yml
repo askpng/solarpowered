@@ -25,17 +25,15 @@ modules:
       - lact-libadwaita
       - lutris
       - mangohud
-      - protontricks
       - rocm-hip
       - rocm-clinfo
       - rocm-smi
       - rom-properties-gtk3
       - steam
       - sunshine
-      - winetricks
     remove:
       packages:
-      - gamemode      
+      - gamemode
   - type: systemd
     system:
       enabled:
@@ -47,5 +45,5 @@ modules:
     # Sunshine setup
     - setcap 'cap_sys_admin+p' /usr/bin/sunshine-v* 
     # Install Winetricks
-    # - curl -Lo /usr/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
-    # - chmod +x /usr/bin/winetricks
+    - curl -Lo /usr/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
+    - chmod 0755 /usr/bin/winetricks

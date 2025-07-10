@@ -10,7 +10,7 @@ modules:
         - eaglesemanation/displayconfig-mutter
         - ilyaz/LACT
         - jackgreiner/lutris-git
-        - lizardbyte/beta
+        - lizardbyte/stable
     install:
       install-weak-deps: false
       allow-erasing: true

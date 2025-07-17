@@ -17,13 +17,7 @@ base-image: quay.io/fedora/fedora-silverblue
 # ---
 image-version: latest
 
-modules:
-  - type: os-release
-    properties:
-      ID: solarpowered
-      NAME: solarpowered
-      PRETTY_NAME: solarpowered
-      
+modules:    
   # this includes everything except for image-specific modifications
   # ---
   - from-file: shared/base.yml
@@ -64,5 +58,11 @@ modules:
     # source entry should be the same name as the image name
     - source: solarpowered # image name, or folder as named under files/
       destination: /
+
+  - type: os-release
+    properties:
+      ID: solarpowered
+      NAME: solarpowered
+      PRETTY_NAME: solarpowered
 
   - type: signing

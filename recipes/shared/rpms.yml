@@ -1,6 +1,5 @@
 modules:
   - type: dnf
-    source: ghcr.io/blue-build/modules/dnf:dnf-module  
     optfix:
       - windscribe
   - type: script

@@ -56,11 +56,11 @@ modules:
         - lactd.service
 
   - type: default-flatpaks
-    notify: true
-    system:
-      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      install:
-        - page.tesk.Refine
+    configurations:
+      - notify: false
+        scope: system
+        install:
+          - page.tesk.Refine
 
   # extensions
   - type: gnome-extensions

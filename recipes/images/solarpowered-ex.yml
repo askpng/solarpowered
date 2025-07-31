@@ -61,8 +61,7 @@ modules:
 
   - type: os-release
     properties:
-      ID: solarpowered-ex
-      NAME: solarpowered-ex
-      PRETTY_NAME: solarpowered-ex
+      NAME: Fedora Silverblue
+      PRETTY_NAME: Fedora Silverblue
 
   - type: signing

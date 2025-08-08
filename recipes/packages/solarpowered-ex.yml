@@ -22,7 +22,7 @@ modules:
         - gamescope.x86_64
       - gamescope-libs
       - gamescope-shaders
-      - lact-libadwaita
+      - lact
       - lutris
       - mangohud
       - rocm-hip

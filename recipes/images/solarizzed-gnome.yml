@@ -43,7 +43,7 @@ modules:
         - rclone-browser
         - yaru-sound-theme
         # misc
-        - lact-libadwaita
+        - lact
         - python3-pyclip
         - zen-browser
     remove:

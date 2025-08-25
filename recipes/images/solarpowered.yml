@@ -61,7 +61,6 @@ modules:
 
   - type: os-release
     properties:
-      NAME: Fedora Silverblue
-      PRETTY_NAME: Fedora Silverblue
+      PRETTY_NAME: Fedora Linux 42 (Silverblue)
 
   - type: signing

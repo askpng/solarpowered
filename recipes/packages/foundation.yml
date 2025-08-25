@@ -83,8 +83,7 @@ modules:
         - oxygen-sounds
         - pop-sound-theme
         - yaru-sound-theme
-        # waydroid
-        - android-tools
+        # android stuff
         - python3-pyclip
         - waydroid
     remove:
@@ -120,3 +119,7 @@ modules:
         - google-noto-sans-cjk-vf-fonts        
         - rygel
         - yelp
+
+  - type: script
+    scripts:
+      - shared/android-tools.sh

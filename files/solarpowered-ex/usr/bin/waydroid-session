@@ -1,0 +1,5 @@
+#!/bin/sh
+mutter --wayland &
+sleep 5
+export DISPLAY=:1
+waydroid show-full-ui

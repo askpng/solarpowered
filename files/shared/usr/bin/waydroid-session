@@ -1,5 +1,27 @@
 #!/bin/sh
+
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
+    eval $(dbus-launch --sh-syntax)
+fi
+
 mutter --wayland &
+MUTTER_PID=$!
 sleep 5
 export DISPLAY=:1
-waydroid show-full-ui
+
+# Start Waydroid in the background
+waydroid show-full-ui &
+WAYDROID_PID=$!
+
+# Wait for Waydroid exit event in the log
+tail -f -n0 /var/lib/waydroid/waydroid.log | grep -m1 run_buffer
+
+# Cleanup and logout
+kill $WAYDROID_PID
+kill $MUTTER_PID
+
+# Use loginctl to end the session gracefully
+loginctl terminate-session "$XDG_SESSION_ID"
+
+exit 0

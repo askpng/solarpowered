@@ -70,6 +70,7 @@ modules:
         - firewall-config
         - nautilus-python
         # other system
+        - btrfs-assistant
         - flatpak-spawn
         - input-remapper
         - libappindicator

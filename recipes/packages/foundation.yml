@@ -85,6 +85,7 @@ modules:
         - pop-sound-theme
         - yaru-sound-theme
         # android stuff
+        - android-tools
         - python3-pyclip
         - waydroid
     remove:
@@ -121,6 +122,6 @@ modules:
         - rygel
         - yelp
 
-  - type: script
-    scripts:
-      - shared/android-tools.sh
+  # - type: script
+  #   scripts:
+  #     - shared/android-tools.sh

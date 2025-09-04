@@ -10,6 +10,7 @@ modules:
         - dusansimic/themes
         - sneexy/zen-browser
         - trixieua/mutter-patched
+        - cuteneko/wayroid-helper
     optfix:
       - zen
     replace:
@@ -88,6 +89,7 @@ modules:
         - android-tools
         - python3-pyclip
         - waydroid
+        - waydroid-helper
     remove:
       packages:
         # fedora

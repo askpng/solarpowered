@@ -10,7 +10,7 @@ modules:
         - dusansimic/themes
         - sneexy/zen-browser
         - trixieua/mutter-patched
-        - cuteneko/wayroid-helper
+        - cuteneko/waydroid-helper
     optfix:
       - zen
     replace:

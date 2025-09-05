@@ -87,6 +87,7 @@ modules:
         - yaru-sound-theme
         # android stuff
         - android-tools
+        - bindfs
         - python3-pyclip
         - waydroid
         - waydroid-helper

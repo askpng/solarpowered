@@ -1,0 +1,71 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+name: gamepadpc
+# description will be included in the image's metadata
+description: gamepadpc
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: quay.io/fedora-ostree-desktops/base-atomic
+image-version: 42 # latest is also supported if you want new updates ASAP
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  - type: dnf
+    repos:
+      cleanup: true
+      nonfree: negativo17
+      copr:
+        - ferdiu/moonlight
+    install:
+      allow-erasing: true
+      install-weak-deps: false
+      skip-unavailable: true
+      packages:
+        - ffmpeg
+        - libavcodec
+        - libfdk-aac
+        - libva-intel-media-driver
+        - libva
+        - mesa-dri-drivers
+        - mesa-filesystem
+        - mesa-libEGL
+        - mesa-libGL
+        - mesa-libgbm
+        - mesa-va-drivers
+        - mesa-vulkan-drivers
+        - evtest
+        - pipewire-utils
+        - libva-utils
+        - bluez
+        - fish
+        - cage
+        - gamescope
+        - gcc
+        - glibc
+        - libevdev
+        - libX11
+        - libXau
+        - libxcb
+        - libXdmcp
+        - libXext
+        - libXres
+        - wireplumber
+        - nmcli
+        - firejail
+        - mangohud
+
+  - type: script
+    snippets:
+      # opengamepadui
+      - 'dnf5 install https://github.com/ShadowBlip/OpenGamepadUI/releases/latest/download/opengamepadui-$(curl https://api.github.com/repos/ShadowBlip/OpenGamepadUI/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ")-1.x86_64.rpm -y'
+      # just
+      - "VER=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/casey/just/releases/latest)) && curl -fLs --create-dirs https://github.com/casey/just/releases/download/${VER}/just-${VER}-x86_64-unknown-linux-musl.tar.gz -o /tmp/just-x86_64-unknown-linux-musl.tar.gz"
+      - "mkdir -p /tmp/just && tar -xzf /tmp/just-x86_64-unknown-linux-musl.tar.gz -C /tmp/just/"
+      - cp /tmp/just/just /usr/bin/just && chmod 0755 /usr/bin/just
+      - cp /tmp/just/completions/just.bash /usr/share/bash-completion/completions/just
+      - rm /tmp/just-x86_64-unknown-linux-musl.tar.gz
+      - rm -r /tmp/just/
+
+  - type: signing

@@ -6,7 +6,7 @@ name: gamepadpc
 description: gamepadpc
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: quay.io/fedora-ostree-desktops/base-atomic
+base-image: quay.io/fedora/fedora-bootc
 image-version: 42 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order

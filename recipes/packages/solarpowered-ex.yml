@@ -14,7 +14,7 @@ modules:
     install:
       install-weak-deps: false
       allow-erasing: true
-      packages :
+      packages:
       - displayconfig-mutter
       - extest.i686
       - repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib
@@ -43,7 +43,7 @@ modules:
     # Modify Steam.desktop with extest LD_PRELOAD
     - sed -i 's|/usr/bin/steam\>|&-extest|g' /usr/share/applications/steam.desktop
     # Sunshine setup
-    - setcap 'cap_sys_admin+p' /usr/bin/sunshine-v* 
+    - setcap 'cap_sys_admin+p' /usr/bin/sunshine-* 
     # Install Winetricks
     - curl -Lo /usr/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
     - chmod 0755 /usr/bin/winetricks

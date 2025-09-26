@@ -1,0 +1,20 @@
+[Unit]
+Description=Moonlight
+After=systemd-user-sessions.service graphical.target multi-user.target
+Conflicts=getty@tty1.service
+
+[Service]
+User=htpc
+Environment=DISPLAY=
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+PAMName=login
+TTYPath=/dev/tty1
+StandardInput=tty
+StandardOutput=journal
+StandardError=journal
+Restart=always
+RestartSec=2
+ExecStart=/usr/bin/moonlight
+
+[Install]
+WantedBy=multi-user.target

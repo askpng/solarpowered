@@ -1,0 +1,20 @@
+[Unit]
+Description=Automatic Login for user %i on TTY1
+# NOTE: This is an important step to ensure it can replace the standard getty
+Conflicts=getty@tty1.service
+Before=getty.target
+
+[Service]
+# The Instance name (%i) is the USERNAME (e.g., htpc)
+# TTY will be hardcoded, or passed via a custom variable if desired
+ExecStart=-/sbin/agetty --autologin %i --noclear tty1 $TERM
+Type=idle
+Restart=always
+RestartSec=0
+UtmpIdentifier=tty1
+TTYPath=/dev/tty1
+TTYReset=yes
+TTYVHangup=yes
+
+[Install]
+WantedBy=getty.target

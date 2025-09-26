@@ -1,0 +1,15 @@
+[Unit]
+Description=Moonlight in Cage
+# Ensures this starts after the basic user session is set up
+After=graphical-session.target
+
+[Service]
+# Use full paths for reliability
+ExecStart=/usr/bin/cage -- /usr/bin/moonlight
+# Automatically restart the service if it crashes
+Restart=on-failure
+RestartSec=5
+
+[Install]
+# Hook into the default user session target
+WantedBy=default.target

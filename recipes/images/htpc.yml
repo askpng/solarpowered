@@ -13,9 +13,44 @@ image-version: 42 # latest is also supported if you want new updates ASAP
 # you can include multiple instances of the same module
 modules:
   - type: dnf
+    install:
+      allow-erasing: true
+      install-weak-deps: false
+      skip-unavailable: true
+      packages:
+        - dnf5-plugins # to prevent failure in the following step
+
+  - type: dnf
     repos:
       cleanup: true
-      nonfree: negativo17
+      nonfree: rpmfusion # for libva-intel-driver as fedora-multimedia doesn't seem to ship older intel drivers
+    replace:
+      - from-repo: rpmfusion
+        packages:
+        - old: ffmpeg-free
+          new: ffmpeg
+        - old: mesa-va-drivers
+          new: mesa-va-drivers-freeworld
+        - old: libavcodec
+          new: libavcodec-freeworld
+      # - from-repo: rpmfusion-free
+      #   packages:
+      #     - libva-intel-driver
+    install:
+      install-weak-deps: false
+      packages:
+        - gstreamer1-plugin-libav
+        - gstreamer1-plugins-bad-free-extras
+        - gstreamer1-plugins-bad-freeworld
+        - gstreamer1-plugins-ugly
+        - gstreamer1-vaapi
+        - libheif-freeworld
+        - libva
+        - libva-intel-driver
+
+  - type: dnf
+    repos:
+      cleanup: true
       copr:
         - ferdiu/moonlight
     install:
@@ -23,25 +58,23 @@ modules:
       install-weak-deps: false
       skip-unavailable: true
       packages:
-        - ffmpeg
-        - libavcodec
-        - libfdk-aac
-        - libva-intel-media-driver
-        - libva
-        - mesa-dri-drivers
-        - mesa-filesystem
-        - mesa-libEGL
-        - mesa-libGL
-        - mesa-libgbm
-        - mesa-va-drivers
-        - mesa-vulkan-drivers
+        # essentials
+        - cage # to run moonlight
+        - fish # MY SHELL
+        - moonlight-qt
+        - seatd # shit goes wrong without this around
+        # bt pad
+        - bluez # just to make sure it exists
         - evtest
+        # audio/video utils
+        - pipewire
         - pipewire-utils
+        - pipewire-pulseaudio
+        - pipewire-alsa
+        - pulseaudio-utils
         - libva-utils
-        - bluez
-        - fish
-        - cage
-        - gamescope
+        - wireplumber
+        # deps for opengamepadui for testing
         - gcc
         - glibc
         - libevdev
@@ -51,16 +84,19 @@ modules:
         - libXdmcp
         - libXext
         - libXres
-        - wireplumber
         - nmcli
         - firejail
         - mangohud
+        # misc
+        - epiphany
+        - easyeffects
+        - firewall-config        
 
   - type: script
     snippets:
-      # opengamepadui
+      # opengamepadui - needs further testing
       - 'dnf5 install https://github.com/ShadowBlip/OpenGamepadUI/releases/latest/download/opengamepadui-$(curl https://api.github.com/repos/ShadowBlip/OpenGamepadUI/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ")-1.x86_64.rpm -y'
-      # just
+      # just... in case
       - "VER=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/casey/just/releases/latest)) && curl -fLs --create-dirs https://github.com/casey/just/releases/download/${VER}/just-${VER}-x86_64-unknown-linux-musl.tar.gz -o /tmp/just-x86_64-unknown-linux-musl.tar.gz"
       - "mkdir -p /tmp/just && tar -xzf /tmp/just-x86_64-unknown-linux-musl.tar.gz -C /tmp/just/"
       - cp /tmp/just/just /usr/bin/just && chmod 0755 /usr/bin/just
@@ -68,4 +104,15 @@ modules:
       - rm /tmp/just-x86_64-unknown-linux-musl.tar.gz
       - rm -r /tmp/just/
 
+  - type: systemd
+    user:
+      enabled:
+        - pipewire
+        - pipewire-pulse
+        - wireplumber
+    system:
+      enabled:
+        - seatd
+        # need to add a service to autologin
+  
   - type: signing

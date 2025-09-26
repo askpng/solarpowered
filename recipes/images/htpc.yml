@@ -1,9 +1,9 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
-name: gamepadpc
+name: solarpowered-moonlight
 # description will be included in the image's metadata
-description: gamepadpc
+description: Simple image that runs Moonlight and Syncthing on older Intel PCs. Features Epiphany. Uses Cage.
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: quay.io/fedora/fedora-bootc
@@ -63,6 +63,7 @@ modules:
         - fish # MY SHELL
         - moonlight-qt
         - seatd # shit goes wrong without this around
+        - syncthing
         # bt pad
         - bluez # just to make sure it exists
         - evtest
@@ -110,9 +111,15 @@ modules:
         - pipewire
         - pipewire-pulse
         - wireplumber
+        # autolaunch moonlight in cage
+        # - moonlight-in-cage-service
     system:
+      disabled:
+        - getty@tty1.service
       enabled:
         - seatd
         # need to add a service to autologin
+        
+
   
   - type: signing

@@ -1,5 +1,5 @@
 [Unit]
-Description=Moonlight in Cage
+Description=Autostart Moonlight in Cage
 # Ensures this starts after the basic user session is set up
 After=graphical-session.target
 

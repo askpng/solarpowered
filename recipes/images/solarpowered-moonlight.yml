@@ -75,23 +75,15 @@ modules:
         - pulseaudio-utils
         - libva-utils
         - wireplumber
-        # deps for opengamepadui for testing
-        - gcc
-        - glibc
-        - libevdev
-        - libX11
-        - libXau
-        - libxcb
-        - libXdmcp
-        - libXext
-        - libXres
-        - nmcli
-        - firejail
-        - mangohud
+        # deps for flex-launcher
+        - SDL
+        - SDL_image
+        - SDL_ttf
         # misc
+        - cockpit
         - epiphany
         - easyeffects
-        - firewall-config        
+        - firewall-config   
 
   - type: script
     snippets:
@@ -104,22 +96,27 @@ modules:
       - cp /tmp/just/completions/just.bash /usr/share/bash-completion/completions/just
       - rm /tmp/just-x86_64-unknown-linux-musl.tar.gz
       - rm -r /tmp/just/
+  
+  - type: files
+    files:
+      - source: solarpowered-moonlight
+        destination: /
 
   - type: systemd
     user:
       enabled:
-        - pipewire
-        - pipewire-pulse
-        - wireplumber
+        - pipewire.service
+        - pipewire-pulse.service
+        - wireplumber.service
+        # autologin
+        # - autologin@.service
         # autolaunch moonlight in cage
         # - moonlight-in-cage-service
     system:
-      disabled:
-        - getty@tty1.service
+      # disabled:
+        # - getty@tty1.service
       enabled:
-        - seatd
-        # need to add a service to autologin
-        
-
+        - cockpit.socket
+        - seatd.service   
   
   - type: signing

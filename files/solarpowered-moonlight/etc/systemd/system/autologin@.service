@@ -1,5 +1,5 @@
 [Unit]
-Description=Automatic Login for user %i on TTY1
+Description=Automatic login for user %i on TTY1
 # NOTE: This is an important step to ensure it can replace the standard getty
 Conflicts=getty@tty1.service
 Before=getty.target

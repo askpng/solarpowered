@@ -82,13 +82,11 @@ modules:
         # misc
         - cockpit
         - epiphany
-        - easyeffects
+        # - easyeffects
         - firewall-config   
 
   - type: script
     snippets:
-      # opengamepadui - needs further testing
-      - 'dnf5 install https://github.com/ShadowBlip/OpenGamepadUI/releases/latest/download/opengamepadui-$(curl https://api.github.com/repos/ShadowBlip/OpenGamepadUI/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ")-1.x86_64.rpm -y'
       # just... in case
       - "VER=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/casey/just/releases/latest)) && curl -fLs --create-dirs https://github.com/casey/just/releases/download/${VER}/just-${VER}-x86_64-unknown-linux-musl.tar.gz -o /tmp/just-x86_64-unknown-linux-musl.tar.gz"
       - "mkdir -p /tmp/just && tar -xzf /tmp/just-x86_64-unknown-linux-musl.tar.gz -C /tmp/just/"
@@ -96,6 +94,10 @@ modules:
       - cp /tmp/just/completions/just.bash /usr/share/bash-completion/completions/just
       - rm /tmp/just-x86_64-unknown-linux-musl.tar.gz
       - rm -r /tmp/just/
+      # swingmusic
+      - "VER=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/swingmx/swingmusic/releases/latest)) && curl -fLs https://github.com/swingmx/swingmusic/releases/download/${VER}/swingmusic_linux_amd64 -o /tmp/swingmusic"
+      - cp /tmp/swingmusic /usr/bin/swingmusic && chmod 0755 /usr/bin/swingmusic
+      - rm /tmp/swingmusic
   
   - type: files
     files:
@@ -108,14 +110,16 @@ modules:
         - pipewire.service
         - pipewire-pulse.service
         - wireplumber.service
-        # autologin
-        # - autologin@.service
         # autolaunch moonlight in cage
-        # - moonlight-in-cage-service
+        # - moonlight-in-cage.service ; todo
+        # autolaunch swing music
+        # - swingmusic.service ; todo
     system:
       # disabled:
-        # - getty@tty1.service
+        # - getty@$tty1.service ; todo
       enabled:
+        # autologin
+        # - autologin@$(whoami).service ; todo
         - cockpit.socket
         - seatd.service   
   

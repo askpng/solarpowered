@@ -82,7 +82,7 @@ modules:
         # misc
         - cockpit
         - epiphany
-        # - easyeffects
+        - easyeffects
         - firewall-config   
 
   - type: script

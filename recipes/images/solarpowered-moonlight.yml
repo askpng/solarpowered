@@ -33,18 +33,15 @@ modules:
           new: mesa-va-drivers-freeworld
         - old: libavcodec
           new: libavcodec-freeworld
-      # - from-repo: rpmfusion-free
-      #   packages:
-      #     - libva-intel-driver
     install:
       install-weak-deps: false
       packages:
-        - gstreamer1-plugin-libav
-        - gstreamer1-plugins-bad-free-extras
-        - gstreamer1-plugins-bad-freeworld
-        - gstreamer1-plugins-ugly
-        - gstreamer1-vaapi
-        - libheif-freeworld
+        # - gstreamer1-plugin-libav
+        # - gstreamer1-plugins-bad-free-extras
+        # - gstreamer1-plugins-bad-freeworld
+        # - gstreamer1-plugins-ugly
+        # - gstreamer1-vaapi
+        # - libheif-freeworld
         - libva
         - libva-intel-driver
 
@@ -82,19 +79,11 @@ modules:
         # misc
         - cockpit
         - epiphany
-        - easyeffects
+        # - easyeffects
         - firewall-config   
-        # some deps
-        - glibc
-        - libevdev
-        - libX11
-        - libXau
+        # some deps - quite certain this is all i need for cage & moonlight
         - libxcb
-        - libXdmcp
-        - libXext
-        - libXres      
         - qt6-qtwayland
-        - xorg-x11-server-Xwayland
         - xwayland-run
 
   - type: script
@@ -119,6 +108,7 @@ modules:
   - type: systemd
     user:
       enabled:
+        # enables sound
         - pipewire.service
         - pipewire-pulse.service
         - wireplumber.service

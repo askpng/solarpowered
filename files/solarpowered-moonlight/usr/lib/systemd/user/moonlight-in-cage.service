@@ -4,6 +4,7 @@ Description=Autostart Moonlight in Cage
 After=graphical-session.target
 
 [Service]
+Environment="QT_QPA_PLATFORM=xcb"
 # Use full paths for reliability
 ExecStart=/usr/bin/cage -- /usr/bin/moonlight
 # Automatically restart the service if it crashes

@@ -84,6 +84,15 @@ modules:
         - epiphany
         - easyeffects
         - firewall-config   
+        # some deps
+        - glibc
+        - libevdev
+        - libX11
+        - libXau
+        - libxcb
+        - libXdmcp
+        - libXext
+        - libXres        
 
   - type: script
     snippets:

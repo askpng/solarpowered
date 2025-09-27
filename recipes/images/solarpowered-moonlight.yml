@@ -92,7 +92,10 @@ modules:
         - libxcb
         - libXdmcp
         - libXext
-        - libXres        
+        - libXres      
+        - qt6-qtwayland
+        - xorg-x11-server-Xwayland
+        - xwayland-run
 
   - type: script
     snippets:

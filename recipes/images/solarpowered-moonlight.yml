@@ -84,6 +84,7 @@ modules:
         - epiphany
         # - easyeffects
         - firewall-config   
+        - throttled
         # some deps - quite certain this is all i need for cage & moonlight
         - libxcb
         - qt6-qtwayland

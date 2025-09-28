@@ -51,6 +51,7 @@ modules:
     repos:
       cleanup: true
       copr:
+        - abn/throttled
         - ferdiu/moonlight
     install:
       allow-erasing: true

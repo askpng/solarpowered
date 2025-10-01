@@ -23,6 +23,9 @@ modules:
   - type: dnf
     repos:
       cleanup: true
+      copr:
+        - abn/throttled
+        - ferdiu/moonlight      
       nonfree: rpmfusion # for libva-intel-driver as fedora-multimedia doesn't seem to ship older intel drivers
     replace:
       - from-repo: rpmfusion
@@ -46,18 +49,7 @@ modules:
         - gstreamer1-vaapi
         - libva
         - libva-intel-driver
-
-  - type: dnf
-    repos:
-      cleanup: true
-      copr:
-        - abn/throttled
-        - ferdiu/moonlight
-    install:
-      allow-erasing: true
-      install-weak-deps: false
-      skip-unavailable: true
-      packages:
+        # htpc packages
         # essentials
         - cage # to run moonlight
         - fish # MY SHELL
@@ -76,10 +68,10 @@ modules:
         - pulseaudio-utils
         - libva-utils
         - wireplumber
-        # deps for flex-launcher
-        - SDL
-        - SDL_image
-        - SDL_ttf
+        # gamescope
+        # - sddm
+        - gamescope
+        - steam
         # misc
         - cockpit
         - epiphany
@@ -102,6 +94,7 @@ modules:
       - "mkdir -p /tmp/just && tar -xzf /tmp/just-x86_64-unknown-linux-musl.tar.gz -C /tmp/just/"
       - cp /tmp/just/just /usr/bin/just && chmod 0755 /usr/bin/just
       - cp /tmp/just/completions/just.bash /usr/share/bash-completion/completions/just
+      - cp /tmp/just/completions/just.fish /usr/share/fish/completions/just.fish
       - rm /tmp/just-x86_64-unknown-linux-musl.tar.gz
       - rm -r /tmp/just/
       # swingmusic

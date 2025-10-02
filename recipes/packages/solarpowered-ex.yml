@@ -30,7 +30,8 @@ modules:
       - rocm-smi
       - rom-properties-gtk3
       - steam
-      - sunshine
+      - Sunshine-2025.924.154138 # temporary fix for artifacting in latest stable ver
+      
     remove:
       packages:
       - gamemode

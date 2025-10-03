@@ -53,6 +53,8 @@ modules:
         # essentials
         - cage # to run moonlight
         - fish # MY SHELL
+        - grim
+        - input-remapper
         - lm_sensors
         - moonlight-qt
         - seatd # shit goes wrong without this around

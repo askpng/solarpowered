@@ -52,12 +52,12 @@ modules:
         # htpc packages
         # essentials
         - cage # to run moonlight
-        - evdev
         - fish # MY SHELL
         - grim
         - input-remapper
         - lm_sensors
         - moonlight-qt
+        - python3-evdev        
         - seatd # shit goes wrong without this around
         - syncthing
         - weston

@@ -10,7 +10,7 @@ modules:
         - eaglesemanation/displayconfig-mutter
         - ilyaz/LACT
         - jackgreiner/lutris-git
-        - lizardbyte/stable
+        # - lizardbyte/stable
     install:
       install-weak-deps: false
       allow-erasing: true
@@ -30,7 +30,7 @@ modules:
       - rocm-smi
       - rom-properties-gtk3
       - steam
-      - Sunshine-2025.628.4510 # temporary fix for artifacting in latest stable ver
+      - sunshine
       
     remove:
       packages:

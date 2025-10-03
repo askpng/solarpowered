@@ -54,13 +54,13 @@ modules:
         - cage # to run moonlight
         - fish # MY SHELL
         - grim
-        - input-remapper
+        # - input-remapper
         - lm_sensors
         - moonlight-qt
         - python3-evdev        
         - seatd # shit goes wrong without this around
         - syncthing
-        - weston
+        # - weston
         # bt pad
         - bluez # just to make sure it exists
         - evtest

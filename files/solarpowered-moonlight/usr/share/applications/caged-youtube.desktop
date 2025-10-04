@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Youtube
+Comment=VacuumTube app with Cage base
+GenericName=YouTube streaming
+Exec=/usr/bin/cage -- /usr/bin/vacuumtube
+Icon=vacuumtube
+Type=Application
+StartupNotify=false
+StartupWMClass=cage
+Categories=Entertainment
+Keywords=youtube;videos;streaming

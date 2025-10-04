@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Moonlight
+Comment=Moonlight app with Cage base
+GenericName=Remote game streaming
+Exec=/usr/bin/cage -- /usr/bin/moonlight
+Icon=moonlight
+Type=Application
+StartupNotify=false
+StartupWMClass=cage
+Categories=Gaming
+Keywords=moonlight;game;streaming

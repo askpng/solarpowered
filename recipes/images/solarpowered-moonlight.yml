@@ -82,13 +82,42 @@ modules:
         # - easyeffects
         - firewall-config   
         - throttled
-        # some deps - quite certain this is all i need for cage & moonlight
+        # some deps
+        ## appimage
+        - fuse
+        - ifuse
+        ## cage & moonlight
         - libxcb
         - qt6-qtwayland
+        - xdg-user-dirs
         - xwayland-run
+        ## flex-launcher
+        - SDL2
+        - SDL2_image
+        - SDL2_ttf
+        ## deps for flex-launcher build
+        - SDL2-devel
+        - SDL2_image-devel
+        - SDL2_ttf-devel
+        - inih-devel
+        - automake
+        - make
+        - cmake
+        - gcc-c++
+        - git           
 
   - type: script
     snippets:
+      # flex-launcher
+      - git clone https://github.com/complexlogic/flex-launcher.git /tmp/flex-launcher && mkdir -p /tmp/flex-launcher/build
+      - cd /tmp/flex-launcher/build
+      - cmake /tmp/flex-launcher -DCMAKE_BUILD_TYPE=Release && make install
+      - rm -r /tmp/flex-launcher 
+      # appimages
+      - curl -fLs https://github.com/shy1132/VacuumTube/releases/latest/download/VacuumTube-x86_64.AppImage -o /tmp/vacuumtube.AppImage
+      - cp /tmp/vacuumtube.AppImage /usr/bin/vacuumtube.AppImage && chmod 0755 /usr/bin/vacuumtube.AppImage
+      - ln -s /usr/bin/vacuumtube.AppImage /usr/bin/vacuumtube
+      - rm /tmp/vacuumtube.AppImage   
       # bluetui
       - "VER=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/pythops/bluetui/releases/latest)) && curl -fLs https://github.com/pythops/bluetui/releases/download/${VER}/bluetui-x86_64-linux-gnu  -o /tmp/bluetui"
       - cp /tmp/bluetui /usr/bin/bluetui && chmod 0755 /usr/bin/bluetui
@@ -106,6 +135,19 @@ modules:
       - cp /tmp/swingmusic /usr/bin/swingmusic && chmod 0755 /usr/bin/swingmusic
       - rm /tmp/swingmusic
   
+  - type: dnf
+    remove:
+      packages:
+        # remove deps for flex-launcher build
+        - SDL2-devel
+        - SDL2_image-devel
+        - SDL2_ttf-devel
+        - inih-devel
+        - automake
+        - make
+        - cmake
+        - gcc-c++
+
   - type: files
     files:
       - source: solarpowered-moonlight
@@ -119,15 +161,15 @@ modules:
         - pipewire-pulse.service
         - wireplumber.service
         # autolaunch moonlight in cage
-        # - moonlight-in-cage.service ; todo
+        # - moonlight-in-cage.service # todo
         # autolaunch swing music
-        # - swingmusic.service ; todo
+        # - swingmusic.service # todo
     system:
       # disabled:
-        # - getty@$tty1.service ; todo
+        # - getty@$tty1.service # todo
       enabled:
         # autologin
-        # - autologin@$(whoami).service ; todo
+        # - autologin@$(whoami).service # todo
         - cockpit.socket
         - seatd.service   
   

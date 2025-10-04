@@ -2,14 +2,17 @@
 Description=Autostart Moonlight in Cage
 # Ensures this starts after the basic user session is set up
 After=graphical-session.target
+# Determines restart tries upon exit code 1
+# StartLimitIntervalSec=10s
+# StartLimitBurst=3
 
 [Service]
 Environment="QT_QPA_PLATFORM=xcb"
 # Use full paths for reliability
 ExecStart=/usr/bin/cage -- /usr/bin/moonlight
-# Automatically restart the service if it crashes
-Restart=on-failure
-RestartSec=5
+# Automatically restart the service upon exit
+# Restart=always
+# RestartSec=1
 
 [Install]
 # Hook into the default user session target

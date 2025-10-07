@@ -26,6 +26,7 @@ modules:
       copr:
         - abn/throttled
         - ferdiu/moonlight    
+        - secureblue/trivalent
       files:
         - https://repo.secureblue.dev/secureblue.repo  
       nonfree: rpmfusion # for libva-intel-driver as fedora-multimedia doesn't seem to ship older intel drivers

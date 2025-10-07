@@ -1,0 +1,18 @@
+[Unit]
+Description=Autostart Flex launcher
+# Ensures this starts after the basic user session is set up
+After=graphical-session.target
+# Determines restart tries upon exit code 1
+# StartLimitIntervalSec=10s
+# StartLimitBurst=3
+
+[Service]
+# Use full paths for reliability
+ExecStart=/usr/bin/flex-launcher
+# Automatically restart the service upon exit
+# Restart=always
+# RestartSec=1
+
+[Install]
+# Hook into the default user session target
+WantedBy=default.target

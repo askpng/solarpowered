@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Moonlight-Qt-XCB
+Comment=Moonlight app with XCB platform running in Cage
+GenericName=Remote game streaming
+Exec=/usr/bin/cage-moonlight-xcb
+Type=Application
+StartupNotify=false
+StartupWMClass=cage
+Categories=Gaming
+Keywords=moonlight;game;streaming

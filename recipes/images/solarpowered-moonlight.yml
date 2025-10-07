@@ -25,7 +25,9 @@ modules:
       cleanup: true
       copr:
         - abn/throttled
-        - ferdiu/moonlight      
+        - ferdiu/moonlight    
+      files:
+        - https://repo.secureblue.dev/secureblue.repo  
       nonfree: rpmfusion # for libva-intel-driver as fedora-multimedia doesn't seem to ship older intel drivers
     replace:
       - from-repo: rpmfusion
@@ -79,6 +81,8 @@ modules:
         # misc
         - cockpit
         - epiphany
+        - trivalent
+        - trivalent-subresource-filter
         # - easyeffects
         - firewall-config   
         - throttled

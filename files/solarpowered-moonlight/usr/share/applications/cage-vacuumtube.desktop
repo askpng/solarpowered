@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Youtube
+Name=VacuumTube
 Comment=VacuumTube app with Cage base
 GenericName=YouTube streaming
 Exec=/usr/bin/cage -- /usr/bin/vacuumtube

@@ -7,8 +7,7 @@ After=graphical-session.target
 # StartLimitBurst=3
 
 [Service]
-# Use full paths for reliability
-ExecStart=/usr/bin/flex-launcher
+ExecStart=/usr/bin/cage -- /usr/bin/flex-launcher
 # Automatically restart the service upon exit
 # Restart=always
 # RestartSec=1

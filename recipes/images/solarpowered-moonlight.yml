@@ -57,16 +57,17 @@ modules:
         - cage # to run moonlight
         - fish # MY SHELL
         - grim
-        # - input-remapper
         - lm_sensors
         - moonlight-qt
         - python3-evdev        
         - seatd # shit goes wrong without this around
         - syncthing
-        # - weston
         # bt pad
         - bluez # just to make sure it exists
         - evtest
+        # CJK fonts
+        - google-noto-serif-cjk-vf-fonts
+        - google-noto-sans-mono-cjk-vf-fonts
         # audio/video utils
         - pipewire
         - pipewire-utils
@@ -118,6 +119,7 @@ modules:
       - cd /tmp/flex-launcher/build
       - cmake /tmp/flex-launcher -DCMAKE_BUILD_TYPE=Release && make install
       - rm -r /tmp/flex-launcher 
+      - mv /usr/local/share/flex-launcher/config.ini /usr/local/share/flex-launcher/config_default.ini
       # appimages
       - curl -fLs https://github.com/shy1132/VacuumTube/releases/latest/download/VacuumTube-x86_64.AppImage -o /tmp/vacuumtube.AppImage
       - cp /tmp/vacuumtube.AppImage /usr/bin/vacuumtube.AppImage && chmod 0755 /usr/bin/vacuumtube.AppImage

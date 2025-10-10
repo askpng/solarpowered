@@ -42,6 +42,11 @@ modules:
     install:
       install-weak-deps: false
       packages:
+        - mesa-vulkan-drivers
+        - vulkan-loader
+        - vulkan-headers
+        - pipewire-plugin-vulkan
+        - vulkan-tools
         - gstreamer1-plugin-dav1d
         - gstreamer1-plugin-libav
         - gstreamer1-plugins-base

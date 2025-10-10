@@ -7,7 +7,8 @@ After=graphical-session.target
 # StartLimitBurst=3
 
 [Service]
-ExecStart=/usr/bin/cage -- /usr/bin/flex-launcher
+# Environment="LIBSEAT_BACKEND=logind"
+ExecStart=/usr/bin/cage -- /usr/local/bin/flex-launcher
 # Automatically restart the service upon exit
 # Restart=always
 # RestartSec=1

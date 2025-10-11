@@ -1,0 +1,18 @@
+[Unit]
+Description=Autostart Steam Gamescope session launcher
+# Ensures this starts after the basic user session is set up
+After=graphical-session.target
+# Determines restart tries upon exit code 1
+# StartLimitIntervalSec=10s
+# StartLimitBurst=3
+
+[Service]
+# Environment="LIBSEAT_BACKEND=logind"
+ExecStart=/usr/bin/gamescope -e -- /usr/bin/steam -tenfoot
+# Automatically restart the service upon exit
+# Restart=always
+# RestartSec=1
+
+[Install]
+# Hook into the default user session target
+WantedBy=default.target

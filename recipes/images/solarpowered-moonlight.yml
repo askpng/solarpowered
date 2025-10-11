@@ -1,25 +1,13 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-# image will be published to ghcr.io/<user>/<name>
+
 name: solarpowered-moonlight
-# description will be included in the image's metadata
-description: Simple image that runs Moonlight and Syncthing on older Intel PCs. Features Epiphany. Uses Cage.
+description: HTPC image that offers a living room-friendly interface to launch browsers & Moonlight.
 
-# the base image to build on top of (FROM) and the version tag to use
 base-image: quay.io/fedora/fedora-bootc
-image-version: 42 # latest is also supported if you want new updates ASAP
+image-version: 42
 
-# module configuration, executed in order
-# you can include multiple instances of the same module
 modules:
-  - type: dnf
-    install:
-      allow-erasing: true
-      install-weak-deps: false
-      skip-unavailable: true
-      packages:
-        - dnf5-plugins # to prevent failure in the following step
-
   - type: dnf
     repos:
       cleanup: true
@@ -42,6 +30,7 @@ modules:
     install:
       install-weak-deps: false
       packages:
+        # Graphics
         - mesa-vulkan-drivers
         - vulkan-loader
         - vulkan-headers
@@ -57,23 +46,15 @@ modules:
         - gstreamer1-vaapi
         - libva
         - libva-intel-driver
-        # htpc packages
-        # essentials
-        - cage # to run moonlight
-        - fish # MY SHELL
+        # HTPC Packages
+        ## Essentials
+        - cage
+        - fish
         - grim
         - lm_sensors
         - moonlight-qt
-        - python3-evdev        
-        - seatd # shit goes wrong without this around
-        - syncthing
-        # bt pad
-        - bluez # just to make sure it exists
-        - evtest
-        # CJK fonts
-        - google-noto-serif-cjk-vf-fonts
-        - google-noto-sans-mono-cjk-vf-fonts
-        # audio/video utils
+        - seatd
+        ## Audio & Video
         - pipewire
         - pipewire-utils
         - pipewire-pulseaudio
@@ -81,23 +62,31 @@ modules:
         - pulseaudio-utils
         - libva-utils
         - wireplumber
-        # gamescope
-        # - sddm
+        ## Bluetooth & Controllers
+        - bluez
+        - evtest
+        - python3-evdev        
+        - steam-devices
+        ## CJK fonts
+        - google-noto-serif-cjk-vf-fonts
+        - google-noto-sans-mono-cjk-vf-fonts        
+        # Gamescope
         - gamescope
         - steam
-        # misc
+        ## Internet & Management
         - cockpit
         - epiphany
+        - firewall-config
+        - syncthing
         - trivalent
         - trivalent-subresource-filter
-        # - easyeffects
-        - firewall-config   
+        ## Undervolting & TDP limit for older Intel CPUs
         - throttled
-        # some deps
-        ## appimage
+        # Dependencies
+        ## AppImage
         - fuse
         - ifuse
-        ## cage & moonlight
+        ## Cage & Moonlight
         - libxcb
         - qt6-qtwayland
         - xdg-user-dirs
@@ -106,7 +95,7 @@ modules:
         - SDL2
         - SDL2_image
         - SDL2_ttf
-        ## deps for flex-launcher build
+        ## Build flex-launcher
         - SDL2-devel
         - SDL2_image-devel
         - SDL2_ttf-devel
@@ -115,26 +104,28 @@ modules:
         - make
         - cmake
         - gcc-c++
-        - git           
+        - git    
 
   - type: script
     snippets:
-      # flex-launcher
+      # flex-launcher - clone & build
       - git clone https://github.com/complexlogic/flex-launcher.git /tmp/flex-launcher && mkdir -p /tmp/flex-launcher/build
       - cd /tmp/flex-launcher/build
       - cmake /tmp/flex-launcher -DCMAKE_BUILD_TYPE=Release && make install
       - rm -r /tmp/flex-launcher 
       - mv /usr/local/share/flex-launcher/config.ini /usr/local/share/flex-launcher/config_default.ini
-      # appimages
+      # AppImages
+      ## VacuumTube
       - curl -fLs https://github.com/shy1132/VacuumTube/releases/latest/download/VacuumTube-x86_64.AppImage -o /tmp/vacuumtube.AppImage
       - cp /tmp/vacuumtube.AppImage /usr/bin/vacuumtube.AppImage && chmod 0755 /usr/bin/vacuumtube.AppImage
       - ln -s /usr/bin/vacuumtube.AppImage /usr/bin/vacuumtube
       - rm /tmp/vacuumtube.AppImage   
-      # bluetui
+      # Binaries
+      ## bluetui
       - "VER=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/pythops/bluetui/releases/latest)) && curl -fLs https://github.com/pythops/bluetui/releases/download/${VER}/bluetui-x86_64-linux-gnu  -o /tmp/bluetui"
       - cp /tmp/bluetui /usr/bin/bluetui && chmod 0755 /usr/bin/bluetui
       - rm /tmp/bluetui
-      # just... in case
+      ## just
       - "VER=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/casey/just/releases/latest)) && curl -fLs --create-dirs https://github.com/casey/just/releases/download/${VER}/just-${VER}-x86_64-unknown-linux-musl.tar.gz -o /tmp/just-x86_64-unknown-linux-musl.tar.gz"
       - "mkdir -p /tmp/just && tar -xzf /tmp/just-x86_64-unknown-linux-musl.tar.gz -C /tmp/just/"
       - cp /tmp/just/just /usr/bin/just && chmod 0755 /usr/bin/just
@@ -142,7 +133,7 @@ modules:
       - cp /tmp/just/completions/just.fish /usr/share/fish/completions/just.fish
       - rm /tmp/just-x86_64-unknown-linux-musl.tar.gz
       - rm -r /tmp/just/
-      # swingmusic
+      ## Swing Music
       - "VER=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/swingmx/swingmusic/releases/latest)) && curl -fLs https://github.com/swingmx/swingmusic/releases/download/${VER}/swingmusic_linux_amd64 -o /tmp/swingmusic"
       - cp /tmp/swingmusic /usr/bin/swingmusic && chmod 0755 /usr/bin/swingmusic
       - rm /tmp/swingmusic
@@ -150,7 +141,7 @@ modules:
   - type: dnf
     remove:
       packages:
-        # remove deps for flex-launcher build
+        # Remove flex-launcher build dependencies
         - SDL2-devel
         - SDL2_image-devel
         - SDL2_ttf-devel
@@ -168,20 +159,21 @@ modules:
   - type: systemd
     user:
       enabled:
-        # enables sound
         - pipewire.service
         - pipewire-pulse.service
         - wireplumber.service
-        # autolaunch moonlight in cage
-        # - moonlight-in-cage.service # todo
-        # autolaunch swing music
-        # - swingmusic.service # todo
+        # Automatically launch moonlight within Cage upon boot
+        # - moonlight-in-cage.service
+        # Automatically launch flex-launcher upon boot
+        # - autostart-flex-launcher.service
+        # Automatically launch swingmusic as system service
+        # - swingmusic.service # TODO
     system:
       # disabled:
-        # - getty@$tty1.service # todo
+        # - getty@$tty1.service # TODO, or README
       enabled:
-        # autologin
-        # - autologin@$(whoami).service # todo
+        # Automatically logs in to the default user account
+        # - autologin@$(whoami).service # TODO, or README
         - cockpit.socket
         - seatd.service   
   

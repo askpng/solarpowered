@@ -1,3 +1,4 @@
+[Desktop Entry]
 Name=Netflix
 Exec=/usr/bin/chromium-browser --start-fullscreen www.netflix.com
 Terminal=false

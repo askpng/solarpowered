@@ -14,9 +14,6 @@ modules:
       copr:
         - abn/throttled
         - ferdiu/moonlight    
-        # - secureblue/trivalent
-      # files:
-        # - https://repo.secureblue.dev/secureblue.repo  
       nonfree: rpmfusion # for libva-intel-driver as fedora-multimedia doesn't seem to ship older intel drivers
     replace:
       - from-repo: rpmfusion
@@ -76,11 +73,8 @@ modules:
         ## Internet & Management
         - chromium
         - cockpit
-        - epiphany
         - firewall-config
         - syncthing
-        # - trivalent
-        # - trivalent-subresource-filter
         ## Undervolting & TDP limit for older Intel CPUs
         - throttled
         # Dependencies
@@ -138,6 +132,16 @@ modules:
       - "VER=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/swingmx/swingmusic/releases/latest)) && curl -fLs https://github.com/swingmx/swingmusic/releases/download/${VER}/swingmusic_linux_amd64 -o /tmp/swingmusic"
       - cp /tmp/swingmusic /usr/bin/swingmusic && chmod 0755 /usr/bin/swingmusic
       - rm /tmp/swingmusic
+      # Icons
+      ## Netflix
+      - curl -fSl "https://upload.wikimedia.org/wikipedia/commons/7/75/Netflix_icon.svg" -o /tmp/netflix.svg
+      - cp /tmp/netflix.svg /usr/share/icons/hicolor/scalable/netflix.svg && rm /tmp/netflix.svg
+      ## Prime Video
+      - curl -fSl "https://upload.wikimedia.org/wikipedia/commons/7/7c/Amazon_Prime_Video_blue_logo_1.svg" -o /tmp/prime-video.svg
+      - cp /tmp/prime-video.svg /usr/share/icons/hicolor/scalable/prime-video.svg && rm /tmp/prime-video.svg
+      ## YouTube
+      - curl -fSl "https://upload.wikimedia.org/wikipedia/commons/c/c5/YouTube_social_red_squircle_%282024%29.svg" -o /tmp/youtube.svg
+      - cp /tmp/youtube.svg /usr/share/icons/hicolor/scalable/youtube.svg && rm /tmp/youtube.svg
   
   - type: dnf
     remove:

@@ -1,0 +1,7 @@
+Name=Netflix
+Exec=/usr/bin/chromium-browser --start-fullscreen www.netflix.com
+Terminal=false
+Type=Application
+StartupWMClass=chromium
+Comment=netflix
+Categories=Streaming

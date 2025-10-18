@@ -6,4 +6,4 @@ cosign.private
 recipes/tmp.yml
 recipes/recipe-tmp.yml
 *tmp.*
-tmp.*/.bluebuild-scripts_*
+.bluebuild-scripts_*

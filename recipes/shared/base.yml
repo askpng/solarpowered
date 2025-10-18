@@ -7,16 +7,16 @@ modules:
   - from-file: shared/files.yml
 
   # intel-media-driver from RPM Fusion & codecs from fedora-multimedia repo
+  - from-file: shared/bling-negativo17.yml
   - type: dnf
     repos:
       cleanup: true
       nonfree: rpmfusion
-    install:
-      allow-erasing: true
-      install-weak-deps: false
-      packages:
-        - intel-media-driver
-  - from-file: shared/bling-negativo17.yml
+    replace:
+      - from-repo: rpmfusion
+        packages:
+        - old: libva-intel-media-driver
+          new: intel-media-driver    
 
   # installs and removes packages, this will apply to all solarpowered images
   # includes installation entries for audio & codecs, CLI utilities, GUI apps,

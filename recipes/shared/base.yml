@@ -6,7 +6,16 @@ modules:
   # contains repo files for codium, configs and services that will be shared across images
   - from-file: shared/files.yml
 
-  # installs negativo17 repo & replaces vanilla multimedia codecs
+  # intel-media-driver from RPM Fusion & codecs from fedora-multimedia repo
+  - type: dnf
+    repos:
+      cleanup: true
+      nonfree: rpmfusion
+    install:
+      allow-erasing: true
+      install-weak-deps: false
+      packages:
+        - intel-media-driver
   - from-file: shared/bling-negativo17.yml
 
   # installs and removes packages, this will apply to all solarpowered images

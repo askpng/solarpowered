@@ -18,8 +18,6 @@ modules:
             new: libavcodec
           - old: libfdk-aac-free
             new: libfdk-aac
-          - old: intel-media-driver
-            new: libva-intel-media-driver
           - libva
           - mesa-dri-drivers
           - mesa-filesystem

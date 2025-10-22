@@ -25,6 +25,8 @@ modules:
       - lact
       - lutris
       - mangohud
+      - pipx
+      - python3-ramalama      
       - rocm-hip
       - rocm-clinfo
       - rocm-smi

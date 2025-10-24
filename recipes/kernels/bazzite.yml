@@ -1,29 +1,40 @@
 modules:
-  - type: dnf
-    repos:
-      cleanup: true
-      copr:
-        - bieszczaders/kernel-cachyos-addons  
-    install:
-      packages:
-        - scx-scheds    
-    remove:
-      packages:
-        - kernel
-        - kernel-core
-        - kernel-modules
-        - kernel-modules-core
-        - kernel-modules-extra
+  - type: copy
+    from: ghcr.io/ublue-os/akmods:bazzite-42
+    src: /
+    dest: /tmp/akmods
+
+  - type: copy
+    from: ghcr.io/ublue-os/akmods-extra:bazzite-42
+    src: /rpms/kmods
+    dest: /tmp/akmods-extra/rpms/kmods
 
   - type: script
     snippets:
-      - 'rm -drf /usr/lib/modules/*'
-
-  - type: script
-    scripts:
-      - base/bazzite.sh
-
-  - type: initramfs
+      # Remove default kernel & remove leftover modules
+      - dnf -y remove kernel-* && rm -drf /usr/lib/modules/*
+      # Add ublue-os COPR repo
+      - curl -L https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-$(rpm -E %fedora)/ublue-os-akmods-fedora-$(rpm -E %fedora).repo -o /etc/yum.repos.d/_copr_ublue-os-akmods.repo
+      # Add kernel-cachyos-addons COPR repo
+      - curl -L https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos-addons/repo/fedora-$(rpm -E %fedora)/ublue-os-akmods-fedora-$(rpm -E %fedora).repo -o /etc/yum.repos.d/_copr_bieszczaders_kernel-cachyos-addons.repo
+      # Terra repo
+      - curl -L "https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo" -o /etc/yum.repos.d/terra.repo
+      - dnf -y config-manager setopt '*terra*'.priority=3 '*terra*'.exclude='nerd-fonts topgrade steam'
+      # Install Bazzite kernel, as we need it for kmods compatibility
+      - dnf -y install --setopt=install_weak_deps=False /tmp/akmods/kernel-rpms/kernel-*.rpm
+      # Install v4l2loopback
+      - dnf -y install --setopt=install_weak_deps=False /tmp/akmods/rpms/kmods/*-v4l2loopback-*.rpm
+      # Install ryzen_smu & zenergy kmods
+      - dnf -y install --setopt=install_weak_deps=False /tmp/akmods-extra/rpms/kmods/*ryzen-smu*.rpm
+      - dnf -y install --setopt=install_weak_deps=False /tmp/akmods-extra/rpms/kmods/*zenergy*.rpm
+      # Install scx-scheds
+      - dnf -y install --setopt=install_weak_deps=False scx-scheds
+      # Remove ublue-os COPR repo
+      - rm /etc/yum.repos.d/_copr_ublue-os-akmods.repo
+      # Remove kernel-cachyos-addons COPR repo
+      - rm /etc/yum.repos.d/_copr_bieszczaders_kernel-cachyos-addons.repo
+      # Remove Terra repo
+      - rm /etc/yum.repos.d/terra.repo
 
   - type: systemd
     system:

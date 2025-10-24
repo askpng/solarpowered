@@ -7,7 +7,6 @@ modules:
       files:
         - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
     remove:
-      autoremove: true
       packages:
         - kernel
         - kernel-core
@@ -15,12 +14,11 @@ modules:
         - kernel-modules-core
         - kernel-modules-extra
     install:
-      install_weak_deps: false    
+      install-weak-deps: false
       packages:
         - akmods
         - kmodtool
         - repo: copr:copr.fedorainfracloud.org:sentry:kernel-blu
-          allow-erasing: true
           packages:
             - kernel
             # - kernel-core
@@ -28,6 +26,5 @@ modules:
             # - kernel-modules-core
             - kernel-modules-extra
         - repo: terra
-          allow-erasing: false
           packages:
             - akmod-v4l2loopback.x86_64

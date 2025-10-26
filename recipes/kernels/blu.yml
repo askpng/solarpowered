@@ -14,8 +14,6 @@ modules:
     install:
       install-weak-deps: false
       packages:
-        - akmods
-        - kmodtool
         - repo: copr:copr.fedorainfracloud.org:sentry:kernel-blu
           packages:
             - kernel

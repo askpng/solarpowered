@@ -15,7 +15,7 @@ base-image: quay.io/fedora/fedora-silverblue
 
 # definves image major version
 # ---
-image-version: latest
+image-version: 42
 
 modules:    
   # this includes everything except for image-specific modifications

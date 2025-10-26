@@ -12,9 +12,9 @@ modules:
         - kernel-modules-core
         - kernel-modules-extra
     install:
+      install-weak-deps: false
       packages:
         - repo: copr:copr.fedorainfracloud.org:sentry:kernel-blu
-          allow-erasing: true
           packages:
             - kernel
             - kernel-core

@@ -16,7 +16,6 @@ modules:
       allow-erasing: true
       packages:
       - displayconfig-mutter
-      - extest.i686
       - repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib
         packages:
         - gamescope.x86_64
@@ -43,10 +42,15 @@ modules:
         - lactd.service
   - type: script
     snippets:
-    # Modify Steam.desktop with extest LD_PRELOAD
-    - sed -i 's|/usr/bin/steam\>|&-extest|g' /usr/share/applications/steam.desktop
-    # Sunshine setup
-    - setcap 'cap_sys_admin+p' /usr/bin/sunshine-* 
-    # Install Winetricks
-    - curl -Lo /usr/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
-    - chmod 0755 /usr/bin/winetricks
+      ## extest
+      - mkdir -p /usr/lib/extest
+      - "VER=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/bazzite-org/extest/releases/latest)) && curl -fLs https://github.com/bazzite-org/extest/releases/download/${VER}/libextest.so -o /tmp/libextest.so"
+      - cp /tmp/libextest.so /usr/lib/extest/libextest.so
+      - rm /tmp/libextest.so        
+      # Modify Steam.desktop with extest LD_PRELOAD
+      - sed -i 's|/usr/bin/steam\>|&-extest|g' /usr/share/applications/steam.desktop
+      # Sunshine setup
+      - setcap 'cap_sys_admin+p' /usr/bin/sunshine-* 
+      # Install Winetricks
+      - curl -Lo /usr/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
+      - chmod 0755 /usr/bin/winetricks

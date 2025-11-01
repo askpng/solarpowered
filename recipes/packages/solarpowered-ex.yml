@@ -31,8 +31,10 @@ modules:
       - rocm-smi
       - rom-properties-gtk3
       - steam
-      - sunshine
-      
+      - Sunshine
+      - repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite
+        packages:
+        - sunshine
     remove:
       packages:
       - gamemode

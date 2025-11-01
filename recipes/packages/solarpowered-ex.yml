@@ -10,7 +10,7 @@ modules:
         - eaglesemanation/displayconfig-mutter
         - ilyaz/LACT
         - jackgreiner/lutris-git
-        - lizardbyte/stable
+        - lizardbyte/beta
     install:
       install-weak-deps: false
       allow-erasing: true
@@ -31,10 +31,7 @@ modules:
       - rocm-smi
       - rom-properties-gtk3
       - steam
-      - Sunshine
-      - repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite
-        packages:
-        - sunshine
+      - sunshine
     remove:
       packages:
       - gamemode

@@ -2,10 +2,9 @@
 
 # Remove Fedora kernel & remove leftover files
 dnf -y remove kernel* && rm -r -f /usr/lib/modules/*
-# Install dnf-plugins (remove during actual build; redundant)
+# Install dnf-plugins-core just in case
 dnf -y install --setopt=install_weak_deps=False \
     dnf-plugins-core \
-    dnf5-plugins
 # Enable CachyOS kernel repo
 dnf -y copr enable bieszczaders/kernel-cachyos-lto
 # Install CachyOS LTO kernel & akmods
@@ -21,3 +20,5 @@ dnf -y install --setopt=install_weak_deps=False \
 # Disable repos    
 dnf -y copr disable bieszczaders/kernel-cachyos-lto
 dnf -y copr disable bieszczaders/kernel-cachyos-addons
+# Cleanup
+dnf clean all

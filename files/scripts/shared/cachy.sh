@@ -4,7 +4,7 @@
 dnf -y remove kernel* && rm -r -f /usr/lib/modules/*
 # Install dnf-plugins-core just in case
 dnf -y install --setopt=install_weak_deps=False \
-    dnf-plugins-core \
+    dnf-plugins-core
 # Enable CachyOS kernel repo
 dnf -y copr enable bieszczaders/kernel-cachyos-lto
 # Install CachyOS LTO kernel & akmods

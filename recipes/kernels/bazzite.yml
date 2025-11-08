@@ -1,11 +1,11 @@
 modules:
   - type: copy
-    from: ghcr.io/ublue-os/akmods:bazzite-42
+    from: ghcr.io/ublue-os/akmods:bazzite-43
     src: /
     dest: /tmp/akmods
 
   - type: copy
-    from: ghcr.io/ublue-os/akmods-extra:bazzite-42
+    from: ghcr.io/ublue-os/akmods-extra:bazzite-43
     src: /rpms/kmods
     dest: /tmp/akmods-extra/rpms/kmods
 
@@ -28,8 +28,6 @@ modules:
       # Remove ublue-os COPR repo, kernel-cachyos-addons COPR repo, and terra repo
       - rm /etc/yum.repos.d/_copr_ublue-os-akmods.repo
           /etc/yum.repos.d/terra.repo
-      # Cleanup 
-      - dnf clean all
 
   - type: systemd
     system:

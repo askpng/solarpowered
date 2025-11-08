@@ -11,7 +11,7 @@ modules:
         - eaglesemanation/displayconfig-mutter
         - ilyaz/LACT
         - jackgreiner/lutris-git
-        - lizardbyte/stable
+        - lizardbyte/beta
     install:
       install-weak-deps: false
       allow-erasing: true
@@ -58,3 +58,4 @@ modules:
       # Install Winetricks
       - curl -Lo /usr/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
       - chmod 0755 /usr/bin/winetricks
+      - dnf clean all

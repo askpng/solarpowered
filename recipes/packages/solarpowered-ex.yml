@@ -6,6 +6,7 @@ modules:
       copr:
         - bazzite-org/bazzite-multilib
         - bazzite-org/bazzite     
+        - bazzite-org/obs-vkcapture
         - bazzite-org/rom-properties
         - eaglesemanation/displayconfig-mutter
         - ilyaz/LACT
@@ -22,6 +23,10 @@ modules:
       - gamescope-libs
       - gamescope-shaders
       - lact
+      - libobs_vkcapture.x86_64
+      - libobs_glcapture.x86_64
+      - libobs_vkcapture.i686
+      - libobs_glcapture.i686      
       - lutris
       - mangohud
       - pipx
@@ -32,7 +37,6 @@ modules:
       - rom-properties-gtk3
       - steam
       - sunshine
-      
     remove:
       packages:
       - gamemode

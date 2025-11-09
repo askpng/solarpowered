@@ -59,3 +59,8 @@ modules:
       - curl -Lo /usr/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
       - chmod 0755 /usr/bin/winetricks
       - dnf clean all
+      # SteamOS files
+      - git clone https://github.com/shahnawazshahin/steam-using-gamescope-guide.git /tmp/gamescope-files
+      - cp -r /tmp/gamescope-files/usr/bin /usr
+      - cp -r /tmp/gamescope-files/usr/share /usr
+      - rm -r /tmp/gamescope-files      

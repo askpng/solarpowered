@@ -5,7 +5,6 @@ modules:
       files:
         - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
       copr:
-        - tigro/better_fonts
         - zhangyuannie/butter
         - dusansimic/themes
         - sneexy/zen-browser
@@ -31,7 +30,6 @@ modules:
       packages:
         # copr
         - butter
-        - fontconfig-font-replacements
         - morewaita-icon-theme
         - starship
         - topgrade

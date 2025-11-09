@@ -25,7 +25,6 @@ jobs:
       fail-fast: false # stop GH from cancelling all matrix builds if one fails
       matrix:
         recipe:
-        # !! Add your recipes here
           - images/solarpowered.yml
     steps:
       - name: Optimize build times

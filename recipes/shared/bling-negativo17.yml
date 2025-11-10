@@ -18,6 +18,7 @@ modules:
             new: libavcodec
           - old: libfdk-aac-free
             new: libfdk-aac
+          - ffmpeg-libs
           - libva
           - mesa-dri-drivers
           - mesa-filesystem

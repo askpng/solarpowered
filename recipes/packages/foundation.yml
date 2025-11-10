@@ -10,13 +10,11 @@ modules:
         - dusansimic/themes
         - sneexy/zen-browser
         #  - trixieua/mutter-patched
-    # optfix:
-    #   - zen
-    # replace:
-    #   - from-repo: fedora
-    #     packages:
-    #       - old: OpenCL-ICD-Loader
-    #         new: ocl-icd
+    replace:
+      - from-repo: fedora
+        packages:
+          - old: OpenCL-ICD-Loader
+            new: ocl-icd
     #   - from-repo: copr:copr.fedorainfracloud.org:trixieua:mutter-patched
     #     allow-erasing: true
     #     packages:

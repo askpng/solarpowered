@@ -9,6 +9,7 @@ modules:
       packages:
         - gstreamer1-plugin-vaapi
         - libheif
+        - ffmpeg-libs        
     replace:
       - from-repo: fedora-multimedia
         packages:
@@ -18,7 +19,6 @@ modules:
             new: libavcodec
           - old: libfdk-aac-free
             new: libfdk-aac
-          - ffmpeg-libs
           - libva
           - mesa-dri-drivers
           - mesa-filesystem

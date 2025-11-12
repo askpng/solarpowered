@@ -13,21 +13,37 @@ modules:
     snippets:
       # Remove default kernel & remove leftover modules
       - dnf -y remove kernel-* && rm -drf /usr/lib/modules/*
-      # Add ublue-os COPR repo
-      - curl -L https://copr.fedorainfracloud.org/coprs/ublue-os/akmods/repo/fedora-$(rpm -E %fedora)/ublue-os-akmods-fedora-$(rpm -E %fedora).repo -o /etc/yum.repos.d/_copr_ublue-os-akmods.repo
-      # Terra repo
+      # Plugins
+      - dnf -y install --setopt=install_weak_deps=False
+          dnf-plugins-core
+      # Repos
+      - dnf -y copr enable bieszczaders/kernel-cachyos-addons
+      - dnf -y copr enable ublue-os/akmods
+      - dnf -y install
+          https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+          https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm      
       - curl -L "https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo" -o /etc/yum.repos.d/terra.repo
+      - curl -L "https://negativo17.org/repos/fedora-multimedia.repo" -o /etc/yum.repos.d/fedora-multimedia.repo
       # Install Bazzite kernel, as we need it for kmods compatibility
       # Also install v4l2loopback, ryzen_smu, zenergy kmods and scx-scheds
+      - dnf -y config-manager setopt "*rpmfusion*".enabled=1
+      - dnf -y config-manager setopt "*multimedia*".enabled=1
+      - dnf -y config-manager setopt "*akmods*".enabled=1
+      - dnf -y config-manager setopt "*cachyos-addons*".enabled=1
       - dnf -y install --setopt=install_weak_deps=False
           /tmp/akmods/kernel-rpms/kernel-*.rpm
           /tmp/akmods/rpms/kmods/*-v4l2loopback-*.rpm
+          /tmp/akmods-extra/rpms/kmods/*evdi*.rpm
           /tmp/akmods-extra/rpms/kmods/*ryzen-smu*.rpm
           /tmp/akmods-extra/rpms/kmods/*zenergy*.rpm
-          scx-scheds
-      # Remove ublue-os COPR repo, kernel-cachyos-addons COPR repo, and terra repo
-      - rm /etc/yum.repos.d/_copr_ublue-os-akmods.repo
+          scx-scheds-git
+          scx-manager
+      # Remove ublue-os COPR repo, kernel-cachyos-addons COPR repo, terra repo, and RPMFusion
+      - rm /etc/yum.repos.d/*akmods.repo
+          /etc/yum.repos.d/*addons.repo
+          /etc/yum.repos.d/fedora-multimedia.repo
           /etc/yum.repos.d/terra.repo
+          /etc/yum.repos.d/rpmfusion*.repo
 
   - type: systemd
     system:

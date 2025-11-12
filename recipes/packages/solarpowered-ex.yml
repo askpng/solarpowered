@@ -61,6 +61,10 @@ modules:
       - dnf clean all
       # SteamOS files
       - git clone https://github.com/shahnawazshahin/steam-using-gamescope-guide.git /tmp/gamescope-files
+      ## Copy files from source
       - cp -r /tmp/gamescope-files/usr/bin /usr
       - cp -r /tmp/gamescope-files/usr/share /usr
-      - rm -r /tmp/gamescope-files      
+      ## Remove gamescope-session from source & use our own
+      - rm /usr/bin/gamescope-session 
+      ## Cleanup source
+      - rm -r /tmp/gamescope-files

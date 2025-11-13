@@ -2,36 +2,31 @@ modules:
   - type: dnf
     repos:
       cleanup: true
+      nonfree: negativo17
       files:
         - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
       copr:
-        - tigro/better_fonts
-        - zhangyuannie/butter
+        - cuteneko/waydroid-helper
         - dusansimic/themes
         - sneexy/zen-browser
-        - trixieua/mutter-patched
-        - cuteneko/waydroid-helper
-    optfix:
-      - zen
+        #  - trixieua/mutter-patched
     replace:
       - from-repo: fedora
         packages:
           - old: OpenCL-ICD-Loader
             new: ocl-icd
-      - from-repo: copr:copr.fedorainfracloud.org:trixieua:mutter-patched
-        allow-erasing: true
-        packages:
-          - gdm
-          - gnome-shell
-          - mutter
-          - mutter-common
+    #   - from-repo: copr:copr.fedorainfracloud.org:trixieua:mutter-patched
+    #     allow-erasing: true
+    #     packages:
+    #       - gdm
+    #       - gnome-shell
+    #       - mutter
+    #       - mutter-common
     install:
       allow-erasing: true
       install-weak-deps: false
       packages:
         # copr
-        - butter
-        - fontconfig-font-replacements
         - morewaita-icon-theme
         - starship
         - topgrade
@@ -54,7 +49,6 @@ modules:
         - ifuse
         - inxi
         - iwd
-        # - just
         - lm_sensors
         - lzip
         - nvtop
@@ -70,6 +64,7 @@ modules:
         - baobab
         - firewall-config
         - nautilus-python
+        - papers
         # other system
         - btrfs-assistant
         - flatpak-spawn

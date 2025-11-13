@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# User-configurable Gamescope options
+GAMESCOPE_SESSION_CONFIG="$HOME/.config/default/gamescope-session-config"
+
+if [ -f $GAMESCOPE_SESSION_CONFIG ];
+then
+    source $GAMESCOPE_SESSION_CONFIG
+fi
+
+gamescope \
+    $GAMESCOPE_SESSION_OPTIONS \
+    -e -- steam -steamdeck -steamos3

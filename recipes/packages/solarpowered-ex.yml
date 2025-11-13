@@ -11,7 +11,7 @@ modules:
         - eaglesemanation/displayconfig-mutter
         - ilyaz/LACT
         - jackgreiner/lutris-git
-        - lizardbyte/stable
+        - lizardbyte/beta
     install:
       install-weak-deps: false
       allow-erasing: true
@@ -58,3 +58,13 @@ modules:
       # Install Winetricks
       - curl -Lo /usr/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
       - chmod 0755 /usr/bin/winetricks
+      - dnf clean all
+      # SteamOS files
+      - git clone https://github.com/shahnawazshahin/steam-using-gamescope-guide.git /tmp/gamescope-files
+      ## Copy files from source
+      - cp -r /tmp/gamescope-files/usr/bin /usr
+      - cp -r /tmp/gamescope-files/usr/share /usr
+      ## Remove gamescope-session from source & use our own
+      - rm /usr/bin/gamescope-session 
+      ## Cleanup source
+      - rm -r /tmp/gamescope-files

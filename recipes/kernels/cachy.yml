@@ -1,36 +1,5 @@
 modules:
-  - type: dnf
-    remove:
-      packages:
-        - kernel
-        - kernel-core
-        - kernel-modules
-        - kernel-modules-core
-        - kernel-modules-extra
-
-  - type: script
-    snippets:
-      - 'rm -drf /usr/lib/modules/*'
-
-  - type: dnf
-    repos:
-      cleanup: true
-      copr:
-        - bieszczaders/kernel-cachyos-addons
-        - bieszczaders/kernel-cachyos
-    install:
-      allow-erasing: true
-      install-weak-deps: false
-      skip-unavailable: true      
-      packages:
-        - cachyos-ksm-settings
-        - cachyos-settings
-        - kernel-cachyos
-        - libcap-ng
-        - libcap-ng-devel
-        - procps-ng
-        - procps-ng-devel
-        - scx-scheds
+  - from-file: shared/cachy.sh
 
   - type: initramfs
 

@@ -3,7 +3,7 @@ modules:
     install:
       - Bluetooth Battery Meter
       - Caffeine
-      - Do Not Disturb While Screen Sharing Or Recording
-      - 841 # Freon
+      # - Do Not Disturb While Screen Sharing Or Recording
+      # - 841 # Freon
       - Just Perfection
       - Night Theme Switcher

@@ -9,6 +9,7 @@ modules:
       packages:
         - gstreamer1-plugin-vaapi
         - libheif
+        - ffmpeg-libs        
     replace:
       - from-repo: fedora-multimedia
         packages:

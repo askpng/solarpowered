@@ -32,7 +32,7 @@ modules:
           scx-scheds-git
           scx-manager
       # Remove leftovers
-      - rm -r /tmp/*
+      - rm -r /tmp/akmods /tmp/akmods-extra
       # Remove ublue-os COPR repo, kernel-cachyos-addons COPR repo, fedora-multimedia repo, and terra repo
       - rm /etc/yum.repos.d/*akmods.repo
           /etc/yum.repos.d/*addons.repo

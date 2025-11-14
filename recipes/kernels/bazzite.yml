@@ -3,6 +3,17 @@ modules:
     scripts:
       - base/bazzite.sh
 
+  - type: dnf
+    repos:
+      cleanup: true
+      copr:
+        - bieszczaders/kernel-cachyos-addons
+    install:
+      install-weak-deps: false
+      packages:
+        - scx-scheds-git
+        - scx-manager
+
   # - type: initramfs
 
   - type: systemd

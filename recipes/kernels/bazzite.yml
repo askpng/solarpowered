@@ -1,43 +1,9 @@
 modules:
-  - type: copy
-    from: ghcr.io/ublue-os/akmods:bazzite-43
-    src: /
-    dest: /tmp/akmods
-
-  - type: copy
-    from: ghcr.io/ublue-os/akmods-extra:bazzite-43
-    src: /rpms/kmods
-    dest: /tmp/akmods-extra/rpms/kmods
-
   - type: script
-    snippets:
-      # Remove default kernel & remove leftover modules
-      - dnf -y remove kernel-* && rm -drf /usr/lib/modules/*
-      # Plugins
-      - dnf -y install --setopt=install_weak_deps=False
-          dnf-plugins-core
-      # Repos
-      - dnf -y copr enable bieszczaders/kernel-cachyos-addons
-      - dnf -y copr enable ublue-os/akmods   
-      - curl -L "https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo" -o /etc/yum.repos.d/terra.repo
-      - curl -L "https://negativo17.org/repos/fedora-multimedia.repo" -o /etc/yum.repos.d/fedora-multimedia.repo
-      # Install Bazzite kernel, as we need it for kmods compatibility
-      # Also install v4l2loopback, evdi, ryzen_smu, zenergy kmods and scx-stuff
-      - dnf -y install --setopt=install_weak_deps=False
-          scx-scheds-git
-          scx-manager          
-          /tmp/akmods/kernel-rpms/kernel-*.rpm
-          /tmp/akmods/rpms/kmods/*-v4l2loopback-*.rpm
-          /tmp/akmods-extra/rpms/kmods/*evdi*.rpm
-          /tmp/akmods-extra/rpms/kmods/*ryzen-smu*.rpm
-          # /tmp/akmods-extra/rpms/kmods/*zenergy*.rpm
-      # Remove leftovers
-      - rm -r /tmp/akmods /tmp/akmods-extra
-      # Remove ublue-os COPR repo, kernel-cachyos-addons COPR repo, fedora-multimedia repo, and terra repo
-      - rm /etc/yum.repos.d/*akmods.repo
-          /etc/yum.repos.d/*addons.repo
-          /etc/yum.repos.d/fedora-multimedia.repo
-          /etc/yum.repos.d/terra.repo
+    scripts:
+      - base/bazzite.sh
+
+  # - type: initramfs
 
   - type: systemd
     system:

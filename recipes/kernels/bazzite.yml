@@ -24,13 +24,13 @@ modules:
       # Install Bazzite kernel, as we need it for kmods compatibility
       # Also install v4l2loopback, evdi, ryzen_smu, zenergy kmods and scx-stuff
       - dnf -y install --setopt=install_weak_deps=False
+          scx-scheds-git
+          scx-manager          
           /tmp/akmods/kernel-rpms/kernel-*.rpm
           /tmp/akmods/rpms/kmods/*-v4l2loopback-*.rpm
           /tmp/akmods-extra/rpms/kmods/*evdi*.rpm
           /tmp/akmods-extra/rpms/kmods/*ryzen-smu*.rpm
-          /tmp/akmods-extra/rpms/kmods/*zenergy*.rpm
-          scx-scheds-git
-          scx-manager
+          # /tmp/akmods-extra/rpms/kmods/*zenergy*.rpm
       # Remove leftovers
       - rm -r /tmp/akmods /tmp/akmods-extra
       # Remove ublue-os COPR repo, kernel-cachyos-addons COPR repo, fedora-multimedia repo, and terra repo

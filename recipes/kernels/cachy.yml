@@ -1,5 +1,7 @@
 modules:
-  - from-file: shared/cachy.sh
+  - type: script
+    scripts:
+      - shared/cachy.sh
 
   - type: initramfs
 

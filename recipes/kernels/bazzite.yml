@@ -1,7 +1,48 @@
 modules:
   - type: script
-    scripts:
-      - base/bazzite.sh
+    snippets:
+      - dnf -y remove kernel-* &&
+          rm -drf /usr/lib/modules/*
+      # ---
+      # RPM method
+      # ---
+      - OS_VERSION=$(rpm -E %fedora) &&
+        VER=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/bazzite-org/kernel-bazzite/releases/latest)) && 
+        dnf install -y
+            https://github.com/bazzite-org/kernel-bazzite/releases/download/$VER/kernel-$VER.fc$OS_VERSION.x86_64.rpm
+            https://github.com/bazzite-org/kernel-bazzite/releases/download/$VER/kernel-common-$VER.fc$OS_VERSION.x86_64.rpm
+            https://github.com/bazzite-org/kernel-bazzite/releases/download/$VER/kernel-core-$VER.fc$OS_VERSION.x86_64.rpm
+            https://github.com/bazzite-org/kernel-bazzite/releases/download/$VER/kernel-devel-$VER.fc$OS_VERSION.x86_64.rpm
+            https://github.com/bazzite-org/kernel-bazzite/releases/download/$VER/kernel-devel-matched-$VER.fc$OS_VERSION.x86_64.rpm
+            https://github.com/bazzite-org/kernel-bazzite/releases/download/$VER/kernel-modules-$VER.fc$OS_VERSION.x86_64.rpm
+            https://github.com/bazzite-org/kernel-bazzite/releases/download/$VER/kernel-modules-akmods-$VER.fc$OS_VERSION.x86_64.rpm
+            https://github.com/bazzite-org/kernel-bazzite/releases/download/$VER/kernel-modules-core-$VER.fc$OS_VERSION.x86_64.rpm
+            https://github.com/bazzite-org/kernel-bazzite/releases/download/$VER/kernel-modules-extra-$VER.fc$OS_VERSION.x86_64.rpm
+            https://github.com/bazzite-org/kernel-bazzite/releases/download/$VER/kernel-modules-extra-matched-$VER.fc$OS_VERSION.x86_64.rpm
+            https://github.com/bazzite-org/kernel-bazzite/releases/download/$VER/kernel-modules-internal-$VER.fc$OS_VERSION.x86_64.rpm
+            https://github.com/bazzite-org/kernel-bazzite/releases/download/$VER/kernel-tools-$VER.fc$OS_VERSION.x86_64.rpm
+            https://github.com/bazzite-org/kernel-bazzite/releases/download/$VER/kernel-tools-libs-$VER.fc$OS_VERSION.x86_64.rpm
+      # ---
+      # Extraction method
+      # ---
+      # # 1. Download & extract kernel.tar.zst from Bazzite GH releases
+      # - TAG=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/bazzite-org/kernel-bazzite/releases/latest)) &&
+      #     VER=$(echo "$TAG" | sed 's/\(.*\)-/\1./') &&
+      #     OS_VERSION=$(rpm -E %fedora) &&
+      #     curl --retry 5 -L "https://github.com/bazzite-org/kernel-bazzite/releases/download/$TAG/linux-bazzite-$VER.fc$OS_VERSION-1-x86_64.pkg.tar.zst" -o /tmp/kernel.tar.zst
+      # # 2. Copy kernel.tar.zst contents to /
+      # - tar xf /tmp/kernel.tar.zst -C /tmp
+      # - cp -r /tmp/usr /
+      # # 3. Run depmod -a
+      # - VER=$(ls /usr/lib/modules) &&
+      #     depmod -a $VER
+      # # 4. Generate and verify initramfs.image
+      # - VER=$(ls /usr/lib/modules) && 
+      #     dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.image &&
+      #     find /usr/lib/modules/$VER/initramfs.image
+      # # 5. Cleanup
+      # - rm -r /tmp/usr &&
+      #     rm /tmp/kernel.tar.zst      
 
   - type: dnf
     repos:
@@ -13,8 +54,6 @@ modules:
       packages:
         - scx-scheds-git
         - scx-manager
-
-  # - type: initramfs
 
   - type: systemd
     system:

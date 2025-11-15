@@ -8,3 +8,5 @@ recipes/recipe-tmp.yml
 *tmp.*
 .bluebuild-scripts_*
 /.bluebuild-scripts_*
+qcow2
+manifest*

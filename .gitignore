@@ -10,3 +10,4 @@ recipes/recipe-tmp.yml
 /.bluebuild-scripts_*
 qcow2
 manifest*
+config.toml

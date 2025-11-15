@@ -1,4 +1,0 @@
-[[customizations.user]]
-name = "bootc"
-password = "bootc"
-groups = ["wheel"]

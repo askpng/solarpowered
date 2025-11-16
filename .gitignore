@@ -11,3 +11,4 @@ recipes/recipe-tmp.yml
 qcow2
 manifest*
 config.toml
+Containerfile*

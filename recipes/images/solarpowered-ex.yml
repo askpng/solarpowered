@@ -13,7 +13,7 @@ description: Custom image for AMD machines, based on Vanilla Silverblue
 # ---
 base-image: quay.io/fedora/fedora-silverblue
 
-# definves image major version
+# defines image major version
 # ---
 image-version: 43
 

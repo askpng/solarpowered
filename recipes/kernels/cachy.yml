@@ -1,9 +1,25 @@
 modules:
   - type: script
-    scripts:
-      - shared/cachy.sh
-
-  - type: initramfs
+    snippets:
+      - dnf -y remove kernel* && rm -r -f /usr/lib/modules/*
+      - dnf -y install --setopt=install_weak_deps=False
+          dnf-plugins-core
+          dnf5-plugins
+      - dnf -y copr enable bieszczaders/kernel-cachyos-lto
+      - dnf -y install --setopt=install_weak_deps=False --setopt=tsflags=noscripts
+          kernel-cachyos-lto
+          akmods
+      - VER=$(ls /usr/lib/modules) && 
+          depmod -a $VER &&
+          dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img &&
+          find /usr/lib/modules/$VER/initramfs.img          
+      - dnf -y copr enable bieszczaders/kernel-cachyos-addons
+      - dnf -y install --setopt=install_weak_deps=False
+          scx-scheds-git
+          scx-manager
+      - dnf -y swap zram-generator-defaults cachyos-settings    
+      - dnf -y copr disable bieszczaders/kernel-cachyos-lto
+      - dnf -y copr disable bieszczaders/kernel-cachyos-addons
 
   - type: systemd
     system:

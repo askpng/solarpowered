@@ -5,8 +5,11 @@ dnf -y install --setopt=install_weak_deps=False \
     dnf-plugins-core \
     dnf5-plugins
 # Remove & exclude Fedora kernel & remove leftover files
-dnf -y remove kernel* && rm -r -f /usr/lib/modules/*
-dnf -y config-manager setopt "*fedora*".exclude=" \
+dnf -y remove \
+    kernel \
+    kernel-*
+rm -rf /usr/lib/modules/*
+dnf -y config-manager setopt "fedora*".exclude=" \
     kernel \
     kernel-core \
     kernel-modules \
@@ -37,5 +40,5 @@ dnf -y install --setopt=install_weak_deps=False \
 #     depmod -a $VER &&
 #     dracut -v --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
 
-# Clean up repos from earlier
+# # Clean up repos from earlier
 rm -f /etc/yum.repos.d/{*copr*,*terra*}    

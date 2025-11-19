@@ -6,8 +6,9 @@ on:
   push: # build on push
     paths: # build on push of the following files
       - ".github/workflows/build-solarpowered.yml"
-      - "recipes/images/solarpowered.yml" # solarpowered-ex recipe
+      - "recipes/images/solarpowered.yml"
       - "recipes/packages/solarpowered.yml"
+      - "recipes/kernels/blu.yml"
       
   pull_request: # allow PRs triggering builds
   workflow_dispatch: # allow manually triggering builds

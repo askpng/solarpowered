@@ -1,7 +1,7 @@
 modules:
   - type: script
     scripts:
-      - kernels/kernel-blu,sh
+      - kernels/kernel-blu.sh
     # snippets:
     #   - dnf -y install --setopt=install_weak_deps=False
     #       dnf-plugins-core

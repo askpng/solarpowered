@@ -3,7 +3,8 @@
 
 set shell := ["bash", "-c"]
 RCPDIR := "./recipes/images"
-VERSION := "local"
+CTFS := "./containerfiles"
+VERSION := "localbuild"
 USRN := "bootc"
 PSWD := "bootc"
 
@@ -13,20 +14,30 @@ build *ARGS:
     if [[ -e Containerfile."{{ ARGS }}" ]]; then
         rm Containerfile."{{ ARGS }}"
     fi
-    bluebuild generate -o Containerfile."{{ ARGS }}" "{{ RCPDIR }}"/"{{ ARGS }}".yml
+    bluebuild generate -o Containerfile."{{ ARGS }}" "{{ RCPDIR }}"/"{{ ARGS }}".yml --skip-validation
     podman build -t "{{ ARGS }}":"{{ VERSION }}" --file Containerfile."{{ ARGS }}" --squash
+    rm Containerfile."{{ ARGS }}"
 
-# Build, create, and purge archive of image-name as named in ./recipes/images. Useful for testing recipes
+# Build a Containerfile stored within ./containerfiles/argument/
+ctf *ARGS:
+    podman build -f "{{ CTFS }}"/"{{ ARGS }}"/Containerfile -t "{{ ARGS }}":{{VERSION}} . 2>&1 | tee "{{ CTFS }}"/"{{ ARGS }}"/logs.txt
+
+# Build, create, and purge archive of image-name as named in ./recipes/images. Slower, but useful for testing recipes cleanly
 targz *ARGS:
     bluebuild build --skip-validation -s -c zstd -a ./ "{{ RCPDIR }}"/"{{ ARGS }}".yml
     rm -f ./tmp.tar.gz
     rm -rf ./.bluebuild-scripts_*    
+
+# Save Podman container to a .gz file for inspection
+save *ARGS:
+    podman save {{ ARGS }}:{{ VERSION }} | gzip > {{ ARGS }}.gz
 
 # Build image-name as named in ./recipes/images and export a VM-ready QCOW2 file in ./qcow2
 qcow2 *ARGS: config
     bluebuild generate -o Containerfile."{{ ARGS }}" "{{ RCPDIR }}"/"{{ ARGS }}".yml
     sudo podman build -t "{{ ARGS }}":"{{ VERSION }}" --file Containerfile."{{ ARGS }}" --squash
     sudo podman run --rm -it --privileged \
+        --pull=newer \
         --security-opt label=type:unconfined_t \
         -v /var/lib/containers/storage:/var/lib/containers/storage \
         -v .:/output \

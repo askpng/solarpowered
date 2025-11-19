@@ -17,20 +17,18 @@ modules:
       - dnf -y copr enable sentry/kernel-blu
       - dnf -y copr enable ublue-os/akmods
       - curl -L "https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo" -o /etc/yum.repos.d/terra.repo    
-      - dnf -y install --setopt=install_weak_deps=False
-          akmods
+      - dnf -y install --setopt=install_weak_deps=False --setopt=tsflags=noscripts
           kernel
           kernel-devel
           kernel-modules-extra
+      - dnf -y install --setopt=install_weak_deps=False   
+          akmods        
           zenergy
           v4l2loopback
-    # Needed if we use --setopt=tsflags=noscripts
-    #   - dnf -y install --setopt=install_weak_deps=False
-    #       zenergy*.fc$(rpm -E %fedora).$(rpm -E '%_arch')
-    #       v4l2loopback
-    #   - VER=$(ls /lib/modules) &&
-    #       akmods --force --kernels $VER --kmod v4l2loopback &&
-    #       akmods --force --kernels $VER --kmod zenergy && 
-    #       depmod -a $VER &&
-    #       dracut -v --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
+      # Needed if we use --setopt=tsflags=noscripts
+      - VER=$(ls /lib/modules) &&
+          akmods --force --kernels $VER --kmod v4l2loopback &&
+          akmods --force --kernels $VER --kmod zenergy && 
+          depmod -a $VER &&
+          dracut -v --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
       - rm -f /etc/yum.repos.d/{*copr*,*terra*}

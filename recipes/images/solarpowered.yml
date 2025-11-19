@@ -17,7 +17,15 @@ base-image: quay.io/fedora/fedora-silverblue
 # ---
 image-version: 43
 
-modules:    
+modules:
+  # kernel selection
+  # select ONE of the following from-file line
+  # or leave all three uncommented to use stock fedora kernel
+  # ---
+  # - from-file: kernels/bazzite.yml 
+  - from-file: kernels/blu.yml 
+  # - from-file: kernels/cachy.yml
+  
   # this includes everything except for image-specific modifications
   # ---
   - from-file: shared/base.yml
@@ -28,14 +36,6 @@ modules:
   #   scripts:
   #     # not needed when using quay.io/fedora-ostree-desktops/silverblue
   #     - cosign.sh
-  
-  # kernel selection
-  # select ONE of the following from-file line
-  # or leave all three uncommented to use stock fedora kernel
-  # ---
-  # - from-file: kernels/bazzite.yml 
-  - from-file: kernels/blu.yml 
-  # - from-file: kernels/cachy.yml
 
   # image-specific packages module
   # base/core packages are all handled by solarpowered-raw

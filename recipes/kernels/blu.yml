@@ -19,28 +19,18 @@ modules:
     #   - dnf -y copr enable sentry/kernel-blu
     #   - dnf -y copr enable ublue-os/akmods
     #   - curl -L "https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo" -o /etc/yum.repos.d/terra.repo
-    #   - mv /usr/lib/kernel/install.d/05-rpmostree.install /usr/lib/kernel/install.d/05-rpmostree.install.bak &&
-    #     mv /usr/lib/kernel/install.d/50-dracut.install /usr/lib/kernel/install.d/50-dracut.install.bak
-    #   - printf '%s\n' '#!/bin/sh' 'exit 0' > /usr/lib/kernel/install.d/05-rpmostree.install &&
-    #     printf '%s\n' '#!/bin/sh' 'exit 0' > /usr/lib/kernel/install.d/50-dracut.install &&
-    #     chmod +x
-    #         /usr/lib/kernel/install.d/05-rpmostree.install
-    #         /usr/lib/kernel/install.d/50-dracut.install
     #   - dnf -y install --setopt=install_weak_deps=False
     #       kernel
     #       kernel-devel
     #       kernel-modules-extra
-    #   - dnf -y install --setopt=install_weak_deps=False   
     #       akmods        
-    #       zenergy
+    #       help2man
     #       v4l2loopback
-    #   - rm -f /usr/lib/kernel/install.d/{05-rpmostree,50-dracut}.install
-    #   - mv /usr/lib/kernel/install.d/05-rpmostree.install.bak /usr/lib/kernel/install.d/05-rpmostree.install &&
-    #     mv /usr/lib/kernel/install.d/50-dracut.install.bak /usr/lib/kernel/install.d/50-dracut.install
+    #       zenergy
     #   # Needed if we use --setopt=tsflags=noscripts
-    # #   - VER=$(ls /lib/modules) &&
-    # #       akmods --force --kernels $VER --kmod v4l2loopback &&
-    # #       akmods --force --kernels $VER --kmod zenergy && 
-    # #       depmod -a $VER &&
-    # #       dracut -v --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
+    #   - VER=$(ls /lib/modules) &&
+    #       akmods --force --kernels $VER --kmod v4l2loopback &&
+    #       akmods --force --kernels $VER --kmod zenergy && 
+    #       depmod -a $VER &&
+    #       dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
     #   - rm -f /etc/yum.repos.d/{*copr*,*terra*}

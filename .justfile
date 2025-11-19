@@ -15,12 +15,12 @@ build *ARGS:
         rm Containerfile."{{ ARGS }}"
     fi
     bluebuild generate -o Containerfile."{{ ARGS }}" "{{ RCPDIR }}"/"{{ ARGS }}".yml --skip-validation
-    podman build -t "{{ ARGS }}":"{{ VERSION }}" --file Containerfile."{{ ARGS }}" --squash
+    podman build -t "{{ ARGS }}":"{{ VERSION }}" --file Containerfile."{{ ARGS }}" --squash . 2>&1 | tee "{{ RCPDIR }}"/"{{ ARGS }}".log
     rm Containerfile."{{ ARGS }}"
 
 # Build a Containerfile stored within ./containerfiles/argument/
 ctf *ARGS:
-    podman build -f "{{ CTFS }}"/"{{ ARGS }}"/Containerfile -t "{{ ARGS }}":{{VERSION}} . 2>&1 | tee "{{ CTFS }}"/"{{ ARGS }}"/logs.txt
+    podman build -f "{{ CTFS }}"/"{{ ARGS }}"/Containerfile -t "{{ ARGS }}":{{VERSION}} . 2>&1 | tee "{{ CTFS }}"/"{{ ARGS }}"/"{{ ARGS }}".log
 
 # Build, create, and purge archive of image-name as named in ./recipes/images. Slower, but useful for testing recipes cleanly
 targz *ARGS:

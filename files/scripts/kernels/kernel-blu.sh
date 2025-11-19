@@ -27,18 +27,18 @@ curl -L "https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.r
 dnf -y install --setopt=install_weak_deps=False \
     kernel \
     kernel-devel \
-    kernel-modules-extra
-dnf -y install --setopt=install_weak_deps=False \
+    kernel-modules-extra \
     akmods \
+    help2man \
     v4l2loopback \
     zenergy
 
-# Manually build modules, run depmod & generate initramfs when using --setopt=tsflags=noscripts
-# VER=$(ls /lib/modules) &&
-#     akmods --force --kernels $VER --kmod v4l2loopback &&
-#     akmods --force --kernels $VER --kmod zenergy && 
-#     depmod -a $VER &&
-#     dracut -v --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
+# Manually build modules, run depmod & generate initramfs
+VER=$(ls /lib/modules) &&
+    akmods --verbose --force --kernels $VER --kmod v4l2loopback &&
+    akmods --verbose --force --kernels $VER --kmod zenergy &&
+    depmod -a $VER &&
+    dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
 
-# # Clean up repos from earlier
+# Clean up repos from earlier
 rm -f /etc/yum.repos.d/{*copr*,*terra*}    

@@ -36,8 +36,8 @@ dnf -y install --setopt=install_weak_deps=False \
 
 # Manually build modules, run depmod & generate initramfs
 VER=$(ls /lib/modules) &&
-    akmods --verbose --force --kernels $VER --kmod v4l2loopback &&
-    akmods --verbose --force --kernels $VER --kmod zenergy &&
+    akmods --force --kernels $VER --kmod v4l2loopback &&
+    akmods --force --kernels $VER --kmod zenergy &&
     depmod -a $VER &&
     dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
 

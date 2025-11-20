@@ -12,3 +12,5 @@ qcow2
 manifest*
 config.toml
 Containerfile*
+./containerfile
+*.img

@@ -45,10 +45,10 @@ dnf -y swap zram-generator-defaults cachyos-settings
 # mv /usr/lib/kernel/install.d/50-dracut.install.bak /usr/lib/kernel/install.d/50-dracut.install
 
 # Manually build modules, run depmod & generate initramfs
-VER=$(ls /lib/modules) &&
-    akmods --force --kernels $VER --kmod zenergy && 
-    akmods --force --kernels $VER --kmod evdi &&
-    depmod -a $VER &&
+VER=$(ls /lib/modules) && \
+    akmods --force --kernels $VER --kmod zenergy && \
+    akmods --force --kernels $VER --kmod evdi && \
+    depmod -a $VER && \
     dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
 
 # Clean up repos from earlier

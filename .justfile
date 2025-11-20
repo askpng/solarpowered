@@ -19,7 +19,7 @@ build *ARGS:
     rm Containerfile."{{ ARGS }}"
     rm -rf ./.bluebuild-*
 
-# Build a Containerfile stored within ./containerfiles/argument/
+# Build a Containerfile stored within ./containerfiles/argument/ with logs
 ctf *ARGS:
     podman build -f "{{ CTFS }}"/"{{ ARGS }}"/Containerfile -t "{{ ARGS }}":{{VERSION}} . 2>&1 | tee "{{ CTFS }}"/"{{ ARGS }}"/"{{ ARGS }}".log
 
@@ -35,8 +35,15 @@ save *ARGS:
 
 # Build image-name as named in ./recipes/images and export a VM-ready QCOW2 file in ./qcow2
 qcow2 *ARGS: config
-    bluebuild generate -o Containerfile."{{ ARGS }}" "{{ RCPDIR }}"/"{{ ARGS }}".yml
-    sudo podman build -t "{{ ARGS }}":"{{ VERSION }}" --file Containerfile."{{ ARGS }}" --squash
+    #!/usr/bin/env bash
+    if [[ ! -e {{ RCPDIR }}/{{ ARGS }}.yml ]]; then
+        podman build -f {{ CTFS }}/{{ ARGS }}/Containerfile -t {{ ARGS }}:{{VERSION}} . 2>&1 | tee {{ CTFS }}/{{ ARGS }}/{{ ARGS }}.log
+        sudo podman build -t "{{ ARGS }}":"{{ VERSION }}" --file {{ CTFS }}/{{ ARGS }}/Containerfile
+    else
+        bluebuild generate -o Containerfile."{{ ARGS }}" "{{ RCPDIR }}"/"{{ ARGS }}".yml
+        sudo podman build -t "{{ ARGS }}":"{{ VERSION }}" --file Containerfile."{{ ARGS }}"
+    fi
+
     sudo podman run --rm -it --privileged \
         --pull=newer \
         --security-opt label=type:unconfined_t \
@@ -48,12 +55,16 @@ qcow2 *ARGS: config
         --use-librepo=True \
         --chown 1000:1000 \
         localhost/"{{ ARGS }}":"{{ VERSION }}"
+    if [[ ! -e {{ RCPDIR }}/{{ ARGS }}.yml ]]; then
+        sudo rm -rf ./.bluebuild*
+        rm Containerfile."{{ ARGS }}"
+    fi
     sudo rm ./manifest*
-    sudo rm -rf ./.bluebuild*
-    rm Containerfile."{{ ARGS }}"
 
 # Completely clean user & system-level Podman image registry & ./
 scrub:
+    #!/usr/bin/env bash
+    set -uo pipefail
     rm -rf ./qcow2 ./.bluebuild-scripts_* 
     rm -f ./tmp.tar.gz ./config.toml
     podman rmi -f $(podman images -f "dangling=true" -q)
@@ -74,3 +85,4 @@ config:
     else
         echo "config.toml already exists."
     fi
+    

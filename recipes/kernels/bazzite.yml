@@ -36,10 +36,10 @@ modules:
       # # 3. Run depmod -a
       # - VER=$(ls /usr/lib/modules) &&
       #     depmod -a $VER
-      # # 4. Generate and verify initramfs.image
+      # # 4. Generate and verify initramfs.img
       # - VER=$(ls /usr/lib/modules) && 
-      #     dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.image &&
-      #     find /usr/lib/modules/$VER/initramfs.image
+      #     dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img &&
+      #     find /usr/lib/modules/$VER/initramfs.img
       # # 5. Cleanup
       # - rm -r /tmp/usr &&
       #     rm /tmp/kernel.tar.zst      

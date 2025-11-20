@@ -6,28 +6,14 @@ set -euo pipefail
 dnf -y install --setopt=install_weak_deps=False \
     dnf-plugins-core \
     dnf5-plugins
-# Remove & exclude Fedora kernel & remove leftover files
-dnf -y remove \
-    kernel \
-    kernel-*
-rm -rf /usr/lib/modules/*
-dnf -y config-manager setopt "fedora*".exclude=" \
-    kernel \
-    kernel-core \
-    kernel-modules \
-    kernel-modules-core \
-    kernel-modules-extra \
-    kernel-devel \
-    kernel-headers \
-    " 
-# Enable repos for kernel-blu and akmods
-dnf -y copr enable sentry/kernel-blu
+
+# Enable repos for and akmods
 dnf -y copr enable ublue-os/akmods
-dnf -y config-manager addrepo --from-repofile=https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
+dnf -y config-manager addrepo --from-repofile=https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
+dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
 
 # Install akmods, kernel, and modules
 dnf -y install --setopt=install_weak_deps=False \
-    kernel \
     kernel-devel \
     kernel-modules-extra \
     akmods \

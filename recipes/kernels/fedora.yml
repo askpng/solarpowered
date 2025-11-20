@@ -1,0 +1,4 @@
+modules:
+  - type: script
+    scripts:
+      - kernels/kernel-fedora.sh

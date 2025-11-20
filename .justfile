@@ -17,6 +17,7 @@ build *ARGS:
     bluebuild generate -o Containerfile."{{ ARGS }}" "{{ RCPDIR }}"/"{{ ARGS }}".yml --skip-validation
     podman build -t "{{ ARGS }}":"{{ VERSION }}" --file Containerfile."{{ ARGS }}" --squash . 2>&1 | tee "{{ RCPDIR }}"/"{{ ARGS }}".log
     rm Containerfile."{{ ARGS }}"
+    rm -rf ./.bluebuild-*
 
 # Build a Containerfile stored within ./containerfiles/argument/
 ctf *ARGS:

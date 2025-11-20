@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-
 # Remove Fedora kernel & remove leftover files
 dnf -y remove \
     kernel \
@@ -21,13 +19,13 @@ dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-m
 
 
 # Handles kernel post-transcaction scriptlet
-mv /usr/lib/kernel/install.d/05-rpmostree.install /usr/lib/kernel/install.d/05-rpmostree.install.bak
-mv /usr/lib/kernel/install.d/50-dracut.install /usr/lib/kernel/install.d/50-dracut.install.bak
-printf '%s\n' '#!/bin/sh' 'exit 0' > /usr/lib/kernel/install.d/05-rpmostree.install
-printf '%s\n' '#!/bin/sh' 'exit 0' > /usr/lib/kernel/install.d/50-dracut.install
-chmod +x \
-     /usr/lib/kernel/install.d/05-rpmostree.install \
-     /usr/lib/kernel/install.d/50-dracut.install
+# mv /usr/lib/kernel/install.d/05-rpmostree.install /usr/lib/kernel/install.d/05-rpmostree.install.bak
+# mv /usr/lib/kernel/install.d/50-dracut.install /usr/lib/kernel/install.d/50-dracut.install.bak
+# printf '%s\n' '#!/bin/sh' 'exit 0' > /usr/lib/kernel/install.d/05-rpmostree.install
+# printf '%s\n' '#!/bin/sh' 'exit 0' > /usr/lib/kernel/install.d/50-dracut.install
+# chmod +x \
+#      /usr/lib/kernel/install.d/05-rpmostree.install \
+#      /usr/lib/kernel/install.d/50-dracut.install
 
 # Install CachyOS LTO kernel & akmods
 dnf -y install --setopt=install_weak_deps=False \
@@ -41,16 +39,17 @@ dnf -y install --setopt=install_weak_deps=False \
 dnf -y swap zram-generator-defaults cachyos-settings
 
 # Handles kernel post-transcaction scriptlet
-rm -f /usr/lib/kernel/install.d/05-rpmostree.install \
-      /usr/lib/kernel/install.d/50-dracut.install
-mv /usr/lib/kernel/install.d/05-rpmostree.install.bak /usr/lib/kernel/install.d/05-rpmostree.install
-mv /usr/lib/kernel/install.d/50-dracut.install.bak /usr/lib/kernel/install.d/50-dracut.install
+# rm -f /usr/lib/kernel/install.d/05-rpmostree.install \
+#       /usr/lib/kernel/install.d/50-dracut.install
+# mv /usr/lib/kernel/install.d/05-rpmostree.install.bak /usr/lib/kernel/install.d/05-rpmostree.install
+# mv /usr/lib/kernel/install.d/50-dracut.install.bak /usr/lib/kernel/install.d/50-dracut.install
 
 # Manually build modules, run depmod & generate initramfs
 VER=$(ls /lib/modules) &&
     akmods --force --kernels $VER --kmod zenergy && 
+    akmods --force --kernels $VER --kmod evdi &&
     depmod -a $VER &&
-    dracut -v --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
+    dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
 
 # Clean up repos from earlier
 rm -f /etc/yum.repos.d/{*copr*,*multimedia*}

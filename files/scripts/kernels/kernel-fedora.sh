@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-
 # Install dnf-plugins-core just in case
 dnf -y install --setopt=install_weak_deps=False \
     dnf-plugins-core \

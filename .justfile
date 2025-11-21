@@ -36,14 +36,14 @@ save *ARGS:
 # Build image-name as named in ./recipes/images and export a VM-ready QCOW2 file in ./qcow2
 qcow2 *ARGS: config
     #!/usr/bin/env bash
+    set -euo pipefail
     if [[ ! -e {{ RCPDIR }}/{{ ARGS }}.yml ]]; then
-        podman build -f {{ CTFS }}/{{ ARGS }}/Containerfile -t {{ ARGS }}:{{VERSION}} . 2>&1 | tee {{ CTFS }}/{{ ARGS }}/{{ ARGS }}.log
-        sudo podman build -t "{{ ARGS }}":"{{ VERSION }}" --file {{ CTFS }}/{{ ARGS }}/Containerfile
+        sudo podman build -t "{{ ARGS }}":"{{ VERSION }}" --file {{ CTFS }}/{{ ARGS }}/Containerfile . 2>&1 | tee {{ CTFS }}/{{ ARGS }}/{{ ARGS }}.log
+        sudo chown 1000:1000 {{ CTFS }}/{{ ARGS }}/{{ ARGS }}.log
     else
         bluebuild generate -o Containerfile."{{ ARGS }}" "{{ RCPDIR }}"/"{{ ARGS }}".yml
         sudo podman build -t "{{ ARGS }}":"{{ VERSION }}" --file Containerfile."{{ ARGS }}"
     fi
-
     sudo podman run --rm -it --privileged \
         --pull=newer \
         --security-opt label=type:unconfined_t \
@@ -86,3 +86,6 @@ config:
         echo "config.toml already exists."
     fi
     
+# Restore SELinux context to /var/lib/containers in case rootful Podman perms get messed up
+restorecon:
+    sudo restorecon -R -F /var/lib/containers

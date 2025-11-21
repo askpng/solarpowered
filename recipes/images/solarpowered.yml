@@ -13,29 +13,14 @@ description: Custom image for Lenovo T480/s devices, based on Vanilla Silverblue
 # ---
 base-image: quay.io/fedora/fedora-silverblue
 
-# definves image major version
+# defines image major version
 # ---
 image-version: 43
 
-modules:    
+modules:
   # this includes everything except for image-specific modifications
   # ---
   - from-file: shared/base.yml
-  
-  # installs Cosign
-  # ---
-  # - type: script
-  #   scripts:
-  #     # not needed when using quay.io/fedora-ostree-desktops/silverblue
-  #     - cosign.sh
-  
-  # kernel selection
-  # select ONE of the following from-file line
-  # or leave all three uncommented to use stock fedora kernel
-  # ---
-  # - from-file: kernels/bazzite.yml 
-  - from-file: kernels/blu.yml 
-  # - from-file: kernels/cachy.yml
 
   # image-specific packages module
   # base/core packages are all handled by solarpowered-raw
@@ -47,6 +32,14 @@ modules:
 
   # disables all repos except for fedora and fedora-updates
   # - from-file: shared/disable-repos.yml
+
+  # kernel selection
+  # select ONE of the following from-file line
+  # ---
+  # - from-file: kernels/bazzite.yml 
+  - from-file: kernels/blu.yml 
+  # - from-file: kernels/cachy.yml
+  # - from-file: kernels/fedora.yml
 
   # files module
   # copies files into /

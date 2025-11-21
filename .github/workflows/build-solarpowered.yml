@@ -1,16 +1,17 @@
 name: Build solarpowered
 on:
   schedule:
-    - cron: "00 2 * * 1,5" # build at 2 AM UTC every Monday & Friday
+    - cron: "00 2 * * 1,5"
     
-  push: # build on push
-    paths: # build on push of the following files
-      - "recipes/images/solarpowered.yml" # solarpowered recipe
+  push:
+    paths:
+      - ".github/workflows/build-solarpowered.yml"
+      - "recipes/images/solarpowered.yml"
+      - "recipes/packages/solarpowered.yml"
       
-  pull_request: # allow PRs triggering builds
-  workflow_dispatch: # allow manually triggering builds
+  pull_request:
+  workflow_dispatch:
 concurrency:
-  # only run one build at a time
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
   cancel-in-progress: true
 jobs:
@@ -22,7 +23,7 @@ jobs:
       packages: write
       id-token: write
     strategy:
-      fail-fast: false # stop GH from cancelling all matrix builds if one fails
+      fail-fast: false
       matrix:
         recipe:
           - images/solarpowered.yml
@@ -35,6 +36,7 @@ jobs:
           sudo rm -f /var/lib/man-db/auto-update
           sudo sed -i 's/^update_initramfs=.*/update_initramfs=no/' /etc/initramfs-tools/update-initramfs.conf
 
+      # Free disk space from secureblue & VedaOS
       - name: Free disk space
         shell: bash
         run: |
@@ -44,8 +46,8 @@ jobs:
           sudo docker image prune --all --force || true
           sudo swapoff -a || true
           sudo rm -f /mnt/swapfile || true
+          sudo rm -rf /usr/local/lib/android || true
 
-      # the build is fully handled by the reusable github action
       - name: Build solarpowered
         uses: blue-build/github-action@v1.9
         with:
@@ -54,6 +56,4 @@ jobs:
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
-
-          # enabled by default, disable if your image is small and you want faster builds
           maximize_build_space: false

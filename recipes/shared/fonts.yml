@@ -4,12 +4,8 @@ modules:
       nerd-fonts:
         - NerdFontsSymbolsOnly
       google-fonts:
-        - Asap
-        - Fira Mono
-        - Fira Sans
+        - Google Sans Flex
+        - Google Sans Code
         - IBM Plex Sans
         - IBM Plex Mono
-        - Nova Mono
-        - Ruda
-        - Ubuntu Sans
-        - Ubuntu Sans Mono
+        - Stack Sans Text

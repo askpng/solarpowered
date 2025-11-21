@@ -4,7 +4,7 @@ modules:
       cleanup: true
       nonfree: negativo17
       copr:
-        - bazzite-org/bazzite-multilib
+        # - bazzite-org/bazzite-multilib
         - bazzite-org/bazzite     
         - bazzite-org/obs-vkcapture
         - bazzite-org/rom-properties
@@ -16,30 +16,30 @@ modules:
       install-weak-deps: false
       allow-erasing: true
       packages:
-      - displayconfig-mutter
-      - repo: copr:copr.fedorainfracloud.org:bazzite-org:bazzite-multilib
-        packages:
-        - gamescope.x86_64
-      - gamescope-libs
-      - gamescope-shaders
-      - lact
-      - libobs_vkcapture.x86_64
-      - libobs_glcapture.x86_64
-      - libobs_vkcapture.i686
-      - libobs_glcapture.i686      
-      - lutris
-      - mangohud
-      - pipx
-      - python3-ramalama      
-      - rocm-hip
-      - rocm-clinfo
-      - rocm-smi
-      - rom-properties-gtk3
-      - steam
-      - sunshine
-    remove:
-      packages:
-      - gamemode
+        - displayconfig-mutter
+        # - gamescope-libs
+        # - gamescope-shaders
+        - gamescope
+        - lact
+        - libobs_vkcapture.x86_64
+        - libobs_glcapture.x86_64
+        - libobs_vkcapture.i686
+        - libobs_glcapture.i686      
+        - lutris
+        - mangohud
+        - pipx
+        - python3-ramalama      
+        - rocm-hip
+        - rocm-clinfo
+        - rocm-smi
+        - rom-properties-gtk3
+        - steam
+        - sunshine
+      exclude:
+        - gamemode
+    # remove:
+    #   packages:
+    #     - gamemode
   - type: systemd
     system:
       enabled:

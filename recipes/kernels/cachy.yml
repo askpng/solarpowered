@@ -1,9 +1,7 @@
 modules:
   - type: script
     scripts:
-      - shared/cachy.sh
-
-  - type: initramfs
+    - kernels/kernel-cachy.sh
 
   - type: systemd
     system:

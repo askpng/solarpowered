@@ -5,7 +5,7 @@ dnf -y install --setopt=install_weak_deps=False \
     dnf-plugins-core \
     dnf5-plugins
 
-# Enable repos for and akmods
+# Enable repos for akmods
 dnf -y copr enable ublue-os/akmods
 dnf -y config-manager addrepo --from-repofile=https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
 dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo

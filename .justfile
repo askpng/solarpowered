@@ -5,8 +5,8 @@ set shell := ["bash", "-c"]
 RCPDIR := "./recipes/images"
 CTFS := "./containerfiles"
 VERSION := "localbuild"
-USRN := "bootc"
-PSWD := "bootc"
+USRN := "local"
+PSWD := "local"
 
 # Build image-name as named in ./recipes/images
 build *ARGS:

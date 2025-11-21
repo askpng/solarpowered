@@ -15,8 +15,6 @@ modules:
     install:
       install-weak-deps: false
       allow-erasing: true
-      exclude:
-        - gamemode
       packages:
         - displayconfig-mutter
         # - gamescope-libs
@@ -37,6 +35,11 @@ modules:
         - rom-properties-gtk3
         - steam
         - sunshine
+      exclude:
+        - gamemode
+    # remove:
+    #   packages:
+    #     - gamemode
   - type: systemd
     system:
       enabled:

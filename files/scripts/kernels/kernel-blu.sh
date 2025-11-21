@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 
+# Remove Fedora kernel & remove leftover files
+dnf -y remove \
+    kernel \
+    kernel-* && \
+rm -r -f /usr/lib/modules/*
+
 # Install dnf-plugins-core just in case
 dnf -y install --setopt=install_weak_deps=False \
     dnf-plugins-core \
     dnf5-plugins
-# Remove & exclude Fedora kernel & remove leftover files
-dnf -y remove \
-    kernel \
-    kernel-*
-rm -rf /usr/lib/modules/*
+
+# Configure exclusion
 dnf -y config-manager setopt "fedora*".exclude=" \
     kernel \
     kernel-core \
@@ -17,7 +20,8 @@ dnf -y config-manager setopt "fedora*".exclude=" \
     kernel-modules-extra \
     kernel-devel \
     kernel-headers \
-    " 
+    "
+
 # Enable repos for kernel-blu and akmods
 dnf -y copr enable sentry/kernel-blu
 dnf -y copr enable ublue-os/akmods

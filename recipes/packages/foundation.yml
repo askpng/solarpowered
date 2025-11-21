@@ -52,14 +52,14 @@ modules:
         - lm_sensors
         - lzip
         - nvtop
-        - openssl
+        # - openssl # already included
         - smartmontools
         - stress
         - s-tui
-        - wireguard-tools
-        - wl-clipboard
+        # - wireguard-tools # already included
+        # - wl-clipboard # already included
         - yt-dlp
-        - zstd
+        # - zstd # already included
         # GUI
         - baobab
         - firewall-config
@@ -95,7 +95,6 @@ modules:
         - fedora-chromium-config-gnome
         - fedora-flathub-remote
         - fedora-repos-archive
-        - fedora-repos-ostree
         - fedora-third-party
         - fedora-workstation-repositories
         - fedora-workstation-backgrounds

@@ -8,17 +8,17 @@ modules:
       install-weak-deps: false
       packages:
         - gstreamer1-plugin-vaapi
-        - libheif
         - ffmpeg-libs        
     replace:
       - from-repo: fedora-multimedia
         packages:
-          - old: ffmpeg-free
-            new: ffmpeg
-          - old: libavcodec-free
-            new: libavcodec
+          # - old: ffmpeg-free
+          #   new: ffmpeg
+          # - old: libavcodec-free
+          #   new: libavcodec
           - old: libfdk-aac-free
             new: libfdk-aac
+          - libheif
           - libva
           - mesa-dri-drivers
           - mesa-filesystem

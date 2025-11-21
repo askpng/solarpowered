@@ -1,33 +1,26 @@
 # <center>☀️ solarpowered ☀️</center>
 
-solarpowered is a learning and hobby project. My main goal is to better understand OCI images as a concept and in practice, and to eventually end up with the ideal base image for my laptop and future devices.
+`solarpowered` and `solarpowered-ex` are custom images based on [Fedora Silverblue](https://quay.io/repository/fedora/fedora-silverblue?tab=tags) using [BlueBuild](https://github.com/blue-build/template). I started this project as a learning and hobby project to familiarize myself with containers, Linux, and GitHub. 
 
-These images boot and are fully functional for daily operations - further than that, I do not guarantee anything. I also deploy experiments every so often, and breakages or mishaps may happen. If you choose to daily-drive any of my images, kindly notify me so I know when to hold back.
+Both images are fully functional for daily operations.
 
+Also check out [atomic-t480s](https://github.com/askpng/atomic-t480s), much simpler custom image project I started to support Lenovo Thinkpad T480s users.
 
-## Why did you name this 'solarpowered'?
-Because I like Gawain from Fate/Extra & Fate/Grand Order.
-
-# Image details
-Built using [Bluebuild template](https://github.com/blue-build/template) on top of Fedora's `latest` [Silverblue](https://quay.io/repository/fedora/fedora-silverblue?tab=tags) image.
-
+I named this project `solarpowered` because I like Gawain from Fate/Extra & Fate/Grand Order.
 
 # Highlights
 
-- Multimedia codecs from `fedora-multimedia`
-- `bootc`, `codium`, `distrobox`, `topgrade` installed natively
-- `fastfetch`, `fish`, `just`, and `wl-clipboard` installed natively
-- [mutter-patched](https://copr.fedorainfracloud.org/coprs/trixieua/mutter-patched/)
-- `nautilus-extensions` and `nautilus-python` - also comes with [nautilus-copy-path](https://github.com/chr314/nautilus-copy-path)
-- `adw-gtk3-theme`, Fonts Tweak Tool, Waydroid, Windscribe VPN, and Zen Browser installed natively
-- Native installs of Fedora bookmarks, background, extensions, repos, and Flathub remote removed
-- Native installs of GNOME extensions removed
-- Native install of Firefox removed
+- Multimedia codecs from `fedora-multimedia` repo (and `intel-media-driver` from RPM Fusion)
+- Distrobox, Just, and VSCodium
+- Waydroid and ADB
+- Nautilus addons
+- More vanilla GNOME Experience
+- Zen Browser instead of Firefox
+- Colloid, MoreWaita, Tela, and Qogir icon themes
+- Nerd Fonts Symbols and a small selection of fonts from Google Fonts 
 - Several sound & icon themes & fonts installed OOTB
 
-## solarpowered - the original, made to support Lenovo T480/s
-
-Uses [kernel-blu](https://copr.fedorainfracloud.org/coprs/sentry/kernel-blu/).
+## solarpowered - made to support Lenovo T480/s devices
 
 Includes the following tools for maximum Lenovo T480/s functionality with 0 layering:
 - `igt-gpu-tools` for monitoring iGPU use
@@ -36,25 +29,21 @@ Includes the following tools for maximum Lenovo T480/s functionality with 0 laye
 - TLP
 - `zcfan`
 
-It is recommended to run `append solarpowered-setup` upon installation. This installs TLP-UI Flatpak, configrues necessary kernel arguments & local `initramfs` regeneration, and enables `python-validity` and `zcfan`. It is recommended to reboot afterwards. 
+This image is shipped with [kernel-blu](https://copr.fedorainfracloud.org/coprs/sentry/kernel-blu/) with `v4l2loopback` kernel module
 
-> NOTE: This does *not* configure `throttled`, as undervolt stable values differ between machines.
+It is highly recommended to run `append solarpowered-setup` upon installation. This installs TLP-UI Flatpak, configrues necessary kernel arguments & local `initramfs` regeneration, and enables `python-validity` and `zcfan`. It is recommended to reboot afterwards. 
 
-## solarpowered-ex - desktop image with LACT installed
+> NOTE: This does *not* configure `throttled`, as undervolt stable values differ between machines. For further information about undervolting, refer to the official documentation on `throttled`.
 
-Uses [kernel-bazzite](https://github.com/bazzite-org/kernel-bazzite).
+## solarpowered-ex - for Ryzen/AMD computers
 
 Includes the following tools:
+- Gamescope, Lutris, MangoHud and experimental implementation of Steam Gaming Mode
+- Beta/Unstable version of Sunshine for game streaming
+- Ramalama and ROCM packages
 - [LACT-libadwaita](https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/)
-- `nvtop`
-- `displayconfig-mutter` and beta version of `sunshine`
-- Native installation of `Steam` and `gamescope`, with `extest.i686` - `Steam.desktop` file is LD_PRELOAD-ed with `extest` to prevent Remote Desktop prompts from appearing
 
-It is recommended to run `append solarpowered-ex-setup` upon installation. This enables the B550 suspend fix systemd service, configures necessary kernel arguments & local `initramfs` regeneration, and enables GNOME Variable Refresh Rate. It is recommended to reboot afterwards. 
-
-## solarizzed-gnome - bazzite-deck-gnome with personal additions
-
-Minimal modifications to `bazzite-deck-gnome` with several layered packages for my personal use.
+This image is shipped with [kernel-cachyos-lto](https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/) with its built-in `v4l2loopback`, `evdi` and `displaylink`, as well as `zenergy` for Ryzen power stats reading.
 
 # Installation
 
@@ -83,17 +72,6 @@ To rebase from a Silverblue installation, follow the steps below.
 2. Rebase to the signed image and reboot automatically:
   ```
   rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/solarpowered-ex:latest --reboot
-  ```
-
-### solarizzed-gnome
-
-1. Rebase to the unsigned image to get the proper signing keys + policies installed and reboot automatically:
-  ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/askpng/solarizzed-gnome:latest --reboot
-  ```
-2. Rebase to the signed image and reboot automatically:
-  ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/askpng/solarizzed-gnome:latest --reboot
   ```
 
 ## Verification

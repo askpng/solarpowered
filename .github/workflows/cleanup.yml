@@ -16,10 +16,8 @@ jobs:
       - name: Clean up images more than 30 days
         uses: dataaxiom/ghcr-cleanup-action@v1
         with:
-          # token: ${{ secrets.GITHUB_TOKEN }}
-          # packages: solarpowered,solarpowered-ex
-          # older-than: 30 days
-          # delete-orphaned-images: true
-          # keep-n-tagged: 7
-          # keep-n-untagged: 7
-          dry-run: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          packages: solarpowered,solarpowered-ex
+          older-than: 30 days
+          delete-orphaned-images: true
+          # dry-run: true

@@ -68,6 +68,7 @@ scrub:
     rm -rf ./qcow2 ./.bluebuild-scripts_* 
     rm -f ./tmp.tar.gz ./config.toml
     podman rmi -f $(podman images -f "dangling=true" -q)
+    sudo rm -f manifest-qcow2.json
     sudo podman rmi -f $(sudo podman images -f "dangling=true" -q)
 
 # Generate bootc-image-builder config
@@ -85,7 +86,7 @@ config:
     else
         echo "config.toml already exists."
     fi
-    
+
 # Restore SELinux context to /var/lib/containers in case rootful Podman perms get messed up
 restorecon:
     sudo restorecon -R -F /var/lib/containers

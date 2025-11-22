@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-/usr/bin/just --justfile /usr/share/appends/appends.just "${@}"
+
+/usr/bin/just --justfile /usr/share/appends/00-master.just "${@}"

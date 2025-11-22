@@ -4,30 +4,22 @@ on:
     - cron: "00 0 * * 0"
   workflow_dispatch:
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
-
-# jobs:
-#   delete-older-than-30:
-#     runs-on: ubuntu-latest
-#     permissions:
-#       packages: write
-#     steps:
-#       - name: Clean up images more than 30 days
-#         uses: dataaxiom/ghcr-cleanup-action@@v1
-#         with:
-#           # token: ${{ secrets.GITHUB_TOKEN }}
-#           # packages: solarpowered,solarpowered-ex
-#           # older-than: 30 days
-#           # delete-orphaned-images: true
-#           # keep-n-tagged: 7
-#           # keep-n-untagged: 7
-#           dry-run: true
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
 
 jobs:
-  - name: ghcr.io cleanup action
+  delete-older-than-30:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     steps:
-      - uses: dataaxiom/ghcr-cleanup-action@v1
+      - name: Clean up images more than 30 days
+        uses: dataaxiom/ghcr-cleanup-action@v1
         with:
+          # token: ${{ secrets.GITHUB_TOKEN }}
+          # packages: solarpowered,solarpowered-ex
+          # older-than: 30 days
+          # delete-orphaned-images: true
+          # keep-n-tagged: 7
+          # keep-n-untagged: 7
           dry-run: true

@@ -19,5 +19,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           packages: solarpowered,solarpowered-ex
           older-than: 30 days
-          delete-orphaned-images: true
+          delete-untagged: true
           # dry-run: true

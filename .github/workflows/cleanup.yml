@@ -4,8 +4,8 @@ on:
     - cron: "00 0 * * 0"
   workflow_dispatch:
 
-# concurrency:
-#   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
 
 jobs:
   delete-older-than-30:

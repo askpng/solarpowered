@@ -21,14 +21,6 @@ modules:
   # this includes everything except for image-specific modifications
   # ---
   - from-file: shared/base.yml
-  
-  # kernel selection
-  # select ONE of the following from-file line
-  # ---
-  # - from-file: kernels/bazzite.yml 
-  # - from-file: kernels/blu.yml 
-  - from-file: kernels/cachy.yml
-  # - from-file: kernels/fedora.yml
 
   # image-specific packages module
   # base/core packages are all handled by solarpowered-raw
@@ -38,8 +30,16 @@ modules:
   # ---
   - from-file: packages/solarpowered-ex.yml
 
-  # disables all repos except for fedora and fedora-updates
-  # - from-file: shared/disable-repos.yml
+  # Plymouth
+  - from-file: shared/plymouth.yml
+
+  # kernel selection
+  # select ONE of the following from-file line
+  # ---
+  # - from-file: kernels/bazzite.yml 
+  - from-file: kernels/blu.yml 
+  # - from-file: kernels/cachy.yml
+  # - from-file: kernels/fedora.yml
 
   # files module
   # copies files into /
@@ -55,5 +55,11 @@ modules:
   - type: os-release
     properties:
       PRETTY_NAME: Fedora Linux 43 (Silverblue)
+      VERSION_CODENAME: solarpowered-ex
+      DEFAULT_HOSTNAME: spwd-ex
+      HOME_URL: https://github.com/askpng/solarpowered
+      DOCUMENTATION_URL: https://github.com/askpng/solarpowered
+      SUPPORT_URL: https://github.com/askpng/solarpowered/issues
+      BUG_REPORT_URL: https://github.com/askpng/solarpowered/issues
 
   - type: signing

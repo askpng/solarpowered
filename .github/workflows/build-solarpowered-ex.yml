@@ -57,3 +57,10 @@ jobs:
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
           maximize_build_space: false
+
+  generate_release:
+    name: Generate Release
+    needs: [bluebuild]
+    if: github.event_name != 'pull_request'
+    secrets: inherit
+    uses: ./.github/workflows/release.yml

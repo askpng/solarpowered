@@ -1,0 +1,5 @@
+modules:
+  - type: script
+    snippets:
+      # Remove firmware background from default BGRT
+      - sed -i 's/UseFirmwareBackground=true/UseFirmwareBackground=false/g' /usr/share/plymouth/themes/bgrt/bgrt.plymouth

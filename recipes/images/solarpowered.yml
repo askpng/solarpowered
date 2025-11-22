@@ -33,6 +33,9 @@ modules:
   # disables all repos except for fedora and fedora-updates
   # - from-file: shared/disable-repos.yml
 
+  # Plymouth
+  - from-file: shared/plymouth.yml  
+
   # kernel selection
   # select ONE of the following from-file line
   # ---

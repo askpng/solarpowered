@@ -60,6 +60,8 @@ jobs:
 
   generate_release:
     name: Generate Release
+    permissions:
+      contents: write
     needs: [bluebuild]
     if: github.event_name != 'pull_request'
     secrets: inherit

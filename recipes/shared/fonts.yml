@@ -4,8 +4,5 @@ modules:
       nerd-fonts:
         - NerdFontsSymbolsOnly
       google-fonts:
-        - Google Sans Flex
         - Google Sans Code
         - IBM Plex Sans
-        - IBM Plex Mono
-        - Stack Sans Text

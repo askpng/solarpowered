@@ -4,8 +4,6 @@ modules:
       cleanup: true
       nonfree: negativo17
       copr:
-        # - bazzite-org/bazzite-multilib
-        - bazzite-org/bazzite     
         - bazzite-org/obs-vkcapture
         - bazzite-org/rom-properties
         - eaglesemanation/displayconfig-mutter
@@ -17,9 +15,6 @@ modules:
       allow-erasing: true
       packages:
         - displayconfig-mutter
-        # - gamescope-libs
-        # - gamescope-shaders
-        - gamescope
         - lact
         - libobs_vkcapture.x86_64
         - libobs_glcapture.x86_64
@@ -37,28 +32,36 @@ modules:
         - sunshine
       exclude:
         - gamemode
-    # remove:
-    #   packages:
-    #     - gamemode
   - type: systemd
     system:
       enabled:
         - lactd.service
   - type: script
     snippets:
-      ## extest
+      # Gamescope
+      - dnf -y install dnf-plugins-core
+      - dnf -y copr enable bazzite-org/bazzite
+      - dnf -y copr enable bazzite-org/bazzite-multilib
+      - dnf -y config-manager setopt "*bazzite*".priority=90 
+      - dnf -y install
+          gamescope
+          gamescope-libs
+          gamescope-shaders
+      - dnf -y copr disable bazzite-org/bazzite-multilib
+      - dnf -y copr disable bazzite-org/bazzite
+      - dnf clean all        
+      # Extest
       - mkdir -p /usr/lib/extest
       - "VER=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/bazzite-org/extest/releases/latest)) && curl -fLs https://github.com/bazzite-org/extest/releases/download/${VER}/libextest.so -o /tmp/libextest.so"
       - cp /tmp/libextest.so /usr/lib/extest/libextest.so
-      - rm /tmp/libextest.so        
+      - rm /tmp/libextest.so
       # Modify Steam.desktop with extest LD_PRELOAD
       - sed -i 's|/usr/bin/steam\>|&-extest|g' /usr/share/applications/steam.desktop
       # Sunshine setup
       - setcap 'cap_sys_admin+p' /usr/bin/sunshine-* 
-      # Install Winetricks
+      # Winetricks
       - curl -Lo /usr/bin/winetricks https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks 
       - chmod 0755 /usr/bin/winetricks
-      - dnf clean all
       # SteamOS files
       - git clone https://github.com/shahnawazshahin/steam-using-gamescope-guide.git /tmp/gamescope-files
       ## Copy files from source

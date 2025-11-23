@@ -1,7 +1,7 @@
 # Setup box
 box:
      distrobox-assemble create --file https://raw.githubusercontent.com/askpng/box/refs/heads/main/box.ini
-     distrobox-enter box -- start-box
+     distrobox-start boxit
 
 # set junction as default for browsers
 setup-junction:

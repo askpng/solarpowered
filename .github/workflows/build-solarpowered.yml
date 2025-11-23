@@ -58,11 +58,11 @@ jobs:
           pr_event_number: ${{ github.event.number }}
           maximize_build_space: false
 
-  generate_release:
-    name: Generate Release
-    permissions:
-      contents: write    
-    needs: [bluebuild]
-    if: github.event_name != 'pull_request'
-    secrets: inherit
-    uses: ./.github/workflows/release.yml
+  # generate_release:
+  #   name: Generate Release
+  #   permissions:
+  #     contents: write    
+  #   needs: [bluebuild]
+  #   if: github.event_name != 'pull_request'
+  #   secrets: inherit
+  #   uses: ./.github/workflows/release.yml

@@ -3,5 +3,3 @@ modules:
     scripts:
       - shared/nautilus-copy-path.sh
       - shared/colloid-icon-theme.sh
-      - shared/tela-icon-theme.sh
-      - shared/qogir-icon-theme.sh

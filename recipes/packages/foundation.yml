@@ -106,6 +106,7 @@ modules:
         - gnome-shell-extension-launch-new-instance
         - gnome-shell-extension-places-menu
         - gnome-shell-extension-window-list
+        - gnome-software
         - gnome-software-rpm-ostree
         - gnome-system-monitor
         - gnome-tour

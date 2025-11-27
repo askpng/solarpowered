@@ -49,7 +49,7 @@ jobs:
           sudo rm -rf /usr/local/lib/android || true
 
       - name: Build solarpowered-ex
-        uses: blue-build/github-action@v1.9
+        uses: blue-build/github-action@v1.10
         with:
           recipe: ${{ matrix.recipe }}
           rechunk: true

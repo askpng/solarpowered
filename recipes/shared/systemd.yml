@@ -1,6 +1,8 @@
 modules:
   - type: systemd
     system:
+      enabled:
+        - rechunker-group-fix.service
       disabled:
         - NetworkManager-wait-online.service
         - flatpak-add-fedora-repos.service

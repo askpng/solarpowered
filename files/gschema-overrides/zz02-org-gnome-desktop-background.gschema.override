@@ -1,7 +1,7 @@
 [org.gnome.desktop.background]
 color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:///usr/share/backgrounds/solarpowered/ales-krivec-H7WijH3lleI-unsplash.jpg'
-picture-uri-dark='file:///usr/share/backgrounds/solarpowered/mark-tegethoff-NbgQfUvKFE0-unsplash.jpg'
+# picture-uri='file:///usr/share/backgrounds/solarpowered/ales-krivec-H7WijH3lleI-unsplash.jpg'
+# picture-uri-dark='file:///usr/share/backgrounds/solarpowered/mark-tegethoff-NbgQfUvKFE0-unsplash.jpg'
 primary-color='#000000'
 secondary-color='#000000'

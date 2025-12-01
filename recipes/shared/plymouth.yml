@@ -3,16 +3,17 @@ modules:
     snippets:
       # Remove firmware background from default BGRT
       - sed -i 's/UseFirmwareBackground=true/UseFirmwareBackground=false/g' /usr/share/plymouth/themes/bgrt/bgrt.plymouth
-      # nibar Plymouth theme
+      ## nibar Plymouth theme
       # - git clone https://github.com/anaysharma/nibar-plymouth-theme.git --depth 1 /tmp/nibar-plymouth-theme
       # - cp -r /tmp/nibar-plymouth-theme/nibar /usr/share/plymouth/themes
       # - rm -r /tmp/nibar-plymouth-theme
+      ### Replace default theme with nibar
       # - sed -i 's/bgrt/nibar/g' /usr/share/plymouth/plymouthd.defaults
-      # Black HUD Plymouth theme
+      ## Black HUD Plymouth theme
       # - wget -O /tmp/black_hud.tar.gz https://github.com/adi1090x/plymouth-themes/releases/download/v1.0/black_hud.tar.gz
       # - tar xf /tmp/black_hud.tar.gz -C /tmp
       # - cp -r /tmp/black_hud /usr/share/plymouth/themes
       # - rm -r /tmp/black_hud
       # - rm /tmp/black_hud.tar.gz
-      # Replace default Plymouth theme
-      # - sed -i 's/Theme=bgrt/Theme=black_hud/g' /usr/share/plymouth/plymouthd.defaults
+      ### Replace default theme with black_hud
+      # - sed -i 's/bgrt/black_hud/g' /usr/share/plymouth/plymouthd.defaults

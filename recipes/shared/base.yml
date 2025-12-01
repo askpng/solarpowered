@@ -13,7 +13,7 @@ modules:
       cleanup: true
       nonfree: rpmfusion
     replace:
-      - from-repo: rpmfusion
+      - from-repo: rpmfusion-nonfree
         packages:
         - old: libva-intel-media-driver
           new: intel-media-driver    

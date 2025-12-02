@@ -36,27 +36,15 @@ jobs:
           sudo rm -f /var/lib/man-db/auto-update
           sudo sed -i 's/^update_initramfs=.*/update_initramfs=no/' /etc/initramfs-tools/update-initramfs.conf
 
-      # Free disk space from secureblue & VedaOS
-      - name: Free disk space
-        shell: bash
-        run: |
-          sudo rm -rf /usr/share/dotnet || true
-          sudo rm -rf /opt/ghc || true
-          sudo rm -rf /usr/local/.ghcup || true
-          sudo docker image prune --all --force || true
-          sudo swapoff -a || true
-          sudo rm -f /mnt/swapfile || true
-          sudo rm -rf /usr/local/lib/android || true
-
       - name: Build solarpowered-ex
         uses: blue-build/github-action@v1.10
         with:
           recipe: ${{ matrix.recipe }}
-          rechunk: true
+          build_chunked_oci: true
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
-          maximize_build_space: false
+          maximize_build_space: true
 
   # generate_release:
   #   name: Generate Release

@@ -14,7 +14,7 @@ lowlatency_mode = []
 powersave_mode = []
 
 [scheds.scx_lavd]
-auto_mode = []
+auto_mode = ["--balanced"]
 gaming_mode = ["--performance"]
 lowlatency_mode = ["--performance"]
 powersave_mode = ["--powersave"]

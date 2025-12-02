@@ -87,3 +87,38 @@ disable-iwd:
 	sudo systemctl unmask wpa_supplicant
 	sudo systemctl enable --now wpa_supplicant
 	sudo systemctl restart NetworkManager
+
+# Disable Zram and enable Zswap. Requires reboot
+enable-zswap: disable-zram
+  sudo rpm-ostree kargs --append-if-missing=zswap.enabled=1 --append-if-missing=zswap.compressor=lz4 --append-if-missing=zswap.max_pool_percent=25
+  echo "Zswap is enabled and changes will reflect upon reboot."
+
+# Enable Zram and disable zswap. Requires reboot
+disable-zswap: enable-zram
+  sudo rpm-ostree kargs --delete-if-present=zswap.enabled=1 --delete-if-present=zswap.compressor=lz4 --delete-if-present=zswap.max_pool_percent=25
+  echo "Zswap is disabled and changes will reflect upon reboot."
+
+# Disable Zram. Requires reboot
+disable-zram:
+  #!/usr/bin/env bash
+  if [[ -e /etc/systemd/zram-generator.conf ]]; then
+    sudo mv /etc/zram-generator.conf /etc/zram-generator.conf.bak
+  fi
+  sudo touch /etc/systemd/zram-generator.conf
+  if [[ -e /etc/udev/rules.d/30-zram.rules ]]; then
+    sudo mv /etc/udev/rules.d/30-zram.rules /etc/udev/rules.d/30-zram.rules.bak
+  fi
+  sudo touch /etc/udev/rules.d/30-zram.rules
+  sudo systemctl daemon-reload
+  sudo udevadm control --reload-rules
+  sudo udevadm trigger
+  echo "Zram is disabled and changes will reflect upon reboot."
+
+# Enable Zram. Requires reboot
+enable-zram:
+  sudo rm /etc/systemd/zram-generator.conf
+  sudo rm /etc/udev/rules.d/30-zram.rules
+  sudo systemctl daemon-reload
+  sudo udevadm control --reload-rules
+  sudo udevadm trigger
+  echo "Zram is enabled and changes will reflect upon reboot."

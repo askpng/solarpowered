@@ -32,8 +32,8 @@ setup-waydroid:
      if [[ "${OPTION,,}" =~ ^init ]]; then
           echo "sudo systemctl enable --now waydroid-container.service"
           sudo systemctl enable --now waydroid-container.service
-          echo "waydroid init -c 'https://ota.waydro.id/system' -v 'https://ota.waydro.id/vendor'"
-          sudo waydroid init -c 'https://ota.waydro.id/system' -v 'https://ota.waydro.id/vendor'
+          echo "waydroid init -s VANILLA -c 'https://ota.waydro.id/system' -v 'https://ota.waydro.id/vendor'"
+          sudo waydroid init -s VANILLA -c 'https://ota.waydro.id/system' -v 'https://ota.waydro.id/vendor'
           echo "sudo restorecon -R /var/lib/waydroid"
           sudo restorecon -R /var/lib/waydroid
           echo "cp /usr/share/applications/waydroid-container-restart.desktop ~/.local/share/applications"

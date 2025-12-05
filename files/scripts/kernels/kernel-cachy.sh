@@ -34,7 +34,8 @@ dnf -y install --setopt=install_weak_deps=False \
     akmods \
     akmod-evdi \
     zenergy \
-    scx-scheds-git \
+    scx-scheds \
+    scx-tools \
     scx-manager
 dnf -y swap zram-generator-defaults cachyos-settings
 

@@ -7,7 +7,6 @@ modules:
         - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
       copr:
         - cuteneko/waydroid-helper
-        - dusansimic/themes
         - sneexy/zen-browser
         #  - trixieua/mutter-patched
     replace:
@@ -27,7 +26,6 @@ modules:
       install-weak-deps: false
       packages:
         # copr
-        - morewaita-icon-theme
         - starship
         - topgrade
         - vscodium

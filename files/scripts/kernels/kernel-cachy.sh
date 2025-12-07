@@ -52,7 +52,7 @@ VER=$(ls /lib/modules) && \
     dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
 
 # Set vm.swappiness to 180, as a potential fix to audio stuttering issue upon resume
-sed -i 's/^vm\.swappiness[[:space:]]*=[[:space:]]*[0-9]*/vm.swappiness = 180/' /usr/lib/sysctl.d/99-cachyos-settings.conf
+# sed -i 's/^vm\.swappiness[[:space:]]*=[[:space:]]*[0-9]*/vm.swappiness = 180/' /usr/lib/sysctl.d/99-cachyos-settings.conf
 
 # Clean up repos from earlier
 rm -f /etc/yum.repos.d/{*copr*,*multimedia*}

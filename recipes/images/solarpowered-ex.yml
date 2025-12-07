@@ -37,8 +37,8 @@ modules:
   # select ONE of the following from-file line
   # ---
   # - from-file: kernels/bazzite.yml 
-  # - from-file: kernels/blu.yml 
-  - from-file: kernels/cachy.yml
+  - from-file: kernels/blu.yml 
+  # - from-file: kernels/cachy.yml
   # - from-file: kernels/fedora.yml
 
   # files module

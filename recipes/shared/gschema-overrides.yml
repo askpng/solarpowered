@@ -1,10 +1,11 @@
 modules:
   - type: gschema-overrides
     include:
+    - zz00-desktop.gschema.override
     - zz01-org-gnome-shell-extensions.gschema.override
     - zz02-org-gnome-desktop-background.gschema.override
     - zz03-org-gnome-desktop-interface.gschema.override
     - zz04-org-gnome-touchpad.gschema.override
     - zz05-org-gnome-desktop-wm-preferences.gschema.override
     - zz06-org.gnome-mutter.gschema.override
-    - zz08.org.gnome.nautilus.gschema.override
+    - zz07.org.gnome.nautilus.gschema.override

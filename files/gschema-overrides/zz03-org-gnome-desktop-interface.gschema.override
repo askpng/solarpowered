@@ -4,10 +4,8 @@ enable-hot-corners=false
 clock-format='24h'
 clock-show-weekday=false
 show-battery-percentage=true
-
 font-antialiasing='rgba'
 font-hinting='none'
 font-rendering='automatic'
-
 gtk-theme='adw-gtk3'
 

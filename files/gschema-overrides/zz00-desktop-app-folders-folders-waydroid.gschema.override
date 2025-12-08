@@ -1,0 +1,5 @@
+[org.gnome.desktop.app-folders.folders.Waydroid]
+apps=['Waydroid.desktop']
+categories=['X-WayDroid-App']
+name='Waydroid'
+translate=false

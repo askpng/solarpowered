@@ -1,4 +1,4 @@
 [org.gnome.shell]
 
 disable-user-extensions=false
-enabled-extensions = ['nightthemeswitcher@romainvigier.fr', 'do-not-disturb-while-screen-sharing-or-recording@marcinjahn.com', 'caffeine@patapon.info', 'Bluetooth-Battery-Meter@maniacx.github.com', 'light-style@gnome-shell-extensions.gcampax.github.com', 'hibernate-status@dromi', 'gsconnect@andyholmes.github.io']
+enabled-extensions=['nightthemeswitcher@romainvigier.fr', 'do-not-disturb-while-screen-sharing-or-recording@marcinjahn.com', 'caffeine@patapon.info', 'Bluetooth-Battery-Meter@maniacx.github.com', 'light-style@gnome-shell-extensions.gcampax.github.com', 'hibernate-status@dromi', 'gsconnect@andyholmes.github.io']

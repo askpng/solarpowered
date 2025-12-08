@@ -14,8 +14,9 @@ dnf -y install --setopt=install_weak_deps=False \
 # Enable repos
 dnf -y copr enable bieszczaders/kernel-cachyos-lto
 dnf -y copr enable bieszczaders/kernel-cachyos-addons
-dnf -y copr enable ublue-os/akmods
-dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
+# dnf -y copr enable ublue-os/akmods
+dnf -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
+dnf -y config-manager addrepo --from-repofile=https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
 
 # Handles kernel post-transaction scriptlet
 # mv /usr/lib/kernel/install.d/05-rpmostree.install /usr/lib/kernel/install.d/05-rpmostree.install.bak
@@ -51,8 +52,5 @@ VER=$(ls /lib/modules) && \
     depmod -a $VER && \
     dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
 
-# Set vm.swappiness to 180, as a potential fix to audio stuttering issue upon resume
-# sed -i 's/^vm\.swappiness[[:space:]]*=[[:space:]]*[0-9]*/vm.swappiness = 180/' /usr/lib/sysctl.d/99-cachyos-settings.conf
-
 # Clean up repos from earlier
-rm -f /etc/yum.repos.d/{*copr*,*multimedia*}
+rm -f /etc/yum.repos.d/{*copr*,*multimedia*,*terra*}.repo

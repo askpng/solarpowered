@@ -24,7 +24,7 @@ dnf -y config-manager setopt "fedora*".exclude=" \
 
 # Enable repos for kernel-blu and akmods
 dnf -y copr enable sentry/kernel-blu
-dnf -y copr enable ublue-os/akmods
+# dnf -y copr enable ublue-os/akmods
 dnf -y config-manager addrepo --from-repofile=https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
 dnf -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
 

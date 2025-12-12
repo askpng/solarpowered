@@ -15,6 +15,7 @@ modules:
       allow-erasing: true
       packages:
         - displayconfig-mutter
+        - gamescope
         - lact
         - libobs_vkcapture.x86_64
         - libobs_glcapture.x86_64
@@ -39,16 +40,16 @@ modules:
   - type: script
     snippets:
       # Gamescope
-      - dnf -y install dnf-plugins-core
-      - dnf -y copr enable bazzite-org/bazzite
-      - dnf -y copr enable bazzite-org/bazzite-multilib
-      - dnf -y config-manager setopt "*bazzite*".priority=90 
-      - dnf -y install
-          gamescope
-          gamescope-libs
-          gamescope-shaders
-      - dnf -y copr disable bazzite-org/bazzite-multilib
-      - dnf -y copr disable bazzite-org/bazzite
+      # - dnf -y install dnf-plugins-core
+      # - dnf -y copr enable bazzite-org/bazzite
+      # - dnf -y copr enable bazzite-org/bazzite-multilib
+      # - dnf -y config-manager setopt "*bazzite*".priority=90 
+      # - dnf -y install
+      #     gamescope
+      #     gamescope-libs
+      #     gamescope-shaders
+      # - dnf -y copr disable bazzite-org/bazzite-multilib
+      # - dnf -y copr disable bazzite-org/bazzite
       - dnf clean all        
       # Extest
       - mkdir -p /usr/lib/extest

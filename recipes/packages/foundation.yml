@@ -9,6 +9,7 @@ modules:
         - cuteneko/waydroid-helper
         - sneexy/zen-browser
         #  - trixieua/mutter-patched
+        - zeno/scrcpy
     replace:
       - from-repo: fedora
         packages:
@@ -26,6 +27,7 @@ modules:
       install-weak-deps: false
       packages:
         # copr
+        - scrcpy
         - starship
         - topgrade
         - vscodium

@@ -5,6 +5,7 @@ modules:
       nonfree: negativo17
       files:
         - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
+        - vscodium.repo        
       copr:
         - cuteneko/waydroid-helper
         - sneexy/zen-browser
@@ -26,11 +27,12 @@ modules:
       allow-erasing: true
       install-weak-deps: false
       packages:
+        # vscodium
+        - codium
         # copr
         - scrcpy
         - starship
         - topgrade
-        - vscodium
         - zen-browser
         # audio & codecs
         - alsa-firmware

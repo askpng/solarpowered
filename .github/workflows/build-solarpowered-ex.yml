@@ -45,6 +45,8 @@ jobs:
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
           maximize_build_space: true
+          retry_push_count: 3
+          build_opts: --rechunk-clear-plan
 
   # generate_release:
   #   name: Generate Release

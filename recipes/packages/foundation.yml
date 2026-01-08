@@ -5,7 +5,7 @@ modules:
       nonfree: negativo17
       files:
         - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
-        - vscodium.repo        
+        # - vscodium.repo        
       copr:
         - cuteneko/waydroid-helper
         - sneexy/zen-browser

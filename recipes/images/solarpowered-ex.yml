@@ -44,6 +44,10 @@ modules:
     - source: solarpowered-ex # image name, or folder as named under files/
       destination: /
 
+  - type: script
+    scripts:
+      - shared/edid.sh
+
   # kernel selection
   # select ONE of the following from-file line
   # ---

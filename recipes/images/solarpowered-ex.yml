@@ -33,14 +33,6 @@ modules:
   # Plymouth
   - from-file: shared/plymouth.yml
 
-  # kernel selection
-  # select ONE of the following from-file line
-  # ---
-  # - from-file: kernels/bazzite.yml 
-  # - from-file: kernels/blu.yml 
-  - from-file: kernels/cachy.yml
-  # - from-file: kernels/fedora.yml
-
   # files module
   # copies files into /
   # ---
@@ -51,6 +43,14 @@ modules:
     # source entry should be the same name as the image name
     - source: solarpowered-ex # image name, or folder as named under files/
       destination: /
+
+  # kernel selection
+  # select ONE of the following from-file line
+  # ---
+  # - from-file: kernels/bazzite.yml 
+  # - from-file: kernels/blu.yml 
+  - from-file: kernels/cachy.yml
+  # - from-file: kernels/fedora.yml
 
   - type: os-release
     properties:

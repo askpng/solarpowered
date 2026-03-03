@@ -5,8 +5,6 @@ modules:
       - wget -t 5 -O /tmp/bitwarden.rpm "https://bitwarden.com/download/?app=desktop&platform=linux&variant=rpm"
       - dnf install -y /tmp/bitwarden.rpm
       - rm /tmp/bitwarden.rpm
-      # Luminance
-      - 'dnf install -y https://github.com/sidevesh/Luminance/releases/latest/download/luminance-$(curl https://api.github.com/repos/sidevesh/Luminance/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ").rpm'
       # Windscribe
       - 'dnf install -y https://github.com/Windscribe/Desktop-App/releases/latest/download/windscribe_$(curl https://api.github.com/repos/Windscribe/Desktop-App/releases/latest | grep tag_name | cut -d : -f2 | tr -d "v\", ")_amd64_fedora.rpm'
       # Atuin

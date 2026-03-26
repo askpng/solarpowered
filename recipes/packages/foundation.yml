@@ -74,6 +74,7 @@ modules:
         - libappindicator
         - libratbag-ratbagd
         - openrgb-udev-rules
+        - podman-compose
         - steam-devices
         # pretties
         - adw-gtk3-theme

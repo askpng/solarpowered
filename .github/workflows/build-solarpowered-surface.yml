@@ -1,0 +1,58 @@
+name: Build solarpowered
+on:
+  schedule:
+    - cron: "00 2 * * 1,5"
+    
+  push:
+    paths:
+      - ".github/workflows/build-solarpowered-surface.yml"
+      - "recipes/images/solarpowered-surface.yml"
+      # - "recipes/packages/solarpowered-surface.yml"
+      
+  pull_request:
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
+jobs:
+  bluebuild:
+    name: Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    strategy:
+      fail-fast: false
+      matrix:
+        recipe:
+          - images/solarpowered-surface.yml
+    steps:
+      - name: Optimize build times
+        shell: bash
+        run: |
+          echo 'set man-db/auto-update false' | sudo debconf-communicate
+          sudo dpkg-reconfigure man-db
+          sudo rm -f /var/lib/man-db/auto-update
+          sudo sed -i 's/^update_initramfs=.*/update_initramfs=no/' /etc/initramfs-tools/update-initramfs.conf
+
+      - name: Build solarpowered
+        uses: blue-build/github-action@v1.11
+        with:
+          recipe: ${{ matrix.recipe }}
+          build_chunked_oci: true
+          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
+          registry_token: ${{ github.token }}
+          pr_event_number: ${{ github.event.number }}
+          maximize_build_space: true
+          retry_push_count: 3
+          build_opts: --rechunk-clear-plan
+
+  # generate_release:
+  #   name: Generate Release
+  #   permissions:
+  #     contents: write    
+  #   needs: [bluebuild]
+  #   if: github.event_name != 'pull_request'
+  #   secrets: inherit
+  #   uses: ./.github/workflows/release.yml

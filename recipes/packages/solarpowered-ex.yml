@@ -30,7 +30,8 @@ modules:
         - rocm-smi
         - rom-properties-gtk3
         - steam
-        - sunshine
+        # - sunshine
+        - Sunshine-2026.403.124357-1.fc43
       exclude:
         - gamemode
   - type: systemd

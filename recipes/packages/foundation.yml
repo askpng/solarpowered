@@ -7,6 +7,7 @@ modules:
         - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
         # - vscodium.repo        
       copr:
+        - atim/starship 
         - cuteneko/waydroid-helper
         - sneexy/zen-browser
         #  - trixieua/mutter-patched
@@ -54,14 +55,11 @@ modules:
         - lm_sensors
         - lzip
         - nvtop
-        # - openssl # already included
         - smartmontools
         - stress
         - s-tui
-        # - wireguard-tools # already included
-        # - wl-clipboard # already included
+
         - yt-dlp
-        # - zstd # already included
         # GUI
         - baobab
         - firewall-config
@@ -122,7 +120,3 @@ modules:
         - google-noto-sans-cjk-vf-fonts        
         - rygel
         - yelp
-
-  # - type: script
-  #   scripts:
-  #     - shared/android-tools.sh

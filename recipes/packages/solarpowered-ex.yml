@@ -4,12 +4,12 @@ modules:
       cleanup: true
       nonfree: negativo17
       copr:
+        - bazzite-org/obs-vkcapture
+        - bazzite-org/rom-properties
         - eaglesemanation/displayconfig-mutter
         - ilyaz/LACT
         - jackgreiner/lutris-git
         - lizardbyte/beta
-        - ublue-os/obs-vkcapture
-        - ublue-os/rom-properties        
     install:
       install-weak-deps: false
       allow-erasing: true
@@ -17,10 +17,8 @@ modules:
         - displayconfig-mutter
         - gamescope
         - lact
-        - libobs_vkcapture.x86_64
-        - libobs_glcapture.x86_64
-        - libobs_vkcapture.i686
-        - libobs_glcapture.i686      
+        - obs-vkcapture.x86_64
+        - obs-vkcapture.i686   
         - lutris
         - mangohud
         - pipx
@@ -39,17 +37,6 @@ modules:
         - lactd.service
   - type: script
     snippets:
-      # Gamescope
-      # - dnf -y install dnf-plugins-core
-      # - dnf -y copr enable ublue-os/bazzite
-      # - dnf -y copr enable ublue-os/bazzite-multilib
-      # - dnf -y config-manager setopt "*bazzite*".priority=90 
-      # - dnf -y install
-      #     gamescope
-      #     gamescope-libs
-      #     gamescope-shaders
-      # - dnf -y copr disable ublue-os/bazzite-multilib
-      # - dnf -y copr disable ublue-os/bazzite
       - dnf clean all        
       # Extest
       - mkdir -p /usr/lib/extest

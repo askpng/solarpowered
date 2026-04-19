@@ -8,7 +8,7 @@ modules:
     install:
       allow-erasing: true
       packages:
-      - igt-gpu-tools
+      # - igt-gpu-tools
       # python-validity
       - fprintd-clients
       - fprintd-clients-pam

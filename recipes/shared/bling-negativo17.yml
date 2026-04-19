@@ -8,7 +8,8 @@ modules:
       install-weak-deps: false
       packages:
         - gstreamer1-plugin-vaapi
-        - ffmpeg-libs        
+        - ffmpeg-libs
+        - mesa-va-drivers      
     replace:
       - from-repo: fedora-multimedia
         packages:
@@ -24,6 +25,5 @@ modules:
           - mesa-filesystem
           - mesa-libEGL
           - mesa-libGL
-          - mesa-libgbm
-          - mesa-va-drivers
+          - mesa-libgbm        
           - mesa-vulkan-drivers

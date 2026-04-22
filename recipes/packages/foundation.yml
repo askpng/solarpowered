@@ -4,6 +4,7 @@ modules:
       cleanup: true
       nonfree: negativo17
       files:
+        - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
         # - vscodium.repo        
       copr:
@@ -58,7 +59,7 @@ modules:
         - smartmontools
         - stress
         - s-tui
-
+        - tailscale
         - yt-dlp
         # GUI
         - baobab

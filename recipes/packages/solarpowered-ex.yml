@@ -37,6 +37,19 @@ modules:
         - lactd.service
   - type: script
     snippets:
+      # Gamescope
+      - dnf -y config-manager addrepo --from-repofile=https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
+      - dnf -y copr enable bazzite-org/bazzite
+      - dnf -y copr enable bazzite-org/bazzite-multilib
+      - dnf -y install --setopt=install_weak_deps=False
+          terra-release{,-extras,-mesa}
+      - dnf -y install --setopt=install_weak_deps=False
+          tera-gamescope
+          gamescope-libs
+          gamescope-shaders
+      - dnf -y copr disable bazzite-org/bazzite-multilib
+      - dnf -y copr disable bazzite-org/bazzite
+      - rm -f /etc/yum.repos.d/{*terra*}.repo
       - dnf clean all        
       # Extest
       - mkdir -p /usr/lib/extest

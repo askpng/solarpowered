@@ -10,6 +10,7 @@ modules:
         - flatpak-system-update.service
         - flatpak-user-update.timer
         - flatpak-user-update.service
+        - tailscaled.service
     user:
       enabled:
         - topgrade.timer

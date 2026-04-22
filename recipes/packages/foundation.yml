@@ -4,6 +4,7 @@ modules:
       cleanup: true
       nonfree: negativo17
       files:
+        - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
         # - vscodium.repo        
       copr:
@@ -54,10 +55,10 @@ modules:
         - lm_sensors
         - lzip
         - nvtop
-        # - openssl # already included
         - smartmontools
         - stress
         - s-tui
+        - tailscale
         # - wireguard-tools # already included
         # - wl-clipboard # already included
         - yt-dlp

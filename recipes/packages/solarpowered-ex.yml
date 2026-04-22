@@ -15,7 +15,6 @@ modules:
       allow-erasing: true
       packages:
         - displayconfig-mutter
-        - gamescope
         - lact
         - obs-vkcapture.x86_64
         - obs-vkcapture.i686   

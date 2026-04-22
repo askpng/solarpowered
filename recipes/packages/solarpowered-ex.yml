@@ -44,8 +44,8 @@ modules:
       - dnf -y install --setopt=install_weak_deps=False
           terra-release{,-extras,-mesa}
       - dnf -y install --setopt=install_weak_deps=False
-          tera-gamescope
-          gamescope-libs
+          terra-gamescope
+          terra-gamescope-libs
           gamescope-shaders
       - dnf -y copr disable bazzite-org/bazzite-multilib
       - dnf -y copr disable bazzite-org/bazzite

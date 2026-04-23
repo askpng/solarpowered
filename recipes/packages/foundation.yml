@@ -47,6 +47,7 @@ modules:
         - vulkan-headers
         # CLI utilities
         - distrobox
+        - fakeroot
         - fastfetch
         - fish
         - fzf
@@ -87,12 +88,14 @@ modules:
         - bindfs
         - python3-pyclip
         - waydroid
-        - waydroid-helper
         - python3-aiofiles
         - python3-cffi
         - python3-ply
         - python3-pycparser
         - python3-pywayland
+        - repo: copr:copr.fedorainfracloud.org:cuteneko:waydroid-helper
+          packages:
+            - waydroid-helper         
     remove:
       packages:
         # fedora

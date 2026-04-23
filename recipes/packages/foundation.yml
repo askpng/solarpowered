@@ -47,6 +47,7 @@ modules:
         # CLI utilities
         - distrobox
         - fastfetch
+        - fakeroot
         - fish
         - fzf
         - ifuse
@@ -95,6 +96,9 @@ modules:
         - python3-ply
         - python3-pycparser
         - python3-pywayland
+        - repo: copr:copr.fedorainfracloud.org:cuteneko:waydroid-helper
+          packages:
+            - waydroid-helper        
     remove:
       packages:
         # fedora
@@ -128,7 +132,3 @@ modules:
         - google-noto-sans-cjk-vf-fonts        
         - rygel
         - yelp
-
-  # - type: script
-  #   scripts:
-  #     - shared/android-tools.sh

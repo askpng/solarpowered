@@ -12,7 +12,7 @@ dnf -y install --setopt=install_weak_deps=False \
     dnf5-plugins
 
 # Configure exclusion
-dnf -y config-manager setopt "fedora*".exclude=" \
+dnf -y config-manager setopt {"fedora*","updates"}.exclude=" \
     kernel \
     kernel-core \
     kernel-modules \

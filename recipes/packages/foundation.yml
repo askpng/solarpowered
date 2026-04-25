@@ -90,7 +90,6 @@ modules:
         - bindfs
         - python3-pyclip
         - waydroid
-        - waydroid-helper
         - python3-aiofiles
         - python3-cffi
         - python3-ply

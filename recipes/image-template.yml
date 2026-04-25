@@ -32,11 +32,10 @@ modules:
   
   # kernel selection
   # select ONE of the following from-file line
-  # or leave all three uncommented to use stock fedora kernel
   # ---
   # - from-file: kernels/blu.yml 
   # - from-file: kernels/cachy.yml
-  # - from-file: kernels/tkg.yml
+  # - from-file: kernels/fedora.yml
 
   # image-specific packages module
   # base/core packages are all handled by solarpowered-raw

@@ -8,6 +8,7 @@ modules:
         - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
         # - vscodium.repo        
       copr:
+        - atim/starship
         - cuteneko/waydroid-helper
         - sneexy/zen-browser
         #  - trixieua/mutter-patched
@@ -60,10 +61,7 @@ modules:
         - stress
         - s-tui
         - tailscale
-        # - wireguard-tools # already included
-        # - wl-clipboard # already included
         - yt-dlp
-        # - zstd # already included
         # GUI
         - baobab
         - firewall-config
@@ -89,12 +87,12 @@ modules:
         - android-tools
         - bindfs
         - python3-pyclip
-        - waydroid
         - python3-aiofiles
         - python3-cffi
         - python3-ply
         - python3-pycparser
         - python3-pywayland
+        - waydroid
         - repo: copr:copr.fedorainfracloud.org:cuteneko:waydroid-helper
           packages:
             - waydroid-helper        

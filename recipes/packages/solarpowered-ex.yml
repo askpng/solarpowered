@@ -15,7 +15,6 @@ modules:
       allow-erasing: true
       packages:
         - displayconfig-mutter
-        - gamescope
         - lact   
         - lutris
         - mangohud

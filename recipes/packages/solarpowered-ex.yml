@@ -12,14 +12,13 @@ modules:
         - lizardbyte/beta
     install:
       install-weak-deps: false
-      allow-erasing: true
+      allow-erasing: false
       packages:
         - displayconfig-mutter
         - lact   
         - lutris
         - mangohud
         - obs-vkcapture.x86_64
-        - obs-vkcapture.i686        
         - pipx
         - python3-ramalama      
         - rocm-hip

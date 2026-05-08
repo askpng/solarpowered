@@ -74,6 +74,7 @@ modules:
         - libappindicator
         - libratbag-ratbagd
         - openrgb-udev-rules
+        - podlet
         - podman-compose
         - steam-devices
         # pretties

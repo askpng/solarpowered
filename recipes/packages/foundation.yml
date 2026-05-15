@@ -38,11 +38,11 @@ modules:
         - zen-browser
         # audio & codecs
         - alsa-firmware
-        - celluloid
         - ffmpegthumbnailer
         - libcamera-gstreamer
         - libcamera-tools
         - libva-utils
+        - mpv
         - pipewire-plugin-vulkan
         - vulkan-headers
         # CLI utilities

@@ -1,13 +1,13 @@
-name: Build solarpowered
+name: Build photosphere
 on:
   schedule:
     - cron: "00 2 * * 1,5"
     
   push:
     paths:
-      - ".github/workflows/build-solarpowered-surface.yml"
-      - "recipes/images/solarpowered-surface.yml"
-      # - "recipes/packages/solarpowered-surface.yml"
+      - ".github/workflows/build-photosphere.yml"
+      - "recipes/images/photosphere.yml"
+      # - "recipes/packages/photosphere.yml"
       
   pull_request:
   workflow_dispatch:
@@ -26,7 +26,7 @@ jobs:
       fail-fast: false
       matrix:
         recipe:
-          - images/solarpowered-surface.yml
+          - images/photosphere.yml
     steps:
       - name: Optimize build times
         shell: bash
@@ -36,7 +36,7 @@ jobs:
           sudo rm -f /var/lib/man-db/auto-update
           sudo sed -i 's/^update_initramfs=.*/update_initramfs=no/' /etc/initramfs-tools/update-initramfs.conf
 
-      - name: Build solarpowered
+      - name: Build photosphere
         uses: blue-build/github-action@v1.11
         with:
           recipe: ${{ matrix.recipe }}

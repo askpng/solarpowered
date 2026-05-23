@@ -4,9 +4,11 @@ modules:
       cleanup: true
       nonfree: negativo17
       files:
+        - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
         # - vscodium.repo        
       copr:
+        - atim/starship
         - cuteneko/waydroid-helper
         - sneexy/zen-browser
         #  - trixieua/mutter-patched
@@ -36,16 +38,17 @@ modules:
         - zen-browser
         # audio & codecs
         - alsa-firmware
-        - celluloid
         - ffmpegthumbnailer
         - libcamera-gstreamer
         - libcamera-tools
         - libva-utils
+        - mpv
         - pipewire-plugin-vulkan
         - vulkan-headers
         # CLI utilities
         - distrobox
         - fastfetch
+        - fakeroot
         - fish
         - fzf
         - ifuse
@@ -54,14 +57,11 @@ modules:
         - lm_sensors
         - lzip
         - nvtop
-        # - openssl # already included
         - smartmontools
         - stress
         - s-tui
-        # - wireguard-tools # already included
-        # - wl-clipboard # already included
+        - tailscale
         - yt-dlp
-        # - zstd # already included
         # GUI
         - baobab
         - firewall-config
@@ -74,6 +74,7 @@ modules:
         - libappindicator
         - libratbag-ratbagd
         - openrgb-udev-rules
+        - podlet
         - podman-compose
         - steam-devices
         # pretties
@@ -87,8 +88,15 @@ modules:
         - android-tools
         - bindfs
         - python3-pyclip
+        - python3-aiofiles
+        - python3-cffi
+        - python3-ply
+        - python3-pycparser
+        - python3-pywayland
         - waydroid
-        - waydroid-helper
+        - repo: copr:copr.fedorainfracloud.org:cuteneko:waydroid-helper
+          packages:
+            - waydroid-helper        
     remove:
       packages:
         # fedora
@@ -122,7 +130,3 @@ modules:
         - google-noto-sans-cjk-vf-fonts        
         - rygel
         - yelp
-
-  # - type: script
-  #   scripts:
-  #     - shared/android-tools.sh

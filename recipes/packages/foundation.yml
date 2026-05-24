@@ -56,6 +56,7 @@ modules:
         - iwd
         - lm_sensors
         - lzip
+        - micro
         - nvtop
         - smartmontools
         - stress
@@ -75,7 +76,6 @@ modules:
         - libratbag-ratbagd
         - openrgb-udev-rules
         - podlet
-        - podman-compose
         - steam-devices
         # pretties
         - adw-gtk3-theme

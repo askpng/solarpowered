@@ -28,7 +28,7 @@ modules:
   # systemd services related to image-specific packages
   # may also be placed within this module for simplicity
   # ---
-  # - from-file: packages/-
+  - from-file: packages/photosphere.yml
 
   # Plymouth
   - from-file: shared/plymouth.yml
@@ -42,6 +42,17 @@ modules:
   # - from-file: kernels/fedora.yml
   # - from-file: kernels/surface.yml
 
+  # files module
+  # copies files into /
+  # ---
+  - type: files
+    files:
+    # create a folder under files/ with the image name
+    # and place directories and files appropriately
+    # source entry should be the same name as the image name
+    - source: photosphere # image name, or folder as named under files/
+      destination: /
+    
   - type: os-release
     properties:
       PRETTY_NAME: Fedora Linux 44 (Silverblue)

@@ -1,36 +1,48 @@
 #!/usr/bin/env bash
 
-set -x
+set -euo pipefail
 
-# Remove Fedora kernel & remove leftover files
+dnf -y install dnf-plugins-core --setopt=install_weak_deps=False
+
+dnf -y config-manager setopt fastestmirror=1
+dnf -y config-manager setopt install_weak_deps=False
+
+# Configure exclusion for Fedora mainline kernel
+# glob* everything, we don't need other kernel- packages here
+dnf -y config-manager setopt "fedora*".exclude="kernel kernel*"
+dnf -y config-manager setopt "updates*".exclude="kernel kernel*"
+
+# Remove Fedora mainline kernel & leftover files
 dnf -y remove \
     kernel \
-    kernel-* && \
+    kernel-*
 rm -r -f /usr/lib/modules/*
 
-# Install dnf-plugins-core just in case
-dnf -y install --setopt=install_weak_deps=False \
-    dnf-plugins-core \
-    dnf5-plugins
+# Enable repo
+# dnf -y config-manager addrepo --from-repofile=https://pkg.surfacelinux.com/fedora/linux-surface.repo
 
-# Configure exclusion
-dnf -y config-manager setopt "*fedora*".exclude=" \
-    kernel \
-    kernel-core \
-    kernel-modules \
-    kernel-modules-core \
-    kernel-modules-extra \
-    kernel-headers \
-    "
-# Add linux-surface kernel & terra subatomic repo
-dnf -y config-manager addrepo \
-    --from-repofile=https://pkg.surfacelinux.com/fedora/linux-surface.repo
+# linux-surface kernel repo - use F43 repo until F44 repo is released
+cat <<EOF > /etc/yum.repos.d/linux-surface.repo
+[linux-surface]
+name=linux-surface
+baseurl=https://pkg.surfacelinux.com/fedora/f43/
+enabled=1
+skip_if_unavailable=1
+gpgkey=https://raw.githubusercontent.com/linux-surface/linux-surface/master/pkg/keys/surface.asc
+gpgcheck=1
+enabled_metadata=1
+type=rpm-md
+repo_gpgcheck=0
+EOF
 
-# Install akmods, kernel, and modules
-dnf -y install --setopt=install_weak_deps=False --allowerasing \
+# Install kernel & iptsd
+dnf -y install \
     kernel-surface \
-    iptsd \
-    libwacom-surface
+    kernel-surface-modules-extra-matched \
+    iptsd
 
-# Clean up repos from earlier
-rm -f /etc/yum.repos.d/{*surface*}.repo
+# Temporary workaround until libwacom-surface is updated for F44
+dnf -y swap libwacom-data libwacom-surface-data
+
+# Clean up repo
+rm /etc/yum.repos.d/linux-surface.repo

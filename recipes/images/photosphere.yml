@@ -39,8 +39,8 @@ modules:
   # - from-file: kernels/bazzite.yml 
   # - from-file: kernels/blu.yml 
   # - from-file: kernels/cachy.yml
-  - from-file: kernels/fedora.yml
-  # - from-file: kernels/surface.yml
+  # - from-file: kernels/fedora.yml
+  - from-file: kernels/surface.yml
 
   # files module
   # copies files into /

@@ -44,5 +44,40 @@ dnf -y install \
 # Temporary workaround until libwacom-surface is updated for F44
 dnf -y swap libwacom-data libwacom-surface-data
 
+# Load surface-related modules on boot
+# Reference: https://github.com/LorbusChris/bluespin/blob/main/build_files/build.sh
+cat <<EOF > /usr/lib/modules-load.d/surface.conf
+# Only on AMD models
+pinctrl_amd
+# Surface Book 2
+pinctrl_sunrisepoint
+# For Surface Pro 7/Laptop 3/Book 3
+pinctrl_icelake
+# For Surface Pro 7+/Pro 8/Laptop 4/Laptop Studio
+pinctrl_tigerlake
+# For Surface Pro 9/Laptop 5
+pinctrl_alderlake
+# For Surface Pro 10/Laptop 6
+pinctrl_meteorlake
+# Only on Intel models
+intel_lpss
+intel_lpss_pci
+# Add modules necessary for Disk Encryption via keyboard
+surface_aggregator
+surface_aggregator_registry
+surface_aggregator_hub
+surface_hid_core
+8250_dw
+# Surface Pro 7/Laptop 3/Book 3 and later
+surface_hid
+surface_kbd
+EOF
+
+# Regenerate initramfs
+VER=$(basename /usr/lib/modules/*)
+
+export DRACUT_NO_XATTR=1
+dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
+
 # Clean up repo
 rm /etc/yum.repos.d/linux-surface.repo

@@ -7,19 +7,14 @@ modules:
     install:
       allow-erasing: true
       packages:
-      - igt-gpu-tools 
-      # # tlp
-      - tlp
-      - tlp-rdw
-      - tlp-pd
-      # throttled
+      - igt-gpu-tools
+      - powertop
       - throttled
+      - tuned-utils
     remove:
       auto-remove: true
       packages:
         - thermald
-        - tuned
-        - tuned-ppd
         
   # - type: systemd
   #   system:

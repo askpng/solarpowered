@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-
 dnf -y install dnf-plugins-core --setopt=install_weak_deps=False
 
 dnf -y config-manager setopt fastestmirror=1
 dnf -y config-manager setopt install_weak_deps=False
 
 # Exclude Fedora mainline kernel
-dnf -y config-manager setopt "fedora*".exclude= \
+dnf -y config-manager setopt "fedora*".exclude=" \
     kernel \
     kernel-devel \
     kernel-headers \
@@ -16,8 +14,9 @@ dnf -y config-manager setopt "fedora*".exclude= \
     kernel-debug* \
     kernel-devel* \
     kernel-modules* \
-    kernel-tools*
-dnf -y config-manager setopt "updates*".exclude= \
+    kernel-tools* \
+    "
+dnf -y config-manager setopt "updates*".exclude=" \
     kernel \
     kernel-devel \
     kernel-headers \
@@ -25,7 +24,8 @@ dnf -y config-manager setopt "updates*".exclude= \
     kernel-debug* \
     kernel-devel* \
     kernel-modules* \
-    kernel-tools*
+    kernel-tools* \
+    "
 
 # Remove Fedora mainline kernel & leftover files
 dnf -y remove \
@@ -49,11 +49,12 @@ dnf -y install \
     zenergy
 
 # Manually build modules, run depmod & generate initramfs
-VER=$(ls /lib/modules) &&
-    akmods --force --kernels $VER --kmod v4l2loopback &&
-    akmods --force --kernels $VER --kmod zenergy &&
-    depmod -a $VER &&
-    dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
+VER=$(basename /usr/lib/modules/*)
+akmods --force --kernels $VER --kmod v4l2loopback
+akmods --force --kernels $VER --kmod zenergy
+
+export DRACUT_NO_XATTR=1
+dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
 
 # Clean up repos
 rm -f /etc/yum.repos.d/{*copr*,*terra*,*multimedia*}.repo

@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-
 # Install dnf-plugins-core just in case
 dnf -y install --setopt=install_weak_deps=False \
     dnf-plugins-core
-
-# DNF opts
+    
 dnf -y config-manager setopt fastestmirror=1
 dnf -y config-manager setopt install_weak_deps=False
 
@@ -23,11 +20,12 @@ dnf -y install --setopt=install_weak_deps=False \
     zenergy
 
 # Manually build modules, run depmod & generate initramfs
-VER=$(ls /lib/modules) &&
-    akmods --force --kernels $VER --kmod v4l2loopback &&
-    akmods --force --kernels $VER --kmod zenergy &&
-    depmod -a $VER &&
-    dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
+VER=$(basename /usr/lib/modules/*)
+akmods --force --kernels $VER --kmod v4l2loopback
+akmods --force --kernels $VER --kmod zenergy
+
+export DRACUT_NO_XATTR=1
+dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
 
 # Clean up repos from earlier
 rm -f /etc/yum.repos.d/{*copr*,*terra*}.repo

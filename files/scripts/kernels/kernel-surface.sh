@@ -4,7 +4,6 @@ set -euo pipefail
 
 dnf -y install dnf-plugins-core --setopt=install_weak_deps=False
 
-dnf -y config-manager setopt fastestmirror=1
 dnf -y config-manager setopt install_weak_deps=False
 
 # Configure exclusion for Fedora mainline kernel

@@ -1,32 +1,8 @@
 modules:
   - type: dnf
-    repos:
-      cleanup: true
-      copr:
-        - abn/throttled
     install:
       allow-erasing: true
       packages:
       - igt-gpu-tools
       - powertop
-      - throttled
       - tuned-utils
-    remove:
-      auto-remove: true
-      packages:
-        - thermald
-        
-  # - type: systemd
-  #   system:
-  #     enabled:
-  #       # tlp
-  #       - tlp.service
-  #       # throttled
-  #       # throttled.service
-  #     masked: 
-  #       # tlp
-  #       - systemd-rfkill.service
-  #       - systemd-rfkill.socket
-
-
-  

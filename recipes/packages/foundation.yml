@@ -13,11 +13,11 @@ modules:
         - sneexy/zen-browser
         #  - trixieua/mutter-patched
         - zeno/scrcpy
-    replace:
-      - from-repo: fedora
-        packages:
-          - old: OpenCL-ICD-Loader
-            new: ocl-icd
+    # replace:
+    #   - from-repo: fedora
+    #     packages:
+    #       - old: OpenCL-ICD-Loader
+    #         new: ocl-icd
     #   - from-repo: copr:copr.fedorainfracloud.org:trixieua:mutter-patched
     #     allow-erasing: true
     #     packages:

@@ -31,7 +31,7 @@ modules:
   - from-file: packages/photosphere.yml
 
   # Plymouth
-  - from-file: shared/plymouth.yml
+  # - from-file: shared/plymouth.yml
 
   # kernel selection
   # select ONE of the following from-file line

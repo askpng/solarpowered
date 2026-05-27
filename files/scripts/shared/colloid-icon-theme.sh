@@ -16,7 +16,7 @@ mkdir -p "$CLONE_DIR"
 cd "$CLONE_DIR"
 echo "Directory created."
 
-git clone "$GITHUB_URL"
+git clone --depth 1 "$GITHUB_URL"
 
 echo "Repo cloned. Copying files..."
 

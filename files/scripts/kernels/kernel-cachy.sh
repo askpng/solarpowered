@@ -36,7 +36,6 @@ rm -r -f /usr/lib/modules/*
 dnf -y copr enable bieszczaders/kernel-cachyos-lto
 dnf -y copr enable bieszczaders/kernel-cachyos-addons
 dnf -y config-manager addrepo --from-repofile=https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
-dnf -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
 
 # Install akmods, kernel, and modules
 dnf -y install \

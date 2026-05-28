@@ -3,8 +3,7 @@
 # Install dnf-plugins-core just in case
 dnf -y install --setopt=install_weak_deps=False \
     dnf-plugins-core
-    
-dnf -y config-manager setopt fastestmirror=1
+
 dnf -y config-manager setopt install_weak_deps=False
 
 # Enable repos for akmods

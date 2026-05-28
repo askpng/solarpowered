@@ -2,7 +2,6 @@
 
 dnf -y install dnf-plugins-core --setopt=install_weak_deps=False
 
-dnf -y config-manager setopt fastestmirror=1
 dnf -y config-manager setopt install_weak_deps=False
 
 # Exclude Fedora mainline kernel
@@ -36,7 +35,6 @@ rm -r -f /usr/lib/modules/*
 # Enable repos
 dnf -y copr enable sentry/kernel-blu
 dnf -y config-manager addrepo --from-repofile=https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
-dnf -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
 
 # Install akmods, kernel, and modules
 dnf -y install \

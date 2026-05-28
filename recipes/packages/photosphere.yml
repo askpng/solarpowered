@@ -1,8 +1,13 @@
 modules:
   - type: dnf
+    repos:
+      cleanup: true
+      copr:
+          - starfish/howdy-beta
     install:
       allow-erasing: true
       packages:
       - igt-gpu-tools
       - powertop
       - tuned-utils
+      - howdy-gtk

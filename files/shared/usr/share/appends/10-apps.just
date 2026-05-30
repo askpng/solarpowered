@@ -1,19 +1,24 @@
+# Fix broken Adwaita icons for Flatpak apps
+fix-flatpak-adwaita:
+     sudo gtk4-update-icon-cache -f /var/lib/flatpak/exports/share/icons/hicolor
+     sudo gtk-update-icon-cache -f /var/lib/flatpak/exports/share/icons/hicolor
+
 # Setup box
 box:
      distrobox-assemble create --file https://raw.githubusercontent.com/askpng/box/refs/heads/main/box.ini
      distrobox enter box -- /usr/bin/boxit
 
 # set junction as default for browsers
-setup-junction:
+junction:
      xdg-settings set default-web-browser re.sonny.Junction.desktop
 
 # install flameshot and grant screenshot permission
-setup-flameshot:
+flameshot:
      flatpak install --noninteractive --assumeyes org.flameshot.Flameshot
      flatpak permission-set screenshot screenshot org.flameshot.Flameshot yes
 
 # Scripts to initialize, configure, integrate & reset Waydroid
-setup-waydroid:
+waydroid:
      #!/usr/bin/env bash
      set -e
 

@@ -8,7 +8,7 @@ mkdir -p /tmp/clone/nautilus-copy-path/
 cd /tmp/clone/nautilus-copy-path/
 echo 'Directory created.'
 
-git clone https://github.com/chr314/nautilus-copy-path.git
+git clone --depth 1 https://github.com/chr314/nautilus-copy-path.git
 echo 'Repo cloned. Copying files...'
 
 mkdir -p /usr/share/nautilus-python/extensions/nautilus-copy-path

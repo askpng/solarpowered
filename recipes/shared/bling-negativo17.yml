@@ -9,6 +9,10 @@ modules:
       packages:
         - ffmpeg-libs
         - gstreamer1-plugins-bad
+        - gstreamer1-plugins-bad-fluidsynth
+        - gstreamer1-plugins-bad-opencv
+        - gstreamer1-plugins-ugly
+        - intel-gmmlib
         - openh264
         - libfreeaptx
         - mesa-va-drivers

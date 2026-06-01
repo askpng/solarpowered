@@ -6,17 +6,8 @@ modules:
   # contains repo files for codium, configs and services that will be shared across images
   - from-file: shared/files.yml
 
-  # intel-media-driver from RPM Fusion & codecs from fedora-multimedia repo
+  # codecs from fedora-multimedia repo
   - from-file: shared/bling-negativo17.yml
-  - type: dnf
-    repos:
-      cleanup: true
-      nonfree: rpmfusion
-    replace:
-      - from-repo: rpmfusion-nonfree
-        packages:
-        - old: libva-intel-media-driver
-          new: intel-media-driver    
 
   # installs and removes packages, this will apply to all solarpowered images
   # includes installation entries for audio & codecs, CLI utilities, GUI apps,

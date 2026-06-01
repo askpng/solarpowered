@@ -7,9 +7,14 @@ modules:
       allow-erasing: true
       install-weak-deps: false
       packages:
-        - gstreamer1-plugin-vaapi
         - ffmpeg-libs
-        - mesa-va-drivers  
+        - gstreamer1-plugins-bad
+        - openh264
+        - libfreeaptx
+        - mesa-va-drivers
+        - mesa-vulkan-drivers
+        - x264
+        - x265  
     replace:
       - from-repo: fedora-multimedia
         packages:
@@ -21,6 +26,7 @@ modules:
             new: libfdk-aac
           - libheif
           - libva
+          - libva-intel-media-driver
           - mesa-dri-drivers
           - mesa-filesystem
           - mesa-libEGL

@@ -12,11 +12,8 @@ modules:
         - gstreamer1-plugins-bad-fluidsynth
         - gstreamer1-plugins-bad-opencv
         - gstreamer1-plugins-ugly
-        - intel-gmmlib
         - openh264
         - libfreeaptx
-        - mesa-va-drivers
-        - mesa-vulkan-drivers
         - x264
         - x265  
     replace:
@@ -24,6 +21,7 @@ modules:
         packages:
           # - old: ffmpeg-free
           #   new: ffmpeg
+          - intel-gmmlib
           # - old: libavcodec-free
           #   new: libavcodec
           - old: libfdk-aac-free

@@ -14,6 +14,8 @@ modules:
         - gstreamer1-plugins-ugly
         - openh264
         - libfreeaptx
+        - libva-utils
+        - mpv
         - x264
         - x265  
     replace:
@@ -24,7 +26,7 @@ modules:
           - intel-gmmlib
           # - old: libavcodec-free
           #   new: libavcodec
-          - old: libfdk-aac-free
+          - old: fdk-aac-free
             new: libfdk-aac
           - libheif
           - libva

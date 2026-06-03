@@ -1,0 +1,13 @@
+modules:
+  - type: copy
+    from: ghcr.io/ublue-os/akmods:ogc-44
+    src: /kernel-rpms
+    dest: /tmp/kernel-rpms
+
+  - type: script
+    snippets:
+      # Remove default kernel & remove leftover modules
+      - dnf -y remove kernel-* && rm -drf /usr/lib/modules/*
+      - dnf -y install --setopt=install_weak_deps=False /tmp/kernel-rpms/kernel-*.rpm
+      - rm -r /tmp/kernel-rpms
+      

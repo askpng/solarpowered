@@ -46,6 +46,7 @@ modules:
         - pipewire-plugin-vulkan
         - vulkan-headers
         # CLI utilities
+        - clevis
         - distrobox
         - fastfetch
         - fakeroot

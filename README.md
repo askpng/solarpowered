@@ -4,7 +4,7 @@ Custom images based on [Fedora Silverblue](https://quay.io/repository/fedora/fed
 
 Also check out [atomic-t480s](https://github.com/askpng/atomic-t480s), a much simpler custom image project I started to support Lenovo Thinkpad T480s users.
 
-# solarpowered - for Lenovo T480/s devices
+## solarpowered - for Lenovo T480/s devices
 
 > NOTE: This image is subject to deprecation in the upcoming Fedora version update; F44 builds will be the last, and solarpowered will not be getting F45 builds.
 
@@ -21,7 +21,7 @@ It is highly recommended to run `append solarpowered-setup` upon installation. T
 
 > NOTE: This does *not* configure `throttled`, as undervolt stable values differ between machines. For further information about undervolting, refer to the official documentation on `throttled`.
 
-# solarpowered-ex - for Ryzen/AMD computers
+## solarpowered-ex - for Ryzen/AMD computers
 
 Includes the following goodies:
 - Gamescope, Lutris, MangoHud and experimental implementation of Steam Gaming Mode
@@ -31,12 +31,12 @@ Includes the following goodies:
 
 This image is shipped with [kernel-cachyos-lto](https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/) with its built-in `v4l2loopback` and `zenergy`.
 
-# photosphere - for Microsoft Surface (Laptop) devices
+## photosphere - for Microsoft Surface (Laptop) devices
 
 Includes the following goodies:
 
 - `igt-gpu-tools`
-- `powertop` and `tuned-utils` - `powertop2tuned` is excellent for bridgning `powertop` and `tuned`
+- `powertop` and `tuned-utils` - `powertop2tuned` is excellent for bridging `powertop` and `tuned`
 - `howdy-gtk`
 
 This image is shipped with the [linux-surface](https://github.com/linux-surface/linux-surface) kernel with the `iptsd` kernel module.

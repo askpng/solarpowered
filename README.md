@@ -1,26 +1,12 @@
-# <center>☀️ solarpowered ☀️</center>
+# ☀️ solarpowered
 
-`solarpowered` and `solarpowered-ex` are custom images based on [Fedora Silverblue](https://quay.io/repository/fedora/fedora-silverblue?tab=tags) using [BlueBuild](https://github.com/blue-build/template). I started this project as a learning and hobby project to familiarize myself with containers, Linux, and GitHub. 
+Custom images based on [Fedora Silverblue](https://quay.io/repository/fedora/fedora-silverblue?tab=tags), made using [BlueBuild](https://github.com/blue-build/template). This began as a learning project to familiarize myself with atomic OSes and GitHub - it is now my fully functional, primary OS image! :)
 
-Both images are fully functional for daily operations.
+Also check out [atomic-t480s](https://github.com/askpng/atomic-t480s), a much simpler custom image project I started to support Lenovo Thinkpad T480s users.
 
-Also check out [atomic-t480s](https://github.com/askpng/atomic-t480s), much simpler custom image project I started to support Lenovo Thinkpad T480s users.
+# solarpowered - for Lenovo T480/s devices
 
-I named this project `solarpowered` because I like Gawain from Fate/Extra & Fate/Grand Order.
-
-# Highlights
-
-- Multimedia codecs from `fedora-multimedia` repo (and `intel-media-driver` from RPM Fusion)
-- Distrobox, Just, and VSCodium
-- Waydroid and ADB
-- Nautilus addons
-- More vanilla GNOME Experience
-- Zen Browser instead of Firefox
-- Colloid, MoreWaita, Tela, and Qogir icon themes
-- Nerd Fonts Symbols and a small selection of fonts from Google Fonts 
-- Several sound & icon themes & fonts installed OOTB
-
-## solarpowered - made to support Lenovo T480/s devices
+> NOTE: This image is subject to deprecation in the upcoming Fedora version update; F44 builds will be the last, and solarpowered will not be getting F45 builds.
 
 Includes the following tools for maximum Lenovo T480/s functionality with 0 layering:
 - `igt-gpu-tools` for monitoring iGPU use
@@ -29,25 +15,36 @@ Includes the following tools for maximum Lenovo T480/s functionality with 0 laye
 - TLP
 - `zcfan`
 
-This image is shipped with [kernel-blu](https://copr.fedorainfracloud.org/coprs/sentry/kernel-blu/) with `v4l2loopback` kernel module
+This image is shipped with [kernel-blu](https://copr.fedorainfracloud.org/coprs/sentry/kernel-blu/) with the `v4l2loopback` kernel module.
 
-It is highly recommended to run `append solarpowered-setup` upon installation. This installs TLP-UI Flatpak, configrues necessary kernel arguments & local `initramfs` regeneration, and enables `python-validity` and `zcfan`. It is recommended to reboot afterwards. 
+It is highly recommended to run `append solarpowered-setup` upon installation. This installs TLP-UI Flatpak, configures necessary kernel arguments & local `initramfs` regeneration, and enables `python-validity` and `zcfan`. It is recommended to reboot afterwards. 
 
 > NOTE: This does *not* configure `throttled`, as undervolt stable values differ between machines. For further information about undervolting, refer to the official documentation on `throttled`.
 
-## solarpowered-ex - for Ryzen/AMD computers
+# solarpowered-ex - for Ryzen/AMD computers
 
-Includes the following tools:
+Includes the following goodies:
 - Gamescope, Lutris, MangoHud and experimental implementation of Steam Gaming Mode
 - Beta/Unstable version of Sunshine for game streaming
 - Ramalama and ROCM packages
 - [LACT-libadwaita](https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/)
 
-This image is shipped with [kernel-cachyos-lto](https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/) with its built-in `v4l2loopback`, `evdi` and `displaylink`, as well as `zenergy` for Ryzen power stats reading.
+This image is shipped with [kernel-cachyos-lto](https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/) with its built-in `v4l2loopback` and `zenergy`.
+
+# photosphere - for Microsoft Surface (Laptop) devices
+
+Includes the following goodies:
+
+- `igt-gpu-tools`
+- `powertop` and `tuned-utils` - `powertop2tuned` is excellent for bridgning `powertop` and `tuned`
+- `howdy-gtk`
+
+This image is shipped with the [linux-surface](https://github.com/linux-surface/linux-surface) kernel with the `iptsd` kernel module.
+
 
 # Installation
 
-You can install by rebasing from Silverblue or generating an ISO file yourself. If you decide to give this a go, and would like to provide feedback and/or suggestions, feel free to open a new issue.
+You can install `solarpowered` by rebasing from Silverblue or generating an ISO file yourself. If you decide to give this a go, and would like to provide feedback and/or suggestions, feel free to open a new issue.
 
 ## Rebase
 To rebase from a Silverblue installation, follow the steps below.

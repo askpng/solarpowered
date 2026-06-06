@@ -2,8 +2,6 @@ modules:
   - type: dnf
     repos:
       cleanup: true
-      copr:
-          - starfish/howdy-beta
     install:
       allow-erasing: true
       install-weak-deps: false
@@ -11,4 +9,3 @@ modules:
       - igt-gpu-tools
       - powertop
       - tuned-utils
-      - howdy-gtk

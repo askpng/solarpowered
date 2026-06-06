@@ -11,6 +11,7 @@ modules:
         - atim/starship
         - cuteneko/waydroid-helper
         - sneexy/zen-browser
+        - starfish/howdy-beta
         #  - trixieua/mutter-patched
         - zeno/scrcpy
     # replace:
@@ -41,8 +42,6 @@ modules:
         - ffmpegthumbnailer
         - libcamera-gstreamer
         - libcamera-tools
-        # - libva-utils
-        # - mpv
         - pipewire-plugin-vulkan
         - vulkan-headers
         # CLI utilities
@@ -72,6 +71,7 @@ modules:
         # other system
         - btrfs-assistant
         - flatpak-spawn
+        - howdy-gtk
         - input-remapper
         - libappindicator
         - libratbag-ratbagd

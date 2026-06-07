@@ -1,11 +1,29 @@
 modules:
+  - type: script
+    snippets:
+      - |
+        if ! [ -f /etc/yum.repos.d/linux-surface.repo ]; then
+        cat <<EOF > /etc/yum.repos.d/linux-surface.repo
+        [linux-surface]
+        name=linux-surface
+        baseurl=https://pkg.surfacelinux.com/fedora/f43/
+        enabled=1
+        skip_if_unavailable=1
+        gpgkey=https://raw.githubusercontent.com/linux-surface/linux-surface/master/pkg/keys/surface.asc
+        gpgcheck=1
+        enabled_metadata=1
+        type=rpm-md
+        repo_gpgcheck=0
+        EOF
+        fi
   - type: dnf
-    repos:
-      cleanup: true
+    replace:
+      - from-repo: linux-surface
+        packages:
+          - old: libwacom-data
+            new: libwacom-surface-data
     install:
       allow-erasing: true
       install-weak-deps: false
       packages:
-      - igt-gpu-tools
-      - powertop
-      - tuned-utils
+        - iptsd

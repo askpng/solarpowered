@@ -28,7 +28,7 @@ modules:
   # systemd services related to image-specific packages
   # may also be placed within this module for simplicity
   # ---
-  # - from-file: packages/photosphere.yml
+  - from-file: packages/photosphere.yml
 
   # Plymouth
   # - from-file: shared/plymouth.yml
@@ -39,8 +39,8 @@ modules:
   # - from-file: kernels/bazzite.yml 
   # - from-file: kernels/blu.yml 
   # - from-file: kernels/cachy.yml
-  # - from-file: kernels/fedora.yml
-  - from-file: kernels/surface.yml
+  - from-file: kernels/fedora.yml
+  # - from-file: kernels/surface.yml
 
   # files module
   # copies files into /

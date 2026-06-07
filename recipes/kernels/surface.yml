@@ -1,4 +1,34 @@
 modules:
   - type: script
-    scripts:
-      - kernels/kernel-surface.sh
+    # scripts:
+    #   - kernels/kernel-surface.sh
+    snippets:
+      - |
+        cat <<EOF > /etc/yum.repos.d/linux-surface.repo
+        [linux-surface]
+        name=linux-surface
+        baseurl=https://pkg.surfacelinux.com/fedora/f43/
+        enabled=1
+        skip_if_unavailable=1
+        gpgkey=https://raw.githubusercontent.com/linux-surface/linux-surface/master/pkg/keys/surface.asc
+        gpgcheck=1
+        enabled_metadata=1
+        type=rpm-md
+        repo_gpgcheck=0
+        EOF
+  - type: dnf
+    remove:
+      packages:
+        - kernel
+        - kernel-core
+        - kernel-modules
+        - kernel-modules-core
+        - kernel-modules-extra
+        - kernel-tools
+        - kernel-tools-libs
+    install:
+      allow-erasing: true
+      install-weak-deps: false
+      packages:
+        - kernel-surface
+        - kernel-surface-modules-extra-matched

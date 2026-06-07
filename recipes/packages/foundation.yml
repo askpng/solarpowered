@@ -13,7 +13,7 @@ modules:
         - sneexy/zen-browser
         - starfish/howdy-beta
         - zeno/scrcpy
-    #      - trixieua/mutter-patched
+    #     - trixieua/mutter-patched
     # replace:
     #   - from-repo: fedora
     #     packages:
@@ -79,6 +79,7 @@ modules:
         - input-remapper
         - libappindicator
         - libratbag-ratbagd
+        - microcode_ctl
         - openrgb-udev-rules
         - steam-devices
         # waydroid/android

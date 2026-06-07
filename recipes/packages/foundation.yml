@@ -12,8 +12,8 @@ modules:
         - cuteneko/waydroid-helper
         - sneexy/zen-browser
         - starfish/howdy-beta
-        #  - trixieua/mutter-patched
         - zeno/scrcpy
+    #      - trixieua/mutter-patched
     # replace:
     #   - from-repo: fedora
     #     packages:
@@ -30,13 +30,14 @@ modules:
       allow-erasing: true
       install-weak-deps: false
       packages:
-        # vscodium
-        - codium
         # copr
+        - howdy-gtk
         - scrcpy
         - starship
         - topgrade
         - zen-browser
+        ## vscodium
+        - codium
         # audio & codecs
         - alsa-firmware
         - ffmpegthumbnailer
@@ -52,16 +53,20 @@ modules:
         - fish
         - fzf
         - ifuse
+        - igt-gpu-tools
         - inxi
         - iwd
         - lm_sensors
         - lzip
         - micro
         - nvtop
+        - podlet
+        - powertop
         - smartmontools
         - stress
         - s-tui
         - tailscale
+        - tuned-utils
         - yt-dlp
         # GUI
         - baobab
@@ -71,21 +76,12 @@ modules:
         # other system
         - btrfs-assistant
         - flatpak-spawn
-        - howdy-gtk
         - input-remapper
         - libappindicator
         - libratbag-ratbagd
         - openrgb-udev-rules
-        - podlet
         - steam-devices
-        # pretties
-        - adw-gtk3-theme
-        - fonts-tweak-tool
-        - deepin-sound-theme
-        - oxygen-sounds
-        - pop-sound-theme
-        - yaru-sound-theme
-        # android stuff
+        # waydroid/android
         - android-tools
         - bindfs
         - python3-pyclip
@@ -97,7 +93,14 @@ modules:
         - waydroid
         - repo: copr:copr.fedorainfracloud.org:cuteneko:waydroid-helper
           packages:
-            - waydroid-helper        
+            - waydroid-helper   
+        # cosmetics
+        - adw-gtk3-theme
+        - fonts-tweak-tool
+        - deepin-sound-theme
+        - oxygen-sounds
+        - pop-sound-theme
+        - yaru-sound-theme     
     remove:
       packages:
         # fedora

@@ -1,18 +1,22 @@
 modules:
   - type: script
-    # scripts:
-    #   - kernels/kernel-fedora.sh
     snippets:
     - dnf -y install --setopt=install_weak_deps=False dnf-plugins-core
     - dnf -y config-manager setopt install_weak_deps=False
     - dnf -y config-manager setopt tsflags=noscripts # Prevents postinstall scripts from running (and failing the build)
-    - dnf -y config-manager addrepo --from-repofile=https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
-    - dnf -y install kernel-devel kernel-modules-extra akmods help2man v4l2loopback zenergy
+    - curl -L https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo -o /etc/yum.repos.d/terra.repo
+    - dnf -y install
+        kernel-devel
+        kernel-modules-extra
+        akmods
+        help2man
+        v4l2loopback
+        zenergy
     - VER=$(basename /usr/lib/modules/*) &&
-      akmods --force --kernels $VER --kmod v4l2loopback &&
-      akmods --force --kernels $VER --kmod zenergy &&
-      depmod -a $VER &&
-      DRACUT_NO_XATTR=1 &&
-      dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
+        akmods --force --kernels $VER --kmod v4l2loopback &&
+        akmods --force --kernels $VER --kmod zenergy &&
+        depmod -a $VER &&
+        DRACUT_NO_XATTR=1 &&
+        dracut --kver $VER --force --add ostree --no-hostonly --reproducible /usr/lib/modules/$VER/initramfs.img
     - dnf -y config-manager unsetopt tsflags # Cleanly undo tsflags=noscripts
-    - rm -f /etc/yum.repos.d/{*copr*,*terra*}.repo
+    - rm -f /etc/yum.repos.d/terra.repo

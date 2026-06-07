@@ -1,7 +1,5 @@
 modules:
   - type: script
-    # scripts:
-    #   - kernels/kernel-surface.sh
     snippets:
       - |
         cat <<EOF > /etc/yum.repos.d/linux-surface.repo

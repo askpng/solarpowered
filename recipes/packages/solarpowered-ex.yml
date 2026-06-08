@@ -36,7 +36,7 @@ modules:
   - type: script
     snippets:
       # Gamescope
-      - dnf -y config-manager addrepo --from-repofile=https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
+      - curl https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo -o /etc/yum.repos.d/terra.repo
       - dnf -y copr enable bazzite-org/bazzite
       - dnf -y copr enable bazzite-org/bazzite-multilib
       - dnf -y install --setopt=install_weak_deps=False
@@ -47,7 +47,7 @@ modules:
           gamescope-shaders
       - dnf -y copr disable bazzite-org/bazzite-multilib
       - dnf -y copr disable bazzite-org/bazzite
-      - rm -f /etc/yum.repos.d/{*terra*}.repo
+      - rm -f /etc/yum.repos.d/terra.repo
       - dnf clean all        
       # Extest
       - mkdir -p /usr/lib/extest

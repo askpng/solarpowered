@@ -11,13 +11,15 @@ modules:
     - dnf -y install
         kernel-cachyos-lto
         kernel-cachyos-lto-devel
-        akmods
-        zenergy
         scx-scheds
         scx-tools
-        scx-manager
+        scx-manager        
+        akmods
+        ryzen_smu
+        zenergy
     - dnf -y swap zram-generator-defaults cachyos-settings
     - VER=$(basename /usr/lib/modules/*) &&
+        akmods --force --kernels $VER --kmod ryzen_smu &&
         akmods --force --kernels $VER --kmod zenergy &&
         depmod -a $VER &&
         DRACUT_NO_XATTR=1 &&

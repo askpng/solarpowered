@@ -48,6 +48,7 @@ modules:
         # CLI utilities
         - clevis
         - distrobox
+        - efivar
         - fastfetch
         - fakeroot
         - fish

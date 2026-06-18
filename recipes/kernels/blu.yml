@@ -23,9 +23,11 @@ modules:
           kernel-modules-extra
           akmods        
           help2man
+          ryzen_smu
           v4l2loopback
           zenergy
       - VER=$(ls /lib/modules) &&
+          akmods --force --kernels $VER --kmod ryzen_smu &&
           akmods --force --kernels $VER --kmod v4l2loopback &&
           akmods --force --kernels $VER --kmod zenergy && 
           depmod -a $VER &&

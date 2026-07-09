@@ -19,8 +19,6 @@ modules:
         - lutris
         - mangohud
         - obs-vkcapture.x86_64
-        - pipx
-        - python3-ramalama      
         - rocm-hip
         - rocm-clinfo
         - rocm-smi

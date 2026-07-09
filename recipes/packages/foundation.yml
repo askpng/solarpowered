@@ -61,8 +61,10 @@ modules:
         - lzip
         - micro
         - nvtop
+        - pipx
         - podlet
         - powertop
+        - python3-ramalama        
         - smartmontools
         - stress
         - s-tui
@@ -135,4 +137,5 @@ modules:
         - firefox-langpacks
         - google-noto-sans-cjk-vf-fonts        
         - rygel
+        - toolbox
         - yelp

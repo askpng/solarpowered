@@ -3,11 +3,26 @@ modules:
     from: ghcr.io/ublue-os/akmods:ogc-44
     src: /kernel-rpms
     dest: /tmp/kernel-rpms
+  - type: copy
+    from: ghcr.io/ublue-os/akmods:ogc-44
+    src: /rpms
+    dest: /tmp/rpms
 
   - type: script
     snippets:
       # Remove default kernel & remove leftover modules
       - dnf -y remove kernel-* && rm -drf /usr/lib/modules/*
-      - dnf -y install --setopt=install_weak_deps=False /tmp/kernel-rpms/kernel-*.rpm
-      - rm -r /tmp/kernel-rpms
-      
+      - | 
+        cd /tmp/kernel-rpms && \
+        dnf -y install --setopt=install_weak_deps=False --setopt=tsflags=noscripts $(find *.rpm) && \
+        cd -
+      - |
+        cd /tmp/rpms && \
+        dnf -y install --setopt=install_weak_deps=False \
+          $(find common/v4l2loopback*) \
+          $(find kmods/kmod-v4l2loopback*) \
+          help2man && \
+        cd -
+      - rm -drf /tmp/kernel-rpms /tmp/rpms
+
+  - type: initramfs

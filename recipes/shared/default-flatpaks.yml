@@ -5,6 +5,7 @@ modules:
         scope: system
         install:
           - ca.desrt.dconf-editor
+          - com.bitwarden.desktop
           - com.github.tchx84.Flatseal
           - com.mattjakeman.ExtensionManager
           - io.github.flattool.Warehouse

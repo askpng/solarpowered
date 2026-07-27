@@ -24,23 +24,16 @@ It is highly recommended to run `append solarpowered-setup` upon installation. T
 ## solarpowered-ex - for Ryzen/AMD computers
 
 Includes the following goodies:
-- Gamescope, Lutris, MangoHud and experimental implementation of Steam Gaming Mode
+- Gamescope, Lutris, MangoHud and an experimental implementation of Steam Gaming Mode
 - Beta/Unstable version of Sunshine for game streaming
 - Ramalama and ROCM packages
-- [LACT-libadwaita](https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/)
+- [LACT](https://copr.fedorainfracloud.org/coprs/ilyaz/LACT/)
 
-This image is shipped with [kernel-cachyos-lto](https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/) with its built-in `v4l2loopback` and `zenergy`.
+This image is shipped with [kernel-cachyos-lto](https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/) with its built-in `v4l2loopback`, and `zenergy`.
 
-## photosphere - for Microsoft Surface (Laptop) devices
+## photosphere - for Microsoft Surface Laptop 3
 
-Includes the following goodies:
-
-- `igt-gpu-tools`
-- `powertop` and `tuned-utils` - `powertop2tuned` is excellent for bridging `powertop` and `tuned`
-- `howdy-gtk`
-
-This image is shipped with the [linux-surface](https://github.com/linux-surface/linux-surface) kernel with the `iptsd` kernel module.
-
+This image is currently shipped with [kernel-blu](https://copr.fedorainfracloud.org/coprs/sentry/kernel-blu/), and does **not** have touch screen support. Once [linux-surface](https://github.com/linux-surface/linux-surface) kernel is updated to support the current Fedora version, I will migrate this image to the Surface kernel.
 
 # Installation
 

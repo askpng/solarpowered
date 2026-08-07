@@ -41,6 +41,10 @@ modules:
     snippets:
       # Remove default kernel & remove leftover modules
       - dnf -y remove kernel-* && rm -drf /usr/lib/modules/*
+      # Disable Surface's automatic brightness adjustment
+      # I find this to be very irritating. Might have power-saving benefits but it's just a bonus
+      - echo "blacklist apds9960" > /etc/modprobe.d/blacklist-apds9960.conf
+      # Install kernel RPMs
       - dnf -y install --setopt=install_weak_deps=False
           $(find /tmp/kernel-rpms/*.rpm)
       - rm -r /tmp/kernel-rpms

@@ -32,21 +32,24 @@ modules:
   #       - kernel-surface-modules-extra-matched
 
   # source: https://github.com/davidbitterlich/linux-surface
-  - type: copy
-    from: ghcr.io/davidbitterlich/linux-surface-fedora:latest-fc44
-    src: /packages
-    dest: /tmp/kernel-rpms
+  # - type: copy
+  #   from: ghcr.io/davidbitterlich/linux-surface-fedora:latest-fc44
+  #   src: /packages
+  #   dest: /tmp/kernel-rpms
   
   - type: script
     snippets:
+      - echo "blacklist apds9960" > /etc/modprobe.d/blacklist-apds9960.conf
+      - dnf config-manager addrepo --from-repofile=https://pkg.surfacelinux.com/fedora/linux-surface.repo
       # Remove default kernel & remove leftover modules
       - dnf -y remove kernel-* && rm -drf /usr/lib/modules/*
+      - dnf -y install --allowerasing kernel-surface iptsd libwacom-surface
+      - dnf -y install surface-secureboot
       # Disable Surface's automatic brightness adjustment
       # I find this to be very irritating. Might have power-saving benefits but it's just a bonus
-      - echo "blacklist apds9960" > /etc/modprobe.d/blacklist-apds9960.conf
       # Install kernel RPMs
-      - dnf -y install --setopt=install_weak_deps=False
-          $(find /tmp/kernel-rpms/*.rpm)
-      - rm -r /tmp/kernel-rpms
+      # - dnf -y install --setopt=install_weak_deps=False
+      #     $(find /tmp/kernel-rpms/*.rpm)
+      # - rm -r /tmp/kernel-rpms
 
-  - type: initramfs
+  # - type: initramfs

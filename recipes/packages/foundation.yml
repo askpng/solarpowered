@@ -11,7 +11,7 @@ modules:
         - atim/starship
         - cuteneko/waydroid-helper
         - sneexy/zen-browser
-        - starfish/howdy-beta
+        # - starfish/howdy-beta
         - zeno/scrcpy
     #     - trixieua/mutter-patched
     # replace:
@@ -31,7 +31,7 @@ modules:
       install-weak-deps: false
       packages:
         # copr
-        - howdy-gtk
+        # - howdy-gtk
         - scrcpy
         - starship
         - topgrade

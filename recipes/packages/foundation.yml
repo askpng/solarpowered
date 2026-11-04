@@ -102,9 +102,7 @@ modules:
         # cosmetics
         - adw-gtk3-theme
         - fonts-tweak-tool
-        - deepin-sound-theme
         - oxygen-sounds
-        - pop-sound-theme
         - yaru-sound-theme     
     remove:
       packages:

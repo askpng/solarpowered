@@ -58,7 +58,7 @@ modules:
 
   - type: os-release
     properties:
-      PRETTY_NAME: Fedora Linux 44 (Silverblue)
+      PRETTY_NAME: Fedora Linux 45 (Silverblue)
       VERSION_CODENAME: solarpowered-ex
       DEFAULT_HOSTNAME: spwd-ex
       HOME_URL: https://github.com/askpng/solarpowered

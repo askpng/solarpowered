@@ -55,7 +55,7 @@ modules:
     
   - type: os-release
     properties:
-      PRETTY_NAME: Fedora Linux 44 (Silverblue)
+      PRETTY_NAME: Fedora Linux 45 (Silverblue)
       VERSION_CODENAME: photosphere
       DEFAULT_HOSTNAME: photosphere
       HOME_URL: https://github.com/askpng/solarpowered

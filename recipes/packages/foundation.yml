@@ -4,9 +4,9 @@ modules:
       cleanup: true
       # nonfree: negativo17
       files:
+        - https://yksr-melt.github.io/Meltype/rpm/meltype.repo
         - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         - https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo
-        # - vscodium.repo        
       copr:
         - atim/starship
         - cuteneko/waydroid-helper
@@ -59,6 +59,7 @@ modules:
         - iwd
         - lm_sensors
         - lzip
+        - meltype
         - micro
         - nvtop
         - pipx

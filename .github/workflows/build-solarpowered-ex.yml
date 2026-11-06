@@ -1,7 +1,7 @@
 name: Build solarpowered-ex
 on:
   schedule:
-      - cron: "30 18 * * 2,4,6"
+      - cron: "30 5 * * 2,4,6"
     
   push:
     paths:
@@ -46,7 +46,6 @@ jobs:
           pr_event_number: ${{ github.event.number }}
           maximize_build_space: true
           retry_push_count: 3
-          build_opts: --rechunk-clear-plan
           cli_version: v0.9.41
 
   # generate_release:

@@ -46,7 +46,7 @@ jobs:
           pr_event_number: ${{ github.event.number }}
           maximize_build_space: true
           retry_push_count: 3
-          cli_version: v0.9.41
+          # cli_version: v0.9.41
 
   # generate_release:
   #   name: Generate Release

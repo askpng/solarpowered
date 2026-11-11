@@ -1,5 +1,22 @@
 modules:  
   - type: script
-    scripts:
-      - shared/nautilus-copy-path.sh
-      - shared/colloid-icon-theme.sh
+    # scripts:
+      # - shared/nautilus-copy-path.sh
+      # - shared/colloid-icon-theme.sh
+    snippets:
+      # Bazaar companion
+      - git clone --depth 1 https://github.com/bazaar-org/bazaar-companion /tmp/bazaar-companion
+      - ./tmp/bazaar-companion/build.sh -i
+      - rm -rf /tmp/bazaar/companion
+      # Colloid icon theme
+      - git clone --depth 1 --single-branch https://github.com/vinceliuice/Colloid-icon-theme /tmp/Colloid-icon-theme
+      - chmod +x ./tmp/Colloid-icon-theme/install.sh
+      - ./tmp/Colloid-icon-theme/install.sh -d /usr/share/icons -s default -t default -b
+      - rm -rf /tmp/Colloid-icon-theme
+      # Nautilus copy path
+      - git clone --depth 1 https://github.com/chr314/nautilus-copy-path.git /tmp/nautilus-copy-path
+      - mkdir -p /usr/share/nautilus-python/extensions/nautilus-copy-path
+      - cp /tmp/nautilus-copy-path/nautilus-copy-path.py /usr/share/nautilus-python/extensions
+      - cp /tmp/nautilus-copy-path/nautilus_copy_path.py /tmp/nautilus-copy-path/translation.py /tmp/nautilus-copy-path/config.json /usr/share/nautilus-python/extensions/nautilus-copy-path
+      - cp -r /tmp/nautilus-copy-path/translations /usr/share/nautilus-python/extensions/nautilus-copy-path
+      - rm -rf /tmp/nautilus-copy-path

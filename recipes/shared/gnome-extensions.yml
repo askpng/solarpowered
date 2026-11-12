@@ -1,7 +1,14 @@
 modules:
-  - type: gnome-extensions
-    install:
-      - Bluetooth Battery Meter
-      - Caffeine
-      - Just Perfection
-      - Night Theme Switcher
+  # - type: gnome-extensions
+  #   install:
+  #     - Bluetooth Battery Meter
+  #     - Caffeine
+  #     - Just Perfection
+  #     - Night Theme Switcher
+  - type: script
+    snippets:
+      # Bazaar companion
+      - git clone --depth 1 https://github.com/bazaar-org/bazaar-companion /tmp/bazaar-companion
+      - mkdir -p /usr/share/gnome-shell/extensions/bazaar-integration@kolunmi.github.io
+      - mv /tmp/bazaar-companion/src/* /usr/share/gnome-shell/extensions/bazaar-integration@kolunmi.github.io/
+      - rm -rf /tmp/bazaar/companion

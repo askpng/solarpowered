@@ -1,13 +1,6 @@
 modules:  
   - type: script
-    # scripts:
-      # - shared/nautilus-copy-path.sh
-      # - shared/colloid-icon-theme.sh
     snippets:
-      # Bazaar companion
-      - git clone --depth 1 https://github.com/bazaar-org/bazaar-companion /tmp/bazaar-companion
-      - ./tmp/bazaar-companion/build.sh -i
-      - rm -rf /tmp/bazaar/companion
       # Colloid icon theme
       - git clone --depth 1 --single-branch https://github.com/vinceliuice/Colloid-icon-theme /tmp/Colloid-icon-theme
       - chmod +x ./tmp/Colloid-icon-theme/install.sh

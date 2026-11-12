@@ -11,4 +11,4 @@ modules:
       - git clone --depth 1 https://github.com/bazaar-org/bazaar-companion /tmp/bazaar-companion
       - mkdir -p /usr/share/gnome-shell/extensions/bazaar-integration@kolunmi.github.io
       - mv /tmp/bazaar-companion/src/* /usr/share/gnome-shell/extensions/bazaar-integration@kolunmi.github.io/
-      - rm -rf /tmp/bazaar/companion
+      - rm -rf /tmp/bazaar-companion

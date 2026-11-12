@@ -2,6 +2,7 @@ name: Build solarpowered-ex
 on:
   schedule:
       - cron: "30 5 * * 2,4,6"
+        timezone: "Etc/UTC"
     
   push:
     paths:

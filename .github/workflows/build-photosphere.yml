@@ -2,6 +2,7 @@ name: Build photosphere
 on:
   schedule:
       - cron: "00 5 * * 2,4,6"
+        timezone: "Etc/UTC"
     
   push:
     paths:

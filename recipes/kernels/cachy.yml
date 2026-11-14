@@ -8,7 +8,11 @@ modules:
     - dnf -y copr enable bieszczaders/kernel-cachyos-lto
     - dnf -y copr enable bieszczaders/kernel-cachyos-addons
     - curl -L https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo -o /etc/yum.repos.d/terra.repo
+    - dnf -y remove
+        zram-generator-defaults
+        systemd-oomd-defaults
     - dnf -y install
+        cachyos-settings
         kernel-cachyos-lto
         kernel-cachyos-lto-devel
         scx-scheds
@@ -16,7 +20,6 @@ modules:
         scx-manager        
         akmods
         zenergy
-    - dnf -y swap zram-generator-defaults cachyos-settings
     - VER=$(basename /usr/lib/modules/*) &&
         akmods --force --kernels $VER --kmod zenergy &&
         depmod -a $VER &&

@@ -1,13 +1,42 @@
 modules:
   - type: copy
-    from: ghcr.io/ublue-os/akmods:ogc-44
-    src: /kernel-rpms
-    dest: /tmp/kernel-rpms
+    from: ghcr.io/ublue-os/akmods:ogc-45
+    src: /
+    dest: /tmp/akmods
+
+  - type: copy
+    from: ghcr.io/ublue-os/akmods-extra:ogc-45
+    src: /
+    dest: /tmp/akmods-extra/
 
   - type: script
     snippets:
       # Remove default kernel & remove leftover modules
-      - dnf -y remove kernel-* && rm -drf /usr/lib/modules/*
-      - dnf -y install --setopt=install_weak_deps=False /tmp/kernel-rpms/kernel-*.rpm
-      - rm -r /tmp/kernel-rpms
-      
+      - curl -L https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo -o /etc/yum.repos.d/terra.repo      
+      - dnf -y copr enable bieszczaders/kernel-cachyos-lto
+      - dnf -y copr enable bieszczaders/kernel-cachyos-addons      
+      - dnf5 -y remove
+          kernel-*
+          zram-generator-defaults
+          systemd-oomd-defaults
+      - rm -drf /usr/lib/modules/*
+      - dnf5 -y install --setopt=install_weak_deps=False
+          /tmp/akmods/kernel-rpms/kernel-*.rpm
+          /tmp/akmods/rpms/common/v4l2loopback*.rpm
+          /tmp/akmods/rpms/kmods/*v4l2loopback*.rpm
+          /tmp/akmods/rpms/common/zenergy*.rpm
+          /tmp/akmods/rpms/kmods/*zenergy*.rpm
+          /tmp/akmods-extra/rpms/extra/ryzen_smu-*.rpm
+          /tmp/akmods-extra/rpms/kmods/*ryzen_smu-*.rpm
+          cachyos-settings
+          scx-scheds
+          scx-tools
+          scx-manager
+      - dnf -y copr disable bieszczaders/kernel-cachyos-lto
+      - dnf -y copr disable bieszczaders/kernel-cachyos-addons    
+      - rm -f /etc/yum.repos.d/terra.repo
+
+  - type: systemd
+    system:
+      enabled:
+      - scx_loader.service      

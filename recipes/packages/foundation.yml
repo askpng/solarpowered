@@ -46,6 +46,7 @@ modules:
         - pipewire-plugin-vulkan
         - vulkan-headers
         # CLI utilities
+        - caddy
         - clevis
         - distrobox
         - efivar
@@ -81,6 +82,7 @@ modules:
         - btrfs-assistant
         - flatpak-spawn
         - input-remapper
+        - libfuse
         - libappindicator
         - libratbag-ratbagd
         - microcode_ctl

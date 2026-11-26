@@ -53,7 +53,8 @@ modules:
   # ---
   # - from-file: kernels/bazzite.yml 
   # - from-file: kernels/blu.yml 
-  - from-file: kernels/cachy.yml
+  - from-file: kernels/ogc.yml 
+  # - from-file: kernels/cachy.yml
   # - from-file: kernels/fedora.yml
 
   - type: os-release

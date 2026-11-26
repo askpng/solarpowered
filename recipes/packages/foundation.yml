@@ -81,8 +81,8 @@ modules:
         # other system
         - btrfs-assistant
         - flatpak-spawn
+        - fuse-libs
         - input-remapper
-        - libfuse
         - libappindicator
         - libratbag-ratbagd
         - microcode_ctl
